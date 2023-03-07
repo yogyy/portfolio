@@ -1,6 +1,8 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 import Navbar from './layout/navbar';
+import Script from 'next/script';
+import Footer from './layout/footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -19,18 +21,22 @@ export default function RootLayout({
         <header className="absolute left-0 top-0 z-50">
           <Navbar />
         </header>
-        <main className="min-h-screen mt-20 layout">{children}</main>
-        <footer className="h-5 bg-secondary"></footer>
-        <script
+        <main className="min-h-screen">{children}</main>
+        <footer>
+          <Footer />
+        </footer>
+        <Script
+          crossOrigin="anonymous"
           type="module"
-          src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+          src="https://unpkg.com/ionicons@latest/dist/ionicons/ionicons.esm.js"
           async
-        ></script>
-        <script
-          noModule
-          src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+        ></Script>
+        <Script
+          crossOrigin="anonymous"
+          type="module"
+          src="https://unpkg.com/ionicons@latest/dist/ionicons/ionicons.js"
           async
-        ></script>
+        ></Script>
       </body>
     </html>
   );

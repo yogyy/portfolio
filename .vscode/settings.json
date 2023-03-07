@@ -3,5 +3,7 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "editor.quickSuggestions": {
     "strings": true
-  }
+  },
+  "files.autoSave": "onFocusChange",
+  "css.validate": false
 }

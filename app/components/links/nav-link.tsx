@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import clsx from 'clsx';
-import UnstyledLink from './components/unstyledlink';
+import UnstyledLink from './unstyledlink';
 import { useEffect } from 'react';
 
 interface NavLinkProps {

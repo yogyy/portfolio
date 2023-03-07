@@ -1,3 +1,3 @@
-export default function IonIcons({ name }) {
-  return <ion-icon name={name}></ion-icon>;
+export default function IonIcons({ name, ...rest }) {
+  return <ion-icon name={name} {...rest}></ion-icon>;
 }
