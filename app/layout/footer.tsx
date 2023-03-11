@@ -1,7 +1,12 @@
-import IonIcons from '../components/IonIcons';
 import CustomLink from '../components/links/customlink';
 import UnstyledLink from '../components/links/unstyledlink';
-import { Mail, logoFB, logoGH, logoLI, logoTW, LogoFacebook, LogoGithub, MailOutline, LogoLinkedin, LogoTwitter } from '../components/icons/icons'
+import {
+  LogoFacebook,
+  LogoGithub,
+  MailOutline,
+  LogoLinkedin,
+  LogoTwitter,
+} from '../components/icons/icons';
 
 export default function Footer() {
   return (
@@ -38,8 +43,7 @@ export default function Footer() {
         </div>
       </div>
       {/* <div className="h-2 bg-gradient-to-tr from-green-300 via-sky-500 to-sky-700" /> */}
-      <div className='h-2 bg-gradient-to-br from-primary-300 via-primary-500 to-primary-300' />
-
+      <div className="h-2 bg-gradient-to-br from-primary-300 via-primary-500 to-primary-300" />
     </div>
   );
 }
@@ -49,24 +53,24 @@ const links = [
     href: 'https://github.com/yogyy',
     alt: 'github',
     ion: 'logo-github',
-    svg: LogoGithub
+    svg: LogoGithub,
   },
   {
     href: 'https://facebook.com/iogiy',
     alt: 'facebook',
     ion: 'logo-facebook',
-    svg: LogoFacebook
+    svg: LogoFacebook,
   },
   {
     href: 'https://www.linkedin.com/in/yogyy/',
     alt: 'linkedin',
     ion: 'logo-linkedin',
-    svg: LogoLinkedin
+    svg: LogoLinkedin,
   },
   {
     href: 'https://twitter.com/yogyxx',
     alt: 'twitter',
     ion: 'logo-twitter',
-    svg: LogoTwitter
+    svg: LogoTwitter,
   },
 ];
