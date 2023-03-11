@@ -1,99 +1,12 @@
 'use client';
 
 import * as React from 'react';
-import { Menu, Switch, Transition } from '@headlessui/react';
 import { useTheme } from 'next-themes';
 import clsx from 'clsx';
 
 type ThemeButtonProps = React.ComponentPropsWithoutRef<'button'>;
 
-export default function DarkTheme() {
-  const [enabled, setEnabled] = React.useState(false);
-  const { theme, setTheme } = useTheme();
-
-  console.log(theme);
-
-  const changeTheme = () => {
-    if (
-      localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  };
-
-  return (
-    <div className="">
-      <Switch
-        checked={enabled}
-        onChange={setEnabled}
-        className={`${
-          !enabled ? 'bg-blue-600' : 'bg-gray-200'
-        } relative inline-flex h-6 w-11 items-center rounded-full`}
-      >
-        <span className="sr-only">Enable notifications</span>
-        <span
-          className={`${
-            enabled ? 'translate-x-6' : 'translate-x-1'
-          } inline-block h-4 w-4 transform rounded-full bg-white transition`}
-        />
-      </Switch>
-      <div className="relative ml-4 flex gap-5">
-        <button onClick={() => setTheme('dark')}>dark</button>
-        <button onClick={() => setTheme('light')}>light</button>
-        <button onClick={changeTheme}>hadeh</button>
-      </div>
-    </div>
-  );
-}
-
-export function ThemeButtonHeadless() {
-  const { setTheme } = useTheme();
-  const themes = [
-    { name: 'Light', value: 'light', icon: Sun },
-    { name: 'Dark', value: 'dark', icon: Moon },
-    { name: 'System', value: 'system', icon: null },
-  ];
-  return (
-    <Menu as="div" className="relative">
-      <Menu.Button className="w-full text-left pl-5 py-2"> tai </Menu.Button>
-      <Transition
-        enter="transition-opacity duration-300"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-        leave="transition-opacity duration-300"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
-      >
-        <Menu.Items className="absolute w-1/2 min-w-[80px] bg-white dark:bg-gray-900 -right-[1px] xl:-right-[152px] xl:-top-[9px] rounded-md py-2 bg-transparent border border-sky-300 dark:border-sky-700 focus:outline-none">
-          {themes.map(theme => (
-            <Menu.Item
-              key={theme.value}
-              as="div"
-              className=""
-              onClick={() => setTheme(theme.value)}
-            >
-              {({ active }) => (
-                <div
-                  className={`pl-5 p-2 cursor-pointer ${
-                    active ? 'bg-blue-500' : ''
-                  }`}
-                >
-                  {theme.name}
-                </div>
-              )}
-            </Menu.Item>
-          ))}
-        </Menu.Items>
-      </Transition>
-    </Menu>
-  );
-}
-
-export function ThemeButtonOld({ className, ...rest }: ThemeButtonProps) {
+export function ThemeButton({ className, ...rest }: ThemeButtonProps) {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => setMounted(true), []);

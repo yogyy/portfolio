@@ -1,5 +1,4 @@
 import React from 'react';
-import ScrollUp from '../components/scrollup';
 import About from '../components/clientComponent/about';
 
 export const metadata = {
@@ -10,10 +9,11 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <>
-      <span className="mt-[58px]" />
+    <section
+      id="about"
+      className="mt-[58px] min-h-main flex flex-col justify-center"
+    >
       <About />
-      <div className=""></div>
-    </>
+    </section>
   );
 }

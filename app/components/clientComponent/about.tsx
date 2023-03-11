@@ -10,16 +10,13 @@ import useLoaded from '../useLoaded';
 export default function About() {
   const isLoaded = useLoaded();
 
-  const about = React.useRef(null);
-
   return (
     <>
       <section
         id="about"
-        ref={about}
-        className={clsx('', isLoaded && 'fade-in-start')}
+        className={clsx('mb-10', isLoaded && 'fade-in-start')}
       >
-        <div className="layout min-h-main py-20">
+        <div className="layout">
           <h2 gaya-fade="1" className="text-2xl md:text-4xl 2xl:text-3xl">
             <Accent>About</Accent>
           </h2>
@@ -66,11 +63,14 @@ export default function About() {
           </article>
         </div>
       </section>
-      <section className="layout">
-        <h3>The tools I use while developing.</h3>
-        <figure className="mt-2 mb-5 h-20">
-          <TechStack />
-        </figure>
+      <section className="layout mt-20">
+        <div className="">
+          <h3>The tools I use while developing.</h3>
+          <figure className="mt-2 mb-5 h-20 ">
+            <TechStack />
+            <h4>masih mempelajari frontend framework yang lainnya ... </h4>
+          </figure>
+        </div>
       </section>
     </>
   );

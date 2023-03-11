@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google';
 import Navbar from './layout/navbar';
 import Footer from './layout/footer';
 import { PreloadProvider } from './components/PreloadContext';
+import YG from './components/YG';
+import clsx from 'clsx';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -22,19 +24,21 @@ export default function RootLayout({
       >
         <PreloadProvider>
           <Navbar />
-          <main className="">{children}</main>
+          <main className="">
+            {children}
+            <YG
+              className={clsx(
+                'absolute bottom-0 right-6',
+                'translate-y-[37%] transform-gpu',
+                'w-[calc(100%-3rem)] md:w-[600px] 2xl:w-[900px]',
+                'z-[-1] opacity-70 dark:opacity-40'
+              )}
+            />
+          </main>
           <footer>
             <Footer />
           </footer>
         </PreloadProvider>
-        {/* <Script
-            type="module"
-            src="https://unpkg.com/ionicons@latest/dist/ionicons/ionicons.esm.js"
-          ></Script>
-          <Script
-            type="module"
-            src="https://unpkg.com/ionicons@latest/dist/ionicons/ionicons.js"
-          ></Script> */}
       </body>
     </html>
   );

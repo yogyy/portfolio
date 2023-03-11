@@ -3,9 +3,17 @@
 import clsx from 'clsx';
 import useLoaded from '../useLoaded';
 
-export default function IsLoaded({ children }: { children: React.ReactNode }) {
+export default function IsLoaded({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   const isLoaded = useLoaded();
   return (
-    <section className={clsx(isLoaded && 'fade-in-start')}>{children}</section>
+    <section className={clsx(isLoaded && 'fade-in-start', className)}>
+      {children}
+    </section>
   );
 }

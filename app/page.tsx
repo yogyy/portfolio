@@ -2,31 +2,20 @@
 
 import clsx from 'clsx';
 import * as React from 'react';
-import Typewritter from 'typewriter-effect';
 import About from './components/clientComponent/about';
 import { Accent } from './components/accent';
 import ButtonLink from './components/links/buttonlink';
 import UnstyledLink from './components/links/unstyledlink';
-import useLoaded from './components/useLoaded';
 import YG from './components/YG';
 import { scrollToSection } from './components/clientComponent/scrollToId';
+import IsLoaded from './components/Image/isLoaded';
+import Typewritterz from './components/typewritter';
 
 export default function Home() {
-  const isLoaded = useLoaded();
-
-  React.useEffect(() => {
-    return window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
-
   return (
     <>
-      <section
-        className={clsx(
-          'min-h-main mb-20 flex flex-col justify-center relative',
-          isLoaded && 'fade-in-start'
-        )}
-      >
-        <article className={`mx-auto layout `}>
+      <IsLoaded className="min-h-main mb-20 flex flex-col justify-center relative">
+        <article className={`mx-auto layout`}>
           <div className={``}>
             <h1 gaya-fade="1">
               <span
@@ -37,23 +26,12 @@ export default function Home() {
             </h1>
           </div>
           <h2 gaya-fade="2" className=" mt-1">
-            You can call me <span className="text-dark">Yogyy</span>
+            You can call me{' '}
+            <span className="text-primary-300 dark:text-primary-500">
+              Yogyy
+            </span>
           </h2>
-          <div className={`mt-1  `}>
-            <h3 gaya-fade="3" className="flex flex-wrap">
-              I&apos;m a <span className="mr-2"> </span>
-              <span className={`flex flex-wrap text-primary`}>
-                <Typewritter
-                  gaya-fade="4"
-                  options={{
-                    strings: ['Frontend Engineer', 'Web Developer'],
-                    autoStart: true,
-                    loop: true,
-                  }}
-                />
-              </span>
-            </h3>
-          </div>
+          <Typewritterz />
           <p
             gaya-fade="5"
             className="mt-4 max-w-4xl md:mt-6 md:text-lg 2xl:text-xl"
@@ -152,19 +130,10 @@ export default function Home() {
             </UnstyledLink>
           </div>
         </article>
-        <YG
-          className={clsx(
-            'absolute bottom-0 right-6',
-            'translate-y-[37%] transform-gpu',
-            'w-[calc(100%-3rem)] md:w-[600px] 2xl:w-[900px]',
-            'z-[-1] opacity-70 dark:opacity-40'
-          )}
-        />
-      </section>
+      </IsLoaded>
 
-      <div className="" id="about">
-        <About />
-      </div>
+      <About />
+      <section className="h-[50vh]"></section>
     </>
   );
 }

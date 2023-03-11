@@ -3,8 +3,8 @@ import Marquee from 'react-fast-marquee';
 
 export const TechStack = () => {
   return (
-    <div className={`h-full layout ${styles.ul_container}`}>
-      <Marquee pauseOnHover={true} gradient={false}>
+    <div className={`h-full ${styles.ul_container}`}>
+      <Marquee gradient={false}>
         <TechStacks />
       </Marquee>
     </div>

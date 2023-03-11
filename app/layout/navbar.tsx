@@ -1,12 +1,8 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
 import clsx from 'clsx';
 import NavLink from '../components/links/nav-link';
-import DarkTheme, {
-  ThemeButtonHeadless,
-  ThemeButtonOld,
-} from '../components/darkTheme';
+import { ThemeButton } from '../components/darkTheme';
 
 type HeaderProps = {
   large?: boolean;
@@ -51,7 +47,11 @@ export default function Navbar({ large = false }: HeaderProps) {
     <header className="fixed w-full top-0 z-50 mb-20">
       <div className="h-2 bg-gradient-to-tr from-primary-200 via-primary-400 to-primary-200" />
 
-      <div className={`sticky bg-white dark:bg-dark ${scrolled ? '' : ''}`}>
+      <div
+        className={`sticky bg-white transition-colors dark:bg-dark ${
+          scrolled ? '' : ''
+        }`}
+      >
         <nav
           className={clsx(
             'layout flex items-center justify-between py-4 ',
@@ -80,9 +80,8 @@ export default function Navbar({ large = false }: HeaderProps) {
               </li>
             ))}
           </ul>
-          <ThemeButtonOld className="ml-auto" />
+          <ThemeButton className="ml-auto" />
         </nav>
-        <div className=""></div>
       </div>
     </header>
   );
