@@ -3,9 +3,16 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
 import NavLink from '../components/links/nav-link';
-import { themeChange } from 'theme-change';
+import DarkTheme, {
+  ThemeButtonHeadless,
+  ThemeButtonOld,
+} from '../components/darkTheme';
 
-export default function Navbar() {
+type HeaderProps = {
+  large?: boolean;
+};
+
+export default function Navbar({ large = false }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
 
   const scrollToUp = () => {
@@ -29,113 +36,55 @@ export default function Navbar() {
       window.onscroll = null;
     };
   }, []);
-  useEffect(() => {
-    themeChange(false);
+  const [onTop, setOnTop] = React.useState<boolean>(true);
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setOnTop(window.pageYOffset === 0);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
-    <div className={`navbar fixed bg-none ${scrolled ? 'bg-base-200' : ''}`}>
-      <nav className="mr-auto layout">
-        <div className="block md:hidden">
-          <Link
-            href="/"
-            className="btn btn-ghost normal-case flex text-xl md:hidden"
-          >
-            yogyy
-          </Link>
-        </div>
-        <ul className="flex ml-9 gap-9 mr-auto">
-          {links.map(({ label, href }: dink) => (
-            <li
-              className="hidden md:block"
-              key={`${href} ${label}`}
-              onClick={scrollToUp}
-            >
-              <NavLink href={href}>
-                <span
-                  className={clsx('transition-colors text-base font-semibold')}
-                >
-                  {label}
-                </span>
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-        <div className="dropdown dropdown-bottom dropdown-end ">
-          <label className="btn border-none btn-circle swap swap-rotate bg-transparent active:text-sky-500">
-            <input type="checkbox" />
+    <header className="fixed w-full top-0 z-50 mb-20">
+      <div className="h-2 bg-gradient-to-tr from-primary-200 via-primary-400 to-primary-200" />
 
-            <svg
-              className=" fill-current"
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              viewBox="0 0 512 512"
-            >
-              <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
-            </svg>
-          </label>
-          <ul
-            tabIndex={0}
-            className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 text-sky-500"
-          >
-            <li>
-              <Link href="/about">about</Link>
-            </li>
-            <li>
-              <Link href="/post">post</Link>
-            </li>
-            <li>
-              <button data-set-theme="dark" className="btn ">
-                tonjok
-              </button>
-            </li>
-            <li>
-              <button
-                data-act-class="shadow-outline"
-                data-set-theme="night"
-                className="btn "
+      <div className={`sticky bg-white dark:bg-dark ${scrolled ? '' : ''}`}>
+        <nav
+          className={clsx(
+            'layout flex items-center justify-between py-4 ',
+            large && 'lg:max-w-[68rem]'
+          )}
+        >
+          {/* <Link href="/" className="normal-case flex md:hidden">
+            yogyy
+          </Link> */}
+          <ul className="flex ml-9 gap-9 mr-auto">
+            {links.map(({ label, href }: dink) => (
+              <li
+                className="text-xs"
+                key={`${href} ${label}`}
+                onClick={scrollToUp}
               >
-                Dark
-              </button>
-            </li>
-            <li>
-              <button
-                data-act-class="shadow-outline"
-                data-set-theme="fantasy"
-                className=" text-2xl btn text-center flex justify-center items-center"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="ionicon h-5 w-5"
-                  viewBox="0 0 512 512"
-                >
-                  <title>Sunny</title>
-                  <path
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeMiterlimit="10"
-                    strokeWidth="32"
-                    d="M256 48v48M256 416v48M403.08 108.92l-33.94 33.94M142.86 369.14l-33.94 33.94M464 256h-48M96 256H48M403.08 403.08l-33.94-33.94M142.86 142.86l-33.94-33.94"
-                  />
-                  <circle
-                    cx="256"
-                    cy="256"
-                    r="80"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeMiterlimit="10"
-                    strokeWidth="32"
-                  />
-                </svg>
-              </button>
-            </li>
+                <NavLink href={href}>
+                  <span
+                    className={clsx(
+                      'transition-colors text-xs md:text-base font-semibold'
+                    )}
+                  >
+                    {label}
+                  </span>
+                </NavLink>
+              </li>
+            ))}
           </ul>
-        </div>
-      </nav>
-    </div>
+          <ThemeButtonOld className="ml-auto" />
+        </nav>
+        <div className=""></div>
+      </div>
+    </header>
   );
 }
 

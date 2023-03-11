@@ -26,8 +26,9 @@ export default function NavLink({ href, children, ...rest }: NavLinkProps) {
     <UnstyledLink
       {...rest}
       className={
-        !active ? 'text-secondary' : 'bg-accent bg-clip-text text-transparent '
-      }
+        clsx(!active ? 'text-sky-500 hover:text-green-500' : 'text-green-400',
+
+        )}
       href={href}
     >
       {children}

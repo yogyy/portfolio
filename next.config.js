@@ -3,6 +3,10 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-}
+  images: {
+    domains: ['res.cloudinary.com'],
+  },
+  modularizeImports: {},
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

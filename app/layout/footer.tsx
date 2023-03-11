@@ -1,6 +1,7 @@
 import IonIcons from '../components/IonIcons';
 import CustomLink from '../components/links/customlink';
 import UnstyledLink from '../components/links/unstyledlink';
+import { Mail, logoFB, logoGH, logoLI, logoTW, LogoFacebook, LogoGithub, MailOutline, LogoLinkedin, LogoTwitter } from '../components/icons/icons'
 
 export default function Footer() {
   return (
@@ -16,27 +17,29 @@ export default function Footer() {
         </div>
         {/* /taai */}
         <div className="flex flex-col-reverse justify-center place-items-center gap-6 md:flex-row md:justify-between">
-          <span className="text-sm text-sky-500 font-semibold sm:text-center dark:text-gray-400">
-            © 2023 Constantine .{' '}
+          <span className="text-sm text-primary font-semibold sm:text-center dark:text-gray-400 gap-3 flex  ">
+            © 2023 Constantine.
             <CustomLink href="https://www.github.com/yogyy">
               got any feedback?.
             </CustomLink>
           </span>
           <div className="relative justify-center flex items-center space-x-3 md:space-x-6 sm:place-content-center">
-            <button className="social-footer my-auto flex text-current transition-colors hover:text-sky-500">
-              <IonIcons name="mail-outline" />
+            <button className="social-footer my-auto flex text-current transition-colors hover:text-sky-500 fill-current hover:fill-sky-500">
+              <MailOutline />
             </button>
             {links.map(link => (
               <UnstyledLink key={link.href} href={link.href}>
-                <span className="my-auto social-footer h-6 w-6 align-middle transition-colors flex text-current hover:text-sky-500">
-                  <IonIcons name={link.ion} />
+                <span className="my-auto social-footer h-6 w-6 align-middle transition-colors flex fill-current hover:fill-sky-500">
+                  <link.svg />
                 </span>
               </UnstyledLink>
             ))}
           </div>
         </div>
       </div>
-      <div className="h-2 bg-gradient-to-tr from-sky-300 via-sky-500 to-sky-700" />
+      {/* <div className="h-2 bg-gradient-to-tr from-green-300 via-sky-500 to-sky-700" /> */}
+      <div className='h-2 bg-gradient-to-br from-primary-300 via-primary-500 to-primary-300' />
+
     </div>
   );
 }
@@ -46,20 +49,24 @@ const links = [
     href: 'https://github.com/yogyy',
     alt: 'github',
     ion: 'logo-github',
+    svg: LogoGithub
   },
   {
     href: 'https://facebook.com/iogiy',
     alt: 'facebook',
     ion: 'logo-facebook',
+    svg: LogoFacebook
   },
   {
     href: 'https://www.linkedin.com/in/yogyy/',
     alt: 'linkedin',
     ion: 'logo-linkedin',
+    svg: LogoLinkedin
   },
   {
     href: 'https://twitter.com/yogyxx',
     alt: 'twitter',
     ion: 'logo-twitter',
+    svg: LogoTwitter
   },
 ];

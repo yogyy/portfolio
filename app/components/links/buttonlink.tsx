@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import UnstyledLink, { UnstyledLinkProps } from './unstyledlink';
 
@@ -27,7 +29,7 @@ export default function ButtonLink({
         'transition duration-100',
         'animate-shadow',
         {
-          'bg-transparent text-black disabled:bg-gray-200 dark:bg-dark dark:text-gray-100 dark:disabled:bg-gray-700':
+          'bg-white text-green-600 disabled:bg-gray-200 dark:bg-dark dark:text-gray-100 dark:disabled:bg-gray-700':
             variant === 'default',
         },
         className

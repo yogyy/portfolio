@@ -4,7 +4,7 @@
 
 :root {
   --tw-clr-primary-200: 219 255 0;
-  --tw-clr-primary-300: 0 232 135;
+  --tw-clr-primary-300: 132 204 22;
   --tw-clr-primary-400: 0 224 243;
   --tw-clr-primary-500: 0 196 253;
 
@@ -24,8 +24,6 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  scroll-behavior: smooth !important;
-  scroll-padding-top: 80px;
 }
 
 a {
@@ -37,7 +35,6 @@ a {
   /* inter var - latin */
 
   html {
-    --scroll-behavior: smooth !important;
     scroll-behavior: smooth !important;
     scroll-padding-top: 80px;
   }
@@ -134,11 +131,11 @@ a {
   /* #endregion  /**======== Animate Shadow =========== */
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
-}
+} */
 
 [gaya-fade] {
   @apply translate-y-10 opacity-0 transition duration-[400ms] ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100;
@@ -171,6 +168,13 @@ a {
   transition-delay: 800ms;
 }
 
-.social-footer ion-icon {
+/* .social-footer ion-icon {
   font-size: 24px;
+} */
+
+.section1 {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
 }

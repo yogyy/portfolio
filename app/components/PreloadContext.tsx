@@ -1,6 +1,7 @@
 'use client';
 import clsx from 'clsx';
 import * as React from 'react';
+import { Providers } from '../providers';
 
 const PreloadContext = React.createContext<boolean>(false);
 
@@ -22,7 +23,9 @@ export function PreloadProvider({ children }: { children: React.ReactNode }) {
           preloaded && 'pointer-events-none opacity-0'
         )}
       />
-      {children}
+      <Providers>
+        {children}
+      </Providers>
     </PreloadContext.Provider>
   );
 }

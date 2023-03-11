@@ -1,3 +1,6 @@
+'use client';
+
+import * as React from 'react';
 import clsx from 'clsx';
 import Link, { LinkProps } from 'next/link';
 
