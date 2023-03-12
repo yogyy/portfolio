@@ -10,7 +10,7 @@ import {
 
 export default function Footer() {
   return (
-    <div className="bg-base-100 transition-colors ">
+    <footer className="bg-base-100 transition-colors">
       <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
       <div className="py-4 layout ">
         <div className="md:flex md:justify-between">
@@ -44,7 +44,7 @@ export default function Footer() {
       </div>
       {/* <div className="h-2 bg-gradient-to-tr from-green-300 via-sky-500 to-sky-700" /> */}
       <div className="h-2 bg-gradient-to-br from-primary-300 via-primary-500 to-primary-300" />
-    </div>
+    </footer>
   );
 }
 

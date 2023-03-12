@@ -6,17 +6,15 @@ import Image from 'next/image';
 import { Accent } from '../accent';
 import { TechStack } from '../tech/techstack';
 import useLoaded from '../useLoaded';
+import IsLoaded from '../Image/isLoaded';
 
-export default function About() {
-  const isLoaded = useLoaded();
-
+export default function About({ className }: { className?: string }) {
   return (
     <>
-      <section
-        id="about"
-        className={clsx('mb-10', isLoaded && 'fade-in-start')}
+      <IsLoaded
+        className={clsx('mb-10 layout flex flex-col justify-center', className)}
       >
-        <div className="layout">
+        <div id="about" className="">
           <h2 gaya-fade="1" className="text-2xl md:text-4xl 2xl:text-3xl">
             <Accent>About</Accent>
           </h2>
@@ -32,7 +30,7 @@ export default function About() {
               src={
                 'https://res.cloudinary.com/dpegakmzh/image/upload/c_fit,h_756,w_756/a_0/v1678442557/profile.webp'
               }
-              alt={'me'}
+              alt="me"
               priority
               width={756}
               height={756}
@@ -62,16 +60,15 @@ export default function About() {
             </p>
           </article>
         </div>
-      </section>
-      <section className="layout mt-20">
-        <div className="">
+        <div className="mt-20 ">
           <h3>The tools I use while developing.</h3>
-          <figure className="mt-2 mb-5 h-20 ">
+          <figure className=" h-20 ">
             <TechStack />
             <h4>masih mempelajari frontend framework yang lainnya ... </h4>
           </figure>
         </div>
-      </section>
+      </IsLoaded>
+      <section className="layout mt-20 flex"></section>
     </>
   );
 }

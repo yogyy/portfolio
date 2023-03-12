@@ -18,8 +18,8 @@ async function getData() {
 export default async function Posts() {
   const posts = await getData();
   return (
-    <IsLoaded>
-      <div className={clsx('mt-20 min-h-screen layout')}>
+    <IsLoaded className="mt-20">
+      <div className={clsx('min-h-main layout')}>
         <h1 gaya-fade="1">Just Dummy Post</h1>
         <p gaya-fade="2">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
@@ -30,7 +30,7 @@ export default async function Posts() {
           {posts.map((post: any) => (
             <div
               gaya-fade="3"
-              className="bg-gray-300 dark:bg-gray-500 p-3 rounded-sm flex flex-col justify-between"
+              className="bg-gray-300/20 dark:bg-gray-500/20 p-3 rounded-sm flex flex-col justify-between"
               key={post.id}
             >
               <h2 className="text-xl dark:text-green-400 text-primary-500">

@@ -6,7 +6,7 @@ const nextConfig = {
   images: {
     domains: ['res.cloudinary.com'],
   },
-  modularizeImports: {},
+  swcMinify: true,
 };
 
 module.exports = nextConfig;

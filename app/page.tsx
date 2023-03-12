@@ -6,26 +6,20 @@ import About from './components/clientComponent/about';
 import { Accent } from './components/accent';
 import ButtonLink from './components/links/buttonlink';
 import UnstyledLink from './components/links/unstyledlink';
-import YG from './components/YG';
 import { scrollToSection } from './components/clientComponent/scrollToId';
 import IsLoaded from './components/Image/isLoaded';
 import Typewritterz from './components/typewritter';
+import Project from './components/clientComponent/project';
 
 export default function Home() {
   return (
     <>
       <IsLoaded className="min-h-main mb-20 flex flex-col justify-center relative">
         <article className={`mx-auto layout`}>
-          <div className={``}>
-            <h1 gaya-fade="1">
-              <span
-                className={`text-sky-400 dark:text-green-300 tracking-widest md:tracking-wide xl:tracking-tight `}
-              >
-                hi
-              </span>
-            </h1>
-          </div>
-          <h2 gaya-fade="2" className=" mt-1">
+          <h1 className="text-2xl md:text-4xl 2xl:text-5xl" gaya-fade="1">
+            Hi~
+          </h1>
+          <h2 gaya-fade="2" className=" mt-1 text-3xl md:text-5xl 2xl:text-6xl">
             You can call me{' '}
             <span className="text-primary-300 dark:text-primary-500">
               Yogyy
@@ -134,6 +128,7 @@ export default function Home() {
 
       <About />
       <section className="h-[50vh]"></section>
+      <Project />
     </>
   );
 }

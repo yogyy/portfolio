@@ -7,7 +7,7 @@ export default function Typewritterz() {
     <div className={`mt-1  `}>
       <h3 gaya-fade="3" className="flex flex-wrap">
         I&apos;m a <span className="mr-2"> </span>
-        <span className={`flex flex-wrap text-primary-400`}>
+        <span className={`flex flex-wrap accent`}>
           <Typewritter
             gaya-fade="4"
             options={{

@@ -1,5 +1,8 @@
+import Image from 'next/image';
 import React from 'react';
+import { Accent } from '../components/accent';
 import About from '../components/clientComponent/about';
+import IsLoaded from '../components/Image/isLoaded';
 
 export const metadata = {
   title: 'About me',
@@ -9,11 +12,8 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <section
-      id="about"
-      className="mt-[58px] min-h-main flex flex-col justify-center"
-    >
-      <About />
-    </section>
+    <>
+      <About className="py-20 min-h-main" />
+    </>
   );
 }
