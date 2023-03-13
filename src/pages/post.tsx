@@ -31,10 +31,12 @@ export default function Posts() {
             molestiae quam architecto quos commodi distinctio, neque nihil nobis
             sunt, voluptatum beatae.
           </p>
-          <div className="mt-5 grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+          <div
+            gaya-fade="3"
+            className="mt-5 grid sm:grid-cols-2 md:grid-cols-3 gap-3"
+          >
             {posts.map((post: any) => (
               <div
-                gaya-fade="3"
                 className="bg-gray-300/20 dark:bg-gray-500/20 p-3 rounded-sm flex flex-col justify-between"
                 key={post.id}
               >

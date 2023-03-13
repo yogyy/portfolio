@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { useTheme } from 'next-themes';
 import clsx from 'clsx';
+import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 
 type ThemeButtonProps = React.ComponentPropsWithoutRef<'button'>;
 
@@ -23,7 +24,7 @@ export function ThemeButton({ className, ...rest }: ThemeButtonProps) {
       {...rest}
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
     >
-      {mounted && theme === 'light' ? <Moon /> : <Sun />}
+      {theme === 'light' ? <IoMoonOutline /> : <IoSunnyOutline />}
     </button>
   );
 }
@@ -32,8 +33,8 @@ export const Moon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="1.2em"
-      height="1.2em"
+      width="1em"
+      height="1em"
       className="ionicon"
       viewBox="0 0 512 512"
     >
@@ -53,8 +54,8 @@ export const Sun = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="1.2em"
-      height="1.2em"
+      width="1em"
+      height="1em"
       viewBox="0 0 24 24"
     >
       <path

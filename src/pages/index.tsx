@@ -11,6 +11,7 @@ import IsLoaded from '@/components/Image/isLoaded';
 import Typewritterz from '@/components/typewritter';
 import Project from '@/components/clientComponent/project';
 import Layout from '@/components/layouts/layout';
+import YG from '@/components/YG';
 
 export default function Home() {
   return (

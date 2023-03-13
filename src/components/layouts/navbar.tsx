@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { ThemeButton } from '@/components/darkTheme';
 import { useRouter } from 'next/router';
 import UnstyledLink from '@/components/links/unstyledlink';
+import Link from 'next/link';
 
 type HeaderProps = {
   large?: boolean;
@@ -20,7 +21,7 @@ function NavLink({ href, children, ...rest }: NavLinkProps) {
   const arrOfRoute = router.route.split('/');
   const baseRoute = '/' + arrOfRoute[1];
   return (
-    <UnstyledLink
+    <Link
       href={href}
       passHref
       {...rest}
@@ -31,7 +32,7 @@ function NavLink({ href, children, ...rest }: NavLinkProps) {
       }
     >
       <span className={clsx()}>{children}</span>
-    </UnstyledLink>
+    </Link>
   );
 }
 
@@ -48,16 +49,6 @@ export default function Navbar({ large = false }: HeaderProps) {
     };
     return () => {
       window.onscroll = null;
-    };
-  }, []);
-  const [onTop, setOnTop] = React.useState<boolean>(true);
-  React.useEffect(() => {
-    const handleScroll = () => {
-      setOnTop(window.pageYOffset === 0);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
