@@ -12,6 +12,7 @@ export function ThemeButton({ className, ...rest }: ThemeButtonProps) {
   React.useEffect(() => setMounted(true), []);
   return (
     <button
+      role="button"
       className={clsx(
         'rounded-md focus:outline-none',
         'hover:border-sky-300 hover:text-sky-300 dark:hover:border-sky-300 dark:hover:text-sky-300',

@@ -18,17 +18,16 @@ export default function NavLink({ href, children, ...rest }: NavLinkProps) {
     };
   }, []);
 
-  let segment = useSelectedLayoutSegment();
-  let active = href === `/${segment}` || (href === '/' && !segment);
+  // let segment = useSelectedLayoutSegment();
+  // let active = href === `/${segment}` || (href === '/' && !segment);
   // console.log(segment);
   // console.log({ href, active });
   return (
     <UnstyledLink
       {...rest}
-      className={
-        clsx(!active ? 'text-sky-500 hover:text-green-500' : 'text-green-400',
-
-        )}
+      className={clsx()
+      // !active ? 'text-sky-500 hover:text-green-500' : 'text-green-400'
+      }
       href={href}
     >
       {children}

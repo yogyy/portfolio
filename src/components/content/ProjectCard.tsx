@@ -1,4 +1,4 @@
-import { ProjectFrontmatter } from '@/types/frontmatters';
+import { ProjectFrontmatter } from '@/../types/frontmatters';
 import clsx from 'clsx';
 import Image from 'next/image';
 import * as React from 'react';
@@ -26,7 +26,7 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
         href={`${project.slug}`}
         className="flex h-full flex-col items-start rounded-md p-4 focus:outline-none focus-visible:ring focus-visible:ring-primary-300"
       >
-        <h4>{project.title}</h4>
+        <h1 className="text-xl">{project.title}</h1>
         <p className="mb-auto text-sm text-gray-700 dark:text-gray-300">
           {project.description}
         </p>

@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import * as React from 'react';
-import { Providers } from '../providers';
+import { Providers } from './provider';
 
 const PreloadContext = React.createContext<boolean>(false);
 

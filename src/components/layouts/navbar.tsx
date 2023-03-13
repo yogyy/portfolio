@@ -1,24 +1,42 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
-import NavLink from '../components/links/nav-link';
-import { ThemeButton } from '../components/darkTheme';
+import { ThemeButton } from '@/components/darkTheme';
+import { useRouter } from 'next/router';
+import UnstyledLink from '@/components/links/unstyledlink';
 
 type HeaderProps = {
   large?: boolean;
 };
+interface NavLinkProps {
+  href: string;
+  children: React.ReactNode;
+  passHref?: boolean;
+  classname?: string;
+}
+
+function NavLink({ href, children, ...rest }: NavLinkProps) {
+  const router = useRouter();
+  const arrOfRoute = router.route.split('/');
+  const baseRoute = '/' + arrOfRoute[1];
+  return (
+    <UnstyledLink
+      href={href}
+      passHref
+      {...rest}
+      className={
+        router.pathname !== href
+          ? 'text-sky-500 hover:text-green-500'
+          : 'text-green-400'
+      }
+    >
+      <span className={clsx()}>{children}</span>
+    </UnstyledLink>
+  );
+}
 
 export default function Navbar({ large = false }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
-
-  const scrollToUp = () => {
-    if (
-      window.location.pathname.split('/')[1] ===
-      window.location.href.split('/')[3]
-    ) {
-      window.scrollTo(0, 0);
-    }
-  };
 
   useEffect(() => {
     window.onscroll = () => {
@@ -44,7 +62,7 @@ export default function Navbar({ large = false }: HeaderProps) {
   }, []);
 
   return (
-    <header className="fixed w-full top-0 z-50 mb-20">
+    <header className="fixed w-full top-0 z-50">
       <div className="h-2 bg-gradient-to-tr from-primary-200 via-primary-400 to-primary-200" />
 
       <div
@@ -63,11 +81,7 @@ export default function Navbar({ large = false }: HeaderProps) {
           </Link> */}
           <ul className="flex ml-9 gap-9 mr-auto">
             {links.map(({ label, href }: dink) => (
-              <li
-                className="text-xs"
-                key={`${href} ${label}`}
-                onClick={scrollToUp}
-              >
+              <li className="text-xs" key={`${href} ${label}`}>
                 <NavLink href={href}>
                   <span
                     className={clsx(

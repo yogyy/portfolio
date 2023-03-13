@@ -31,7 +31,6 @@ export default function About({ className }: { className?: string }) {
                 'https://res.cloudinary.com/dpegakmzh/image/upload/c_fit,h_756,w_756/a_0/v1678442557/profile.webp'
               }
               alt="me"
-              priority
               width={756}
               height={756}
               draggable={false}

@@ -1,12 +1,12 @@
-import CustomLink from '../components/links/customlink';
-import UnstyledLink from '../components/links/unstyledlink';
+import CustomLink from '@/components/links/customlink';
+import UnstyledLink from '@/components/links/unstyledlink';
 import {
   LogoFacebook,
   LogoGithub,
   MailOutline,
   LogoLinkedin,
   LogoTwitter,
-} from '../components/icons/icons';
+} from '@/components/icons/icons';
 
 export default function Footer() {
   return (
@@ -33,7 +33,11 @@ export default function Footer() {
               <MailOutline />
             </button>
             {links.map(link => (
-              <UnstyledLink key={link.href} href={link.href}>
+              <UnstyledLink
+                aria-label="social media"
+                key={link.href}
+                href={link.href}
+              >
                 <span className="my-auto social-footer h-6 w-6 align-middle transition-colors flex fill-current hover:fill-sky-500">
                   <link.svg />
                 </span>

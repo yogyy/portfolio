@@ -2,13 +2,13 @@ import './globals.css';
 import { Inter } from 'next/font/google';
 import Navbar from './layout/navbar';
 import Footer from './layout/footer';
-import { PreloadProvider } from './components/PreloadContext';
-import YG from './components/YG';
+import { PreloadProvider } from '@/components/PreloadContext';
+import YG from '@/components/YG';
 import clsx from 'clsx';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Portofolio | Muhammad Yogi Firman Syah ',
+  title: 'Portofolio | Muhammad Yogi Firman Syah',
   description: 'Muhammad Yogi Firman Syah website protofolio',
 };
 

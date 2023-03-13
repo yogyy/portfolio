@@ -2,14 +2,14 @@
 
 import clsx from 'clsx';
 import * as React from 'react';
-import About from './components/clientComponent/about';
-import { Accent } from './components/accent';
-import ButtonLink from './components/links/buttonlink';
-import UnstyledLink from './components/links/unstyledlink';
-import { scrollToSection } from './components/clientComponent/scrollToId';
-import IsLoaded from './components/Image/isLoaded';
-import Typewritterz from './components/typewritter';
-import Project from './components/clientComponent/project';
+import About from '@/components/clientComponent/about';
+import { Accent } from '@/components/accent';
+import ButtonLink from '@/components/links/buttonlink';
+import UnstyledLink from '@/components/links/unstyledlink';
+import { scrollToSection } from '@/components/clientComponent/scrollToId';
+import IsLoaded from '@/components/Image/isLoaded';
+import Typewritterz from '@/components/typewritter';
+import Project from '@/components/clientComponent/project';
 
 export default function Home() {
   return (
@@ -127,8 +127,9 @@ export default function Home() {
       </IsLoaded>
 
       <About />
-      <section className="h-[50vh]"></section>
+      <div className="h-[20vh]" />
       <Project />
+      <div className="h-[20vh]" />
     </>
   );
 }
