@@ -60,7 +60,7 @@ export default function About({ className }: { className?: string }) {
             </p>
           </article>
         </div>
-        <div className="mt-20 ">
+        <div gaya-fade="8" className="mt-20 ">
           <h3>The tools I use while developing.</h3>
           <figure className=" h-20 ">
             <TechStack />
