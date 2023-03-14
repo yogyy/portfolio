@@ -1,10 +1,6 @@
-import Image from 'next/image';
 import * as React from 'react';
-import clsx from 'clsx';
-import { Accent } from '@/components/accent';
-import Layout from '@/components/layouts/Layout';
-import useLoaded from '@/components/useLoaded';
 import About from '@/components/clientComponent/about';
+import Layout from '@/components/layouts/Layout';
 
 export default function AboutPage() {
   return (
