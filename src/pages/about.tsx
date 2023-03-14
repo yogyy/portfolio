@@ -1,6 +1,6 @@
 import * as React from 'react';
 import About from '@/components/clientComponent/about';
-import Layout from '../components/layouts/Layout';
+import Layout from '@/components/layouts/Layout';
 
 export default function AboutPage() {
   return (

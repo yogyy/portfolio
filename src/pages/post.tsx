@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import IsLoaded from '@/components/Image/isLoaded';
-import Layout from '../components/layouts/Layout';
 import * as React from 'react';
+import Layout from '@/components/layouts/Layout';
 
 export default function Posts() {
   const [posts, setPosts] = React.useState([]);
