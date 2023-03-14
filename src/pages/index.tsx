@@ -10,11 +10,11 @@ import { scrollToSection } from '@/components/clientComponent/scrollToId';
 import IsLoaded from '@/components/Image/isLoaded';
 import Typewritterz from '@/components/typewritter';
 import Project from '@/components/clientComponent/project';
-import Layout from '@/components/layouts/Layout';
+import RootLayout from '@/components/layouts/layout';
 
 export default function Home() {
   return (
-    <Layout
+    <RootLayout
       pageTitle="yogyy"
       content="Muhammad Yogi Firman Syah Webstie Portofolio"
     >
@@ -134,6 +134,6 @@ export default function Home() {
       <div className="h-[20vh]" />
       <Project />
       <div className="h-[20vh]" />
-    </Layout>
+    </RootLayout>
   );
 }

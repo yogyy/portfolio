@@ -14,7 +14,7 @@ interface LayoutProps {
   content?: string;
 }
 
-export default function Layout(props: LayoutProps, ...customMeta: any) {
+export default function RootLayout(props: LayoutProps, ...customMeta: any) {
   const { children, pageTitle, content } = props;
   const router = useRouter();
   const meta = {

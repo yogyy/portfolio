@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import IsLoaded from '@/components/Image/isLoaded';
 import * as React from 'react';
-import Layout from '@/components/layouts/Layout';
+import RootLayout from '@/components/layouts/layout';
 
 export default function Posts() {
   const [posts, setPosts] = React.useState([]);
@@ -22,7 +22,7 @@ export default function Posts() {
     fetchData();
   }, []);
   return (
-    <Layout pageTitle="Post Dummy | yogyy">
+    <RootLayout pageTitle="Post Dummy | yogyy">
       <IsLoaded className="mt-nav">
         <div className={clsx('min-h-main layout py-12')}>
           <h1 gaya-fade="1">Just Dummy Post</h1>
@@ -49,6 +49,6 @@ export default function Posts() {
           </div>
         </div>
       </IsLoaded>
-    </Layout>
+    </RootLayout>
   );
 }
