@@ -16,47 +16,47 @@ export default function TechStacks() {
     <ul className={styles.ul}>
       <li>
         <div className={styles.html}>
-          <Logohtml width={50} />
+          <Logohtml width={40} />
         </div>
       </li>
       <li>
         <div className={styles.css}>
-          <Logocss width={50} />
+          <Logocss width={40} />
         </div>
       </li>
       <li>
         <div className={styles.js}>
-          <Logojs width={50} />
+          <Logojs width={40} />
         </div>
       </li>
       <li>
         <div className={styles.ts}>
-          <Logots width={50} />
+          <Logots width={40} />
         </div>
       </li>
       <li>
         <div className={styles.react}>
-          <Logoreact width={50} />
+          <Logoreact width={40} />
         </div>
       </li>
       <li>
         <div className={styles.next}>
-          <Logonextjs width={50} />
+          <Logonextjs width={40} />
         </div>
       </li>
       <li className={styles.tailwind}>
         <div>
-          <TailwindLogo width={50} />
+          <TailwindLogo width={40} />
         </div>
       </li>
       <li className={styles.git}>
         <div>
-          <LogoGit width={50} />
+          <LogoGit width={40} />
         </div>
       </li>
       <li className={styles.figma}>
         <div>
-          <LogoFigma width={50} />
+          <LogoFigma width={40} />
         </div>
       </li>
     </ul>

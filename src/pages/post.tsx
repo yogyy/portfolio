@@ -24,17 +24,19 @@ export default function Posts() {
   return (
     <Layout pageTitle="Post | Dummy" content="Dummy Post">
       <IsLoaded className="mt-20">
-        <div className={clsx('min-h-main layout')}>
+        <div className={clsx('min-h-main layout py-12')}>
           <h1 gaya-fade="1">Just Dummy Post</h1>
           <p gaya-fade="2">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
             molestiae quam architecto quos commodi distinctio, neque nihil nobis
             sunt, voluptatum beatae.
           </p>
-          <div className="mt-5 grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+          <div
+            gaya-fade="3"
+            className="mt-5 grid sm:grid-cols-2 md:grid-cols-3 gap-3"
+          >
             {posts.map((post: any) => (
               <div
-                gaya-fade="3"
                 className="bg-gray-300/20 dark:bg-gray-500/20 p-3 rounded-sm flex flex-col justify-between"
                 key={post.id}
               >

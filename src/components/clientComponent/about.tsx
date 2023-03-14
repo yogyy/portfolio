@@ -28,9 +28,10 @@ export default function About({ className }: { className?: string }) {
             <Image
               className="float-left mr-6  w-40 md:w-72 flex rounded"
               src={
-                'https://res.cloudinary.com/dpegakmzh/image/upload/c_fit,h_756,w_756/a_0/v1678442557/profile.webp'
+                // 'https://res.cloudinary.com/dpegakmzh/image/upload/c_fit,h_756,w_756/a_0/v1678442557/profile.webp'
+                '/yogyy'
               }
-              alt="me"
+              alt="yogyy"
               width={756}
               height={756}
               draggable={false}

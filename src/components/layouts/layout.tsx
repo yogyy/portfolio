@@ -8,9 +8,6 @@ import Navbar from './navbar';
 import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
-// import Sidebar from '../Sidebar';
-// import styles from './Layout.module.css';
-
 interface LayoutProps {
   children: ReactNode;
   pageTitle: string;
@@ -33,21 +30,19 @@ export default function Layout(props: LayoutProps) {
       {/* <Sidebar /> */}
 
       <>
-        <PreloadProvider>
-          <Navbar />
-          <main>
-            {children}
-            <YG
-              className={clsx(
-                'fixed bottom-20 right-6',
-                'translate-y-[37%] transform-gpu',
-                'w-[calc(100%-3rem)] md:w-[600px] 2xl:w-[900px]',
-                'z-[-1] opacity-70 dark:opacity-40'
-              )}
-            />
-          </main>
-          <Footer />
-        </PreloadProvider>
+        <Navbar />
+        <main className={inter.className}>
+          {children}
+          <YG
+            className={clsx(
+              'fixed bottom-20 right-6',
+              'translate-y-[37%] transform-gpu',
+              'w-[calc(100%-3rem)] md:w-[600px] 2xl:w-[900px]',
+              'z-[-1] opacity-70 dark:opacity-40'
+            )}
+          />
+        </main>
+        <Footer />
       </>
     </>
   );
