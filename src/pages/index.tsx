@@ -10,13 +10,13 @@ import { scrollToSection } from '@/components/clientComponent/scrollToId';
 import IsLoaded from '@/components/Image/isLoaded';
 import Typewritterz from '@/components/typewritter';
 import Project from '@/components/clientComponent/project';
-import Layout from '@/components/layouts/layout';
+import Layout from '@/components/layouts/Layout';
 import YG from '@/components/YG';
 
 export default function Home() {
   return (
     <Layout
-      pageTitle="Portofolio | yogyy"
+      pageTitle="yogyy"
       content="Muhammad Yogi Firman Syah Webstie Portofolio"
     >
       <IsLoaded className="min-h-main mb-20 flex flex-col justify-center relative">

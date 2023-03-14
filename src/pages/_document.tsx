@@ -12,12 +12,7 @@ export default function Document() {
           data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID || ''}
         ></script>
       </Head>
-      <body
-        className={clsx(
-          'bg-white dark:bg-dark',
-          'transition-colors text-gray-700 dark:text-gray-200'
-        )}
-      >
+      <body>
         <Main />
         <NextScript />
       </body>

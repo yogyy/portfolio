@@ -55,8 +55,6 @@ export default function Navbar({ large = false }: HeaderProps) {
 
   return (
     <header className="fixed w-full top-0 z-50">
-      <div className="h-2 bg-gradient-to-tr from-primary-200 via-primary-400 to-primary-200" />
-
       <div
         className={`sticky bg-white transition-colors dark:bg-dark ${
           scrolled ? '' : ''

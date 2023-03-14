@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import * as React from 'react';
 import UnstyledLink from '../links/unstyledlink';
-import { Logoreact, TailwindLogo } from '../tech/techstack';
+import { SiReact, SiTailwindcss } from 'react-icons/si';
 
 type ProjectCardProps = {
   project: ProjectFrontmatter;
@@ -31,12 +31,12 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
           {project.description}
         </p>
         <div className="mt-2 flex gap-2 grayscale">
-          <Logoreact width={24} />
-          <TailwindLogo width={24} />
+          <SiReact />
+          <SiTailwindcss />
         </div>
 
         <Image
-          className="pointer-events-none mt-3 w-full bg-white/30  dark:bg-dark/30"
+          className="pointer-events-none mt-3 w-full bg-white/30 dark:bg-dark/30"
           src={
             'https://res.cloudinary.com/dpegakmzh/image/upload/v1678628147/demo_project.png'
           }

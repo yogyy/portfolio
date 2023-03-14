@@ -4,9 +4,8 @@ import * as React from 'react';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { Accent } from '../accent';
-import { TechStack } from '../tech/techstack';
-import useLoaded from '../useLoaded';
 import IsLoaded from '../Image/isLoaded';
+import TechSection, { MarqueeTech } from '@/components/tech/techsection';
 
 export default function About({ className }: { className?: string }) {
   return (
@@ -29,12 +28,13 @@ export default function About({ className }: { className?: string }) {
               className="float-left mr-6  w-40 md:w-72 flex rounded"
               src={
                 // 'https://res.cloudinary.com/dpegakmzh/image/upload/c_fit,h_756,w_756/a_0/v1678442557/profile.webp'
-                '/yogyy'
+                'https://res.cloudinary.com/dpegakmzh/image/upload/v1678814068/dummy_profile_ule6hu.png'
               }
               alt="yogyy"
               width={756}
               height={756}
               draggable={false}
+              loading="lazy"
             />
           </div>
           <article className="max-w-5xl mt-4  md:mt-6 md:text-lg 2xl:text-xl ">
@@ -60,15 +60,17 @@ export default function About({ className }: { className?: string }) {
             </p>
           </article>
         </div>
-        <div gaya-fade="8" className="mt-20 ">
-          <h3>The tools I use while developing.</h3>
-          <figure className=" h-20 ">
-            <TechStack />
-            <h4>masih mempelajari frontend framework yang lainnya ... </h4>
-          </figure>
+        <div className="mt-20 ">
+          <h3 gaya-fade="3">Technology & Tools</h3>
+          <div gaya-fade="4" className="h-20 ">
+            <MarqueeTech />
+          </div>
+          <div className="mt-5">
+            <h4 gaya-fade="4">Still learning other technologies... </h4>
+            <TechSection className="mt-5" />
+          </div>
         </div>
       </IsLoaded>
-      <section className="layout mt-20 flex"></section>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import IsLoaded from '@/components/Image/isLoaded';
-import Layout from '@/components/layouts/layout';
+import Layout from '@/components/layouts/Layout';
 import * as React from 'react';
 
 export default function Posts() {
@@ -22,8 +22,8 @@ export default function Posts() {
     fetchData();
   }, []);
   return (
-    <Layout pageTitle="Post | Dummy" content="Dummy Post">
-      <IsLoaded className="mt-20">
+    <Layout pageTitle="Post Dummy | yogyy">
+      <IsLoaded className="mt-nav">
         <div className={clsx('min-h-main layout py-12')}>
           <h1 gaya-fade="1">Just Dummy Post</h1>
           <p gaya-fade="2">
