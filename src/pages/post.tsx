@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import IsLoaded from '@/components/Image/isLoaded';
-import Layout from '@/components/layouts/Layout';
+import Layout from '../components/layouts/Layout';
 import * as React from 'react';
 
 export default function Posts() {

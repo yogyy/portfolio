@@ -10,8 +10,7 @@ import { scrollToSection } from '@/components/clientComponent/scrollToId';
 import IsLoaded from '@/components/Image/isLoaded';
 import Typewritterz from '@/components/typewritter';
 import Project from '@/components/clientComponent/project';
-import Layout from '@/components/layouts/Layout';
-import YG from '@/components/YG';
+import Layout from '../components/layouts/Layout';
 
 export default function Home() {
   return (
