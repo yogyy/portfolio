@@ -31,7 +31,7 @@ export default function Layout(props: LayoutProps) {
 
       <>
         <Navbar />
-        <main>
+        <main className={inter.className}>
           {children}
           <YG
             className={clsx(

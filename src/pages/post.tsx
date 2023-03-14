@@ -24,7 +24,7 @@ export default function Posts() {
   return (
     <Layout pageTitle="Post | Dummy" content="Dummy Post">
       <IsLoaded className="mt-20">
-        <div className={clsx('min-h-main layout')}>
+        <div className={clsx('min-h-main layout py-12')}>
           <h1 gaya-fade="1">Just Dummy Post</h1>
           <p gaya-fade="2">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio

@@ -1,5 +1,5 @@
-import './styles/globals.css';
-import './styles/nprogess.css';
+import '@/styles/globals.css';
+import '@/styles/nprogess.css';
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';
 import Router from 'next/router';
@@ -12,6 +12,7 @@ Router.events.on('routeChangeComplete', nProgress.done);
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
+
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
       <PreloadProvider>
         <Component {...pageProps} />
