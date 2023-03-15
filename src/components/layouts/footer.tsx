@@ -7,20 +7,22 @@ import {
   LogoLinkedin,
   LogoTwitter,
 } from '@/components/icons/icons';
+import Spotify from './spotify';
+import { spotifyFlag } from '@/constants/env';
 
 export default function Footer() {
   return (
     <footer className="bg-base-100 transition-colors">
       <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-      <div className="py-4 layout ">
-        <div className="md:flex md:justify-between">
-          <div className="mb-6">
+      <div className="pb-4 layout relative">
+        <div className="sm:absolute">
+          <div className="mb-4">
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               yogyy
             </span>
           </div>
         </div>
-        {/* /taai */}
+        {<Spotify className="flex sm justify-center mb-5 sm:justify-end" />}
         <div className="flex flex-col-reverse justify-center place-items-center gap-6 md:flex-row md:justify-between">
           <span className="text-sm text-primary font-semibold sm:text-center dark:text-gray-400 gap-3 flex  ">
             © 2023 Constantine.
@@ -28,6 +30,7 @@ export default function Footer() {
               got any feedback?.
             </CustomLink>
           </span>
+
           <div className="relative justify-center flex items-center space-x-3 md:space-x-6 sm:place-content-center">
             <button className="social-footer my-auto flex text-current transition-colors hover:text-sky-500 fill-current hover:fill-sky-500">
               <MailOutline />

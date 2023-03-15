@@ -4,14 +4,19 @@ import * as React from 'react';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { Accent } from '../accent';
-import IsLoaded from '../Image/isLoaded';
+import IsLoaded from '../isLoaded';
 import TechSection, { MarqueeTech } from '@/components/tech/techsection';
+import { spotifyFlag } from '@/constants/env';
+import Spotify from '../layouts/spotify';
+import useSWR from 'swr';
+import { SiSpotify } from 'react-icons/si';
 
-export default function About({ className }: { className?: string }) {
+export default function About({ className, ...rest }: { className?: string }) {
   return (
     <>
       <IsLoaded
         className={clsx('mb-10 layout flex flex-col justify-center', className)}
+        {...rest}
       >
         <div id="about" className="">
           <h2 gaya-fade="1" className="text-2xl md:text-4xl 2xl:text-3xl">
@@ -23,43 +28,44 @@ export default function About({ className }: { className?: string }) {
           >
             me
           </h1>
-          <div className="mt-4 " gaya-fade="3">
+          <div className="mt-4" gaya-fade="3">
             <Image
               className="float-left mr-6  w-40 md:w-72 flex rounded"
               src={
                 // 'https://res.cloudinary.com/dpegakmzh/image/upload/c_fit,h_756,w_756/a_0/v1678442557/profile.webp'
-                'https://res.cloudinary.com/dpegakmzh/image/upload/v1678814068/dummy_profile_ule6hu.png'
+                'https://res.cloudinary.com/dpegakmzh/image/upload/c_crop,h_510,w_510/v1678814068/dummy_profile_ule6hu.webp'
               }
               alt="yogyy"
-              width={756}
-              height={756}
+              width={520}
+              height={520}
               draggable={false}
               loading="lazy"
             />
           </div>
-          <article className="max-w-5xl mt-4  md:mt-6 md:text-lg 2xl:text-xl ">
+
+          <article className="max-w-5xl mt-4  md:mt-6 prose dark:prose-invert">
             <p gaya-fade="5" className="mb-4 leading-6">
-              Hello, my name is yogi. i started programming in early high
-              school, which is the start of the pandemic that is currently
-              sweeping the world. Initially, I was just writing basic code and
-              progressed to HTML and CSS.
+              Hello, my name is Yogi. yogyy was just a Nickname i made. I&apos;m
+              interested in becoming a full-stack web developer. I believe that
+              through constant practice, I will be able to achieve my dream
             </p>
             <p gaya-fade="6" className="mb-4 leading-6">
-              There are a lot of things and technologies to learn in frontend
-              development and I am motivated to learn as much as possible. I
-              enjoy learning something new and getting feedback to make myself
-              better and improve.
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut
+              voluptas eius vitae, maxime consequatur adipisci esse quibusdam
+              dolorem asperiores iste qui nisi minus illo similique quis nostrum
+              sapiente laborum earum reprehenderit soluta suscipit. Dicta dolor
+              reiciendis ab dolores rem! Error beatae cupiditate molestias iure
+              delectus ipsam. Consequuntur, sequi praesentium! Culpa eius quas
+              sapiente eum similique.
             </p>
             <p gaya-fade="7" className="mb-4 leading-6">
-              The website will showcase my projects and blogs. I &apos;ve tried
-              to make the code easy to understand and will use pre-installed
-              components that can be reused across platforms. My studio work
-              will be displayed when it is finished on this website. Having
-              spent a lot of time and effort on it, I will treat it as one of my
-              own creations.
+              Ex distinctio dolorem, culpa sed explicabo ea deserunt magnam
+              soluta doloribus ut numquam rem eaque officiis dolores earum nobis
+              error autem. Facere, explicabo.
             </p>
           </article>
         </div>
+
         <div className="mt-20 ">
           <h3 gaya-fade="3">Technology & Tools</h3>
           <div gaya-fade="4" className="h-20 ">
