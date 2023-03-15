@@ -15,14 +15,14 @@ export default function Footer() {
     <footer className="bg-base-100 transition-colors">
       <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
       <div className="pb-4 layout relative">
-        <div className="sm:absolute">
-          <div className="mb-4">
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+        <div className="">
+          <div className="mb-4 flex flex-col justify-center sm:flex-row sm:justify-between">
+            <span className="self-center mb-4 text-2xl font-semibold whitespace-nowrap dark:text-white">
               yogyy
             </span>
+            {<Spotify className="place-self-center" />}
           </div>
         </div>
-        {<Spotify className="flex sm justify-center mb-5 sm:justify-end" />}
         <div className="flex flex-col-reverse justify-center place-items-center gap-6 md:flex-row md:justify-between">
           <span className="text-sm text-primary font-semibold sm:text-center dark:text-gray-400 gap-3 flex  ">
             © 2023 Constantine.
