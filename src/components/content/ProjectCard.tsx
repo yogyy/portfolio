@@ -9,7 +9,11 @@ type ProjectCardProps = {
   project: ProjectFrontmatter;
 } & React.ComponentPropsWithoutRef<'li'>;
 
-export default function ProjectCard({ project, className }: ProjectCardProps) {
+export default function ProjectCard({
+  project,
+  className,
+  ...rest
+}: ProjectCardProps) {
   return (
     <li
       className={clsx(
@@ -21,6 +25,7 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
         'animate-shadow',
         className
       )}
+      {...rest}
     >
       <UnstyledLink
         href={`${project.slug}`}

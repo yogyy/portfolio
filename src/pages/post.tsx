@@ -1,26 +1,34 @@
-import clsx from 'clsx';
-import IsLoaded from '@/components/Image/isLoaded';
-import * as React from 'react';
+import IsLoaded from '@/components/isLoaded';
 import RootLayout from '@/components/layouts/layout';
+import clsx from 'clsx';
+import * as React from 'react';
 
-export default function Posts() {
-  const [posts, setPosts] = React.useState([]);
+type Post = {
+  id: string; // id is a string
+  body: string; // body is a string
+  title: number; // number is a number
+};
+type PostsProps = {
+  posts: Post[];
+};
 
-  React.useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-        if (!res.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        const data = await res.json();
-        setPosts(data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    fetchData();
-  }, []);
+export default function Posts({ posts }: PostsProps) {
+  // React.useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const res = await fetch('https://jsonplaceholder.typicode.{cos}');
+  //       if (!res.ok) {
+  //         throw new Error('Failed to fetch data');
+  //       }
+  //       const data = await res.json();
+  //       setPosts(data);
+  //     } catch (err) {
+  //       console.error(err);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
+
   return (
     <RootLayout pageTitle="Post Dummy | yogyy">
       <IsLoaded className="mt-nav">
@@ -35,7 +43,7 @@ export default function Posts() {
             gaya-fade="3"
             className="mt-5 grid sm:grid-cols-2 md:grid-cols-3 gap-3"
           >
-            {posts.map((post: any) => (
+            {posts.map(post => (
               <div
                 className="bg-gray-300/20 dark:bg-gray-500/20 p-3 rounded-sm flex flex-col justify-between"
                 key={post.id}
@@ -51,4 +59,17 @@ export default function Posts() {
       </IsLoaded>
     </RootLayout>
   );
+}
+
+export async function getStaticProps() {
+  // Fetch your data here
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+  const data = await res.json();
+
+  // Return an object with a props key that contains your data
+  return {
+    props: {
+      posts: data,
+    },
+  };
 }

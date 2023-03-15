@@ -4,26 +4,26 @@ import ProjectCard from '../content/ProjectCard';
 
 export default function Project() {
   return (
-    <section className="layout">
+    <article className="layout">
       <h1>
         <Accent>Features Project</Accent>
       </h1>
-      <p data-fade="1" className="mt-2 text-gray-600 dark:text-gray-300">
+      <p gaya-fade="1" className="mt-2 text-gray-600 dark:text-gray-300">
         Showcase of my works on frontend development.
       </p>
       <ul
-        data-fade="2"
+        gaya-fade="2"
         className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3"
       >
         {projects.map(project => (
           <ProjectCard key={project.slug} project={project} />
         ))}
       </ul>
-    </section>
+    </article>
   );
 }
 
-const projects = [
+export const projects = [
   {
     slug: '#project-1',
     title: 'Project 1',

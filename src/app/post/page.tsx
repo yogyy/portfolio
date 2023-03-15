@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import IsLoaded from '@/components/Image/isLoaded';
+import IsLoaded from '@/components/isLoaded';
 
 export const metadata = {
   title: 'Post',

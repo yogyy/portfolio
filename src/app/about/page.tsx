@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import { Accent } from '@/components/accent';
 import About from '@/components/clientComponent/about';
-import IsLoaded from '@/components/Image/isLoaded';
+import IsLoaded from '@/components/isLoaded';
 
 export const metadata = {
   title: 'About me',

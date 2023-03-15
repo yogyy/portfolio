@@ -54,13 +54,13 @@ export default function Navbar({ large = false }: HeaderProps) {
   }, []);
 
   return (
-    <header className="fixed w-full top-0 z-50">
-      <div
+    <header className="fixed w-full top-0 z-10">
+      <nav
         className={`sticky bg-white transition-colors dark:bg-dark ${
           scrolled ? '' : ''
         }`}
       >
-        <nav
+        <div
           className={clsx(
             'layout flex items-center justify-between py-4 ',
             large && 'lg:max-w-[68rem]'
@@ -85,8 +85,8 @@ export default function Navbar({ large = false }: HeaderProps) {
             ))}
           </ul>
           <ThemeButton className="ml-auto" />
-        </nav>
-      </div>
+        </div>
+      </nav>
     </header>
   );
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import useLoaded from '../useLoaded';
+import useLoaded from './useLoaded';
 
 export default function IsLoaded({
   children,

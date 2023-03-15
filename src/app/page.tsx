@@ -7,7 +7,7 @@ import { Accent } from '@/components/accent';
 import ButtonLink from '@/components/links/buttonlink';
 import UnstyledLink from '@/components/links/unstyledlink';
 import { scrollToSection } from '@/components/clientComponent/scrollToId';
-import IsLoaded from '@/components/Image/isLoaded';
+import IsLoaded from '@/components/isLoaded';
 import Typewritterz from '@/components/typewritter';
 import Project from '@/components/clientComponent/project';
 
