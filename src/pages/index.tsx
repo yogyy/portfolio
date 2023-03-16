@@ -2,14 +2,13 @@
 
 import clsx from 'clsx';
 import * as React from 'react';
-import About from '@/components/clientComponent/about';
 import { Accent } from '@/components/accent';
 import ButtonLink from '@/components/links/buttonlink';
 import UnstyledLink from '@/components/links/unstyledlink';
 import { scrollToSection } from '@/components/clientComponent/scrollToId';
 import IsLoaded from '@/components/isLoaded';
 import Typewritterz from '@/components/typewritter';
-import Project, { projects } from '@/components/clientComponent/project';
+import { projects } from '@/components/clientComponent/project';
 import RootLayout from '@/components/layouts/layout';
 import { InView } from 'react-intersection-observer';
 import ProjectCard from '@/components/content/ProjectCard';
