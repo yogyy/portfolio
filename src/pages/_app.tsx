@@ -3,6 +3,7 @@ import '@/styles/nprogess.css';
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';
 import Router from 'next/router';
+import { Analytics } from '@vercel/analytics/react';
 
 import nProgress from 'nprogress';
 import { PreloadProvider } from '@/components/PreloadContext';
@@ -15,6 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
       <PreloadProvider>
         <Component {...pageProps} />
+        <Analytics />
       </PreloadProvider>
     </ThemeProvider>
   );
