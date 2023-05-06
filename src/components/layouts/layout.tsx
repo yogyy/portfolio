@@ -22,8 +22,8 @@ export default function RootLayout(props: LayoutProps, ...customMeta: any) {
     description:
       'kinda full-stack developer specializing in building web applications',
     image:
-      'https://res.cloudinary.com/dpegakmzh/image/upload/v1678798132/yg_siuo8y.png',
-    largeImageCard: false,
+      'https://res.cloudinary.com/dpegakmzh/image/upload/v1683394806/open_graph_ummpqt.jpg',
+    largeImageCard: true,
     type: 'website',
     ...customMeta,
   };

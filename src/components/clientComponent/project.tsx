@@ -1,6 +1,7 @@
 import * as React from 'react';
+import { SiGraphql, SiNextdotjs, SiReact, SiTailwindcss } from 'react-icons/si';
 import { Accent } from '../accent';
-import ProjectCard from '../content/ProjectCard';
+import ProjectCard from '../ProjectCard';
 
 export default function Project() {
   return (
@@ -25,11 +26,17 @@ export default function Project() {
 
 export const projects = [
   {
-    slug: '#project-1',
-    title: 'Project 1',
-    description: 'This is the first project',
-    imageUrl: '',
+    slug: '/project/notflox',
+    title: 'NOTFLOX',
+    description: 'Movie App',
+    banner:
+      'https://res.cloudinary.com/dpegakmzh/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1683377050/Group-3copyhero_wlchnc.webp',
     url: 'https://example.com/project-1',
+    techs: (
+      <div className="mt-2 flex gap-2 grayscale">
+        <SiNextdotjs /> <SiReact /> <SiTailwindcss />
+      </div>
+    ),
   },
   {
     slug: '#project-2',
@@ -37,6 +44,11 @@ export const projects = [
     description: 'This is the second project',
     imageUrl: '',
     url: 'https://example.com/project-2',
+    techs: (
+      <div className="mt-2 flex gap-2 grayscale">
+        <SiReact /> <SiTailwindcss />
+      </div>
+    ),
   },
   {
     slug: '#project-3',
@@ -44,5 +56,10 @@ export const projects = [
     description: 'This is the third project',
     imageUrl: '',
     url: 'https://example.com/project-3',
+    techs: (
+      <div className="mt-2 flex gap-2 grayscale">
+        <SiReact /> <SiTailwindcss />
+      </div>
+    ),
   },
 ];

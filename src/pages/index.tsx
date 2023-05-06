@@ -11,7 +11,7 @@ import Typewritterz from '@/components/typewritter';
 import { projects } from '@/components/clientComponent/project';
 import RootLayout from '@/components/layouts/layout';
 import { InView } from 'react-intersection-observer';
-import ProjectCard from '@/components/content/ProjectCard';
+import ProjectCard from '@/components/ProjectCard';
 import { SiGithub, SiTwitter } from 'react-icons/si';
 import { IoNewspaperSharp } from 'react-icons/io5';
 import Image from 'next/image';
@@ -71,7 +71,7 @@ export default function Home() {
               className={clsx(
                 'inline-flex items-center gap-1 text-sm font-medium md:text-base',
                 'text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white',
-                'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
+                'focus:outline-none focus:p-1 focus-visible:ring focus-visible:ring-primary-300',
                 'transition-colors'
               )}
             >
@@ -83,7 +83,7 @@ export default function Home() {
               className={clsx(
                 'inline-flex items-center gap-1 text-sm font-medium md:text-base',
                 'group text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-white',
-                'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
+                'focus:outline-none focus:p-1 focus-visible:ring focus-visible:ring-primary-300',
                 'transition-colors'
               )}
             >
@@ -96,7 +96,8 @@ export default function Home() {
                 'inline-flex items-center gap-1 text-sm font-medium md:text-base',
                 'text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white',
                 'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
-                'transition-colors'
+                'transition-colors',
+                'focus:p-1'
               )}
             >
               <SiGithub />
@@ -170,14 +171,13 @@ export default function Home() {
             className={clsx('py-20 layout', inView && 'fade-in-start')}
           >
             <div gaya-fade="0" className="mt-20 ">
-              <h3 gaya-fade="1">Technology & Tools</h3>
+              <h3 gaya-fade="1">
+                <Accent>Technology & Tools</Accent>
+              </h3>
               <div gaya-fade="2" className="h-20 ">
                 <MarqueeTech />
               </div>
-              <div className="mt-5">
-                <h4 gaya-fade="3">Still learning other technologies... </h4>
-                <TechSection className="mt-5" />
-              </div>
+              
             </div>
           </section>
         )}

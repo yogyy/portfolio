@@ -44,7 +44,7 @@ export type ProjectFrontmatter = {
   lastUpdated?: string;
   description: string;
   category?: string;
-  techs?: string;
+  techs?: any;
   banner?: string;
   link?: string;
   github?: string;

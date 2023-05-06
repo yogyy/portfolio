@@ -2,8 +2,7 @@ import { ProjectFrontmatter } from '@/../types/frontmatters';
 import clsx from 'clsx';
 import Image from 'next/image';
 import * as React from 'react';
-import UnstyledLink from '../links/unstyledlink';
-import { SiReact, SiTailwindcss } from 'react-icons/si';
+import UnstyledLink from './links/unstyledlink';
 
 type ProjectCardProps = {
   project: ProjectFrontmatter;
@@ -19,10 +18,11 @@ export default function ProjectCard({
       className={clsx(
         'project-card rounded-md md:w-full',
         'border dark:border-gray-600',
-        'scale-100 hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu',
+        'scale-100 hover:scale-[1.02] active:scale-[0.97] focus-within:scale-[1.02] motion-safe:transform-gpu',
         'transition duration-100',
         'motion-reduce:hover:scale-100',
         'animate-shadow',
+        'hover:text-primary-300',
         className
       )}
       {...rest}
@@ -31,25 +31,24 @@ export default function ProjectCard({
         href={`${project.slug}`}
         className="flex h-full flex-col items-start rounded-md p-4 focus:outline-none focus-visible:ring focus-visible:ring-primary-300"
       >
-        <h1 className="text-xl">{project.title}</h1>
+        <h1 className="text-xl ">{project.title}</h1>
         <p className="mb-auto text-sm text-gray-700 dark:text-gray-300">
           {project.description}
         </p>
-        <div className="mt-2 flex gap-2 grayscale">
-          <SiReact />
-          <SiTailwindcss />
-        </div>
+        <div>{project.techs}</div>
 
         <Image
           className="pointer-events-none mt-3 w-full bg-white/30 dark:bg-dark/30"
           src={
-            'https://res.cloudinary.com/dpegakmzh/image/upload/v1678628147/demo_project.png'
+            project.banner
+              ? project.banner
+              : 'https://res.cloudinary.com/dpegakmzh/image/upload/v1678628147/demo_project.png'
           }
           alt={project.title}
           width={1440}
           height={792}
         />
-        <p className="animated-underline mt-2 inline-block font-medium">
+        <p className="animated-underline mt-2 inline-block font-medium text-gray-700 dark:text-gray-300">
           See more →
         </p>
       </UnstyledLink>
