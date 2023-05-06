@@ -13,7 +13,7 @@ export function ThemeButton({ className, ...rest }: ThemeButtonProps) {
       role="button"
       className={clsx(
         'rounded-md p-1.5 focus:outline-none ',
-        'hover:border-yellow-400 hover:text-yellow-400 dark:hover:border-yellow-400 dark:hover:text-yellow-400',
+        'hover:border-green-400 hover:text-green-400 dark:hover:border-green-400 dark:hover:text-green-400',
         'border border-hidden',
         'focus:outline-none focus-visible:ring focus-visible:ring-primary-400 py-1',
         className
