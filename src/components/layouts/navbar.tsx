@@ -28,7 +28,7 @@ function NavLink({ href, children, ...rest }: NavLinkProps) {
       className={clsx(
         router.pathname !== href
           ? 'text-sky-500 hover:text-green-500'
-          : 'text-green-400 ',
+          : 'text-green-400',
         'focus:outline-none focus-visible:ring focus-visible:ring-primary-400 py-1'
       )}
     >
