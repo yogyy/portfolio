@@ -29,10 +29,8 @@ export default function Home() {
             Hi~
           </h1>
           <h2 gaya-fade="2" className=" mt-1 text-3xl md:text-5xl 2xl:text-6xl">
-            You can call me{' '}
-            <span className="text-primary-300 dark:text-primary-500">
-              Yogyy
-            </span>
+            You can call me&nbsp;
+            <Accent>Yogyy</Accent>
           </h2>
           <Typewritterz />
           <p
@@ -47,19 +45,25 @@ export default function Home() {
               <div
                 className={clsx(
                   'absolute -inset-0.5 animate-tilt rounded blur',
-                  'bg-gradient-to-r from-green-200 via-green-500 to-sky-500',
-                  'dark:from-green-200 dark:via-green-400',
-                  'opacity-75 transition duration-1000 group-hover:opacity-100 group-hover:duration-200'
+                  'bg-gradient-to-r from-light-primary to-light-secondary',
+                  'dark:from-dark-primary dark:to-dark-secondary',
+                  'opacity-50 transition duration-1000 group-hover:opacity-100 group-hover:duration-200'
                 )}
               />
               <ButtonLink
                 href="#about"
                 onClick={() => scrollToSection('about')}
+                className="dark:bg-dark-primary dark:text-dark-text dark:border-dark-primary"
               >
-                <Accent>Scroll down</Accent>
+                Scroll down
               </ButtonLink>
             </div>
-            <ButtonLink href="/about">Learn more about me</ButtonLink>
+            <ButtonLink
+              className="bg-light-secondary text-light-primary dark:bg-dark-secondary dark:text-dark-primary"
+              href="/about"
+            >
+              Learn more about me
+            </ButtonLink>
           </div>
           <div
             gaya-fade="7"
@@ -70,8 +74,8 @@ export default function Home() {
               onClick={() => console.warn('my resume not ready')}
               className={clsx(
                 'inline-flex items-center gap-1 text-sm font-medium md:text-base',
-                'text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white',
-                'focus:outline-none focus:p-1 focus-visible:ring focus-visible:ring-primary-300',
+                'text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-dark-primary dark:focus:text-dark-primary',
+                'focus:outline-none focus:rounded-md focus-visible:ring dark:focus-visible:ring-dark-accent',
                 'transition-colors'
               )}
             >
@@ -82,22 +86,21 @@ export default function Home() {
               href="https://twitter.com/yogyxx"
               className={clsx(
                 'inline-flex items-center gap-1 text-sm font-medium md:text-base',
-                'group text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-white',
-                'focus:outline-none focus:p-1 focus-visible:ring focus-visible:ring-primary-300',
+                'group text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-dark-primary dark:focus:text-dark-primary',
+                'focus:outline-none focus:rounded-md focus-visible:ring dark:focus-visible:ring-dark-accent',
                 'transition-colors'
               )}
             >
-              <SiTwitter className="shrink-0 transition-colors group-hover:text-[#1da1f2]" />
+              <SiTwitter className="shrink-0 transition-colors group-hover:text-[#1da1f2] group-focus:text-[#1da1f2]" />
               <span>@yogyxx</span>
             </UnstyledLink>
             <UnstyledLink
               href="https://github.com/yogyy"
               className={clsx(
                 'inline-flex items-center gap-1 text-sm font-medium md:text-base',
-                'text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white',
-                'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
-                'transition-colors',
-                'focus:p-1'
+                'text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-dark-primary dark:focus:text-dark-primary',
+                'focus:outline-none focus:rounded-md focus-visible:ring dark:focus-visible:ring-dark-accent',
+                'transition-colors'
               )}
             >
               <SiGithub />
@@ -171,13 +174,12 @@ export default function Home() {
             className={clsx('py-20 layout', inView && 'fade-in-start')}
           >
             <div gaya-fade="0" className="mt-20 ">
-              <h3 gaya-fade="1">
+              <h2 gaya-fade="1">
                 <Accent>Technology & Tools</Accent>
-              </h3>
+              </h2>
               <div gaya-fade="2" className="h-20 ">
                 <MarqueeTech />
               </div>
-              
             </div>
           </section>
         )}
@@ -190,12 +192,12 @@ export default function Home() {
             className={clsx('py-20', inView && 'fade-in-start')}
           >
             <article className="layout" gaya-fade="0">
-              <h1 gaya-fade="2">
+              <h2 gaya-fade="2">
                 <Accent>Features Project</Accent>
-              </h1>
+              </h2>
               <p
                 gaya-fade="3"
-                className="mt-2 text-gray-600 dark:text-gray-300"
+                className="mt-2"
               >
                 Showcase of my works on frontend development.
               </p>

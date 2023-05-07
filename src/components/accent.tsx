@@ -9,8 +9,8 @@ export const Accent = ({ children, className }: AccentType) => {
       className={clsx(
         className,
         'transition-colors',
-        'text-transparent bg-clip-text bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-primary-500 to-primary-300 scroll-smooth',
-        'dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent'
+        'text-transparent bg-clip-text bg-gradient-to-r from-light-primary to-light-accent scroll-smooth',
+        'dark:from-dark-primary dark:to-dark-accent dark:bg-clip-text dark:text-transparent'
       )}
     >
       {children}

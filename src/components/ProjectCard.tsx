@@ -22,23 +22,23 @@ export default function ProjectCard({
         'transition duration-100',
         'motion-reduce:hover:scale-100',
         'animate-shadow',
-        'hover:text-primary-300',
+        'hover:text-light-primary dark:hover:text-dark-accent',
         className
       )}
       {...rest}
     >
       <UnstyledLink
         href={`${project.slug}`}
-        className="flex h-full flex-col items-start rounded-md p-4 focus:outline-none focus-visible:ring focus-visible:ring-primary-300"
+        className="flex h-full flex-col items-start rounded-md p-4 focus:outline-none focus-visible:ring focus-visible:ring-dark-accent projectcard"
       >
-        <h1 className="text-xl ">{project.title}</h1>
+        <h1 className="text-xl">{project.title}</h1>
         <p className="mb-auto text-sm text-gray-700 dark:text-gray-300">
           {project.description}
         </p>
         <div>{project.techs}</div>
 
         <Image
-          className="pointer-events-none mt-3 w-full bg-white/30 dark:bg-dark/30"
+          className="pointer-events-none mt-3 w-full bg-light-bg  /30 dark:bg-dark-bg/30"
           src={
             project.banner
               ? project.banner
@@ -48,7 +48,7 @@ export default function ProjectCard({
           width={1440}
           height={792}
         />
-        <p className="animated-underline mt-2 inline-block font-medium text-gray-700 dark:text-gray-300">
+        <p className="animated-underline mt-2 inline-block font-medium text-light-primary dark:text-dark-primary">
           See more →
         </p>
       </UnstyledLink>

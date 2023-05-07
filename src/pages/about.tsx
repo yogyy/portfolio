@@ -7,7 +7,7 @@ export default function AboutPage() {
     <RootLayout
       pageTitle="About | yogyy"
       content="yogyy is a Self-Tought Web Developer who based on West Java, Indonesia"
-    >
+    ><div className="pt-10"></div>
       <About className="mt-nav min-h-main" />
     </RootLayout>
   );

@@ -18,7 +18,6 @@ import {
   SiVite,
   SiGit,
 } from 'react-icons/si';
-import styles from './techstack.module.css';
 
 const ICON_TYPES = new Map(
   Object.entries({
@@ -124,17 +123,17 @@ export const MarqueeTech = () => {
 
 export function TechStacks() {
   return (
-    <ul className="flex text-4xl h-auto">
+    <ul className="flex text-4xl h-auto text-light-primary dark:text-dark-primary">
       {skillMarquee.map((item, index) => (
         <li
           key={index}
-          className="m-10 hover:text-green-400 dark:hover:text-sky-500"
+          className="m-10 hover:text-dark-accent"
         >
           {item.icon}
         </li>
       ))}
-      <li className="m-10 hover:text-green-400 dark:hover:text-sky-500">
-        <SiReact className={styles.react} />
+      <li className="m-10 hover:text-dark-accent">
+        <SiReact className='animate-spin-slow' />
       </li>
     </ul>
   );

@@ -9,14 +9,29 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          // Customize it on globals.css :root
-          200: 'rgb(var(--tw-clr-primary-200) / <alpha-value>)',
-          300: 'rgb(var(--tw-clr-primary-300) / <alpha-value>)',
-          400: 'rgb(var(--tw-clr-primary-400) / <alpha-value>)',
-          500: 'rgb(var(--tw-clr-primary-500) / <alpha-value>)',
+        dark: {
+          bg: '#010409',
+          text: '#010409',
+          primary: '#FFFFFF',
+          secondary: '#01242B',
+          accent: '#05B8BB',
         },
-        dark: '#0e1111',
+        light: {
+          bg: '#FFFFFF',
+          text: '#0E101A',
+          primary: '#0D8065',
+          secondary: '#F0F2FC',
+          accent: '#AFF2EA',
+        },
+      },
+      animation: {
+        'spin-slow': 'spin infinite 7s linear',
+      },
+      keyframes: {
+        spin: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(-360deg)' },
+        },
       },
     },
   },

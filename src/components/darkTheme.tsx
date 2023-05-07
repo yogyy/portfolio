@@ -7,76 +7,277 @@ import clsx from 'clsx';
 type ThemeButtonProps = React.ComponentPropsWithoutRef<'button'>;
 
 export function ThemeButton({ className, ...rest }: ThemeButtonProps) {
+ 
   const { theme, setTheme } = useTheme();
   return (
     <button
       role="button"
       className={clsx(
-        'rounded-md p-1.5 focus:outline-none ',
-        'hover:border-green-400 hover:text-green-400 dark:hover:border-green-400 dark:hover:text-green-400',
+        'rounded-md p-1.5 focus:outline-none text-light-primary dark:text-dark-accent',
         'border border-hidden',
-        'focus:outline-none focus-visible:ring focus-visible:ring-primary-400 py-1',
+        'focus:outline-none focus-visible:ring focus-visible:ring-light-primary dark:focus-visible:ring-dark-accent py-1',
         className
       )}
       {...rest}
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
     >
-      <MoonSun />
+      {theme !== undefined && theme === 'light' ? <Moon /> : <Sun/> }
     </button>
   );
 }
 
-const MoonSun = () => {
+const Moon = () => {
   return (
     <svg
-      width="26"
-      height="24"
-      viewBox="0 0 26 24"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
     >
-      <path
-        className="fill-current dark:fill-sky-500"
-        d="M18.2841 2.46271C17.6466 2.27521 17.0091 2.12521 16.3341 2.01271C15.8466 1.93771 15.3216 2.20021 15.1341 2.65021C14.9091 3.10021 15.0216 3.66271 15.3966 3.96271C18.0591 6.43771 19.3716 10.5627 18.2841 13.9752C17.0841 17.7627 13.2216 19.9377 9.13412 20.0502C8.60912 20.0502 8.19662 20.3877 8.04662 20.8752C7.89662 21.3627 8.12162 21.8877 8.53412 22.1502C9.47162 22.7127 10.4091 23.1627 11.3466 23.4627C12.4341 23.8002 13.5591 23.9502 14.6841 23.9502C16.5966 23.9502 18.4716 23.4627 20.1591 22.5252C22.8216 21.0627 24.6966 18.7002 25.5216 15.8502C27.1341 10.2252 23.9466 4.33771 18.2841 2.46271ZM23.9091 15.3627C23.2341 17.8002 21.5841 19.7877 19.3716 21.0252C17.0466 22.3002 14.3841 22.5627 11.8716 21.8127C11.6091 21.7377 11.3091 21.6252 11.0466 21.5127C15.0216 20.7252 18.3216 17.8752 19.5591 13.9752C20.6466 10.5252 19.9716 6.88771 17.7591 4.03771C22.5591 5.65021 25.2591 10.6377 23.9091 15.3627Z"
-        fill="currentColor"
-      />
-      <g clipPath="url(#clip0_202_1184)" className="fill-red-400">
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      >
+        <g strokeDasharray="2">
+          <path d="M12 21v1M21 12h1M12 3v-1M3 12h-1">
+            <animate
+              fill="freeze"
+              attributeName="stroke-dashoffset"
+              dur="0.2s"
+              values="4;2"
+            ></animate>
+          </path>
+          <path d="M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5">
+            <animate
+              fill="freeze"
+              attributeName="stroke-dashoffset"
+              begin="0.2s"
+              dur="0.2s"
+              values="4;2"
+            ></animate>
+          </path>
+        </g>
         <path
-          className="fill-sky-500 dark:fill-current"
-          d="M11.1914 7.18465C8.8513 7.31515 7.05415 9.32458 7.18465 11.6647C7.31515 14.0048 9.32459 15.802 11.6647 15.6715C14.0048 15.541 15.802 13.5315 15.6715 11.1914C15.541 8.8513 13.5315 7.05414 11.1914 7.18465ZM11.5864 14.2674C10.0263 14.3544 8.67572 13.1465 8.58872 11.5864C8.50172 10.0263 9.70964 8.67572 11.2697 8.58872C12.8298 8.50171 14.1804 9.70964 14.2674 11.2697C14.3544 12.8298 13.1465 14.1804 11.5864 14.2674Z"
-          fill="currentColor"
-        />
-        <path
-          className="fill-sky-500 dark:fill-current"
-          d="M11.0679 4.96934C11.4423 4.94846 11.7681 4.6173 11.7455 4.21168L11.6585 2.65161C11.6376 2.27719 11.3064 1.95137 10.9008 1.97399C10.5264 1.99487 10.2006 2.32603 10.2232 2.73165L10.312 4.32293C10.364 4.69561 10.6934 4.99022 11.0679 4.96934Z"
-          fill="currentColor"
-        />
-        <path
-          className="fill-sky-500 dark:fill-current"
-          d="M6.12997 16.3244L5.18546 17.3473C4.92031 17.6438 4.94467 18.0806 5.24114 18.3458C5.37291 18.4636 5.56534 18.5468 5.75255 18.5364C5.93976 18.5259 6.12348 18.4531 6.23959 18.2901L7.18236 17.236C7.44751 16.9395 7.42315 16.5027 7.12668 16.2375C6.83194 16.0036 6.36392 16.0297 6.12997 16.3244Z"
-          fill="currentColor"
-        />
-        <path
-          className="fill-sky-500 dark:fill-current"
-          d="M4.96934 11.7882C4.94846 11.4138 4.6173 11.088 4.21168 11.1106L2.65161 11.1976C2.27719 11.2185 1.95137 11.5497 1.97399 11.9553C1.99487 12.3297 2.32603 12.6555 2.73165 12.6329L4.32293 12.5442C4.69735 12.5233 4.99022 12.1627 4.96934 11.7882Z"
-          fill="currentColor"
-        />
-        <path
-          className="fill-sky-500 dark:fill-current"
-          d="M5.50878 5.18546C5.2123 4.92031 4.77548 4.94467 4.51033 5.24114C4.24518 5.53762 4.26954 5.97444 4.56601 6.23959L5.62014 7.18236C5.75191 7.3002 5.94434 7.38337 6.13154 7.37293C6.31875 7.36249 6.50248 7.28965 6.61859 7.12668C6.88374 6.8302 6.85938 6.39338 6.56291 6.12823L5.50878 5.18546Z"
-          fill="currentColor"
-        />
+          d="M7 6 C7 12.08 11.92 17 18 17 C18.53 17 19.05 16.96 19.56 16.89 C17.95 19.36 15.17 21 12 21 C7.03 21 3 16.97 3 12 C3 8.83 4.64 6.05 7.11 4.44 C7.04 4.95 7 5.47 7 6 Z"
+          opacity="0"
+        >
+        </path>
       </g>
-      <defs>
-        <clipPath id="clip0_202_1184">
-          <rect
-            width="20"
-            height="20"
-            fill="dark"
-            transform="translate(0.886757 2.00038) rotate(-3.19194)"
-          />
-        </clipPath>
-      </defs>
+      <g fill="currentColor" fillOpacity="0">
+        <path d="m15.22 6.03l2.53-1.94L14.56 4L13.5 1l-1.06 3l-3.19.09l2.53 1.94l-.91 3.06l2.63-1.81l2.63 1.81z">
+          <animate
+            id="lineMdSunnyOutlineToMoonLoopTransition0"
+            fill="freeze"
+            attributeName="fill-opacity"
+            begin="0.6s;lineMdSunnyOutlineToMoonLoopTransition0.begin+6s"
+            dur="0.4s"
+            values="0;1"
+          ></animate>
+          <animate
+            fill="freeze"
+            attributeName="fill-opacity"
+            begin="lineMdSunnyOutlineToMoonLoopTransition0.begin+2.2s"
+            dur="0.4s"
+            values="1;0"
+          ></animate>
+        </path>
+        <path d="M13.61 5.25L15.25 4l-2.06-.05L12.5 2l-.69 1.95L9.75 4l1.64 1.25l-.59 1.98l1.7-1.17l1.7 1.17z">
+          <animate
+            fill="freeze"
+            attributeName="fill-opacity"
+            begin="lineMdSunnyOutlineToMoonLoopTransition0.begin+3s"
+            dur="0.4s"
+            values="0;1"
+          ></animate>
+          <animate
+            fill="freeze"
+            attributeName="fill-opacity"
+            begin="lineMdSunnyOutlineToMoonLoopTransition0.begin+5.2s"
+            dur="0.4s"
+            values="1;0"
+          ></animate>
+        </path>
+        <path d="M19.61 12.25L21.25 11l-2.06-.05L18.5 9l-.69 1.95l-2.06.05l1.64 1.25l-.59 1.98l1.7-1.17l1.7 1.17z">
+          <animate
+            fill="freeze"
+            attributeName="fill-opacity"
+            begin="lineMdSunnyOutlineToMoonLoopTransition0.begin+0.4s"
+            dur="0.4s"
+            values="0;1"
+          ></animate>
+          <animate
+            fill="freeze"
+            attributeName="fill-opacity"
+            begin="lineMdSunnyOutlineToMoonLoopTransition0.begin+2.8s"
+            dur="0.4s"
+            values="1;0"
+          ></animate>
+        </path>
+        <path d="m20.828 9.731l1.876-1.439l-2.366-.067L19.552 6l-.786 2.225l-2.366.067l1.876 1.439L17.601 12l1.951-1.342L21.503 12z">
+          <animate
+            fill="freeze"
+            attributeName="fill-opacity"
+            begin="lineMdSunnyOutlineToMoonLoopTransition0.begin+3.4s"
+            dur="0.4s"
+            values="0;1"
+          ></animate>
+          <animate
+            fill="freeze"
+            attributeName="fill-opacity"
+            begin="lineMdSunnyOutlineToMoonLoopTransition0.begin+5.6s"
+            dur="0.4s"
+            values="1;0"
+          ></animate>
+        </path>
+      </g>
+      <mask id="lineMdSunnyOutlineToMoonLoopTransition1">
+        <circle cx="12" cy="12" r="12" fill="#fff"></circle>
+        <circle cx="12" cy="12" r="4">
+          <animate
+            fill="freeze"
+            attributeName="r"
+            begin="0.1s"
+            dur="0.4s"
+            values="4;8"
+          ></animate>
+        </circle>
+        <circle cx="22" cy="2" r="3" fill="#fff">
+          <animate
+            fill="freeze"
+            attributeName="cx"
+            begin="0.1s"
+            dur="0.4s"
+            values="22;18"
+          ></animate>
+          <animate
+            fill="freeze"
+            attributeName="cy"
+            begin="0.1s"
+            dur="0.4s"
+            values="2;6"
+          ></animate>
+          <animate
+            fill="freeze"
+            attributeName="r"
+            begin="0.1s"
+            dur="0.4s"
+            values="3;12"
+          ></animate>
+        </circle>
+        <circle cx="22" cy="2" r="1">
+          <animate
+            fill="freeze"
+            attributeName="cx"
+            begin="0.1s"
+            dur="0.4s"
+            values="22;18"
+          ></animate>
+          <animate
+            fill="freeze"
+            attributeName="cy"
+            begin="0.1s"
+            dur="0.4s"
+            values="2;6"
+          ></animate>
+          <animate
+            fill="freeze"
+            attributeName="r"
+            begin="0.1s"
+            dur="0.4s"
+            values="1;10"
+          ></animate>
+        </circle>
+      </mask>
+      <circle
+        cx="12"
+        cy="12"
+        r="6"
+        fill="currentColor"
+        mask="url(#lineMdSunnyOutlineToMoonLoopTransition1)"
+      >
+        <animate
+          fill="freeze"
+          attributeName="r"
+          begin="0.1s"
+          dur="0.4s"
+          values="6;10"
+        ></animate>
+      </circle>
     </svg>
   );
 };
+
+const Sun = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+    >
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeWidth="2"
+      >
+        <path
+          strokeDasharray="34"
+          strokeDashoffset="34"
+          d="M12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7"
+        >
+          <animate
+            fill="freeze"
+            attributeName="stroke-dashoffset"
+            dur="0.4s"
+            values="34;0"
+          ></animate>
+        </path>
+        <g strokeDasharray="2" strokeDashoffset="2">
+          <path d="M0 0">
+            <animate
+              fill="freeze"
+              attributeName="d"
+              begin="0.5s"
+              dur="0.2s"
+              values="M12 19v1M19 12h1M12 5v-1M5 12h-1;M12 21v1M21 12h1M12 3v-1M3 12h-1"
+            ></animate>
+            <animate
+              fill="freeze"
+              attributeName="stroke-dashoffset"
+              begin="0.5s"
+              dur="0.2s"
+              values="2;0"
+            ></animate>
+          </path>
+          <path d="M0 0">
+            <animate
+              fill="freeze"
+              attributeName="d"
+              begin="0.7s"
+              dur="0.2s"
+              values="M17 17l0.5 0.5M17 7l0.5 -0.5M7 7l-0.5 -0.5M7 17l-0.5 0.5;M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5"
+            ></animate>
+            <animate
+              fill="freeze"
+              attributeName="stroke-dashoffset"
+              begin="0.7s"
+              dur="0.2s"
+              values="2;0"
+            ></animate>
+          </path>
+          <animateTransform
+            attributeName="transform"
+            dur="30s"
+            repeatCount="indefinite"
+            type="rotate"
+            values="0 12 12;360 12 12"
+          ></animateTransform>
+        </g>
+      </g>
+    </svg>
+  );
+}

@@ -25,7 +25,7 @@ export default function Spotify({
           'border dark:border-gray-600',
           'border-thin w-72 rounded-md',
           'shadow-sm dark:shadow-none',
-          'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
+          'focus:outline-none focus-visible:ring focus-visible:ring-',
           'bg-gray-300/20 dark:bg-gray-600/5'
         )}
       >

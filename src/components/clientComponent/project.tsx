@@ -26,14 +26,14 @@ export default function Project() {
 
 export const projects = [
   {
-    slug: '/project/notflox',
+    slug: '/projects/notflox',
     title: 'NOTFLOX',
     description: 'Movie App',
     banner:
       'https://res.cloudinary.com/dpegakmzh/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1683377050/Group-3copyhero_wlchnc.webp',
     url: 'https://example.com/project-1',
     techs: (
-      <div className="mt-2 flex gap-2 grayscale">
+      <div className="mt-2 flex gap-2">
         <SiNextdotjs /> <SiReact /> <SiTailwindcss />
       </div>
     ),
@@ -45,7 +45,7 @@ export const projects = [
     imageUrl: '',
     url: 'https://example.com/project-2',
     techs: (
-      <div className="mt-2 flex gap-2 grayscale">
+      <div className="mt-2 flex gap-2">
         <SiReact /> <SiTailwindcss />
       </div>
     ),
@@ -57,7 +57,7 @@ export const projects = [
     imageUrl: '',
     url: 'https://example.com/project-3',
     techs: (
-      <div className="mt-2 flex gap-2 grayscale">
+      <div className="mt-2 flex gap-2">
         <SiReact /> <SiTailwindcss />
       </div>
     ),

@@ -27,12 +27,12 @@ function NavLink({ href, children, ...rest }: NavLinkProps) {
       {...rest}
       className={clsx(
         router.pathname !== href
-          ? 'text-sky-500 hover:text-green-500'
-          : 'text-green-400',
-        'focus:outline-none focus-visible:ring focus-visible:ring-primary-400 py-1'
+          ? 'text-light-text dark:text-dark-primary hover:text-light-primary/50 dark:hover:text-dark-accent'
+          : 'text-light-primary dark:text-dark-accent',
+        'focus:outline-none focus-visible:ring focus-visible:ring-light-primary dark:focus-visible:ring-dark-accent focus:rounded-sm py-1'
       )}
     >
-      <span className={clsx()}>{children}</span>
+      <span>{children}</span>
     </Link>
   );
 }
@@ -56,7 +56,7 @@ export default function Navbar({ large = false }: HeaderProps) {
   return (
     <header className="fixed w-full top-0 z-10">
       <nav
-        className={`sticky bg-white transition-colors dark:bg-dark ${
+        className={`sticky bg-light-bg transition-colors dark:bg-dark-bg ${
           scrolled ? '' : ''
         }`}
       >
@@ -71,7 +71,7 @@ export default function Navbar({ large = false }: HeaderProps) {
           </Link> */}
           <ul className="flex ml-9 gap-9 mr-auto">
             {links.map(({ label, href }: dink) => (
-              <li className="text-xs" key={`${href} ${label}`}>
+              <li className="font-semibold" key={`${href} ${label}`}>
                 <NavLink href={href}>
                   <span
                     className={clsx(
@@ -99,7 +99,7 @@ type dink = {
 const links = [
   { href: '/', label: 'Home' },
   { href: '/post', label: 'Post' },
-  // {href: '/projects', label: 'Projects'},
+  {href: '/projects', label: 'Projects'},
   // {href: '/library', label: 'Library'},
   { href: '/about', label: 'About' },
 ];

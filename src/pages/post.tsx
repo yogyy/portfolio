@@ -48,7 +48,7 @@ export default function Posts({ posts }: PostsProps) {
                 className="bg-gray-300/20 dark:bg-gray-500/20 p-3 rounded-sm flex flex-col justify-between"
                 key={post.id}
               >
-                <h2 className="text-xl dark:text-green-400 text-primary-500">
+                <h2 className="text-xl dark:text-green-400 text-">
                   {post.title}
                 </h2>
                 <h3 className="text-base">{post.body}</h3>

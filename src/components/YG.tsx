@@ -3,7 +3,6 @@ import * as React from 'react';
 export default function YG(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg
-
       viewBox="0 0 1892 1346"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -23,16 +22,16 @@ export default function YG(props: React.ComponentPropsWithoutRef<'svg'>) {
           gradientUnits="userSpaceOnUse"
         >
           <stop
-            className="text-green-500 dark:text-green-500"
+            className="text-green-500 dark:text-dark-primary/40"
             stopColor="currentColor"
           />
           <stop
-            className="text-sky-500 dark:text-sky-500"
+            className="text-sky-500 dark:text-dark-secondary"
             offset="0.5"
             stopColor="currentColor"
           />
           <stop
-            className="text-sky-200 transition-opacity dark:text-zinc-800"
+            className="text-sky-200 transition-opacity dark:text-dark-secondary"
             offset="1"
             stopColor="currentColor"
           />

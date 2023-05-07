@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --tw-clr-primary-200: 219 255 0;
-  --tw-clr-primary-300: 132 204 22;
-  --tw-clr-primary-400: 0 224 243;
-  --tw-clr-primary-500: 0 196 253;
+  --tw-clr-primary-200: 118 202 212;
+  --tw-clr-primary-300: 207 231 231;
+  --tw-clr-primary-400: 87 188 146;
+  --tw-clr-primary-500: 1 82 75;
 
   --clr-primary-200: rgb(var(--tw-clr-primary-200)); /* #DBFF00 */
   --clr-primary-300: rgb(var(--tw-clr-primary-300)); /* #00e887 */
@@ -31,7 +31,7 @@ a {
   text-decoration: none;
 }
 body {
-  @apply bg-white dark:bg-dark transition-colors text-gray-700 dark:text-gray-200;
+  @apply bg-light-bg dark:bg-dark-bg transition-colors text-light-text dark:text-dark-primary;
 }
 
 @layer base {
@@ -96,11 +96,11 @@ body {
     @apply min-h-[calc(100vh-82px)];
   }
   .accent {
-    @apply dark:bg-gradient-to-r dark:from-primary-300 dark:to-primary-500 dark:bg-clip-text dark:text-transparent;
+    @apply dark:bg-gradient-to-r dark:from-dark-primary dark:to-dark-accent dark:bg-clip-text dark:text-transparent;
   }
 
   .accent-highlight {
-    @apply bg-primary-300/50 dark:bg-gradient-to-r dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent;
+    @apply bg- dark:bg-gradient-to-r dark:from- dark:to- dark:bg-clip-text dark:text-transparent;
   }
 
   .mt-nav {
@@ -110,8 +110,8 @@ body {
 
 @layer utilities {
   .animated-underline {
-    background-image: linear-gradient(#33333300, #33333300),
-      linear-gradient(to right, var(--clr-primary-300), var(--clr-primary-400));
+    background-image: linear-gradient(#01040900, #01040900),
+      linear-gradient(to right, #FFFFFF, #05B8BB);
     background-size: 100% 2px, 0 2px;
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;
@@ -180,4 +180,14 @@ body {
   width: 16px;
   height: 16px;
   fill: currentColor;
+}
+
+.projectcard img {
+  filter: blur(1px);
+  transition: filter 0.5s ease-in-out; 
+}
+
+.projectcard:hover img,
+.projectcard:focus-within img {
+  filter: none; 
 }

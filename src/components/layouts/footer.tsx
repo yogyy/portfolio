@@ -1,12 +1,4 @@
-import CustomLink from '@/components/links/customlink';
 import UnstyledLink from '@/components/links/unstyledlink';
-import {
-  LogoFacebook,
-  LogoGithub,
-  MailOutline,
-  LogoLinkedin,
-  LogoTwitter,
-} from '@/components/icons/icons';
 import { SiGithub, SiTwitter, SiFacebook, SiLinkedin } from 'react-icons/si';
 
 import Spotify from './spotify';
@@ -20,7 +12,7 @@ export default function Footer() {
       <div className="pb-4 layout relative">
         <div className="">
           <div className="mb-4 flex flex-col justify-center sm:flex-row sm:justify-between">
-            <span className="self-center mb-4 text-2xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="self-center mb-4 text-2xl font-semibold whitespace-nowrap dark:text-dark-accent">
               yogyy
             </span>
             {<Spotify className="place-self-center" />}
@@ -30,7 +22,7 @@ export default function Footer() {
           <span className="text-sm font-semibold sm:text-center gap-3 flex text-gray-400">
             © 2023 Constantine.
             <UnstyledLink
-              className="hover:text-gray-600 dark:hover:text-gray-200"
+              className="hover:text-gray-600 dark:hover:text-dark-primary dark:focus:outline-none dark:focus-visible:ring dark:focus-visible:ring-dark-accent focus:rounded-md"
               href="https://www.github.com/yogyy"
             >
               got any feedback?.
@@ -38,7 +30,12 @@ export default function Footer() {
           </span>
 
           <div className="relative my-auto text-xl flex space-x-3 md:space-x-6 sm:place-content-center ">
-            <button className="p-1 hover:text-sky-500 focus:outline-none focus-visible:ring focus-visible:ring-sky-500">
+            <button
+              className={clsx(
+                'p-1 hover:text-sky-500',
+                'focus:outline-none focus-visible:ring focus-visible:ring-dark-accent focus:rounded-md'
+              )}
+            >
               <IoMailOutline />
             </button>
             {links.map(link => (
@@ -47,8 +44,8 @@ export default function Footer() {
                 key={link.href}
                 href={link.href}
                 className={clsx(
-                  'my-auto mx-auto p-1 hover:text-sky-500 ',
-                  'focus:outline-none focus-visible:ring focus-visible:ring-sky-500'
+                  'my-auto mx-auto p-1 dark:hover:text-dark-accent',
+                  'focus:outline-none focus-visible:ring focus-visible:ring-dark-accent focus:rounded-md'
                 )}
               >
                 <link.icon className="" />

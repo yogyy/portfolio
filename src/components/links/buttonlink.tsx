@@ -22,14 +22,14 @@ export default function ButtonLink({
       {...rest}
       className={clsx(
         'inline-flex rounded px-3 py-2 font-bold',
-        'border border-gray-300 shadow-sm dark:border-gray-600',
-        'focus:outline-none focus-visible:ring focus-visible:ring-primary-300',
-        'scale-100 hover:scale-[1.03] active:scale-[0.97] motion-safe:transform-gpu',
+        'border border-light-primary shadow-sm dark:border-dark-bg',
+        'focus:outline-none focus-visible:ring focus-visible:ring-light-primary dark:focus-visible:ring-dark-primary',
+        'scale-100 hover:scale-[1.03] active:scale-[0.97] focus:scale-[1.03] motion-safe:transform-gpu',
         'motion-reduce:hover:scale-100 motion-reduce:hover:brightness-90',
         'transition duration-100',
         'animate-shadow',
         {
-          'bg-white disabled:bg-gray-200 dark:bg-dark  dark:disabled:bg-gray-700':
+          'bg-light-primary disabled:bg-gray-200 dark:bg-dark-primary dark:disabled:bg-gray-700':
             variant === 'default',
         },
         className
