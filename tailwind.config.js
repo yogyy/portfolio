@@ -17,11 +17,11 @@ module.exports = {
           accent: '#05B8BB',
         },
         light: {
-          bg: '#FFFFFF',
-          text: '#0E101A',
-          primary: '#0D8065',
-          secondary: '#F0F2FC',
-          accent: '#AFF2EA',
+          bg: '#F8F9FA',
+          text: '#222222',
+          primary: '#343A40',
+          secondary: '#E9ECEF',
+          accent: '#ADB5BD  ',
         },
       },
       animation: {
