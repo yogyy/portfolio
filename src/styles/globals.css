@@ -49,7 +49,7 @@ body {
   }
 
   ::selection {
-    background: rgba(var(--tw-clr-primary-500) / 0.3);
+    @apply bg-light-primary/50 dark:bg-dark-accent/30;
   }
 
   /* .cursor-newtab {
@@ -111,7 +111,7 @@ body {
 @layer utilities {
   .animated-underline {
     background-image: linear-gradient(#01040900, #01040900),
-      linear-gradient(to right, #FFFFFF, #05B8BB);
+      linear-gradient(to right, #ffffff, #05b8bb);
     background-size: 100% 2px, 0 2px;
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;
@@ -126,6 +126,7 @@ body {
   .animated-underline:hover,
   .animated-underline:focus-visible,
   .project-card:hover .animated-underline,
+  .project-card:focus-within .animated-underline,
   .project-card:focus-visible .animated-underline {
     background-size: 0 2px, 100% 2px;
   }
@@ -184,10 +185,10 @@ body {
 
 .projectcard img {
   filter: blur(1px);
-  transition: filter 0.5s ease-in-out; 
+  transition: filter 0.5s ease-in-out;
 }
 
 .projectcard:hover img,
 .projectcard:focus-within img {
-  filter: none; 
+  filter: none;
 }
