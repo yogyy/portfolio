@@ -1,5 +1,11 @@
 import * as React from 'react';
-import { SiGraphql, SiNextdotjs, SiReact, SiTailwindcss } from 'react-icons/si';
+import {
+  SiGraphql,
+  SiMongodb,
+  SiNextdotjs,
+  SiReact,
+  SiTailwindcss,
+} from 'react-icons/si';
 import { Accent } from '../accent';
 import ProjectCard from '../ProjectCard';
 
@@ -30,13 +36,15 @@ export const projects = [
     title: 'NOTFLOX',
     description: 'Movie App',
     banner:
-      'https://res.cloudinary.com/dpegakmzh/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1683377050/Group-3copyhero_wlchnc.webp',
-    url: 'https://example.com/project-1',
+      'https://res.cloudinary.com/dpegakmzh/image/upload/v1683377050/Group-3copyhero_wlchnc.webp',
+    url: 'https://yogyy-notflox.netlify.app',
     techs: (
-      <div className="mt-2 flex gap-2">
-        <SiNextdotjs /> <SiReact /> <SiTailwindcss />
+      <div className="mt-2 flex gap-2 text-light-primary dark:text-dark-accent">
+        <SiNextdotjs /> <SiTailwindcss /> <SiMongodb />
       </div>
     ),
+    github: 'https://github.com/yogyy/Netflix-Movie-App',
+    category: 'Personal Project',
   },
   {
     slug: '#project-2',

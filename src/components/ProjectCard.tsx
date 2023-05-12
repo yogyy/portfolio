@@ -21,15 +21,15 @@ export default function ProjectCard({
         'scale-100 hover:scale-[1.02] active:scale-[0.97] focus-within:scale-[1.02] motion-safe:transform-gpu',
         'transition duration-100',
         'motion-reduce:hover:scale-100',
-        'animate-shadow',
-        'hover:text-light-primary dark:hover:text-dark-accent',
+        'animate-shadow text-light-primary dark:text-dark-primary',
+        'hover:text-light-text dark:hover:text-dark-accent focus-within:text-light-text dark:focus-within:text-dark-accent',
         className
       )}
       {...rest}
     >
       <UnstyledLink
         href={`${project.slug}`}
-        className="flex h-full flex-col items-start rounded-md p-4 focus:outline-none focus-visible:ring focus-visible:ring-dark-accent projectcard"
+        className="flex h-full flex-col items-start rounded-md p-4 focus:outline-none focus-visible:ring focus-visible:ring-light-accent dark:focus-visible:ring-dark-accent projectcard"
       >
         <h1 className="text-xl">{project.title}</h1>
         <p className="mb-auto text-sm text-gray-700 dark:text-gray-300">
@@ -38,7 +38,7 @@ export default function ProjectCard({
         <div>{project.techs}</div>
 
         <Image
-          className="pointer-events-none mt-3 w-full bg-light-bg  /30 dark:bg-dark-bg/30"
+          className="pointer-events-none mt-3 w-full bg-light-bg/30 dark:bg-dark-bg/30"
           src={
             project.banner
               ? project.banner

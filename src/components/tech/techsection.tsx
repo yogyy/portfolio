@@ -123,17 +123,17 @@ export const MarqueeTech = () => {
 
 export function TechStacks() {
   return (
-    <ul className="flex text-4xl h-auto text-light-primary dark:text-dark-primary">
+    <ul className="flex text-4xl h-auto text-light-text/80 dark:text-dark-primary">
       {skillMarquee.map((item, index) => (
         <li
           key={index}
-          className="m-10 hover:text-dark-accent"
+          className="m-10 hover:text-light-accent dark:hover:text-dark-accent"
         >
           {item.icon}
         </li>
       ))}
-      <li className="m-10 hover:text-dark-accent">
-        <SiReact className='animate-spin-slow' />
+      <li className="m-10 hover:text-light-accent dark:hover:text-dark-accent">
+        <SiReact className="animate-spin-slow" />
       </li>
     </ul>
   );

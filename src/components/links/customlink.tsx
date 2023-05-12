@@ -11,12 +11,12 @@ export default function CustomLink({
       {...rest}
       className={clsx(
         'animated-underline custom-link inline-flex items-center font-medium',
-        'focus:outline-none focus-visible:ring focus-visible:ring-sky-300',
-        'border-b border-dotted border-sky-500 hover:border-sky-500/40',
+        'focus:outline-none focus-visible:ring focus-visible:ring-dark-accent',
+        'border-b border-dotted border-dark-accent hover:border-dark-secondary',
         className
       )}
     >
-      <span className="dark:bg-gradient-to-tr dark:from-sky-300 dark:to-sky-400 dark:bg-clip-text dark:text-transparent">
+      <span className="dark:bg-gradient-to-tr dark:from-dark-primary dark:to-dark-accent dark:bg-clip-text dark:text-transparent">
         {children}
       </span>
     </UnstyledLink>

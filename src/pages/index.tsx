@@ -16,6 +16,7 @@ import { SiGithub, SiTwitter } from 'react-icons/si';
 import { IoNewspaperSharp } from 'react-icons/io5';
 import Image from 'next/image';
 import TechSection, { MarqueeTech } from '@/components/tech/techsection';
+import { Me } from '@/components/clientComponent/about';
 
 export default function Home() {
   return (
@@ -53,7 +54,7 @@ export default function Home() {
               <ButtonLink
                 href="#about"
                 onClick={() => scrollToSection('about')}
-                className="dark:bg-dark-primary dark:text-dark-text dark:border-dark-primary"
+                className="bg-light-primary text-light-bg dark:bg-dark-primary dark:text-dark-text dark:border-dark-primary"
               >
                 Scroll down
               </ButtonLink>
@@ -75,7 +76,7 @@ export default function Home() {
               className={clsx(
                 'inline-flex items-center gap-1 text-sm font-medium md:text-base',
                 'text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-dark-primary dark:focus:text-dark-primary',
-                'focus:outline-none focus:rounded-md focus-visible:ring dark:focus-visible:ring-dark-accent',
+                'focus:outline-none focus:rounded-md focus-visible:ring focus-visible:ring-light-accent dark:focus-visible:ring-dark-accent ',
                 'transition-colors'
               )}
             >
@@ -87,7 +88,7 @@ export default function Home() {
               className={clsx(
                 'inline-flex items-center gap-1 text-sm font-medium md:text-base',
                 'group text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-dark-primary dark:focus:text-dark-primary',
-                'focus:outline-none focus:rounded-md focus-visible:ring dark:focus-visible:ring-dark-accent',
+                'focus:outline-none focus:rounded-md focus-visible:ring focus-visible:ring-light-accent dark:focus-visible:ring-dark-accent ',
                 'transition-colors'
               )}
             >
@@ -99,7 +100,7 @@ export default function Home() {
               className={clsx(
                 'inline-flex items-center gap-1 text-sm font-medium md:text-base',
                 'text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-dark-primary dark:focus:text-dark-primary',
-                'focus:outline-none focus:rounded-md focus-visible:ring dark:focus-visible:ring-dark-accent',
+                'focus:outline-none focus:rounded-md focus-visible:ring focus-visible:ring-light-accent dark:focus-visible:ring-dark-accent',
                 'transition-colors'
               )}
             >
@@ -116,53 +117,7 @@ export default function Home() {
             ref={ref}
             className={clsx('py-20 layout', inView && 'fade-in-start')}
           >
-            <div id="about" gaya-fade="0">
-              <h2 gaya-fade="1" className="text-2xl md:text-4xl 2xl:text-3xl">
-                <Accent>About</Accent>
-              </h2>
-              <h1
-                className="font-bold mt-1 text-2xl md:text-4xl 2xl:text-2xl"
-                gaya-fade="2"
-              >
-                me
-              </h1>
-              <div className="mt-4 " gaya-fade="3">
-                <Image
-                  className="float-left mr-6  w-40 md:w-72 flex rounded"
-                  src={
-                    // 'https://res.cloudinary.com/dpegakmzh/image/upload/c_fit,h_756,w_756/a_0/v1678442557/profile.webp'
-                    'https://res.cloudinary.com/dpegakmzh/image/upload/c_crop,h_510,w_510/v1678814068/dummy_profile_ule6hu.png'
-                  }
-                  alt="yogyy"
-                  width={510}
-                  height={510}
-                  draggable={false}
-                  loading="lazy"
-                />
-              </div>
-              <article className="max-w-5xl mt-4 prose dark:prose-invert">
-                <p gaya-fade="5" className="mb-4 leading-6">
-                  Hello, my name is Yogi. yogyy was just a Nickname i made.
-                  I&apos;m interested in becoming a full-stack web developer. I
-                  believe that through constant practice, I will be able to
-                  achieve my dream.
-                </p>
-                <p gaya-fade="6" className="mb-4 leading-6">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut
-                  voluptas eius vitae, maxime consequatur adipisci esse
-                  quibusdam dolorem asperiores iste qui nisi minus illo
-                  similique quis nostrum sapiente laborum earum reprehenderit
-                  soluta suscipit. Dicta dolor reiciendis ab dolores rem! Error
-                  beatae cupiditate molestias iure delectus ipsam. Consequuntur,
-                  sequi praesentium! Culpa eius quas sapiente eum similique.
-                </p>
-                <p gaya-fade="7" className="mb-4 leading-6">
-                  Ex distinctio dolorem, culpa sed explicabo ea deserunt magnam
-                  soluta doloribus ut numquam rem eaque officiis dolores earum
-                  nobis error autem. Facere, explicabo.
-                </p>
-              </article>
-            </div>
+            <Me />
           </section>
         )}
       </InView>
@@ -195,10 +150,7 @@ export default function Home() {
               <h2 gaya-fade="2">
                 <Accent>Features Project</Accent>
               </h2>
-              <p
-                gaya-fade="3"
-                className="mt-2"
-              >
+              <p gaya-fade="3" className="mt-2">
                 Showcase of my works on frontend development.
               </p>
               <ul
