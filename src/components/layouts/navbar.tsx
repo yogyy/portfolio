@@ -99,7 +99,7 @@ type dink = {
 const links = [
   { href: '/', label: 'Home' },
   { href: '/post', label: 'Post' },
-  {href: '/projects', label: 'Projects'},
+  { href: '/projects', label: 'Projects' },
   // {href: '/library', label: 'Library'},
   { href: '/about', label: 'About' },
 ];

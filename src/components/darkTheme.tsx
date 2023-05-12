@@ -17,6 +17,8 @@ export function ThemeButton({ className, ...rest }: ThemeButtonProps) {
   return (
     <button
       role="button"
+      aria-label="dark mode toggle"
+      aria-pressed="true"
       className={clsx(
         'rounded-md p-1.5 focus:outline-none text-light-primary dark:text-dark-accent',
         'border border-hidden',
