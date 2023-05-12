@@ -46,7 +46,7 @@ const getAccessToken = async () => {
   return res.data.access_token;
 };
 
-export const getNowPlaying = async () => {
+const getNowPlaying = async () => {
   const access_token = await getAccessToken();
 
   return axios.get<SpotifyData>(NOW_PLAYING_ENDPOINT, {
@@ -78,11 +78,10 @@ export default async function spotify(
     const data = {
       isPlaying: response.data.is_playing,
       title: response.data.item.name,
-      album: response.data.item.album.name,
+      album: response.data.item.album,
       artist: response.data.item.album.artists
         .map(artist => artist.name)
         .join(', '),
-      albumImageUrl: response.data.item.album.images[0].url,
       songUrl: response.data.item.external_urls.spotify,
     };
 

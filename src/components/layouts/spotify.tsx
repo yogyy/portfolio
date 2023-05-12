@@ -6,16 +6,38 @@ import useSWR from 'swr';
 import UnstyledLink, {
   UnstyledLinkProps,
 } from '@/components/links/unstyledlink';
-import { SpotifyData } from '@/../types/types';
+import { RecentlyPlayedResult, SpotifyData } from '@/../types/types';
+import axios from 'axios';
+import Image from 'next/image';
 
 export default function Spotify({
   className,
   ...rest
 }: Omit<UnstyledLinkProps, 'href' | 'children'>) {
+  const [lastPlay, setLastPlay] = React.useState<RecentlyPlayedResult>();
   const fetcher = (url: string) => fetch(url).then(r => r.json());
-  const { data } = useSWR<SpotifyData>('/api/spotify', fetcher);
+  const { data } = useSWR<SpotifyData>(
+    '/api/spotify/currently-playing',
+    fetcher,
+    {
+      revalidateOnFocus: false,
+    }
+  );
 
-  return data?.isPlaying ? (
+  React.useEffect(() => {
+    if (!data?.title) {
+      axios
+        .get('/api/spotify/last-played')
+        .then(response => {
+          setLastPlay(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+  }, [data]);
+
+  return data?.isPlaying === true ? (
     <figure className={className} data-cy="spotify">
       <UnstyledLink
         {...rest}
@@ -23,15 +45,22 @@ export default function Spotify({
         className={clsx(
           'relative flex items-center gap-4 p-2.5',
           'border dark:border-gray-600',
-          'border-thin w-72 rounded-md',
+          'border-thin min-w-[233px] w-full rounded-md',
           'shadow-sm dark:shadow-none',
-          'focus:outline-none focus-visible:ring focus-visible:ring-',
-          'bg-gray-300/20 dark:bg-gray-600/5'
+          'focus:outline-none focus-visible:ring focus-visible:ring-light-accent dark:focus-visible:ring-dark-accent',
+          'bg-light-secondary/30 dark:bg-dark-bg/30'
         )}
       >
-        <div className="flex-1">
-          <p className="text-sm font-medium">{data.title}</p>
-          <p className="mt-1 text-xs text-gray-600 dark:text-gray-300">
+        <Image
+          className="w-12 shadow-sm dark:shadow-none"
+          src={data.album.images[2].url!}
+          alt={data.album.name}
+          width={240}
+          height={240}
+        />
+        <div className="flex-1 ">
+          <p className="text-xs font-medium">Playing : {data.title}</p>
+          <p className="mt-1 text-xs font-semibold text-light-text/60 dark:text-dark-primary/50">
             {data.artist}
           </p>
         </div>
@@ -40,5 +69,41 @@ export default function Spotify({
         </div>
       </UnstyledLink>
     </figure>
-  ) : null;
+  ) : (
+    <figure className={className} data-cy="spotify">
+      <UnstyledLink
+        {...rest}
+        href={lastPlay ? lastPlay?.track.external_urls.spotify : ''}
+        className={clsx(
+          'relative flex items-center gap-4 p-2.5',
+          'border dark:border-gray-600',
+          'border-thin  min-w-[233px] w-full rounded-md',
+          'shadow-sm dark:shadow-none',
+          'focus:outline-none focus-visible:ring focus-visible:ring-light-accent dark:focus-visible:ring-dark-accent',
+          'bg-light-secondary/30 dark:bg-dark-bg/30'
+        )}
+      >
+        {lastPlay && (
+          <Image
+            className="w-12 shadow-sm dark:shadow-none"
+            src={lastPlay?.track.album.images[2].url!}
+            alt={lastPlay?.track.album.name!}
+            width={240}
+            height={240}
+          />
+        )}
+        <div className="flex-1 ">
+          <p className="text-xs font-medium">
+            Last Played : {lastPlay?.track.name}
+          </p>
+          <p className="mt-1 text-xs text-gray-600 dark:text-dark-primary/50">
+            {lastPlay?.track.artists.map(artist => artist.name)}
+          </p>
+        </div>
+        <div className="absolute right-1.5 bottom-1.5">
+          <SiSpotify size={20} color="#1ED760" />
+        </div>
+      </UnstyledLink>
+    </figure>
+  );
 }
