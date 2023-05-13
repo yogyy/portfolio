@@ -26,7 +26,7 @@ function NavLink({ href, children, ...rest }: NavLinkProps) {
       passHref
       {...rest}
       className={clsx(
-        router.pathname !== href
+        router.pathname && baseRoute !== href
           ? 'text-light-text dark:text-dark-primary hover:text-light-primary/50 dark:hover:text-dark-accent'
           : 'text-light-primary dark:text-dark-accent',
         'focus:outline-none focus-visible:ring focus-visible:ring-light-primary dark:focus-visible:ring-dark-accent focus:rounded-sm py-1'
@@ -55,11 +55,7 @@ export default function Navbar({ large = false }: HeaderProps) {
 
   return (
     <header className="fixed w-full top-0 z-10">
-      <nav
-        className={`sticky bg-light-bg transition-colors dark:bg-dark-bg ${
-          scrolled ? '' : ''
-        }`}
-      >
+      <nav className={`sticky bg-light-bg transition-colors dark:bg-dark-bg ${scrolled ? '' : ''}`}>
         <div
           className={clsx(
             'layout flex items-center justify-between py-4 ',
@@ -71,13 +67,12 @@ export default function Navbar({ large = false }: HeaderProps) {
           </Link> */}
           <ul className="flex ml-9 gap-9 mr-auto">
             {links.map(({ label, href }: dink) => (
-              <li className="font-semibold" key={`${href} ${label}`}>
+              <li
+                className="font-semibold"
+                key={`${href} ${label}`}
+              >
                 <NavLink href={href}>
-                  <span
-                    className={clsx(
-                      'transition-colors text-xs md:text-base font-semibold'
-                    )}
-                  >
+                  <span className={clsx('transition-colors text-xs md:text-base font-semibold')}>
                     {label}
                   </span>
                 </NavLink>
