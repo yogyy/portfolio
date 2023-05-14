@@ -1,9 +1,9 @@
 import UnstyledLink from '@/components/links/unstyledlink';
 import { SiGithub, SiTwitter, SiFacebook, SiLinkedin } from 'react-icons/si';
-
 import Spotify from './spotify';
 import { IoMailOutline } from 'react-icons/io5';
 import clsx from 'clsx';
+import Tooltipz from '../tooltip';
 
 export default function Footer() {
   return (
@@ -21,34 +21,20 @@ export default function Footer() {
         <div className="flex flex-col-reverse justify-center place-items-center gap-6 md:flex-row md:justify-between">
           <span className="text-sm font-semibold sm:text-center gap-3 flex text-gray- ">
             © 2023 Constantine.
-            <UnstyledLink
-              className="hover:text-gray-600 dark:hover:text-dark-primary dark:focus:outline-none dark:focus-visible:ring dark:focus-visible:ring-dark-accent focus:rounded-md"
-              href="https://www.github.com/yogyy"
-            >
-              got any feedback?.
-            </UnstyledLink>
           </span>
 
-          <div className="relative my-auto text-xl flex space-x-3 md:space-x-6 sm:place-content-center ">
-            <button
-              className={clsx(
-                'p-1 text-light-primary dark:text-dark-primary hover:text-light-text',
-                'focus:outline-none focus-visible:ring focus-visible:ring-light-accent dark:focus-visible:ring-dark-accent focus:rounded-md'
-              )}
-            >
-              <IoMailOutline />
-            </button>
+          <div className="relative my-auto text-xl flex space-x-3 md:space-x-6 sm:place-content-center h-auto">
             {links.map(link => (
               <UnstyledLink
                 aria-label="social media"
-                key={link.href}
                 href={link.href}
+                key={link.href}
                 className={clsx(
-                  'my-auto mx-auto p-1 text-light-primary hover:text-light-text dark:text-dark-primary dark:hover:text-dark-accent',
-                  'focus:outline-none focus-visible:ring focus-visible:ring-light-accent dark:focus-visible:ring-dark-accent focus:rounded-md'
+                  'relative text-light-primary dark:text-dark-primary hover:text-light-text dark:hover:text-dark-accent',
+                  'focus:outline-none'
                 )}
               >
-                <link.icon className="" />
+                <Tooltipz content={link.content} trigger={<link.icon className="" />}></Tooltipz>
               </UnstyledLink>
             ))}
           </div>
@@ -60,23 +46,54 @@ export default function Footer() {
 
 const links = [
   {
+    href: 'mailto:akunwanhit.0y@gmail.com',
+    alt: 'github',
+    icon: IoMailOutline,
+    content: (
+      <p>
+        Contact me&nbsp;
+        <span className="text-light-primary dark:text-light-bg">akunwanhit.0y@gmail.com</span>
+      </p>
+    ),
+  },
+  {
     href: 'https://github.com/yogyy',
     alt: 'github',
     icon: SiGithub,
+    content: (
+      <p>
+        See My Project on <span className="text-light-primary dark:text-light-bg">Github</span>
+      </p>
+    ),
   },
   {
     href: 'https://facebook.com/iogiy',
     alt: 'facebook',
     icon: SiFacebook,
+    content: (
+      <p>
+        Reach me on <span className="text-light-primary dark:text-light-bg">Facebook</span>
+      </p>
+    ),
   },
   {
     href: 'https://www.linkedin.com/in/yogyy/',
     alt: 'linkedin',
     icon: SiLinkedin,
+    content: (
+      <p>
+        Find me on <span className="text-light-primary dark:text-light-bg">LinkedIn</span>
+      </p>
+    ),
   },
   {
     href: 'https://twitter.com/yogyxx',
     alt: 'twitter',
     icon: SiTwitter,
+    content: (
+      <p>
+        Reach me on <span className="text-light-primary dark:text-light-bg">Twitter</span>
+      </p>
+    ),
   },
 ];
