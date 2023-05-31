@@ -18,13 +18,14 @@ import {
   SiVite,
   SiGit,
 } from 'react-icons/si';
+import { TypescriptIcons } from '../icons/typescript';
 
 const ICON_TYPES = new Map(
   Object.entries({
     html5: <SiHtml5 />,
     css3: <SiCss3 />,
     javascript: <SiJavascript />,
-    typescript: <SiTypescript />,
+    typescript: <TypescriptIcons />,
     nodejs: <SiNodedotjs />,
     react: <SiReact />,
     nextjs: <SiNextdotjs />,
@@ -45,29 +46,27 @@ export function Icon({ type }: { type: string }) {
 
 export default function TechSection({ className }: { className?: string }) {
   return (
-    <section id="technologies" className={clsx(className)} gaya-fade="6">
+    <section id="technologies" className={clsx(className)}>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] gap-6">
         {techSkills.map((item, index) => {
           return <TechSkillItem key={index} text={item} />;
         })}
-        {nonSkills.map((el, index) => (
-          <div
-            key={index}
-            className="flex outline outline-1 items-center p-2 hover:bg-red-600/25 rounded-sm"
-          >
+        {/* {nonSkills.map((el, index) => (
+          <div key={index} className="flex items-center p-2 rounded-sm hover:bg-red-600/25">
             <span className="text-2xl">{el.icon}</span>
             <span className="pl-4">{el.text}</span>
           </div>
-        ))}
+        ))} */}
       </div>
     </section>
   );
 }
+
 const TechSkillItem = ({ text }: { text: string }) => {
   const iconType = text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '').toLowerCase();
   return (
-    <div className="flex outline outline-1 items-center p-2 rounded-sm hover:bg-gray-300/20 dark:hover:bg-gray-500/20">
-      <span className="text-2xl">
+    <div className="flex items-center p-2 rounded-sm hover:bg-gray-300/20 dark:hover:bg-gray-500/20">
+      <span className="text-2xl text-dark-bg dark:text-light-bg">
         <Icon type={iconType} />
       </span>
       <span className="pl-4">{text}</span>
@@ -76,16 +75,14 @@ const TechSkillItem = ({ text }: { text: string }) => {
 };
 
 export const techSkills = [
-  'HTML5',
-  'CSS3',
   'JavaScript',
-  'TypeScript',
-  'Node.js',
   'React',
+  'TypeScript',
   'Next.js',
+  'Node.js',
+  'Git',
   'Figma',
   'Tailwind CSS',
-  'Git',
 ];
 
 const nonSkills = [
@@ -123,12 +120,9 @@ export const MarqueeTech = () => {
 
 export function TechStacks() {
   return (
-    <ul className="flex text-4xl h-auto text-light-text/80 dark:text-dark-primary">
+    <ul className="flex h-auto text-4xl text-light-text/80 dark:text-dark-primary">
       {skillMarquee.map((item, index) => (
-        <li
-          key={index}
-          className="m-10 hover:text-light-accent dark:hover:text-dark-accent"
-        >
+        <li key={index} className="m-10 hover:text-light-accent dark:hover:text-dark-accent">
           {item.icon}
         </li>
       ))}
