@@ -5,6 +5,7 @@
   "editor.formatOnSaveMode": "file", // required to format on save
   "files.autoSave": "onFocusChange",
   "css.validate": false,
+  "prettier.printWidth": 100,
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }, // optional but recommended
