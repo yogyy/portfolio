@@ -12,12 +12,6 @@ interface NavLinkProps {
   classname?: string;
 }
 export default function NavLink({ href, children, ...rest }: NavLinkProps) {
-  useEffect(() => {
-    return () => {
-      window.scrollTo(0, 0);
-    };
-  }, []);
-
   let segment = useSelectedLayoutSegment();
   let active = href === `/${segment}` || (href === '/' && !segment);
   // console.log(segment);
@@ -25,9 +19,7 @@ export default function NavLink({ href, children, ...rest }: NavLinkProps) {
   return (
     <UnstyledLink
       {...rest}
-      className={clsx(
-        active ? 'text-sky-500 hover:text-green-500' : 'text-green-400'
-      )}
+      className={clsx(active ? 'text-sky-500 hover:text-green-500' : 'text-green-400')}
       href={href}
     >
       {children}

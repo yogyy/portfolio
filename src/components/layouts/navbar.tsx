@@ -54,7 +54,7 @@ export default function Navbar({ large = false }: HeaderProps) {
   }, []);
 
   return (
-    <header className="fixed w-full top-0 z-10">
+    <header className="fixed top-0 z-10 w-full">
       <nav className={`sticky bg-light-bg transition-colors dark:bg-dark-bg ${scrolled ? '' : ''}`}>
         <div
           className={clsx(
@@ -62,15 +62,12 @@ export default function Navbar({ large = false }: HeaderProps) {
             large && 'lg:max-w-[68rem]'
           )}
         >
-          {/* <Link href="/" className="normal-case flex md:hidden">
+          {/* <Link href="/" className="flex normal-case md:hidden">
             yogyy
           </Link> */}
-          <ul className="flex ml-9 gap-9 mr-auto">
+          <ul className="flex mr-auto ml-9 gap-9">
             {links.map(({ label, href }: dink) => (
-              <li
-                className="font-semibold"
-                key={`${href} ${label}`}
-              >
+              <li className="font-semibold" key={`${href} ${label}`}>
                 <NavLink href={href}>
                   <span className={clsx('transition-colors text-xs md:text-base font-semibold')}>
                     {label}

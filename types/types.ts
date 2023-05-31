@@ -12,6 +12,13 @@ export interface SpotifyData {
   songUrl: string;
 }
 
+export interface SpotifyLastPlayed {
+  title: string;
+  album: string;
+  songUrl: string;
+  artist: string;
+}
+
 export interface RecentlyPlayedResult {
   track: {
     id: string;

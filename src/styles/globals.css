@@ -31,7 +31,7 @@ a {
   text-decoration: none;
 }
 body {
-  @apply bg-light-bg dark:bg-dark-bg transition-colors text-light-text dark:text-dark-primary;
+  @apply text-gray-800 transition-colors bg-light-bg dark:bg-dark-bg dark:text-gray-300;
 }
 
 @layer base {
@@ -85,7 +85,7 @@ body {
 
   .layout {
     max-width: 68rem;
-    @apply mx-auto w-11/12;
+    @apply w-11/12 mx-auto;
   }
 
   .bg-dark a.custom-link {
@@ -96,7 +96,7 @@ body {
     @apply min-h-[calc(100vh-82px)];
   }
   .accent {
-    @apply dark:bg-gradient-to-r dark:from-dark-primary dark:to-dark-accent dark:bg-clip-text dark:text-transparent;
+    @apply text-transparent dark:bg-gradient-to-r dark:from-dark-primary/90 dark:to-dark-accent bg-clip-text;
   }
 
   .accent-highlight {
@@ -184,11 +184,49 @@ body {
 }
 
 .projectcard img {
-  filter: blur(1px);
+  filter: brightness(40%);
   transition: filter 0.5s ease-in-out;
 }
 
 .projectcard:hover img,
 .projectcard:focus-within img {
   filter: none;
+}
+
+/* styles.css */
+.TooltipContent {
+  animation-duration: 0.8s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+.TooltipContent[data-side='top'] {
+  animation-name: slideUp;
+}
+.TooltipContent[data-side='bottom'] {
+  animation-name: slideDown;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bgpattern {
+  background-color: @apply bg-dark-bg;
 }

@@ -56,10 +56,7 @@ const getNowPlaying = async () => {
   });
 };
 
-export default async function spotify(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function spotify(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
     const response = await getNowPlaying();
 
@@ -68,10 +65,7 @@ export default async function spotify(
       response.status > 400 ||
       response.data.currently_playing_type !== 'track'
     ) {
-      res.setHeader(
-        'Cache-Control',
-        'public, s-maxage=180, stale-while-revalidate=90'
-      );
+      res.setHeader('Cache-Control', 'public, s-maxage=180, stale-while-revalidate=90');
       return res.status(200).json({ isPlaying: false });
     }
 
@@ -79,16 +73,11 @@ export default async function spotify(
       isPlaying: response.data.is_playing,
       title: response.data.item.name,
       album: response.data.item.album,
-      artist: response.data.item.album.artists
-        .map(artist => artist.name)
-        .join(', '),
+      artist: response.data.item.album.artists.map(artist => artist.name).join(', '),
       songUrl: response.data.item.external_urls.spotify,
     };
 
-    res.setHeader(
-      'Cache-Control',
-      'public, s-maxage=180, stale-while-revalidate=90'
-    );
+    res.setHeader('Cache-Control', 'public, s-maxage=180, stale-while-revalidate=90');
     return res.status(200).json(data);
   }
 }

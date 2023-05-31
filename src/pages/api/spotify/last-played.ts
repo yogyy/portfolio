@@ -1,3 +1,4 @@
+import { SpotifyLastPlayed } from '@/../types/types';
 import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
 import querystring from 'querystring';
@@ -60,27 +61,47 @@ const getAccessToken = async () => {
   return res.data.access_token;
 };
 
+interface SpotifyDataLastPlayed {
+  items: {
+    track: {
+      name: string;
+      album: {
+        name: string;
+        artists: Array<{ name: string }>;
+        images: {
+          url: string;
+        }[];
+      };
+      external_urls: {
+        spotify: string;
+      };
+    };
+  }[];
+}
+
 const getLastPlayed = async () => {
   const access_token = await getAccessToken();
-  return axios.get<RecentlyPlayedResult>(LAST_PLAYED_ENDPOINT, {
+  return axios.get<SpotifyDataLastPlayed>(LAST_PLAYED_ENDPOINT, {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
   });
 };
 
-export default async function spotify(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function spotify(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
     const response = await getLastPlayed();
 
-    res.setHeader(
-      'Cache-Control',
-      'public, s-maxage=180, stale-while-revalidate=90'
-    );
+    res.setHeader('Cache-Control', 'public, s-maxage=180, stale-while-revalidate=90');
 
-    return res.status(200).json(response.data.items[0]);
+    const data = {
+      songUrl: response.data.items[0].track.external_urls.spotify,
+      album: response.data.items[0].track.album.images[2].url,
+      artist: response.data.items[0].track.album.artists
+        .map((artist: { name: any }) => artist.name)
+        .join(', '),
+      title: response.data.items[0].track.name,
+    };
+    return res.status(200).json(data);
   }
 }
