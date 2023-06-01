@@ -7,25 +7,26 @@ import Tooltipz from '../tooltip';
 
 export default function Footer() {
   return (
-    <footer className="bg-base-100 transition-colors">
+    <footer className="transition-colors bg-base-100">
       <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-      <div className="pb-4 layout relative">
+      <div className="relative pb-4 layout">
         <div className="">
-          <div className="mb-4 flex flex-col justify-center sm:flex-row sm:justify-between gap-3">
+          <div className="flex flex-col justify-center gap-3 mb-4 sm:flex-row sm:justify-between">
             <span className="self-center mb-4 text-2xl font-semibold whitespace-nowrap text-light-primary dark:text-dark-accent">
               yogyy
             </span>
             {<Spotify className="place-self-center" />}
           </div>
         </div>
-        <div className="flex flex-col-reverse justify-center place-items-center gap-6 md:flex-row md:justify-between">
-          <span className="text-sm font-semibold sm:text-center gap-3 flex text-gray- ">
+        <div className="flex flex-col-reverse justify-center gap-6 place-items-center md:flex-row md:justify-between">
+          <span className="flex gap-3 text-sm font-semibold sm:text-center">
             © 2023 Constantine.
           </span>
 
-          <div className="relative my-auto text-xl flex space-x-3 md:space-x-6 sm:place-content-center h-auto">
+          <div className="relative flex h-auto my-auto space-x-3 text-xl md:space-x-6 sm:place-content-center">
             {links.map(link => (
               <UnstyledLink
+                tabIndex={1}
                 aria-label="social media"
                 href={link.href}
                 key={link.href}
