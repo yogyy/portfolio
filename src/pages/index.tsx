@@ -1,5 +1,3 @@
-'use client';
-
 import clsx from 'clsx';
 import * as React from 'react';
 import { Accent } from '@/components/accent';
@@ -13,26 +11,32 @@ import RootLayout from '@/components/layouts/layout';
 import { InView } from 'react-intersection-observer';
 import ProjectCard from '@/components/ProjectCard';
 import { SiGithub, SiTwitter } from 'react-icons/si';
-import { IoNewspaperSharp } from 'react-icons/io5';
-import TechSection, { MarqueeTech } from '@/components/tech/techsection';
+import { IoHandLeftOutline, IoNewspaperSharp } from 'react-icons/io5';
+import TechSection from '@/components/tech/techsection';
 import { Me } from './about';
+import Tooltipz from '@/components/tooltip';
+
+const name = 'Muhammad Yogi Firman Syah.';
 
 export default function Home() {
   return (
     <RootLayout pageTitle="yogyy" content="Muhammad Yogi Firman Syah Webstie Portofolio">
-      <IsLoaded className="relative flex flex-col justify-center mb-20 min-h-main bgpattern">
+      <IsLoaded className="relative flex flex-col justify-center mb-20 min-h-main bgpattern h">
         <article className={`mx-auto layout`}>
-          <h1 className="text-2xl md:text-4xl 2xl:text-5xl" gaya-fade="1">
-            Hi~
+          <h1 className="text-sm flex items-center" gaya-fade="1">
+            <Accent>Hi, my name is</Accent>
           </h1>
-          <h2 gaya-fade="2" className="mt-1 text-3xl md:text-5xl 2xl:text-6xl">
-            You can call me&nbsp;
-            <Accent>Yogyy</Accent>
+          <h2 gaya-fade="2" className="mt-1 text-3xl md:text-4xl 2xl:text-5xl">
+            {name.toUpperCase()}
           </h2>
-          <Typewritterz />
+          <div className="mt-1">
+            <h3 gaya-fade="3" className="flex flex-wrap">
+              <Accent className="whoiam">Frontend Web Developer.</Accent>
+            </h3>
+          </div>
           <p gaya-fade="5" className="max-w-4xl mt-4 md:mt-6 md:text-lg 2xl:text-xl">
-            I work with react js and next js. Lorem ipsum dolor sit. <br /> I am constantly
-            expanding my knowledge and experience in the field
+            Frontend developer based in Tangerang, Indonesia.
+            <br /> I work with React & Next JS.
           </p>
           <div gaya-fade="6" className="mt-8 flex flex-wrap gap-4 md:!text-lg">
             <div className="relative group">
@@ -61,7 +65,7 @@ export default function Home() {
           </div>
           <div gaya-fade="7" className="flex flex-wrap gap-4 mt-4 gap-y-2 md:mt-8">
             <UnstyledLink
-              href="/"
+              href="#resume"
               onClick={() => console.warn('my resume not ready')}
               className={clsx(
                 'inline-flex items-center gap-1 text-sm font-medium md:text-base',
@@ -100,14 +104,6 @@ export default function Home() {
           </div>
         </article>
       </IsLoaded>
-
-      <InView triggerOnce rootMargin="-50% 0px">
-        {({ ref, inView }) => (
-          <section ref={ref} className={clsx('py-20 layout h-full', inView && 'fade-in-start')}>
-            <Me />
-          </section>
-        )}
-      </InView>
 
       <InView triggerOnce rootMargin="-40% 0px">
         {({ ref, inView }) => (
@@ -164,10 +160,20 @@ export default function Home() {
                       git .
                     </p>
                     <p gaya-fade="6">
-                      Know how to utilise assistive<span className="peer"> </span>
-                      <span className="relative after:absolute after:content-['Yes,_they_are_Google,_StackOverflow_and_ChatGPT!'] after:text-xs after:right-0 after:bottom-full after:w-fit after:bg-light-bg dark:after:bg-dark-bg after:p-2 after:border after:rounded after:border-light-primary after:opacity-0 hover:after:opacity-100 peer-hover:after:opacity-100 after:transition underline">
-                        technologies
-                      </span>
+                      Know how to utilise assistive<span className="peer"></span>
+                      <Tooltipz
+                        content={
+                          <p className="text-xs">
+                            Yes, they are
+                            <br />
+                            Google,
+                            <br /> StackOverflow
+                            <br />
+                            and ChatGPT!
+                          </p>
+                        }
+                        trigger="technologies"
+                      />
                       &nbsp;to enhance productivity.
                     </p>
                   </div>
