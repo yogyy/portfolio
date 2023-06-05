@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { ThemeButton } from '@/components/darkTheme';
 import { useRouter } from 'next/router';
-import UnstyledLink from '@/components/links/unstyledlink';
 import Link from 'next/link';
 
 type HeaderProps = {
@@ -55,7 +54,14 @@ export default function Navbar({ large = false }: HeaderProps) {
 
   return (
     <header className="fixed top-0 z-10 w-full">
-      <nav className={`sticky bg-light-bg transition-colors dark:bg-dark-bg ${scrolled ? '' : ''}`}>
+      <nav
+        className={clsx(
+          'sticky',
+          scrolled
+            ? 'bg-gradient-to-b dark:from-dark-bg dark:to-transparent backdrop-blur-sm'
+            : 'bg-light-bg transition-colors dark:bg-dark-bg'
+        )}
+      >
         <div
           className={clsx(
             'layout flex items-center justify-between py-4 ',
