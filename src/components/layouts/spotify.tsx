@@ -14,7 +14,7 @@ export default function Spotify({
 }: Omit<UnstyledLinkProps, 'href' | 'children'>) {
   const [lastPlay, setLastPlay] = React.useState<SpotifyLastPlayed>();
   const fetcher = (url: string) => fetch(url).then(r => r.json());
-  const { data } = useSWR<SpotifyData>('/api/spotify/currently-playing', fetcher, {
+  const { data, isLoading } = useSWR<SpotifyData>('/api/spotify/currently-playing', fetcher, {
     revalidateOnFocus: false,
   });
 
@@ -30,6 +30,10 @@ export default function Spotify({
         });
     }
   }, [data]);
+
+  if (isLoading || lastPlay === null) {
+    return <div className="animate-pulse">loading ...</div>;
+  }
 
   return data?.isPlaying === true ? (
     <figure className={className} data-cy="spotify">

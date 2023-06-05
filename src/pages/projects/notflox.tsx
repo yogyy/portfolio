@@ -11,15 +11,20 @@ const Notflox = () => {
   const project = projects[0];
   return (
     <RootLayout pageTitle="yogyy" content="Muhammad Yogi Firman Syah Webstie Portofolio">
-      <div className="layout h-full pt-16">
+      <div className="h-full pt-16 layout">
         <div className="h-full">
-          <Image src={project.banner!} alt="Project 1 Movie App" width={1440} height={792} />
+          <Image
+            src={project.banner!}
+            alt={`Project ${project.description}`}
+            width={1440}
+            height={792}
+          />
           <h1 className="mt-4 dark:text-dark-primary">{project.title}</h1>
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{project.description}</p>
-          <div className="mt-2 flex flex-wrap items-center justify-start gap-3 text-sm font-medium text-gray-600 dark:text-gray-300">
-            <div className="flex gap-2 items-center">
+          <div className="flex flex-wrap items-center justify-start gap-3 mt-2 text-sm font-medium text-gray-600 dark:text-gray-300">
+            <div className="flex items-center gap-2">
               <HiUser className="text-lg text-gray-800 dark:text-white" />
-              <p className="mt-2 flex items-center justify-start gap-2 text-sm text-gray-600 dark:text-gray-300">
+              <p className="flex items-center justify-start gap-2 mt-2 text-sm text-gray-600 dark:text-gray-300">
                 {project.category}
               </p>
             </div>
@@ -42,19 +47,19 @@ const Notflox = () => {
           <section className="relative flex justify-between">
             <div className="prose">
               <div className="mt-4">
-                <h2 className="dark:text-dark-primary py-2 ml-4">Short Explanation</h2>
+                <h2 className="py-2 ml-4 dark:text-dark-primary">Short Explanation</h2>
                 <div className="mt-2 text-gray-600 dark:text-gray-300">
                   <p>
-                    &emsp;My project is a movie streaming app built with NextJS. It consumes the
-                    TMDB API to display movies and TV shows. It features a homepage with trending TV
-                    shows based on Netflix, search functionality, and movie/TV show detail pages. It
-                    also includes a custom video player built with React Player to show Tv Show
+                    &emsp;My project is a movie list app built with NextJS. It consumes the TMDB API
+                    to display movies and TV shows. It features a homepage with trending TV shows
+                    based on Netflix, search functionality, and movie/TV show detail pages. It also
+                    includes a custom video player built with React Player to show Tv Show
                     Trailer(homepage). React Query and Axios are used to manage and fetch the API
                     data efficiently.
                   </p>
                   <p className="py-2">
-                    &emsp;My project is a movie and TV show streaming app built using NextJs. Some
-                    of the features that have been implemented include:
+                    &emsp;My project is a movie and TV show list app built using NextJs. Some of the
+                    features that have been implemented include:
                   </p>
                   <ul className="list-disc">
                     <li>🔍 Browse and search for movies and TV shows using the TMDB API.</li>
@@ -73,8 +78,8 @@ const Notflox = () => {
                   </ul>
                 </div>
               </div>
-              <div className="mt-4 max-w-2xl">
-                <h2 className="dark:text-dark-primary ml-4 py-2">Project Goals</h2>
+              <div className="max-w-2xl mt-4">
+                <h2 className="py-2 ml-4 dark:text-dark-primary">Project Goals</h2>
                 <p className="mt-2 text-gray-600 dark:text-gray-300 ">
                   &emsp;The goal of my project is to provide a user-friendly and visually appealing
                   movie streaming app that allows users to browse and search for movies and TV
@@ -85,10 +90,10 @@ const Notflox = () => {
                   Axios, and other related technologies and libraries.
                 </p>
               </div>
-              <div className="mt-4 max-w-2xl text-gray-600 dark:text-gray-300">
-                <div className="ml-4 py-2">
-                  <h2 className="dark:text-dark-primary ml-4 py-2">Project Goals</h2>
-                  <span className="text-xl">{project.techs}</span>
+              <div className="max-w-2xl mt-4 text-gray-600 dark:text-gray-300">
+                <div className="py-2 ml-4">
+                  <h2 className="py-2 ml-4 dark:text-dark-primary">Tech Stack Used </h2>
+                  <div className="text-xl">{project.techs}</div>
                 </div>
                 <div className="">
                   <p className="mt-2">

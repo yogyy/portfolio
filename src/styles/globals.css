@@ -88,6 +88,11 @@ body {
     @apply w-11/12 mx-auto;
   }
 
+  .lil-layout {
+    max-width: 48rem;
+    @apply w-11/12 mx-auto;
+  }
+
   .bg-dark a.custom-link {
     @apply border-gray-200 hover:border-gray-200/0;
   }

@@ -7,8 +7,7 @@ export default function Typewritterz() {
   return (
     <div className={`mt-1  `}>
       <h3 gaya-fade="3" className="flex flex-wrap">
-        I&apos;m a <span className="mr-2"> </span>
-        <Accent className="whoiam">Frontend Web Developer</Accent>
+        <Accent className="whoiam">Frontend Web Developer.</Accent>
       </h3>
     </div>
   );
