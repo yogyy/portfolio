@@ -12,7 +12,7 @@ export const TypescriptIcons = ({ ...props }: IconBaseProps) => {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <g clip-path="url(#clip0_116_2)">
+      <g clipPath="url(#clip0_116_2)">
         <path d="M0 12V24H12H24V12V0H12H0V12Z" className=" fill-[#222222] dark:fill-white" />
         <path
           d="M5.30731 12.0796L5.29969 13.0624H6.8616H8.4235V17.5005V21.9386H9.52826H10.633V17.5005V13.0624H12.1949H13.7568V12.0986C13.7568 11.5653 13.7454 11.1196 13.7302 11.1081C13.7187 11.0929 11.8178 11.0853 9.51303 11.0891L5.31874 11.1005L5.30731 12.0796Z"
