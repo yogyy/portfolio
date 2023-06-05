@@ -1,13 +1,4 @@
 import * as React from 'react';
-import {
-  SiHeadlessui,
-  SiMongodb,
-  SiMui,
-  SiNextdotjs,
-  SiReact,
-  SiReactquery,
-  SiTailwindcss,
-} from 'react-icons/si';
 import { Accent } from '../accent';
 import ProjectCard from '../ProjectCard';
 
@@ -37,11 +28,7 @@ export const projects = [
     banner:
       'https://res.cloudinary.com/dpegakmzh/image/upload/v1683377050/Group-3copyhero_wlchnc.webp',
     url: 'https://yogyy-notflox.netlify.app',
-    techs: (
-      <div className="flex gap-2 mt-2 text-dark-accent">
-        <SiNextdotjs /> <SiTailwindcss /> <SiHeadlessui /> <SiMui /> <SiMongodb /> <SiReactquery />
-      </div>
-    ),
+    techs: ['SiNextdotjs', 'SiTailwindcss', 'SiHeadlessui', 'SiMui', 'SiMongodb', 'SiReactquery'],
     github: 'https://github.com/yogyy/Netflix-Movie-App',
     category: 'Personal Project',
   },
@@ -51,11 +38,7 @@ export const projects = [
     description: 'This is the second project',
     imageUrl: '',
     url: 'https://example.com/project-2',
-    techs: (
-      <div className="flex gap-2 mt-2">
-        <SiReact /> <SiTailwindcss />
-      </div>
-    ),
+    techs: ['SiReact', 'SiTailwindcss'],
   },
   {
     slug: '#project-3',
@@ -63,10 +46,6 @@ export const projects = [
     description: 'This is the third project',
     imageUrl: '',
     url: 'https://example.com/project-3',
-    techs: (
-      <div className="flex gap-2 mt-2">
-        <SiReact /> <SiTailwindcss />
-      </div>
-    ),
+    techs: ['SiReact', 'SiTailwindcss'],
   },
 ];

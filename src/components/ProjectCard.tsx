@@ -3,10 +3,34 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import * as React from 'react';
 import UnstyledLink from './links/unstyledlink';
+import {
+  SiHeadlessui,
+  SiMongodb,
+  SiMui,
+  SiNextdotjs,
+  SiReact,
+  SiReactquery,
+  SiTailwindcss,
+} from 'react-icons/si';
 
 type ProjectCardProps = {
   project: ProjectFrontmatter;
 } & React.ComponentPropsWithoutRef<'li'>;
+
+const Icons: { [key: string]: React.ComponentType } = {
+  SiNextdotjs,
+  SiTailwindcss,
+  SiHeadlessui,
+  SiReact,
+  SiMui,
+  SiMongodb,
+  SiReactquery,
+};
+
+const Icon: React.FC<{ icon: keyof typeof Icons }> = ({ icon }) => {
+  const IconComponent = Icons[icon];
+  return <IconComponent />;
+};
 
 export default function ProjectCard({ project, className, ...rest }: ProjectCardProps) {
   return (
@@ -18,7 +42,7 @@ export default function ProjectCard({ project, className, ...rest }: ProjectCard
         'transition duration-200',
         'motion-reduce:hover:scale-100',
         'animate-shadow text-light-primary dark:text-dark-primary',
-        'hover:text-light-text dark:hover:text-dark-accent focus-within:text-light-text dark:focus-within:text-dark-accent',
+        'hover:text-light-text dark:hover:text-dark-accent focus-within:text-light-text dark:focus-within:text-dark-accent hover:rounded-none',
         className
       )}
       {...rest}
@@ -29,7 +53,11 @@ export default function ProjectCard({ project, className, ...rest }: ProjectCard
       >
         <h1 className="text-xl">{project.title}</h1>
         <p className="mb-auto text-sm text-gray-700 dark:text-gray-300">{project.description}</p>
-        <div>{project.techs}</div>
+        <div className="flex gap-2 mt-2">
+          {project.techs.map((tech: string, index: React.Key | null | undefined) => (
+            <Icon key={index} icon={tech} />
+          ))}
+        </div>
 
         <Image
           className="w-full mt-3 pointer-events-none bg-light-bg/30 dark:bg-dark-bg/30"
@@ -41,6 +69,7 @@ export default function ProjectCard({ project, className, ...rest }: ProjectCard
           alt={project.title}
           width={1440}
           height={792}
+          quality={60}
         />
         <p className="inline-block mt-2 font-medium animated-underline text-light-primary dark:text-dark-primary">
           See more →
