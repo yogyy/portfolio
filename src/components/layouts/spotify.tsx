@@ -35,10 +35,10 @@ export default function Spotify({
     return <div className="animate-pulse">loading ...</div>;
   }
 
-  return data?.isPlaying === true ? (
-    <figure className={className} data-cy="spotify">
+  return data.isPlaying === true ? (
+    <figure id="spotify-activity" className={className} data-cy="spotify">
       <UnstyledLink
-        {...rest}
+        aria-label={`Now Playing: ${data.title} by ${data.artist}`}
         href={data.songUrl}
         className={clsx(
           'relative flex items-center gap-4 p-2.5',
@@ -48,6 +48,7 @@ export default function Spotify({
           'focus:outline-none focus-visible:ring focus-visible:ring-light-accent dark:focus-visible:ring-dark-accent',
           'bg-light-secondary/30 dark:bg-dark-bg/30'
         )}
+        {...rest}
       >
         <Image
           className="w-12 shadow-sm dark:shadow-none"
@@ -56,8 +57,8 @@ export default function Spotify({
           width={240}
           height={240}
         />
-        <div className="flex-1 ">
-          <p className="text-xs font-medium">Playing : {data.title}</p>
+        <div className="flex-1">
+          <p className="text-xs font-medium">Playing: {data.title}</p>
           <p className="mt-1 text-xs font-semibold text-light-text/60 dark:text-dark-primary/50">
             {data.artist}
           </p>
@@ -68,9 +69,10 @@ export default function Spotify({
       </UnstyledLink>
     </figure>
   ) : (
-    <figure className={className} data-cy="spotify">
+    <figure id="spotify-activity" className={className} data-cy="spotify">
       <UnstyledLink
         {...rest}
+        aria-label={`Last Played: ${lastPlay?.title} by ${lastPlay?.artist}`}
         href={lastPlay ? lastPlay?.songUrl : ''}
         className={clsx(
           'relative flex items-center gap-4 p-2.5',
@@ -91,7 +93,7 @@ export default function Spotify({
           />
         )}
         <div className="flex-1 ">
-          <p className="text-xs font-medium">Last Played : {lastPlay?.title}</p>
+          <p className="text-xs font-medium">Last Played: {lastPlay?.title}</p>
           <p className="mt-1 text-xs text-gray-600 dark:text-dark-primary/50">{lastPlay?.artist}</p>
         </div>
         <div className="absolute right-1.5 bottom-1.5">
