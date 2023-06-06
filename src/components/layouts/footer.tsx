@@ -21,7 +21,10 @@ export default function Footer() {
             © 2023 Muhammad Yogi F S.
           </span>
 
-          <div className="relative flex h-auto my-auto space-x-3 text-xl md:space-x-6 sm:place-content-center">
+          <div
+            aria-label="Social Media"
+            className="relative flex h-auto my-auto space-x-3 text-xl md:space-x-6 sm:place-content-center"
+          >
             {links.map(link => (
               <UnstyledLink
                 tabIndex={1}
