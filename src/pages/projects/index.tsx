@@ -1,8 +1,8 @@
 import { Accent } from '@/components/accent';
-import { projects } from '@/components/clientComponent/projectlist';
+import { projects } from '@/components/clientComponent/project-list';
 import IsLoaded from '@/components/isLoaded';
 import RootLayout from '@/components/layouts/layout';
-import ProjectCard from '@/components/ProjectCard';
+import ProjectCard from '@/components/project-card';
 import clsx from 'clsx';
 import React from 'react';
 

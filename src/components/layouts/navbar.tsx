@@ -1,7 +1,6 @@
-'use client';
 import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
-import { ThemeButton } from '@/components/darkTheme';
+import { ThemeButton } from '@/components/dark-theme';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
