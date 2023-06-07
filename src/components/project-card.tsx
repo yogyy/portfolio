@@ -2,35 +2,12 @@ import { ProjectFrontmatter } from '@/../types/frontmatters';
 import clsx from 'clsx';
 import Image from 'next/image';
 import * as React from 'react';
+import { Icon } from './custom-icons';
 import UnstyledLink from './links/unstyledlink';
-import {
-  SiHeadlessui,
-  SiMongodb,
-  SiMui,
-  SiNextdotjs,
-  SiReact,
-  SiReactquery,
-  SiTailwindcss,
-} from 'react-icons/si';
 
 type ProjectCardProps = {
   project: ProjectFrontmatter;
 } & React.ComponentPropsWithoutRef<'li'>;
-
-const Icons: { [key: string]: React.ComponentType } = {
-  SiNextdotjs,
-  SiTailwindcss,
-  SiHeadlessui,
-  SiReact,
-  SiMui,
-  SiMongodb,
-  SiReactquery,
-};
-
-const Icon: React.FC<{ icon: keyof typeof Icons }> = ({ icon }) => {
-  const IconComponent = Icons[icon];
-  return <IconComponent />;
-};
 
 export default function ProjectCard({ project, className, ...rest }: ProjectCardProps) {
   return (

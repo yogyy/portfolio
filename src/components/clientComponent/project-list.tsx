@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Accent } from '../accent';
-import ProjectCard from '../ProjectCard';
+import ProjectCard from '../project-card';
 
 export default function Project() {
   return (
@@ -25,27 +25,29 @@ export const projects = [
     slug: '/projects/notflox',
     title: 'NOTFLOX',
     description: 'Movie App',
-    banner:
-      'https://res.cloudinary.com/dpegakmzh/image/upload/v1683377050/Group-3copyhero_wlchnc.webp',
+    banner: '/../public/images/project/notflox_preview.webp',
+
     url: 'https://yogyy-notflox.netlify.app',
-    techs: ['SiNextdotjs', 'SiTailwindcss', 'SiHeadlessui', 'SiMui', 'SiMongodb', 'SiReactquery'],
+    techs: ['NextJS', 'Tailwind', 'HeadlessUI', 'MUI', 'MongoDB', 'ReactQuery'],
     github: 'https://github.com/yogyy/Netflix-Movie-App',
     category: 'Personal Project',
   },
   {
-    slug: '#project-2',
-    title: 'Project 2',
-    description: 'This is the second project',
-    imageUrl: '',
-    url: 'https://example.com/project-2',
-    techs: ['SiReact', 'SiTailwindcss'],
+    slug: '/projects/burungbiru',
+    title: 'BurungBiru',
+    description: 'a Small social media',
+    banner: '/../public/images/project/burungbiru.vercel.app.webp',
+    url: 'https://burungbiru.vercel.app',
+    techs: ['NextJS', 'Tailwind', 'ReactQuery', 'Trpc', 'Upstash'],
+    github: 'https://github.com/yogyy/burungbiru',
+    category: 'Personal Project',
   },
   {
     slug: '#project-3',
     title: 'Project 3',
     description: 'This is the third project',
-    imageUrl: '',
+    banner: '',
     url: 'https://example.com/project-3',
-    techs: ['SiReact', 'SiTailwindcss'],
+    techs: ['ReactJS', 'Tailwind'],
   },
 ];

@@ -5,37 +5,35 @@ import ButtonLink from '@/components/links/buttonlink';
 import UnstyledLink from '@/components/links/unstyledlink';
 import { scrollToSection } from '@/components/clientComponent/scrollToId';
 import IsLoaded from '@/components/isLoaded';
-import Typewritterz from '@/components/typewritter';
-import { projects } from '@/components/clientComponent/projectlist';
+import { projects } from '@/components/clientComponent/project-list';
 import RootLayout from '@/components/layouts/layout';
 import { InView } from 'react-intersection-observer';
-import ProjectCard from '@/components/ProjectCard';
+import ProjectCard from '@/components/project-card';
 import { SiGithub, SiTwitter } from 'react-icons/si';
-import { IoHandLeftOutline, IoNewspaperSharp } from 'react-icons/io5';
+import { IoNewspaperSharp } from 'react-icons/io5';
 import TechSection from '@/components/tech/techsection';
-import { Me } from './about';
 import Tooltipz from '@/components/tooltip';
-
+import { Vazirmatn } from 'next/font/google';
 const name = 'Muhammad Yogi Firman Syah.';
 
 export default function Home() {
   return (
     <RootLayout pageTitle="yogyy" content="Muhammad Yogi Firman Syah Webstie Portofolio">
-      <IsLoaded className="relative flex flex-col justify-center mb-20 min-h-main bgpattern h">
+      <IsLoaded className="relative flex flex-col justify-center mb-20 min-h-main">
         <article className={`mx-auto layout`}>
-          <h1 className="text-sm flex items-center" gaya-fade="1">
-            <Accent>Hi, my name is</Accent>
+          <h1 className="flex items-center text-sm" gaya-fade="1">
+            Hi, my name is
           </h1>
-          <h2 gaya-fade="2" className="mt-1 text-3xl md:text-4xl 2xl:text-5xl">
-            {name.toUpperCase()}
+          <h2 gaya-fade="2" className="mt-1 text-3xl md:text-4xl 2xl:text-5xl font-doodle">
+            <Accent>{name}</Accent>
           </h2>
           <div className="mt-1">
             <h3 gaya-fade="3" className="flex flex-wrap">
-              <Accent className="whoiam">Frontend Web Developer.</Accent>
+              Frontend Web Developer,
             </h3>
           </div>
           <p gaya-fade="5" className="max-w-4xl mt-4 md:mt-6 md:text-lg 2xl:text-xl">
-            Frontend developer based in Tangerang, Indonesia.
+            based in Tangerang, Indonesia.
             <br /> I work with React & Next JS.
           </p>
           <div gaya-fade="6" className="mt-8 flex flex-wrap gap-4 md:!text-lg">
@@ -50,7 +48,7 @@ export default function Home() {
               />
               <ButtonLink
                 href="#about"
-                onClick={() => scrollToSection('about')}
+                onClick={() => scrollToSection('skill')}
                 className="bg-light-primary text-light-bg dark:bg-dark-primary dark:text-dark-text dark:border-dark-primary"
               >
                 Scroll down
@@ -112,9 +110,9 @@ export default function Home() {
               <h2 gaya-fade="1">
                 <Accent>Skills</Accent>
               </h2>
-              <article className="mt-6">
+              <article id="skill" className="mt-6">
                 <div className="grid grid-cols-1 gap-12">
-                  <div className="flex flex-col gap-6">
+                  <div className="flex flex-col gap-4">
                     <div gaya-fade="2" className="flex flex-row items-center gap-3">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -137,7 +135,7 @@ export default function Home() {
                       proficient in HTML, CSS, JavaScript, and TypeScript
                     </p>
                   </div>
-                  <div className="flex flex-col gap-6">
+                  <div className="flex flex-col gap-4">
                     <div gaya-fade="4" className="flex flex-row items-center gap-3">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

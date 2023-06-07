@@ -1,27 +1,29 @@
-import RootLayout from '@/components/layouts/layout';
-import Image from 'next/image';
-import React from 'react';
 import { projects } from '@/components/clientComponent/project-list';
-import CustomLink from '@/components/links/custom-link';
-import { HiLink, HiUser } from 'react-icons/hi';
-import { SiGithub } from 'react-icons/si';
 import { Icon } from '@/components/custom-icons';
+import RootLayout from '@/components/layouts/layout';
+import CustomLink from '@/components/links/custom-link';
 import Tooltipz from '@/components/tooltip';
 import { insertSpaces } from '@/lib/helper';
+import Image from 'next/image';
+import { HiLink, HiUser } from 'react-icons/hi';
+import { SiGithub } from 'react-icons/si';
 
-const Notflox = () => {
-  const project = projects[0];
+const BurungBiru = () => {
+  const project = projects[1];
   return (
-    <RootLayout pageTitle="NOTFLOX | yogyy" content="Notflox, Project Portofolio">
+    <RootLayout pageTitle="BurungBiru | yogyy" content="Notflox, Project Portofolio">
       <div className="h-full pt-16 layout">
         <div className="h-full">
           <Image
             src={project.banner!}
             alt={`Project ${project.description}`}
-            width={1445}
+            width={1440}
             height={792}
           />
-          <h1 className="mt-4 dark:text-dark-primary">{project.title}</h1>
+          <h1 className="mt-4 dark:text-dark-primary">
+            {project.title}
+            <span className="text-xs"> (in development)</span>
+          </h1>
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{project.description}</p>
           <div className="flex flex-wrap items-center justify-start gap-3 mt-2 text-sm font-medium text-gray-600 dark:text-gray-300">
             <div className="flex items-center gap-2">
@@ -52,44 +54,37 @@ const Notflox = () => {
                 <h2 className="py-2 ml-4 dark:text-dark-primary">Short Explanation</h2>
                 <div className="mt-2 text-gray-600 dark:text-gray-300">
                   <p>
-                    &emsp;My project is a movie list app built with NextJS. It consumes the TMDB API
-                    to display movies and TV shows. It features a homepage with trending TV shows
-                    based on Netflix, search functionality, and movie/TV show detail pages. It also
-                    includes a custom video player built with React Player to show Tv Show
-                    Trailer(homepage). React Query and Axios are used to manage and fetch the API
-                    data efficiently.
+                    &emsp;This project is a small-scale social media platform that aims to resemble
+                    Twitter in terms of functionality and design. It provides users with a platform
+                    to express their thoughts, share updates, and engage in conversations with other
+                    users. The main goal is to create a simplified version of Twitter with limited
+                    features.
                   </p>
                   <p className="py-2">
-                    &emsp;My project is a movie and TV show list app built using NextJs. Some of the
-                    features that have been implemented include:
+                    &emsp;My project is a social media built using NextJs. Some of the features that
+                    have been implemented include:
                   </p>
                   <ul className="list-disc">
-                    <li>🔍 Browse and search for movies and TV shows using the TMDB API.</li>
-                    <li>🎬 Movie/TV show posters and trailers displayed on the page.</li>
-                    <li>📝 Movie/TV show details, such as synopsis, release date, and rating.</li>
-                    <li>
-                      🌐 Integration with the TMDB API to fetch data about movies and TV shows.
-                    </li>
+                    <li>🔒 User Registration and Authentication.</li>
+                    <li>✉️ Posting Tweets.</li>
+                    <li>👤 User Profiles.</li>
                   </ul>
                   <p className="py-2">
                     However, there are still some features that I plan to add in the future:
                   </p>
                   <ul className="list-disc">
-                    <li>📝 User account system for saving favorites and creating watchlists</li>
-                    <li>🌙 Dark mode / Light mode theme for comfortable viewing at night.</li>
+                    <li>👥 Follow Functionality</li>
+                    <li>❤️ Like and Comment on Tweets.</li>
                   </ul>
                 </div>
               </div>
               <div className="max-w-2xl mt-4">
                 <h2 className="py-2 ml-4 dark:text-dark-primary">Project Goals</h2>
                 <p className="mt-2 text-gray-600 dark:text-gray-300 ">
-                  &emsp;The goal of my project is to provide a user-friendly and visually appealing
-                  movie streaming app that allows users to browse and search for movies and TV
-                  shows, and watch trailers with a custom video player. The app should be fast and
-                  efficient in fetching and managing data from the TMDB API, and it should be
-                  responsive and work well on different screen sizes and devices. Additionally, the
-                  project aims to provide a good learning experience in using React, React Query,
-                  Axios, and other related technologies and libraries.
+                  &emsp;The project aims to replicate essential features of Twitter, including
+                  posting tweets, following/unfollowing users, liking tweets, commenting on tweets,
+                  and displaying personalized feeds. The platform should closely emulate the user
+                  experience of Twitter, providing a familiar environment for users.
                 </p>
               </div>
               <div className="max-w-2xl mt-4 text-gray-600 dark:text-gray-300">
@@ -98,12 +93,16 @@ const Notflox = () => {
                   <div className="flex gap-2 text-xl">
                     {project.techs.map((tech: string, index: React.Key | null | undefined) => (
                       <Tooltipz
-                        content={<p className="text-dark-accent">{insertSpaces(tech)}</p>}
+                        content={
+                          <p className="text-light-primary dark:text-dark-accent">
+                            {insertSpaces(tech)}
+                          </p>
+                        }
                         key={index}
                         className="group"
                         trigger={
                           <Icon
-                            className="group-focus:text-dark-accent hover:text-dark-accent"
+                            className="dark:group-focus:text-dark-accent group-focus:text-light-text hover:text-light-text dark:hover:text-dark-accent"
                             icon={tech}
                           />
                         }
@@ -113,7 +112,7 @@ const Notflox = () => {
                 </div>
                 <div className="">
                   <p className="mt-2">
-                    The Notflox project uses a range of technologies & libraries, including:
+                    This project uses a range of technologies & libraries, including:
                   </p>
                   <ul className="list-disc ">
                     <li>
@@ -124,13 +123,19 @@ const Notflox = () => {
                       Tailwind CSS: Used as the main styling framework to rapidly build and style UI
                       components.
                     </li>
-                    <li>Headless UI: Used for accessible and reusable UI components.</li>
-                    <li>Material UI: Used for additional UI components.</li>
+                    <li>Clerk: Used for Authentication.</li>
                     <li>
                       React Query: Used for data fetching and caching in a performant and
                       easy-to-use way.
                     </li>
-                    <li>MongoDB: Used as the primary database for storing data and information.</li>
+                    <li>
+                      TRPc: Used for write endpoints that can safely use in both the front and
+                      backend of app.
+                    </li>
+                    <li>
+                      Upstash: Used to prevent the frequency of an operation from exceeding a
+                      defined limit and causing server errors.
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -145,4 +150,4 @@ const Notflox = () => {
   );
 };
 
-export default Notflox;
+export default BurungBiru;

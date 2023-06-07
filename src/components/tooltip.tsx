@@ -17,11 +17,12 @@ export default function Tooltipz({ content, trigger, className }: TooltipButtonP
           <Tooltip.Content
             sideOffset={8}
             className={clsx(
-              'bg-light-bg dark:bg-dark-bg px-3 text-light-accent font-semibold outline outline-1 outline-dark-accent py-2 TooltipContent left-4 flex flex-col text-base rounded-md'
+              'bg-light-bg dark:bg-dark-bg px-3 text-light-accent font-semibold outline outline-1 py-2 TooltipContent left-4 flex flex-col text-base rounded-md',
+              'outline-light-text dark:outline-dark-accent'
             )}
           >
             {content}
-            <Tooltip.Arrow className="fill-dark-accent" />
+            <Tooltip.Arrow className="fill-light-text dark:fill-dark-accent" />
           </Tooltip.Content>
         </Tooltip.Portal>
       </Tooltip.Root>
