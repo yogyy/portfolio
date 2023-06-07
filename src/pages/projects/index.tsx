@@ -9,7 +9,7 @@ import React from 'react';
 const Projects = () => {
   return (
     <RootLayout pageTitle="Projects">
-      <div className="layout min-h-screen h-full pt-14">
+      <div className="h-full min-h-screen layout pt-14">
         <IsLoaded>
           <section className={clsx('py-20 h-full')}>
             <article className="layout" gaya-fade="0">
@@ -19,7 +19,7 @@ const Projects = () => {
               <p gaya-fade="3" className="mt-2 text-gray-600 dark:text-gray-300">
                 Showcase of my works on frontend development.
               </p>
-              <ul gaya-fade="4" className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+              <ul gaya-fade="4" className="grid gap-4 mt-6 sm:grid-cols-2 xl:grid-cols-3">
                 {projects.map(project => (
                   <ProjectCard key={project.slug} project={project} />
                 ))}

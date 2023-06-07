@@ -22,6 +22,7 @@ function NavLink({ href, children, ...rest }: NavLinkProps) {
     <Link
       href={href}
       passHref
+      draggable={false}
       {...rest}
       className={clsx(
         router.pathname && baseRoute !== href
@@ -36,43 +37,65 @@ function NavLink({ href, children, ...rest }: NavLinkProps) {
 }
 
 export default function Navbar({ large = false }: HeaderProps) {
-  const [scrolled, setScrolled] = useState(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    window.onscroll = () => {
-      if (window.pageYOffset > 0) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      const isVisible = prevScrollPos > currentScrollPos;
+
+      setPrevScrollPos(currentScrollPos);
+      setVisible(isVisible);
+    };
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', handleScroll);
+    }
+
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('scroll', handleScroll);
       }
     };
-    return () => {
-      window.onscroll = null;
-    };
-  }, []);
+  }, [prevScrollPos]);
 
   return (
-    <header className="fixed top-0 z-10 w-full">
-      <nav
+    <header
+      className={clsx(
+        'fixed z-10 w-full',
+        !visible ? '-top-12' : 'top-0 transition-all duration-300'
+      )}
+    >
+      <a
+        href="#skip-nav"
         className={clsx(
-          'sticky',
-          scrolled
-            ? 'bg-gradient-to-b dark:from-dark-bg dark:to-transparent backdrop-blur-sm'
-            : 'bg-light-bg transition-colors dark:bg-dark-bg'
+          'rounded-sm p-2 transition',
+          'font-medium text-black dark:text-white',
+          'bg-light-bg dark:bg-dark-bg',
+          'group dark:hover:text-dark-accent',
+          'focus:outline-none focus:ring focus:ring-dark-accent',
+          'absolute left-4 top-1 z-20',
+          '-translate-y-16 focus:translate-y-0'
+        )}
+      >
+        skip to content
+      </a>
+      <nav
+        aria-label="Main Menu"
+        className={clsx(
+          'sticky bg-gradient-to-b dark:from-dark-bg dark:to-transparent backdrop-blur-sm'
         )}
       >
         <div
           className={clsx(
-            'layout flex items-center justify-between py-4 ',
+            'layout flex items-center justify-between py-4',
             large && 'lg:max-w-[68rem]'
           )}
         >
-          {/* <Link href="/" className="flex normal-case md:hidden">
-            yogyy
-          </Link> */}
           <ul className="flex mr-auto ml-9 gap-9">
             {links.map(({ label, href }: dink) => (
-              <li className="font-semibold" key={`${href} ${label}`}>
+              <li key={`${href} ${label}`}>
                 <NavLink href={href}>
                   <span className={clsx('transition-colors text-xs md:text-base font-semibold')}>
                     {label}

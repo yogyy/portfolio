@@ -33,6 +33,7 @@ export default function RootLayout(props: LayoutProps, ...customMeta: any) {
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
         <meta property="og:image" content={meta.image} />
+        <meta property="og:image:alt" content="Muhammad Yogi Firman Syah" />
         <meta property="og:type" content={meta.type} />
         <meta property="og:url" content={`https://yogyy.vercel.app${router.asPath}`} />
         <meta property="og:site_name" content="yogyy" />
@@ -50,7 +51,7 @@ export default function RootLayout(props: LayoutProps, ...customMeta: any) {
         <link rel="canonical" href={`https://yogyy.vercel.app${router.asPath}`} />
       </Head>
       <Navbar />
-      <main className={inter.className}>
+      <main id="skip-nav" className={inter.className}>
         {children}
         {/* <YG
           className={clsx(
