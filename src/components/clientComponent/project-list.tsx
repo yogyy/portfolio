@@ -25,7 +25,8 @@ export const projects = [
     slug: '/projects/notflox',
     title: 'NOTFLOX',
     description: 'Movie App',
-    banner: '/public/images/project/notflox_preview.webp',
+    banner:
+      'https://res.cloudinary.com/dpegakmzh/image/upload/v1686663246/notflox_preview_fc7g8r.webp',
 
     url: 'https://yogyy-notflox.netlify.app',
     techs: ['NextJS', 'Tailwind', 'HeadlessUI', 'MUI', 'MongoDB', 'ReactQuery'],
@@ -36,7 +37,8 @@ export const projects = [
     slug: '/projects/burungbiru',
     title: 'BurungBiru',
     description: 'a Small social media',
-    banner: '/public/images/project/burungbiru.vercel.app.webp',
+    banner:
+      'https://res.cloudinary.com/dpegakmzh/image/upload/v1686663245/burungbiru.vercel.app_yloknn.webp',
     url: 'https://burungbiru.vercel.app',
     techs: ['NextJS', 'Tailwind', 'ReactQuery', 'Trpc', 'Upstash'],
     github: 'https://github.com/yogyy/burungbiru',
