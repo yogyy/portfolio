@@ -14,6 +14,16 @@
   --clr-primary-500: rgb(var(--tw-clr-primary-500)); /* #00c4fd */
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #121212;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded bg-light-accent dark:bg-dark-accent;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
