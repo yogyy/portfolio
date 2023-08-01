@@ -111,8 +111,8 @@ export default function Home() {
                 <Accent>Skills</Accent>
               </h2>
               <article id="skill" className="mt-6">
-                <div className="grid grid-cols-1 gap-12">
-                  <div className="flex flex-col gap-4">
+                <div className="grid grid-cols-2 gap-12">
+                  <div className="flex flex-col gap-4 border dark:border-gray-600 p-4 rounded-md h-max">
                     <div gaya-fade="2" className="flex flex-row items-center gap-3">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +120,7 @@ export default function Home() {
                         height="24"
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke="currentColor"
+                        stroke="#05B8BB"
                         strokeWidth="1"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -128,14 +128,14 @@ export default function Home() {
                         <polyline points="16 18 22 12 16 6"></polyline>
                         <polyline points="8 6 2 12 8 18"></polyline>
                       </svg>
-                      <h3 className="text-lg font-medium">Web development</h3>
+                      <h3 className="text-xl">Web development</h3>
                     </div>
                     <p gaya-fade="3">
                       I have experience in web development with React and Next.js, and I am
                       proficient in HTML, CSS, JavaScript, and TypeScript
                     </p>
                   </div>
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-4 border dark:border-gray-600 p-4 rounded-md">
                     <div gaya-fade="4" className="flex flex-row items-center gap-3">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +143,7 @@ export default function Home() {
                         height="24"
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke="currentColor"
+                        stroke="#05B8BB"
                         strokeWidth="1"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -151,7 +151,7 @@ export default function Home() {
                         <polyline points="4 17 10 11 4 5"></polyline>
                         <line x1="12" x2="20" y1="19" y2="19"></line>
                       </svg>
-                      <h3 className="text-lg font-medium">Other technologies</h3>
+                      <h3 className="text-xl">Other technologies</h3>
                     </div>
                     <p gaya-fade="5">
                       Familiar with and frequent user of common software development tools, such as
