@@ -13,28 +13,24 @@ import { SiGithub, SiTwitter } from 'react-icons/si';
 import { IoNewspaperSharp } from 'react-icons/io5';
 import TechSection from '@/components/tech/techsection';
 import Tooltipz from '@/components/tooltip';
-import { Vazirmatn } from 'next/font/google';
-const name = 'Muhammad Yogi Firman Syah.';
 
 export default function Home() {
   return (
     <RootLayout pageTitle="yogyy" content="Muhammad Yogi Firman Syah Webstie Portofolio">
       <IsLoaded className="relative flex flex-col justify-center mb-20 min-h-main">
         <article className={`mx-auto layout`}>
-          <h1 className="flex items-center text-sm" gaya-fade="1">
-            Hi, my name is
+          <h1 className="flex items-center text-3xl md:text-4xl 2xl:text-5xl gap-2" gaya-fade="1">
+            <span>Hi, i&apos;m</span>
+            <Accent>yogyy</Accent>
           </h1>
-          <h2 gaya-fade="2" className="mt-1 text-3xl md:text-4xl 2xl:text-5xl font-doodle">
-            <Accent>{name}</Accent>
-          </h2>
           <div className="mt-1">
             <h3 gaya-fade="3" className="flex flex-wrap">
               Frontend Web Developer,
             </h3>
           </div>
           <p gaya-fade="5" className="max-w-4xl mt-4 md:mt-6 md:text-lg 2xl:text-xl">
-            based in Tangerang, Indonesia.
-            <br /> I work with React & Next JS.
+            i&apos;m front-end developer based in Tangerang, Indonesia.
+            <br /> I do stuff in ReactJS and NextJS.
           </p>
           <div gaya-fade="6" className="mt-8 flex flex-wrap gap-4 md:!text-lg">
             <div className="relative group">
@@ -110,17 +106,21 @@ export default function Home() {
               <h2 gaya-fade="1">
                 <Accent>Skills</Accent>
               </h2>
+
               <article id="skill" className="mt-6">
-                <div className="grid grid-cols-1 gap-12">
-                  <div className="flex flex-col gap-4">
-                    <div gaya-fade="2" className="flex flex-row items-center gap-3">
+                <div className="flex flex-col sm:flex-row gap-12">
+                  <div
+                    gaya-fade="2"
+                    className="flex overflow-hidden flex-1 max-h-[260px] justify-between relative flex-col gap-4 border dark:border-gray-600 p-4 rounded-md h-max"
+                  >
+                    <div className="flex flex-row items-center gap-3">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
                         height="24"
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke="currentColor"
+                        stroke="#05B8BB"
                         strokeWidth="1"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -128,22 +128,25 @@ export default function Home() {
                         <polyline points="16 18 22 12 16 6"></polyline>
                         <polyline points="8 6 2 12 8 18"></polyline>
                       </svg>
-                      <h3 className="text-lg font-medium">Web development</h3>
+                      <h3 className="text-xl">Web development</h3>
                     </div>
                     <p gaya-fade="3">
                       I have experience in web development with React and Next.js, and I am
                       proficient in HTML, CSS, JavaScript, and TypeScript
                     </p>
                   </div>
-                  <div className="flex flex-col gap-4">
-                    <div gaya-fade="4" className="flex flex-row items-center gap-3">
+                  <div
+                    gaya-fade="4"
+                    className="flex flex-1 flex-col max-h-[260px] overflow-hidden gap-4 border dark:border-gray-600 p-4 rounded-md"
+                  >
+                    <div className="flex flex-row items-center gap-3 flex-nowrap">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
                         height="24"
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke="currentColor"
+                        stroke="#05B8BB"
                         strokeWidth="1"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -151,7 +154,7 @@ export default function Home() {
                         <polyline points="4 17 10 11 4 5"></polyline>
                         <line x1="12" x2="20" y1="19" y2="19"></line>
                       </svg>
-                      <h3 className="text-lg font-medium">Other technologies</h3>
+                      <h3 className="text-xl">Other technologies</h3>
                     </div>
                     <p gaya-fade="5">
                       Familiar with and frequent user of common software development tools, such as

@@ -35,7 +35,7 @@ export const projects = [
   },
   {
     slug: '/projects/burungbiru',
-    title: 'BurungBiru',
+    title: 'BurBir',
     description: 'a Small social media',
     banner:
       'https://res.cloudinary.com/dpegakmzh/image/upload/v1686663245/burungbiru.vercel.app_yloknn.webp',
@@ -45,11 +45,14 @@ export const projects = [
     category: 'Personal Project',
   },
   {
-    slug: '#project-3',
-    title: 'Project 3',
-    description: 'This is the third project',
-    banner: '',
-    url: 'https://example.com/project-3',
+    slug: '/projects/todooo',
+    title: 'ToDo App',
+    description: 'Drag Drop To Do',
+    banner:
+      'https://res.cloudinary.com/dpegakmzh/image/upload/v1690991581/Web_capture_2-8-2023_225229_yogyy.github.io_nqj8lk.jpg',
+    url: 'https://yogyy.github.io/react-todo-localhost',
+    github: 'https://github.com/yogyy/react-todo-localhost',
     techs: ['ReactJS', 'Tailwind'],
+    category: 'Personal Project',
   },
 ];

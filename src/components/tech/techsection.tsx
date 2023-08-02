@@ -51,12 +51,6 @@ export default function TechSection({ className }: { className?: string }) {
         {techSkills.map((item, index) => {
           return <TechSkillItem key={index} text={item} />;
         })}
-        {/* {nonSkills.map((el, index) => (
-          <div key={index} className="flex items-center p-2 rounded-sm hover:bg-red-600/25">
-            <span className="text-2xl">{el.icon}</span>
-            <span className="pl-4">{el.text}</span>
-          </div>
-        ))} */}
       </div>
     </section>
   );
@@ -65,7 +59,7 @@ export default function TechSection({ className }: { className?: string }) {
 const TechSkillItem = ({ text }: { text: string }) => {
   const iconType = text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '').toLowerCase();
   return (
-    <div className="flex items-center p-2 rounded-sm hover:bg-gray-300/20 dark:hover:bg-gray-500/20">
+    <div className="flex border dark:border-gray-600 items-center p-2 rounded-md hover:bg-gray-300/20 dark:hover:bg-gray-500/20 hover:border-transparent hover:dark:border-transparent">
       <span className="text-2xl text-dark-bg dark:text-light-bg">
         <Icon type={iconType} />
       </span>

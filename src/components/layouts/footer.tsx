@@ -11,7 +11,9 @@ export default function Footer() {
       <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700" />
       <div className="relative pb-4 layout">
         <div className="flex flex-col justify-center gap-3 mb-4 sm:flex-row sm:justify-between">
-          <span className="self-center mb-4 text-2xl font-semibold font-doodle">Yogyy</span>
+          <span className="self-center mb-4 text-2xl font-semibold dark:text-dark-accent">
+            yogyy
+          </span>
           <div role="contentinfo" aria-labelledby="spotify-activity">
             <Spotify className="place-self-center" />
           </div>

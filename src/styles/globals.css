@@ -34,11 +34,6 @@ body {
   @apply text-gray-800 transition-colors bg-light-bg dark:bg-dark-bg dark:text-gray-300;
 }
 
-@font-face {
-  font-family: 'Virgil';
-  src: url('../../public/fonts/Virgil.woff2') format('woff2');
-}
-
 @layer base {
   /* inter var - latin */
 
@@ -191,10 +186,6 @@ body {
   width: 16px;
   height: 16px;
   fill: currentColor;
-}
-
-.font-doodle {
-  font-family: 'Virgil', sans-serif;
 }
 
 .projectcard img {
