@@ -14,16 +14,6 @@
   --clr-primary-500: rgb(var(--tw-clr-primary-500)); /* #00c4fd */
 }
 
-::-webkit-scrollbar {
-  width: 5px;
-}
-::-webkit-scrollbar-track {
-  background: #121212;
-}
-::-webkit-scrollbar-thumb {
-  @apply rounded bg-light-accent dark:bg-dark-accent;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -42,11 +32,6 @@ a {
 }
 body {
   @apply text-gray-800 transition-colors bg-light-bg dark:bg-dark-bg dark:text-gray-300;
-}
-
-@font-face {
-  font-family: 'Virgil';
-  src: url('../../public/fonts/Virgil.woff2') format('woff2');
 }
 
 @layer base {
@@ -201,10 +186,6 @@ body {
   width: 16px;
   height: 16px;
   fill: currentColor;
-}
-
-.font-doodle {
-  font-family: 'Virgil', sans-serif;
 }
 
 .projectcard img {

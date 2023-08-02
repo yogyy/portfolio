@@ -52,7 +52,7 @@ export function Me() {
       </h2>
       <div gaya-fade="2" className="mt-4">
         <Image
-          className="flex float-left mr-6 bg-red-500 rounded-full w-28 md:w-36"
+          className="flex float-left mr-6 bg-dark-bg rounded-full w-28 md:w-36"
           src="https://res.cloudinary.com/dpegakmzh/image/upload/c_scale,w_256/v1685623759/me_vwkosx.webp"
           alt="gwe"
           width={520}
