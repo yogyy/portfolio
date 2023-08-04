@@ -13,13 +13,15 @@ import { SiGithub, SiTwitter } from 'react-icons/si';
 import { IoNewspaperSharp } from 'react-icons/io5';
 import TechSection from '@/components/tech/techsection';
 import Tooltipz from '@/components/tooltip';
+import { NextSeo } from 'next-seo';
+import NextSEO from '@/components/Next-SEO';
 
 export default function Home() {
   return (
-    <RootLayout pageTitle="yogyy" content="Muhammad Yogi Firman Syah Webstie Portofolio">
+    <NextSEO>
       <IsLoaded className="relative flex flex-col justify-center mb-20 min-h-main">
         <article className={`mx-auto layout`}>
-          <h1 className="flex items-center text-3xl md:text-4xl 2xl:text-5xl gap-2" gaya-fade="1">
+          <h1 className="flex items-center gap-2 text-3xl md:text-4xl 2xl:text-5xl" gaya-fade="1">
             <span>Hi, i&apos;m</span>
             <Accent>yogyy</Accent>
           </h1>
@@ -108,7 +110,7 @@ export default function Home() {
               </h2>
 
               <article id="skill" className="mt-6">
-                <div className="flex flex-col sm:flex-row gap-12">
+                <div className="flex flex-col gap-12 sm:flex-row">
                   <div
                     gaya-fade="2"
                     className="flex overflow-hidden flex-1 max-h-[260px] justify-between relative flex-col gap-4 border dark:border-gray-600 p-4 rounded-md h-max"
@@ -209,6 +211,6 @@ export default function Home() {
         )}
       </InView>
       <div className="h-[20vh]" />
-    </RootLayout>
+    </NextSEO>
   );
 }
