@@ -4,6 +4,23 @@ const config: DefaultSeoProps = {
   title: 'yogyy',
   description: 'into the webdev',
   canonical: 'https://yogyy.vercel.app',
+  openGraph: {
+    url: 'https://yogyy.vercel.app',
+    title: 'Muhammad Yogi Firman Syah - Portfolio',
+    description:
+      'Self-taught programmer weaving lines of code into dreams as boundless as the digital realm',
+    images: [
+      {
+        url: 'https://res.cloudinary.com/dpegakmzh/image/upload/v1691148599/open_graph_polos_knp6ub.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'yogyy',
+        type: 'image/jpeg',
+      },
+    ],
+    siteName: 'yogyy',
+    locale: 'en-US,id-ID',
+  },
   additionalLinkTags: [
     {
       rel: 'icon',
@@ -39,22 +56,12 @@ const config: DefaultSeoProps = {
       href: 'favicon/site.webmanifest',
     },
   ],
-  openGraph: {
-    url: 'https://yogyy.vercel.app',
-    title: 'Muhammad Yogi Firman Syah - Portfolio',
-    description:
-      'Self-taught programmer weaving lines of code into dreams as boundless as the digital realm',
-    images: [
-      {
-        url: 'https://res.cloudinary.com/dpegakmzh/image/upload/v1691148599/open_graph_polos_knp6ub.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'yogyy',
-        type: 'image/jpeg',
-      },
-    ],
-    siteName: 'yogyy',
-  },
+  additionalMetaTags: [
+    {
+      name: 'keywords',
+      content: 'self-taught programmer, web development, coding journey, programming projects',
+    },
+  ],
   twitter: {
     handle: '@yogyxx',
     site: '@yogyxx',
