@@ -1,5 +1,6 @@
 import IsLoaded from '@/components/isLoaded';
 import RootLayout from '@/components/layouts/layout';
+import NextSEO from '@/components/Next-SEO';
 import clsx from 'clsx';
 import * as React from 'react';
 
@@ -20,12 +21,12 @@ export default function Posts() {
   // }, []);
 
   return (
-    <RootLayout pageTitle="Post Dummy | yogyy">
+    <NextSEO title="Post - yogyy" desc="showing all my post i created">
       <IsLoaded className="mt-nav">
         <div className={clsx('min-h-main layout py-12 leading-7')}>
           <h1 gaya-fade="1">Empty</h1>
         </div>
       </IsLoaded>
-    </RootLayout>
+    </NextSEO>
   );
 }

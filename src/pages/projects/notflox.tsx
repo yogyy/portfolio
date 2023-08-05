@@ -1,4 +1,3 @@
-import RootLayout from '@/components/layouts/layout';
 import Image from 'next/image';
 import React from 'react';
 import { projects } from '@/components/clientComponent/project-list';
@@ -8,11 +7,15 @@ import { SiGithub } from 'react-icons/si';
 import { Icon } from '@/components/custom-icons';
 import Tooltipz from '@/components/tooltip';
 import { insertSpaces } from '@/lib/helper';
+import NextSEO from '@/components/Next-SEO';
 
 const Notflox = () => {
   const project = projects[0];
   return (
-    <RootLayout pageTitle="NOTFLOX | yogyy" content="Notflox, Project Portofolio">
+    <NextSEO
+      title="NOTFLOX - yogyy"
+      desc="Notflox a Movie App, Project Portofolio, show multiple movie and series"
+    >
       <div className="h-full pt-16 layout">
         <div className="h-full">
           <Image
@@ -141,7 +144,7 @@ const Notflox = () => {
           </section>
         </div>
       </div>
-    </RootLayout>
+    </NextSEO>
   );
 };
 

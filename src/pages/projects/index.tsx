@@ -2,13 +2,14 @@ import { Accent } from '@/components/accent';
 import { projects } from '@/components/clientComponent/project-list';
 import IsLoaded from '@/components/isLoaded';
 import RootLayout from '@/components/layouts/layout';
+import NextSEO from '@/components/Next-SEO';
 import ProjectCard from '@/components/project-card';
 import clsx from 'clsx';
 import React from 'react';
 
 const Projects = () => {
   return (
-    <RootLayout pageTitle="Projects">
+    <NextSEO title="Project Showcase - yogyy" desc="Showcase of my works on frontend development.">
       <div className="h-full min-h-screen layout pt-14">
         <IsLoaded>
           <section className={clsx('py-20 h-full')}>
@@ -28,7 +29,7 @@ const Projects = () => {
           </section>
         </IsLoaded>
       </div>
-    </RootLayout>
+    </NextSEO>
   );
 };
 

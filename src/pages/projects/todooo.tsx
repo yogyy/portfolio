@@ -1,17 +1,17 @@
 import { projects } from '@/components/clientComponent/project-list';
 import { Icon } from '@/components/custom-icons';
-import RootLayout from '@/components/layouts/layout';
 import CustomLink from '@/components/links/custom-link';
+import NextSEO from '@/components/Next-SEO';
 import Tooltipz from '@/components/tooltip';
 import { insertSpaces } from '@/lib/helper';
 import Image from 'next/image';
 import { HiLink, HiUser } from 'react-icons/hi';
 import { SiGithub } from 'react-icons/si';
 
-const BurungBiru = () => {
+const Todoooo = () => {
   const project = projects[2];
   return (
-    <RootLayout pageTitle="BurungBiru | yogyy" content="Notflox, Project Portofolio">
+    <NextSEO title="To DOoooooooooooo | yogyy" desc="a todo list app, Project Portofolio">
       <div className="h-full pt-16 layout">
         <div className="h-full">
           <Image
@@ -129,8 +129,8 @@ const BurungBiru = () => {
           </section>
         </div>
       </div>
-    </RootLayout>
+    </NextSEO>
   );
 };
 
-export default BurungBiru;
+export default Todoooo;

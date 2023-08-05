@@ -6,12 +6,13 @@ import IsLoaded from '@/components/isLoaded';
 import { Accent } from '@/components/accent';
 import clsx from 'clsx';
 import Image from 'next/image';
+import NextSEO from '@/components/Next-SEO';
 
 export default function AboutPage() {
   return (
-    <RootLayout
-      pageTitle="About | yogyy"
-      content="yogyy is a Self-Tought Web Developer who based on West Java, Indonesia"
+    <NextSEO
+      title="About - yogyy"
+      desc="yogyy is a Self-Tought Web Developer who based on West Java, Indonesia"
     >
       <div className="flex flex-col justify-around h-full min-h-screen">
         <About className="mt-nav" />
@@ -24,15 +25,9 @@ export default function AboutPage() {
           </div>
         </IsLoaded>
       </div>
-    </RootLayout>
+    </NextSEO>
   );
 }
-
-const kebabCase = (string: string) =>
-  string
-    .replace(/([a-z])([A-Z])/g, '$1-$2')
-    .replace(/[\s_]+/g, '-')
-    .toLowerCase();
 
 export function About({ className, ...rest }: { className?: string }) {
   return (
@@ -52,7 +47,7 @@ export function Me() {
       </h2>
       <div gaya-fade="2" className="mt-4">
         <Image
-          className="flex float-left mr-6 bg-dark-bg rounded-full w-28 md:w-36"
+          className="flex float-left mr-6 rounded-full bg-dark-bg w-28 md:w-36"
           src="https://res.cloudinary.com/dpegakmzh/image/upload/c_scale,w_256/v1685623759/me_vwkosx.webp"
           alt="gwe"
           width={520}
