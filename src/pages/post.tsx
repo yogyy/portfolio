@@ -1,5 +1,4 @@
 import IsLoaded from '@/components/isLoaded';
-import RootLayout from '@/components/layouts/layout';
 import NextSEO from '@/components/Next-SEO';
 import clsx from 'clsx';
 import * as React from 'react';

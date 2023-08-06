@@ -1,6 +1,4 @@
 import * as React from 'react';
-import RootLayout from '@/components/layouts/layout';
-
 import TechSection from '@/components/tech/techsection';
 import IsLoaded from '@/components/isLoaded';
 import { Accent } from '@/components/accent';

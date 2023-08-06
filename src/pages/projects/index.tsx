@@ -1,7 +1,6 @@
 import { Accent } from '@/components/accent';
 import { projects } from '@/components/clientComponent/project-list';
 import IsLoaded from '@/components/isLoaded';
-import RootLayout from '@/components/layouts/layout';
 import NextSEO from '@/components/Next-SEO';
 import ProjectCard from '@/components/project-card';
 import clsx from 'clsx';

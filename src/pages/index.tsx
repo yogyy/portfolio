@@ -6,14 +6,12 @@ import UnstyledLink from '@/components/links/unstyledlink';
 import { scrollToSection } from '@/components/clientComponent/scrollToId';
 import IsLoaded from '@/components/isLoaded';
 import { projects } from '@/components/clientComponent/project-list';
-import RootLayout from '@/components/layouts/layout';
 import { InView } from 'react-intersection-observer';
 import ProjectCard from '@/components/project-card';
 import { SiGithub, SiTwitter } from 'react-icons/si';
 import { IoNewspaperSharp } from 'react-icons/io5';
 import TechSection from '@/components/tech/techsection';
 import Tooltipz from '@/components/tooltip';
-import { NextSeo } from 'next-seo';
 import NextSEO from '@/components/Next-SEO';
 
 export default function Home() {
@@ -115,6 +113,7 @@ export default function Home() {
                     gaya-fade="2"
                     className="flex overflow-hidden flex-1 max-h-[260px] justify-between relative flex-col gap-4 border dark:border-gray-600 p-4 rounded-md h-max"
                   >
+                    <div className="bg-blue-600"></div>
                     <div className="flex flex-row items-center gap-3">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
