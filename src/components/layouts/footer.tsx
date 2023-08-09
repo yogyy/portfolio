@@ -38,13 +38,9 @@ export default function Footer() {
                   'focus:outline-none'
                 )}
               >
-                <Tooltipz
-                  content={link.content}
-                  className="group"
-                  trigger={
-                    <link.icon className="group-focus:text-light-text dark:group-focus-within:text-dark-accent" />
-                  }
-                ></Tooltipz>
+                <Tooltipz content={link.content} className="group">
+                  <link.icon className="group-focus:text-light-text dark:group-focus-within:text-dark-accent" />
+                </Tooltipz>
               </UnstyledLink>
             ))}
           </div>
