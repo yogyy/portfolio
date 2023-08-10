@@ -24,36 +24,36 @@ const config: DefaultSeoProps = {
   additionalLinkTags: [
     {
       rel: 'icon',
-      href: 'favicon/favicon.ico',
+      href: '/favicon.ico',
     },
     {
       rel: 'icon',
-      href: 'favicon/favicon-16x16.png',
+      href: '/favicon-16x16.png',
       sizes: '16x16',
     },
     {
       rel: 'icon',
-      href: 'favicon/favicon-32x32.png',
+      href: '/favicon-32x32.png',
       sizes: '32x32',
     },
     {
       rel: 'icon',
-      href: 'favicon/android-chrome-192x192.png',
+      href: '/android-chrome-192x192.png',
       sizes: '192x192',
     },
     {
       rel: 'icon',
-      href: 'favicon/android-chrome-512x512.png',
+      href: '/android-chrome-512x512.png',
       sizes: '512x512',
     },
     {
       rel: 'apple-touch-icon',
-      href: 'favicon/apple-touch-icon.png',
+      href: '/apple-touch-icon.png',
       sizes: '180x180',
     },
     {
       rel: 'manifest',
-      href: 'favicon/site.webmanifest',
+      href: '/site.webmanifest',
     },
   ],
   additionalMetaTags: [
