@@ -1,18 +1,15 @@
-'use client';
-
 import * as React from 'react';
 import { useTheme } from 'next-themes';
 import clsx from 'clsx';
 import Moon from './icons/moon';
 import Sun from './icons/sun';
+import { useMounted } from '@/hooks/use-mounted';
 
 type ThemeButtonProps = React.ComponentPropsWithoutRef<'button'>;
 
 export function ThemeButton({ className, ...rest }: ThemeButtonProps) {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = React.useState(false);
-
-  React.useEffect(() => setMounted(true), []);
+  const mounted = useMounted();
 
   return (
     <button
