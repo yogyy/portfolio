@@ -14,6 +14,19 @@ interface NavLinkProps {
   classname?: string;
 }
 
+type dink = {
+  href: string;
+  label: string;
+};
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/post', label: 'Post' },
+  { href: '/projects', label: 'Projects' },
+  // {href: '/library', label: 'Library'},
+  // { href: '/about', label: 'About' },
+];
+
 function NavLink({ href, children, ...rest }: NavLinkProps) {
   const router = useRouter();
   const arrOfRoute = router.route.split('/');
@@ -63,8 +76,8 @@ export default function Navbar({ large = false }: HeaderProps) {
   return (
     <header
       className={clsx(
-        'fixed z-10 w-full',
-        !visible ? '-top-12' : 'top-0 transition-all duration-300'
+        'sticky z-10 w-full',
+        !visible ? '-top-14' : 'top-0 transition-all duration-300'
       )}
     >
       <a
@@ -110,16 +123,3 @@ export default function Navbar({ large = false }: HeaderProps) {
     </header>
   );
 }
-
-type dink = {
-  href: string;
-  label: string;
-};
-
-const links = [
-  { href: '/', label: 'Home' },
-  { href: '/post', label: 'Post' },
-  { href: '/projects', label: 'Projects' },
-  // {href: '/library', label: 'Library'},
-  { href: '/about', label: 'About' },
-];
