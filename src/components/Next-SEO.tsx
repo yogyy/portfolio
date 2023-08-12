@@ -29,9 +29,11 @@ const NextSEO = (props: SeoProps) => {
           url: `https://yogyy.vercel.app${router.asPath}`,
         }}
       />
-      <Navbar />
-      <main id="skip-nav" className={cn(inter.className, className)}>
-        {children}
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <main id="skip-nav" className={cn(inter.className, className)}>
+          {children}
+        </main>
         <YG
           className={clsx(
             'fixed bottom-14 right-1 sm:right-6',
@@ -40,8 +42,8 @@ const NextSEO = (props: SeoProps) => {
             'z-[-1] opacity-70 dark:opacity-40'
           )}
         />
-      </main>
-      <Footer />
+        <Footer />
+      </div>
     </>
   );
 };
