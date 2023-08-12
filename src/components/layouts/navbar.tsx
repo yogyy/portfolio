@@ -21,7 +21,7 @@ type dink = {
 
 const links = [
   { href: '/', label: 'Home' },
-  { href: '/post', label: 'Post' },
+  { href: '/posts', label: 'Posts' },
   { href: '/projects', label: 'Projects' },
   // {href: '/library', label: 'Library'},
   // { href: '/about', label: 'About' },
@@ -75,10 +75,7 @@ export default function Navbar({ large = false }: HeaderProps) {
 
   return (
     <header
-      className={clsx(
-        'sticky z-10 w-full',
-        !visible ? '-top-14' : 'top-0 transition-all duration-300'
-      )}
+      className={clsx('sticky z-10 w-full', !visible ? '' : 'top-0 transition-all duration-300')}
     >
       <a
         href="#skip-nav"
