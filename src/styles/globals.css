@@ -20,12 +20,6 @@
   margin: 0;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -101,7 +95,7 @@ body {
     @apply min-h-[calc(100vh-82px)];
   }
   .accent {
-    @apply text-transparent dark:bg-gradient-to-r dark:from-dark-primary/90 dark:to-dark-accent bg-clip-text;
+    @apply transition-colors text-light-accent dark:text-dark-accent;
   }
 
   .accent-highlight {
@@ -116,7 +110,7 @@ body {
 @layer utilities {
   .animated-underline {
     background-image: linear-gradient(#01040900, #01040900),
-      linear-gradient(to right, #ffffff, #05b8bb);
+      linear-gradient(to right, #05b8bb, #05b8bb);
     background-size: 100% 2px, 0 2px;
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;
