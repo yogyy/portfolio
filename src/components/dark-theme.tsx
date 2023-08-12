@@ -19,7 +19,7 @@ export function ThemeButton({ className, ...rest }: ThemeButtonProps) {
       className={clsx(
         'rounded-md p-1.5 focus:outline-none text-light-primary dark:text-dark-accent',
         'border border-hidden',
-        'focus:outline-none focus-visible:ring focus-visible:ring-light-primary dark:focus-visible:ring-dark-accent py-1',
+        'focus:outline-none focus-visible:outline focus-visible:outline-light-primary dark:focus-visible:outline-dark-accent py-1',
         className
       )}
       {...rest}
