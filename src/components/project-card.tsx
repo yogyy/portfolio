@@ -1,12 +1,13 @@
 import { ProjectFrontmatter } from '@/../types/frontmatters';
 import clsx from 'clsx';
+import { Project } from 'contentlayer/generated';
 import Image from 'next/image';
 import * as React from 'react';
 import { Icon } from './custom-icons';
 import UnstyledLink from './links/unstyledlink';
 
 type ProjectCardProps = {
-  project: ProjectFrontmatter;
+  project: Project;
 } & React.ComponentPropsWithoutRef<'li'>;
 
 export default function ProjectCard({ project, className, ...rest }: ProjectCardProps) {
@@ -16,7 +17,7 @@ export default function ProjectCard({ project, className, ...rest }: ProjectCard
         'project-card rounded-md md:w-full',
         'border dark:border-gray-600',
         'scale-100 hover:scale-[1.02] active:scale-[0.97] focus-within:scale-[1.02] motion-safe:transform-gpu',
-        'transition duration-200',
+        'transition duration-200 bg-light-bg dark:bg-dark-bg',
         'motion-reduce:hover:scale-100',
         'animate-shadow text-light-primary dark:text-dark-primary',
         'hover:text-light-text dark:hover:text-dark-accent focus-within:text-light-text dark:focus-within:text-dark-accent hover:rounded-none',
@@ -31,7 +32,7 @@ export default function ProjectCard({ project, className, ...rest }: ProjectCard
         <h1 className="text-xl">{project.title}</h1>
         <p className="mb-auto text-sm text-gray-700 dark:text-gray-300">{project.description}</p>
         <div className="flex gap-2 mt-2">
-          {project.techs.map((tech: string, index: React.Key | null | undefined) => (
+          {project.techs!.split(', ').map((tech: string, index) => (
             <Icon key={index} icon={tech} />
           ))}
         </div>
