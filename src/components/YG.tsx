@@ -24,7 +24,7 @@ export default function YG(props: React.ComponentPropsWithoutRef<'svg'>) {
             stopColor="currentColor"
           />
           <stop
-            className="transition-opacity text-light-bg dark:text-dark-bg/90"
+            className="text-transparent transition-opacity dark:text-dark-bg/90"
             offset="1"
             stopColor="currentColor"
           />
