@@ -52,13 +52,13 @@ export default function Footer() {
 
 const links = [
   {
-    href: 'mailto:akunwanhit.0y@gmail.com',
+    href: 'mailto:m.yogi.fs@gmail.com',
     alt: 'Email',
     icon: IoMailOutline,
     content: (
       <p>
         Contact me&nbsp;
-        <span className="text-light-primary dark:text-light-bg">akunwanhit.0y@gmail.com</span>
+        <span className="text-light-primary dark:text-light-bg">m.yogi.fs@gmail.com</span>
       </p>
     ),
   },
