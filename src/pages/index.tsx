@@ -1,11 +1,10 @@
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 import * as React from 'react';
 import { Accent } from '@/components/accent';
 import ButtonLink from '@/components/links/buttonlink';
 import UnstyledLink from '@/components/links/unstyledlink';
 import { scrollToSection } from '@/components/clientComponent/scrollToId';
 import IsLoaded from '@/components/isLoaded';
-import { projects } from '@/components/clientComponent/project-list';
 import { InView } from 'react-intersection-observer';
 import ProjectCard from '@/components/project-card';
 import { SiGithub, SiTwitter } from 'react-icons/si';
@@ -13,6 +12,7 @@ import { IoNewspaperSharp } from 'react-icons/io5';
 import TechSection from '@/components/tech/techsection';
 import Tooltipz from '@/components/tooltip';
 import NextSEO from '@/components/Next-SEO';
+import { allProjects } from 'contentlayer/generated';
 
 export default function Home() {
   return (
@@ -35,7 +35,7 @@ export default function Home() {
           <div gaya-fade="6" className="mt-8 flex flex-wrap gap-4 md:!text-lg">
             <div className="relative group">
               <div
-                className={clsx(
+                className={cn(
                   'absolute -inset-0.5 animate-tilt rounded blur',
                   'bg-gradient-to-r from-light-primary to-light-secondary',
                   'dark:from-dark-primary dark:to-dark-secondary',
@@ -61,7 +61,7 @@ export default function Home() {
             <UnstyledLink
               href="#resume"
               onClick={() => console.warn('my resume not ready')}
-              className={clsx(
+              className={cn(
                 'inline-flex items-center gap-1 text-sm font-medium md:text-base',
                 'text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-dark-primary dark:focus:text-dark-primary',
                 'focus:outline-none focus:rounded-md focus-visible:ring focus-visible:ring-light-accent dark:focus-visible:ring-dark-accent ',
@@ -73,7 +73,7 @@ export default function Home() {
             </UnstyledLink>
             <UnstyledLink
               href="https://twitter.com/yogyxx"
-              className={clsx(
+              className={cn(
                 'inline-flex items-center gap-1 text-sm font-medium md:text-base',
                 'group text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-dark-primary dark:focus:text-dark-primary',
                 'focus:outline-none focus:rounded-md focus-visible:ring focus-visible:ring-light-accent dark:focus-visible:ring-dark-accent ',
@@ -85,7 +85,7 @@ export default function Home() {
             </UnstyledLink>
             <UnstyledLink
               href="https://github.com/yogyy"
-              className={clsx(
+              className={cn(
                 'inline-flex items-center gap-1 text-sm font-medium md:text-base',
                 'text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-dark-primary dark:focus:text-dark-primary',
                 'focus:outline-none focus:rounded-md focus-visible:ring focus-visible:ring-light-accent dark:focus-visible:ring-dark-accent',
@@ -101,7 +101,7 @@ export default function Home() {
 
       <InView triggerOnce rootMargin="-40% 0px">
         {({ ref, inView }) => (
-          <section ref={ref} className={clsx('py-20 layout', inView && 'fade-in-start')}>
+          <section ref={ref} className={cn('py-20 layout', inView && 'fade-in-start')}>
             <div className="mt-10">
               <h2 gaya-fade="1">
                 <Accent>Skills</Accent>
@@ -131,13 +131,13 @@ export default function Home() {
                       </svg>
                       <h3 className="text-xl">Web development</h3>
                     </div>
-                    <p gaya-fade="3">
+                    <p>
                       I have experience in web development with React and Next.js, and I am
                       proficient in HTML, CSS, JavaScript, and TypeScript
                     </p>
                   </div>
                   <div
-                    gaya-fade="4"
+                    gaya-fade="3"
                     className="flex flex-1 flex-col max-h-[260px] overflow-hidden gap-4 border dark:border-gray-600 p-4 rounded-md"
                   >
                     <div className="flex flex-row items-center gap-3 flex-nowrap">
@@ -157,11 +157,11 @@ export default function Home() {
                       </svg>
                       <h3 className="text-xl">Other technologies</h3>
                     </div>
-                    <p gaya-fade="5">
+                    <p>
                       Familiar with and frequent user of common software development tools, such as
                       git .
                     </p>
-                    <p gaya-fade="6">
+                    <p>
                       Know how to utilise assistive<span className="peer"></span>
                       <Tooltipz
                         content={
@@ -174,8 +174,9 @@ export default function Home() {
                             and ChatGPT!
                           </p>
                         }
-                        trigger="technologies"
-                      />
+                      >
+                        technologies
+                      </Tooltipz>
                       &nbsp;to enhance productivity.
                     </p>
                   </div>
@@ -194,14 +195,14 @@ export default function Home() {
 
       <InView triggerOnce rootMargin="-40% 0px">
         {({ ref, inView }) => (
-          <section ref={ref} className={clsx('py-20', inView && 'fade-in-start')}>
+          <section ref={ref} className={cn('py-20', inView && 'fade-in-start')}>
             <article className="layout" gaya-fade="0">
               <h2>
                 <Accent>Features Project</Accent>
               </h2>
               <p className="mt-2">Showcase of my works on frontend development.</p>
               <ul gaya-fade="1" className="grid gap-4 mt-6 sm:grid-cols-2 xl:grid-cols-3">
-                {projects.map(project => (
+                {allProjects.map(project => (
                   <ProjectCard key={project.slug} project={project} />
                 ))}
               </ul>
