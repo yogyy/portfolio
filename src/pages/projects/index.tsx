@@ -1,9 +1,9 @@
 import { Accent } from '@/components/accent';
-import { projects } from '@/components/clientComponent/project-list';
 import IsLoaded from '@/components/isLoaded';
 import NextSEO from '@/components/Next-SEO';
 import ProjectCard from '@/components/project-card';
 import clsx from 'clsx';
+import { allProjects } from 'contentlayer/generated';
 import React from 'react';
 
 const Projects = () => {
@@ -20,7 +20,7 @@ const Projects = () => {
                 Showcase of my works on frontend development.
               </p>
               <ul gaya-fade="4" className="grid gap-4 mt-6 sm:grid-cols-2 xl:grid-cols-3">
-                {projects.map(project => (
+                {allProjects.map(project => (
                   <ProjectCard key={project.slug} project={project} />
                 ))}
               </ul>
