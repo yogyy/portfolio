@@ -39,9 +39,40 @@ export const Doc = defineDocumentType(() => ({
   computedFields,
 }));
 
+export const Project = defineDocumentType(() => ({
+  name: 'Project',
+  filePathPattern: `projects/**/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: {
+      type: 'string',
+      required: true,
+    },
+    description: {
+      type: 'string',
+    },
+    category: {
+      type: 'string',
+    },
+    banner: {
+      type: 'string',
+    },
+    url: {
+      type: 'string',
+    },
+    techs: {
+      type: 'string',
+    },
+    github: {
+      type: 'string',
+    },
+  },
+  computedFields,
+}));
+
 export default makeSource({
   contentDirPath: 'src/content',
-  documentTypes: [Doc],
+  documentTypes: [Doc, Project],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
@@ -49,7 +80,7 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
-          theme: 'github-dark',
+          theme: 'material-theme-ocean',
           onVisitLine(node) {
             // Prevent lines from collapsing in `display: grid` mode, and allow empty
             // lines to be copy/pasted
