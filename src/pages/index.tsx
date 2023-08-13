@@ -54,7 +54,7 @@ export default function Home() {
               className="bg-light-secondary text-light-primary dark:bg-dark-secondary dark:text-dark-primary"
               href="/about"
             >
-              Learn more about me
+              More about me
             </ButtonLink>
           </div>
           <div gaya-fade="7" className="flex flex-wrap gap-4 mt-4 gap-y-2 md:mt-8">
