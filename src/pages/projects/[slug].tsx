@@ -52,7 +52,13 @@ export const Posts: FC<{ post: Project }> = ({ post }) => {
 
   return (
     <NextSEO className="layout" title={`${post.title} - yogyy`} desc={post.description}>
-      <Image src={post.banner!} alt={`Project ${post.description}`} width={1445} height={792} />
+      <Image
+        src={post.banner!}
+        alt={`Project ${post.description}`}
+        width={1445}
+        height={792}
+        priority
+      />
       <h1 className="mt-4 text-dark-accent">{post.title}</h1>
 
       <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{post.description}</p>
