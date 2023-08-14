@@ -1,6 +1,6 @@
 import { insertSpaces } from '@/lib/helper';
 import { cn } from '@/lib/utils';
-import clsx from 'clsx';
+import { CssVariable } from 'next/dist/compiled/@next/font';
 import * as React from 'react';
 import { IoLogoVercel } from 'react-icons/io5';
 import {
@@ -14,6 +14,7 @@ import {
   SiTrpc,
   SiUpstash,
   SiPlanetscale,
+  SiNodedotjs,
 } from 'react-icons/si';
 import Tooltipz from './tooltip';
 
@@ -21,22 +22,33 @@ export type TechListType = keyof typeof techList;
 
 export type TechIconsProps = {
   techs: Array<TechListType>;
+  iconClassName?: string | undefined;
 } & React.ComponentPropsWithoutRef<'ul'>;
 
-export default function TechMdx({ className, techs }: TechIconsProps) {
+export default function TechMdx({ className, techs, iconClassName }: TechIconsProps) {
   return (
-    <ul className={cn(className, 'flex gap-2')}>
+    <ul className={cn('flex gap-2', className)}>
       {techs.map(tech => {
         if (!techList[tech]) return;
 
         const current = techList[tech];
 
         return (
-          <Tooltipz className="group" key={current.name} content={<p>{current.name}</p>}>
-            <li className="text-xl">
-              <current.icon className="transition-colors duration-200 group-focus:text-dark-accent group-hover:text-dark-accent" />
-            </li>
-          </Tooltipz>
+          <li className="text-xl" key={current.name}>
+            <Tooltipz
+              className="group"
+              content={<p>{current.name}</p>}
+              title={current.name}
+              type="button"
+            >
+              <current.icon
+                className={cn(
+                  'transition-colors duration-200 group-focus:text-dark-accent group-hover:text-dark-accent',
+                  iconClassName
+                )}
+              />
+            </Tooltipz>
+          </li>
         );
       })}
     </ul>
@@ -47,6 +59,10 @@ const techList = {
   react: {
     icon: SiReact,
     name: 'React',
+  },
+  nodejs: {
+    icon: SiNodedotjs,
+    name: 'Node JS',
   },
   nextjs: {
     icon: SiNextdotjs,
