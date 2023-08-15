@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils';
-import * as React from 'react';
 import { Accent } from '@/components/accent';
 import ButtonLink from '@/components/links/buttonlink';
 import UnstyledLink from '@/components/links/unstyledlink';
@@ -24,9 +23,9 @@ export default function Home() {
             <Accent>yogyy</Accent>
           </h1>
           <div className="mt-1">
-            <h3 gaya-fade="3" className="flex flex-wrap">
+            <h2 gaya-fade="3" className="flex flex-wrap">
               Frontend Web Developer,
-            </h3>
+            </h2>
           </div>
           <p gaya-fade="5" className="max-w-4xl mt-4 md:mt-6 md:text-lg 2xl:text-xl">
             i&apos;m front-end developer based in Tangerang, Indonesia.
