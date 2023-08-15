@@ -61,6 +61,10 @@ const config: DefaultSeoProps = {
       name: 'keywords',
       content: 'self-taught programmer, web development, coding journey, programming projects',
     },
+    {
+      name: 'theme-color',
+      content: '#010409',
+    },
   ],
   twitter: {
     handle: '@yogyxx',
