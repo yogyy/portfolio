@@ -6,13 +6,13 @@ type TooltipButtonProps = {
   content: React.ReactNode;
   children: React.ReactNode;
   className?: string;
-};
+} & React.ComponentPropsWithoutRef<'button'>;
 
-export default function Tooltipz({ content, children, className }: TooltipButtonProps) {
+export default function Tooltipz({ content, children, className, ...rest }: TooltipButtonProps) {
   return (
     <Tooltip.Provider delayDuration={250}>
       <Tooltip.Root>
-        <Tooltip.Trigger className={clsx('outline-none p-1', className)}>
+        <Tooltip.Trigger className={clsx('outline-none p-1', className)} {...rest}>
           {children}
         </Tooltip.Trigger>
         <Tooltip.Portal>
