@@ -36,9 +36,9 @@ export default function Spotify({
   }
 
   return data.isPlaying === true ? (
-    <figure id="spotify-activity" className={className} data-cy="spotify">
+    <figure id="spotify-activity" className={className}>
       <UnstyledLink
-        aria-label={`Now Playing: ${data.title} by ${data.artist}`}
+        aria-label={`Spotify Now Playing: ${data.title} by ${data.artist}`}
         href={data.songUrl}
         className={clsx(
           'relative flex items-center gap-4 p-2.5',
@@ -72,7 +72,7 @@ export default function Spotify({
     <figure id="spotify-activity" className={className} data-cy="spotify">
       <UnstyledLink
         {...rest}
-        aria-label={`Last Played: ${lastPlay?.title} by ${lastPlay?.artist}`}
+        aria-label={`Spotify Last Played: ${lastPlay?.title} by ${lastPlay?.artist}`}
         href={lastPlay ? lastPlay?.songUrl : ''}
         className={clsx(
           'relative flex items-center gap-4 p-2.5',

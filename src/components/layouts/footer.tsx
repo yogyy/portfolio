@@ -1,9 +1,8 @@
-import UnstyledLink from '@/components/links/unstyledlink';
 import { SiGithub, SiTwitter, SiFacebook, SiLinkedin } from 'react-icons/si';
 import Spotify from './spotify';
 import { IoMailOutline } from 'react-icons/io5';
-import clsx from 'clsx';
 import Tooltipz from '../tooltip';
+import { cn } from '@/lib/utils';
 
 export default function Footer() {
   return (
@@ -14,7 +13,7 @@ export default function Footer() {
           <span className="self-center mb-4 text-2xl font-semibold dark:text-dark-accent">
             yogyy
           </span>
-          <div role="contentinfo" aria-labelledby="spotify-activity">
+          <div role="contentinfo">
             <Spotify className="place-self-center" />
           </div>
         </div>
@@ -23,25 +22,23 @@ export default function Footer() {
             © 2023 Muhammad Yogi F S.
           </span>
 
-          <div
-            aria-label="Social Media"
-            className="relative flex h-auto my-auto space-x-3 text-xl md:space-x-6 sm:place-content-center"
-          >
+          <div className="relative flex h-auto my-auto space-x-3 text-xl md:space-x-6 sm:place-content-center">
             {links.map(link => (
-              <UnstyledLink
-                tabIndex={1}
+              <Tooltipz
+                content={link.content}
+                className="group"
                 aria-label={link.alt}
-                href={link.href}
                 key={link.href}
-                className={clsx(
-                  'relative text-light-primary dark:text-dark-primary hover:text-light-text dark:hover:text-dark-accent',
-                  'focus:outline-none'
-                )}
+                type="button"
               >
-                <Tooltipz content={link.content} className="group">
-                  <link.icon className="group-focus:text-light-text dark:group-focus-within:text-dark-accent" />
-                </Tooltipz>
-              </UnstyledLink>
+                <link.icon
+                  className={cn(
+                    'group-focus:text-light-text dark:group-focus-within:text-dark-accent',
+                    'relative text-light-primary dark:text-dark-primary group-hover:text-light-text dark:group-hover:text-dark-accent',
+                    'focus:outline-none'
+                  )}
+                />
+              </Tooltipz>
             ))}
           </div>
         </div>
