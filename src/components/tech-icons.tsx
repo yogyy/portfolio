@@ -1,6 +1,4 @@
-import { insertSpaces } from '@/lib/helper';
 import { cn } from '@/lib/utils';
-import { CssVariable } from 'next/dist/compiled/@next/font';
 import * as React from 'react';
 import { IoLogoVercel } from 'react-icons/io5';
 import {
@@ -35,12 +33,7 @@ export default function TechMdx({ className, techs, iconClassName }: TechIconsPr
 
         return (
           <li className="text-xl" key={current.name}>
-            <Tooltipz
-              className="group"
-              content={<p>{current.name}</p>}
-              title={current.name}
-              type="button"
-            >
+            <Tooltipz className="group" content={<p>{current.name}</p>}>
               <current.icon
                 className={cn(
                   'transition-colors duration-200 group-focus:text-dark-accent group-hover:text-dark-accent',
