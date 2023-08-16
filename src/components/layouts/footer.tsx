@@ -3,11 +3,9 @@ import Spotify from './spotify';
 import { IoMailOutline } from 'react-icons/io5';
 import Tooltipz from '../tooltip';
 import { cn } from '@/lib/utils';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 export default function Footer() {
-  const { push } = useRouter();
   return (
     <footer className="transition-colors bg-base-100">
       <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700" />
@@ -34,7 +32,12 @@ export default function Footer() {
                 key={link.href}
                 type="button"
               >
-                <Link href={link.href} target="_blank" tabIndex={-1}>
+                <Link
+                  href={link.href}
+                  target="_blank"
+                  tabIndex={-1}
+                  aria-label={`go to ${link.alt}`}
+                >
                   <link.icon
                     className={cn(
                       'group-focus:text-light-text dark:group-focus-within:text-dark-accent',
