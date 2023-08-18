@@ -27,11 +27,11 @@ export default function Home() {
               Frontend Web Developer,
             </h2>
           </div>
-          <p gaya-fade="5" className="max-w-4xl mt-4 md:mt-6 md:text-lg 2xl:text-xl">
+          <p gaya-fade="4" className="max-w-4xl mt-4 md:mt-6 md:text-lg 2xl:text-xl">
             i&apos;m front-end developer based in Tangerang, Indonesia.
             <br /> I do stuff in ReactJS and NextJS.
           </p>
-          <div gaya-fade="6" className="mt-8 flex flex-wrap gap-4 md:!text-lg">
+          <div gaya-fade="5" className="mt-8 flex flex-wrap gap-4 md:!text-lg">
             <div className="relative group">
               <div
                 className={cn(
@@ -56,7 +56,7 @@ export default function Home() {
               More about me
             </ButtonLink>
           </div>
-          <div gaya-fade="7" className="flex flex-wrap gap-4 mt-4 gap-y-2 md:mt-8">
+          <div gaya-fade="6" className="flex flex-wrap gap-4 mt-4 gap-y-2 md:mt-8">
             <UnstyledLink
               href="https://drive.google.com/file/d/1j7mkmbd7mTr80xvBPgV0J1d7jMoztifq/view"
               className={cn(
