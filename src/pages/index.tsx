@@ -58,8 +58,7 @@ export default function Home() {
           </div>
           <div gaya-fade="7" className="flex flex-wrap gap-4 mt-4 gap-y-2 md:mt-8">
             <UnstyledLink
-              href="#resume"
-              onClick={() => console.warn('my resume not ready')}
+              href="https://drive.google.com/file/d/1j7mkmbd7mTr80xvBPgV0J1d7jMoztifq/view"
               className={cn(
                 'inline-flex items-center gap-1 text-sm font-medium md:text-base',
                 'text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-dark-primary dark:focus:text-dark-primary',
