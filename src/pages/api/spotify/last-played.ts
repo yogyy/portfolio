@@ -13,37 +13,6 @@ const LAST_PLAYED_ENDPOINT = `https://api.spotify.com/v1/me/player/recently-play
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 const token = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
 
-// const refresh_token =
-//   'AQC56asBuUXnAbkhrOH9Nz9lVRcCukVfPa6ph87Zt7feONaF0u-4vpikn287tJ9KsrFMcktygJPm_mg1MLqt4EQfQXfDiKIVH6UY8Dp7ElMqrYIheWv0eUhhOz7eZhnUQMw';
-// const token =
-//   'MWMxNDNkODI0ZWYxNDk2YmJlOGMyODc5NGM4ZDZjNzI6YWRkZGRjMzRjMWMzNGQ1OGIxMmY3ZjAzOGE5ZGIzZmU=';
-
-interface RecentlyPlayedResult {
-  items: {
-    track: {
-      id: string;
-      name: string;
-      artists: {
-        id: string;
-        name: string;
-      }[];
-      album: {
-        id: string;
-        name: string;
-      };
-    };
-    played_at: string;
-    context: null | {
-      uri: string;
-      href: string;
-      external_urls: {
-        spotify: string;
-      };
-      type: string;
-    };
-  }[];
-}
-
 const getAccessToken = async () => {
   const res = await axios.post<{ access_token: string }>(
     TOKEN_ENDPOINT,

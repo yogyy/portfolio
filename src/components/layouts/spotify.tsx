@@ -35,6 +35,10 @@ export default function Spotify({
     return <div className="animate-pulse">loading ...</div>;
   }
 
+  if (data === undefined) {
+    return null;
+  }
+
   return data.isPlaying === true ? (
     <figure id="spotify-activity" className={className}>
       <UnstyledLink
