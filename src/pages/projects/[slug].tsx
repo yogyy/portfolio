@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps = ({ params }) => {
   };
 };
 
-export const Posts: FC<{ post: Project }> = ({ post }) => {
+export const Projects: FC<{ post: Project }> = ({ post }) => {
   const [toc, setToc] = useState<TableOfContents>();
 
   useEffect(() => {
@@ -110,4 +110,4 @@ export const Posts: FC<{ post: Project }> = ({ post }) => {
   );
 };
 
-export default Posts;
+export default Projects;

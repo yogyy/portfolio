@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import clsx from 'clsx';
 import { ThemeButton } from '@/components/dark-theme';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
 type HeaderProps = {
   large?: boolean;
@@ -37,7 +37,7 @@ function NavLink({ href, children, ...rest }: NavLinkProps) {
       passHref
       draggable={false}
       {...rest}
-      className={clsx(
+      className={cn(
         router.pathname && baseRoute !== href
           ? 'text-light-text dark:text-dark-primary hover:text-light-primary/50 dark:hover:text-dark-accent'
           : 'text-light-primary dark:text-dark-accent',
@@ -52,6 +52,8 @@ function NavLink({ href, children, ...rest }: NavLinkProps) {
 export default function Navbar({ large = false }: HeaderProps) {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
+  const { pathname } = useRouter();
+  const inPosts = pathname === '/posts/[slug]';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -75,11 +77,15 @@ export default function Navbar({ large = false }: HeaderProps) {
 
   return (
     <header
-      className={clsx('sticky z-10 w-full', !visible ? '' : 'top-0 transition-all duration-300')}
+      className={cn(
+        'sticky z-10 w-full',
+        !visible ? '' : 'top-0 transition-all duration-300',
+        inPosts && 'sticky top-0 border-b-2 border-light-accent dark:border-dark-accent'
+      )}
     >
       <a
         href="#skip-nav"
-        className={clsx(
+        className={cn(
           'rounded-sm p-2 transition',
           'font-medium text-black dark:text-white',
           'bg-light-bg dark:bg-dark-bg',
@@ -93,12 +99,10 @@ export default function Navbar({ large = false }: HeaderProps) {
       </a>
       <nav
         aria-label="Main Menu"
-        className={clsx(
-          'sticky bg-gradient-to-b dark:from-dark-bg dark:to-transparent backdrop-blur-sm'
-        )}
+        className={cn('backdrop-blur-sm', inPosts && 'bg-light-bg dark:bg-dark-bg')}
       >
         <div
-          className={clsx(
+          className={cn(
             'layout flex items-center justify-between py-4',
             large && 'lg:max-w-[68rem]'
           )}
@@ -107,7 +111,7 @@ export default function Navbar({ large = false }: HeaderProps) {
             {links.map(({ label, href }: dink) => (
               <li key={`${href} ${label}`}>
                 <NavLink href={href}>
-                  <span className={clsx('transition-colors text-xs md:text-base font-semibold')}>
+                  <span className={cn('transition-colors text-xs md:text-base font-semibold')}>
                     {label}
                   </span>
                 </NavLink>

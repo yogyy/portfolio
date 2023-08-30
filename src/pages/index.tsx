@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils';
 import { Accent } from '@/components/accent';
 import ButtonLink from '@/components/links/buttonlink';
 import UnstyledLink from '@/components/links/unstyledlink';
-import { scrollToSection } from '@/components/clientComponent/scrollToId';
+import scrollToSection from '@/lib/scrollToId';
 import IsLoaded from '@/components/isLoaded';
 import { InView } from 'react-intersection-observer';
 import ProjectCard from '@/components/project-card';

@@ -82,6 +82,21 @@ body {
     @apply w-11/12 mx-auto;
   }
 
+  .bg-coret::after {
+    content: '';
+    left: 0;
+    opacity: 0.9;
+    position: absolute;
+    top: -70px;
+    z-index: -1;
+    height: 120%;
+    -webkit-mask: url('/handcoret.svg') repeat;
+    mask: url('/handcoret.svg') repeat;
+    -webkit-mask-size: auto 100%;
+    mask-size: auto 100%;
+    @apply bg-light-secondary dark:bg-dark-secondary w-full transition-colors duration-75;
+  }
+
   .lil-layout {
     max-width: 48rem;
     @apply w-11/12 mx-auto;

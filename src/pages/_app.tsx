@@ -10,7 +10,7 @@ import nProgress from 'nprogress';
 import { PreloadProvider } from '@/components/PreloadContext';
 import { DefaultSeo } from 'next-seo';
 Router.events.on('routeChangeStart', nProgress.start);
-Router.events.on('routeChangeError', nProgress.done);
+Router.events.on('routeChangeError', nProgress.remove);
 Router.events.on('routeChangeComplete', nProgress.done);
 
 export default function App({ Component, pageProps }: AppProps) {
