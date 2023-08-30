@@ -89,14 +89,14 @@ function Tree({ tree, level = 1, activeItem }: TreeProps) {
     <ul className={cn('m-0 list-none', { 'pl-4': level !== 1 })}>
       {tree.items.map((item, index) => {
         return (
-          <li key={index} className={cn('mt-0 pt-2')}>
+          <li key={index} className={cn('mt-0 pt-2 [&>ul>li>a]:border-gray-400')}>
             <a
               href={item.url}
               className={cn(
-                'inline-block no-underline',
+                'inline-block no-underline pl-2 border-l-2 border-transparent',
                 item.url === `#${activeItem}`
-                  ? 'font-medium text-primary'
-                  : 'text-sm text-light-accent'
+                  ? 'font-medium text-dark-accent border-dark-accent'
+                  : 'text-sm text-light-accent dark:text-gray-700'
               )}
             >
               {item.title}

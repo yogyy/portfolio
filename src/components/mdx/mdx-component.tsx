@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Image from 'next/image';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import { cn } from '@/lib/utils';
 import { Callout } from './callout';
@@ -69,7 +68,7 @@ const components = {
   ),
   img: ({ className, alt, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => (
     // eslint-disable-next-line @next/next/no-img-element
-    <img className={cn('rounded-md border', className)} alt={alt} {...props} />
+    <img className={cn('rounded-lg border', className)} alt={alt} {...props} />
   ),
   hr: ({ ...props }) => <hr className="my-4 md:my-8" {...props} />,
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
@@ -100,17 +99,22 @@ const components = {
   ),
   pre: ({ className, ...props }: React.HtmlHTMLAttributes<HTMLPreElement>) => (
     <pre
-      className={cn('mb-4 mt-6 overflow-x-auto rounded-lg bg-black py-4', className)}
+      className={cn(
+        'mb-4 mt-6 overflow-x-auto rounded-lg bg-black p-4 [&>code]:bg-transparent',
+        className
+      )}
       {...props}
     />
   ),
   code: ({ className, ...props }: React.HtmlHTMLAttributes<HTMLElement>) => (
     <code
-      className={cn('relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm', className)}
+      className={cn(
+        'relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm text-dark-accent bg-dark-accent/10',
+        className
+      )}
       {...props}
     />
   ),
-  Image,
   Callout,
   Card: MdxCard,
   TechMdx,
