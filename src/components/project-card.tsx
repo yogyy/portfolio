@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import clsx from 'clsx';
 import { Project } from 'contentlayer/generated';
 import Image from 'next/image';
@@ -13,19 +14,23 @@ type ProjectCardProps = {
 export default function ProjectCard({ project, className, ...rest }: ProjectCardProps) {
   return (
     <li
-      className={clsx(
+      className={cn(
         'project-card rounded-md md:w-full transition-all duration-200',
-        'border dark:border-gray-600',
-        'transition duration-200 bg-light-bg dark:bg-dark-bg',
-        'animate-shadow text-light-primary dark:text-dark-primary',
-        'hover:text-light-text dark:hover:text-dark-accent focus-within:text-light-text dark:focus-within:text-dark-accent hover:rounded-none',
+        'border-2 w-full after:w-fit backdrop-blur-[3px]',
+        'animate-shadow text-zinc-600 dark:text-zinc-300',
+        'border-zinc-100 hover:border-zinc-200 dark:border-zinc-800 dark:hover:border-zinc-700',
+        'dark:focus-within:border-dark-accent focus-within:border-dark-accent',
+        'hover:text-dark-accent dark:hover:text-dark-accent focus-within:text-dark-accent dark:focus-within:text-dark-accent',
         className
       )}
       {...rest}
     >
       <UnstyledLink
         href={`${project.slug}`}
-        className="flex flex-col items-start h-full p-4 rounded-md focus:outline-none focus-visible:ring focus-visible:ring-light-accent dark:focus-visible:ring-dark-accent projectcard group"
+        className={cn(
+          'flex flex-col items-start h-full p-4 rounded-md focus:outline-none',
+          'projectcard'
+        )}
       >
         <h1 className="text-xl">{project.title}</h1>
         <p className="mb-auto text-sm text-gray-700 dark:text-gray-300">{project.description}</p>
@@ -45,7 +50,7 @@ export default function ProjectCard({ project, className, ...rest }: ProjectCard
           width={502}
           height={255}
         />
-        <p className="flex items-center gap-1 mt-2 font-medium animated-underline text-light-primary dark:text-dark-primary">
+        <p className="flex items-center gap-1 mt-2 font-medium animated-underline text-zinc-700 dark:text-dark-primary">
           See more
           <HiArrowRight className="group-hover:text-dark-accent transition-colors delay-150" />
         </p>

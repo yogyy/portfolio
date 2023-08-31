@@ -2,34 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --tw-clr-primary-200: 118 202 212;
-  --tw-clr-primary-300: 207 231 231;
-  --tw-clr-primary-400: 87 188 146;
-  --tw-clr-primary-500: 1 82 75;
-
-  --clr-primary-200: rgb(var(--tw-clr-primary-200)); /* #DBFF00 */
-  --clr-primary-300: rgb(var(--tw-clr-primary-300)); /* #00e887 */
-  --clr-primary-400: rgb(var(--tw-clr-primary-400)); /* #00e0f3 */
-  --clr-primary-500: rgb(var(--tw-clr-primary-500)); /* #00c4fd */
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-body {
-  @apply text-gray-800 transition-colors bg-light-bg dark:bg-dark-bg dark:text-gray-300;
-}
-
 @layer base {
-  /* inter var - latin */
+  :root {
+    --tw-clr-primary-200: 118 202 212;
+    --tw-clr-primary-300: 207 231 231;
+    --tw-clr-primary-400: 87 188 146;
+    --tw-clr-primary-500: 1 82 75;
+
+    --clr-primary-200: rgb(var(--tw-clr-primary-200)); /* #DBFF00 */
+    --clr-primary-300: rgb(var(--tw-clr-primary-300)); /* #00e887 */
+    --clr-primary-400: rgb(var(--tw-clr-primary-400)); /* #00e0f3 */
+    --clr-primary-500: rgb(var(--tw-clr-primary-500)); /* #00c4fd */
+  }
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  body {
+    @apply text-gray-800 transition-colors bg-light-bg dark:bg-dark-bg dark:text-gray-300;
+  }
 
   html {
     scroll-behavior: smooth !important;
@@ -122,6 +120,12 @@ body {
   }
 }
 
+@layer components {
+  .more-project {
+    @apply p-1 w-7 h-7 text-zinc-700 group-hover:text-zinc-900 dark:text-zinc-300 dark:group-hover:text-zinc-100 transition-colors duration-300 group-focus:text-dark-accent;
+  }
+}
+
 @layer utilities {
   .animated-underline {
     background-image: linear-gradient(#01040900, #01040900),
@@ -132,6 +136,7 @@ body {
     transition: 0.3s ease;
     transition-property: background-size, color, background-color, border-color;
   }
+
   @media (prefers-reduced-motion: reduce) {
     .animated-underline {
       transition: none;
@@ -160,7 +165,7 @@ body {
 } */
 
 [gaya-fade] {
-  @apply translate-y-10 opacity-0 transition duration-[400ms] ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100;
+  @apply translate-y-10 opacity-0 transition duration-400 ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100;
 }
 .fade-in-start [gaya-fade] {
   @apply translate-y-0 opacity-100;
@@ -239,8 +244,4 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.bgpattern {
-  background-color: @apply bg-dark-bg;
 }
