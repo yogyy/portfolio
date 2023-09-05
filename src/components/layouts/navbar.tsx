@@ -50,36 +50,13 @@ function NavLink({ href, children, ...rest }: NavLinkProps) {
 }
 
 export default function Navbar({ large = false }: HeaderProps) {
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [visible, setVisible] = useState(true);
   const { pathname } = useRouter();
   const inPosts = pathname === '/posts/[slug]';
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.scrollY;
-      const isVisible = prevScrollPos > currentScrollPos;
-
-      setPrevScrollPos(currentScrollPos);
-      setVisible(isVisible);
-    };
-
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', handleScroll);
-    }
-
-    return () => {
-      if (typeof window !== 'undefined') {
-        window.removeEventListener('scroll', handleScroll);
-      }
-    };
-  }, [prevScrollPos]);
 
   return (
     <header
       className={cn(
-        'sticky z-10 w-full',
-        !visible ? '' : 'top-0 transition-all duration-300',
+        'z-10 w-full',
         inPosts && 'sticky top-0 border-b-2 border-light-accent dark:border-dark-accent'
       )}
     >
