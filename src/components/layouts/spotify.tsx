@@ -4,7 +4,7 @@ import { SiSpotify } from 'react-icons/si';
 import useSWR from 'swr';
 
 import UnstyledLink, { UnstyledLinkProps } from '@/components/links/unstyledlink';
-import { SpotifyData, SpotifyLastPlayed } from '@/../types/types';
+import { SpotifyData, SpotifyLastPlayed } from '@/types/spotify';
 import axios from 'axios';
 import Image from 'next/image';
 
@@ -62,7 +62,9 @@ export default function Spotify({
           height={240}
         />
         <div className="flex-1">
-          <p className="text-xs font-medium">Playing: {data.title}</p>
+          <p className="text-xs font-medium">
+            <span className="hidden">spotify</span>Playing: {data.title}
+          </p>
           <p className="mt-1 text-xs font-semibold text-light-text/60 dark:text-dark-primary/50">
             {data.artist}
           </p>
@@ -73,7 +75,7 @@ export default function Spotify({
       </UnstyledLink>
     </figure>
   ) : (
-    <figure id="spotify-activity" className={className} data-cy="spotify">
+    <figure id="spotify-activity" className={className}>
       <UnstyledLink
         {...rest}
         aria-label={`Spotify Last Played: ${lastPlay?.title} by ${lastPlay?.artist}`}
@@ -97,7 +99,9 @@ export default function Spotify({
           />
         )}
         <div className="flex-1 ">
-          <p className="text-xs font-medium">Last Played: {lastPlay?.title}</p>
+          <p className="text-xs font-medium flex">
+            <span className="hidden">spotify</span>Last Played: {lastPlay?.title}
+          </p>
           <p className="mt-1 text-xs text-gray-600 dark:text-dark-primary/50">{lastPlay?.artist}</p>
         </div>
         <div className="absolute right-1.5 bottom-1.5">

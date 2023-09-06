@@ -1,4 +1,3 @@
-import { SpotifyLastPlayed } from '@/../types/types';
 import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
 import querystring from 'querystring';
