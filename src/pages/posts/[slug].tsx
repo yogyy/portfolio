@@ -9,8 +9,6 @@ import { HiArrowLeft } from 'react-icons/hi';
 import { useRouter } from 'next/navigation';
 import { DashboardTableOfContents } from '@/components/mdx/toc';
 import { getTableOfContents, TableOfContents } from '@/lib/toc';
-import asal from 'public/handwrite.svg';
-import Image from 'next/image';
 
 export const getStaticPaths: GetStaticPaths = () => {
   const paths = allPosts.map(post => `/${post._raw.flattenedPath}`);

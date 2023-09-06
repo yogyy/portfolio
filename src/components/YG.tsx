@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 export default function YG(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg viewBox="0 0 1892 1346" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
