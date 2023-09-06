@@ -124,6 +124,15 @@
   .more-project {
     @apply p-1 w-7 h-7 text-zinc-700 group-hover:text-zinc-900 dark:text-zinc-300 dark:group-hover:text-zinc-100 transition-colors duration-300 group-focus:text-dark-accent;
   }
+  .project-card {
+    @apply border-zinc-100  dark:border-zinc-800 text-zinc-600 dark:text-zinc-300;
+  }
+  .project-card:hover {
+    @apply border-zinc-200 dark:border-zinc-700 text-dark-accent dark:text-dark-accent;
+  }
+  .project-card:focus-within {
+    @apply border-dark-accent dark:border-dark-accent text-dark-accent dark:text-dark-accent;
+  }
 }
 
 @layer utilities {
