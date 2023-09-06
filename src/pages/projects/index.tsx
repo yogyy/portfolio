@@ -68,7 +68,7 @@ const Projects = () => {
             </article>
             <Accordion type="multiple" className="mt-4">
               <AccordionItem value="item-1">
-                <AccordionTrigger className="px-2 hover:no-underline outline-none focus-visible:outline-dark-accent rounded-md">
+                <AccordionTrigger className="px-2 rounded-md outline-none hover:no-underline focus-visible:outline-dark-accent">
                   More project
                 </AccordionTrigger>
                 <AccordionContent>
