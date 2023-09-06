@@ -38,3 +38,9 @@ next-env.d.ts
 
 # Contentlayer
 .contentlayer
+
+sitemap*.xml
+robots.txt
+
+/src/pages/.not-used
+/src/globals.css
