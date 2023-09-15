@@ -2,12 +2,11 @@ import { cn } from '@/lib/utils';
 import { Accent } from '@/components/accent';
 import ButtonLink from '@/components/links/buttonlink';
 import UnstyledLink from '@/components/links/unstyledlink';
-import scrollToSection from '@/lib/scrollToId';
 import IsLoaded from '@/components/isLoaded';
 import { InView } from 'react-intersection-observer';
 import ProjectCard from '@/components/project-card';
 
-import { SiGithub, SiTwitter } from 'react-icons/si';
+import { SiGithub, SiX } from 'react-icons/si';
 import { IoNewspaperSharp } from 'react-icons/io5';
 import { RiCodeSSlashFill, RiTerminalFill } from 'react-icons/ri';
 
@@ -15,46 +14,48 @@ import TechSection from '@/components/tech/techsection';
 import Tooltipz from '@/components/tooltip';
 import NextSEO from '@/components/Next-SEO';
 import { allProjects } from 'contentlayer/generated';
+import { useRouter } from 'next/router';
 
 const externalUrl = [
   {
     href: 'https://drive.google.com/file/d/1j7mkmbd7mTr80xvBPgV0J1d7jMoztifq/view',
     icon: IoNewspaperSharp,
     name: 'Resume',
-    class: '',
   },
   {
     href: 'https://github.com/yogyy',
     icon: SiGithub,
     name: 'Github',
-    class: '',
   },
   {
     href: 'https://twitter.com/yogyxx',
-    icon: SiTwitter,
+    icon: SiX,
     name: 'Twitter',
-    class: 'shrink-0 transition-colors group-hover:text-[#1da1f2] group-focus:text-[#1da1f2]',
   },
 ];
 
 export default function Home() {
-  console.log(process.env.NODE_ENV);
+  const {} = useRouter();
+  console.log();
   return (
     <NextSEO>
       <IsLoaded className="relative flex flex-col justify-center mb-20 min-h-main lg:min-h-[850px]">
         <article className={`mx-auto layout`}>
-          <h1 className="flex items-center gap-2 text-3xl md:text-4xl 2xl:text-5xl" gaya-fade="1">
+          <h1
+            className="inline-flex items-center justify-center gap-2 pb-2 text-3xl md:text-4xl 2xl:text-5xl"
+            gaya-fade="1"
+          >
             <span>Hi, i&apos;m</span>
-            <Accent>yogyy</Accent>
+            <Accent className="pb-2">yogyy</Accent>
           </h1>
           <div className="mt-1">
             <h2 gaya-fade="3" className="flex flex-wrap">
-              Frontend Web Developer,
+              Frontend Web Developer
             </h2>
           </div>
           <p gaya-fade="4" className="max-w-4xl mt-4 md:mt-6 md:text-lg 2xl:text-xl">
-            i&apos;m front-end developer based in Tangerang, Indonesia.
-            <br /> I do stuff in ReactJS and NextJS.
+            i&apos;m front-end developer based in Tangerang, Indonesia,
+            <br /> with a focus on ReactJS and NextJS.
           </p>
           <div gaya-fade="5" className="mt-8 flex flex-wrap gap-4 md:!text-lg">
             <div className="relative group">
@@ -67,11 +68,10 @@ export default function Home() {
                 )}
               />
               <ButtonLink
-                href="#about"
-                onClick={() => scrollToSection('skill')}
+                href="/posts"
                 className="bg-light-primary text-light-bg dark:bg-dark-primary dark:text-dark-text dark:border-dark-primary"
               >
-                Scroll down
+                Read The Post
               </ButtonLink>
             </div>
             <ButtonLink
@@ -82,7 +82,7 @@ export default function Home() {
             </ButtonLink>
           </div>
           <div gaya-fade="6">
-            <ul className="flex flex-wrap gap-4 mt-4 gap-y-2 md:mt-8">
+            <ul className="flex flex-wrap items-center gap-4 mt-4 gap-y-2 md:mt-8">
               {externalUrl.map(url => (
                 <li key={url.name}>
                   <UnstyledLink
@@ -94,8 +94,8 @@ export default function Home() {
                     )}
                     href={url.href}
                   >
-                    <url.icon className={url.class} />
-                    <span>{url.name}</span>
+                    <url.icon />
+                    <span className={cn(url.name === 'Twitter' && 'invisible')}>{url.name}</span>
                   </UnstyledLink>
                 </li>
               ))}

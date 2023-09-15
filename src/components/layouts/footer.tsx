@@ -1,9 +1,11 @@
-import { SiGithub, SiTwitter, SiFacebook, SiLinkedin } from 'react-icons/si';
+import { SiGithub, SiTwitter, SiFacebook, SiLinkedin, SiX } from 'react-icons/si';
 import { IoMailOutline } from 'react-icons/io5';
 import { cn } from '@/lib/utils';
 import Spotify from './spotify';
 import Tooltipz from '../tooltip';
 import Link from 'next/link';
+import { isProd } from '@/constants/env';
+import { Accent } from '../accent';
 
 export default function Footer() {
   return (
@@ -11,16 +13,12 @@ export default function Footer() {
       <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700" />
       <div className="relative pb-4 layout">
         <div className="flex flex-col justify-center gap-3 mb-4 sm:flex-row sm:justify-between">
-          <span className="self-center mb-4 text-2xl font-semibold dark:text-dark-accent">
-            yogyy
-          </span>
-          <div role="contentinfo">
-            <Spotify className="place-self-center" />
-          </div>
+          <Accent className="self-center mb-4 text-2xl font-semibold">yogyy</Accent>
+          <Spotify className="place-self-center" />
         </div>
         <div className="flex flex-col-reverse justify-center gap-6 place-items-center md:flex-row md:justify-between">
           <span className="flex gap-3 text-sm font-semibold sm:text-center">
-            © 2023 Muhammad Yogi F S.
+            © 2023 M Yogi F S.
           </span>
 
           <div className="relative flex h-auto my-auto space-x-3 text-xl md:space-x-6 sm:place-content-center">
@@ -100,7 +98,7 @@ const links = [
   {
     href: 'https://twitter.com/yogyxx',
     alt: 'Twitter',
-    icon: SiTwitter,
+    icon: SiX,
     content: (
       <p>
         Reach me on <span className="text-light-primary dark:text-light-bg">Twitter</span>
