@@ -1,18 +1,13 @@
 import * as React from 'react';
-import TechSection from '@/components/tech/techsection';
 import IsLoaded from '@/components/isLoaded';
 import { Accent } from '@/components/accent';
-import clsx from 'clsx';
 import Image from 'next/image';
 import NextSEO from '@/components/Next-SEO';
 import TechMdx from '@/components/tech-icons';
 
 export default function AboutPage() {
   return (
-    <NextSEO
-      title="About - yogyy"
-      desc="yogyy is a Self-Tought Web Developer who based on West Java, Indonesia"
-    >
+    <NextSEO title="About - yogyy">
       <IsLoaded className="items-center min-h-[calc(100vh_-_249px)] flex flex-col h-auto">
         <div className="max-w-3xl mx-5">
           <div id="about" className="min-h-[50dvh] h-full my-10">
@@ -21,7 +16,7 @@ export default function AboutPage() {
             </h2>
             <div gaya-fade="2" className="mt-4">
               <Image
-                className="flex float-left mr-6 mb-3 rounded-full bg-dark-bg w-20 md:w-28"
+                className="flex float-left w-20 mb-3 mr-6 rounded-full bg-dark-bg md:w-28"
                 src="https://res.cloudinary.com/dpegakmzh/image/upload/c_scale,w_256/v1685623759/me_vwkosx.webp"
                 alt="gwe"
                 width={520}

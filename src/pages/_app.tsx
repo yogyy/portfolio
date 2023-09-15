@@ -17,7 +17,6 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
       <PreloadProvider>
-        <DefaultSeo {...SEO} />
         <Component {...pageProps} />
         <Analytics />
       </PreloadProvider>
