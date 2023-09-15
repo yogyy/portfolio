@@ -15,14 +15,10 @@ export default function YG(props: React.ComponentPropsWithoutRef<'svg'>) {
           y2="-321.779"
           gradientUnits="userSpaceOnUse"
         >
-          <stop className="text-slate-700 dark:text-dark-secondary" stopColor="currentColor" />
+          <stop className="text-dark-accent" stopColor="currentColor" />
+          <stop className="text-dark-secondary" offset="0.5" stopColor="currentColor" />
           <stop
-            className="text-slate-700 dark:text-dark-secondary"
-            offset="0.5"
-            stopColor="currentColor"
-          />
-          <stop
-            className="text-transparent transition-opacity dark:text-dark-bg/90"
+            className="text-transparent dark:text-dark-bg/90"
             offset="1"
             stopColor="currentColor"
           />
