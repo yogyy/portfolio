@@ -44,7 +44,6 @@ const NextSEO = (props: SeoProps) => {
               'z-[-1] opacity-70 dark:opacity-40'
             )}
           />
-          <div className="" />
         </main>
         <Footer />
       </div>
