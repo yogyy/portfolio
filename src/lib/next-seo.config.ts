@@ -69,8 +69,8 @@ const config: NextSeoProps = {
     },
   ],
   twitter: {
-    handle: '@yogyxx',
-    site: '@yogyxx',
+    handle: '@yogyyconst',
+    site: '@yogyyconst',
     cardType: 'summary_large_image',
   },
 };

@@ -28,19 +28,17 @@ const externalUrl = [
     name: 'Github',
   },
   {
-    href: 'https://twitter.com/yogyxx',
+    href: 'https://twitter.com/yogyyconst',
     icon: SiX,
     name: 'Twitter',
   },
 ];
 
 export default function Home() {
-  const {} = useRouter();
-  console.log();
   return (
     <NextSEO>
       <IsLoaded className="relative flex flex-col justify-center mb-20 min-h-main lg:min-h-[850px]">
-        <article className={`mx-auto layout`}>
+        <article className="mx-auto layout">
           <h1
             className="inline-flex items-center justify-center gap-2 pb-2 text-3xl md:text-4xl 2xl:text-5xl"
             gaya-fade="1"
@@ -48,16 +46,14 @@ export default function Home() {
             <span>Hi, i&apos;m</span>
             <Accent className="pb-2">yogyy</Accent>
           </h1>
-          <div className="mt-1">
-            <h2 gaya-fade="3" className="flex flex-wrap">
-              Frontend Web Developer
-            </h2>
-          </div>
-          <p gaya-fade="4" className="max-w-4xl mt-4 md:mt-6 md:text-lg 2xl:text-xl">
+          <h2 gaya-fade="2" className="flex flex-wrap">
+            Frontend Web Developer
+          </h2>
+          <p gaya-fade="3" className="max-w-4xl mt-4 md:mt-6 md:text-lg 2xl:text-xl">
             i&apos;m front-end developer based in Tangerang, Indonesia,
             <br /> with a focus on ReactJS and NextJS.
           </p>
-          <div gaya-fade="5" className="mt-8 flex flex-wrap gap-4 md:!text-lg">
+          <div gaya-fade="4" className="mt-8 flex flex-wrap gap-4 md:!text-lg">
             <div className="relative group">
               <div
                 className={cn(
@@ -81,7 +77,7 @@ export default function Home() {
               More about me
             </ButtonLink>
           </div>
-          <div gaya-fade="6">
+          <div gaya-fade="5">
             <ul className="flex flex-wrap items-center gap-4 mt-4 gap-y-2 md:mt-8">
               {externalUrl.map(url => (
                 <li key={url.name}>
@@ -95,7 +91,7 @@ export default function Home() {
                     href={url.href}
                   >
                     <url.icon />
-                    <span className={cn(url.name === 'Twitter' && 'invisible')}>{url.name}</span>
+                    <span>{url.name}</span>
                   </UnstyledLink>
                 </li>
               ))}
@@ -108,17 +104,16 @@ export default function Home() {
         {({ ref, inView }) => (
           <section ref={ref} className={cn('py-20 layout', inView && 'fade-in-start')}>
             <div className="mt-10">
-              <h2 gaya-fade="1">
-                <Accent>Skills</Accent>
+              <h2 gaya-fade="1" className="text-light-primary dark:text-dark-accent">
+                Skills
               </h2>
 
               <article id="skill" className="mt-6">
                 <div className="flex flex-col gap-12 md:flex-row">
                   <div
                     gaya-fade="2"
-                    className="flex overflow-hidden flex-1 max-h-[260px] justify-between relative flex-col gap-4 border dark:border-gray-600 p-4 rounded-md h-max"
+                    className="flex overflow-hidden flex-1 max-h-[260px] justify-between relative flex-col gap-4 border dark:border-gray-600 p-4 rounded-md h-max backdrop-blur-sm"
                   >
-                    <div className="bg-blue-600"></div>
                     <div className="flex flex-row items-center gap-3">
                       <RiCodeSSlashFill size={24} className="text-dark-accent" />
                       <h3 className="text-xl">Web development</h3>
@@ -130,7 +125,7 @@ export default function Home() {
                   </div>
                   <div
                     gaya-fade="3"
-                    className="flex flex-1 flex-col max-h-[260px] overflow-hidden gap-4 border dark:border-gray-600 p-4 rounded-md"
+                    className="flex flex-1 flex-col max-h-[260px] overflow-hidden gap-4 border dark:border-gray-600 p-4 rounded-md backdrop-blur-sm"
                   >
                     <div className="flex flex-row items-center gap-3 flex-nowrap">
                       <RiTerminalFill size={24} className="text-dark-accent" />
@@ -166,9 +161,7 @@ export default function Home() {
           <section ref={ref} className={cn('py-20', inView && 'fade-in-start')}>
             <article gaya-fade="0" className="layout">
               <div>
-                <h3 className="mt-14">
-                  <Accent>Tech Stack</Accent>
-                </h3>
+                <h3 className="text-light-primary dark:text-dark-accent mt-14">Tech Stack</h3>
                 <TechSection gaya-fade="3" className="mt-6" />
               </div>
             </article>
@@ -181,9 +174,7 @@ export default function Home() {
           <section ref={ref} className={cn('py-20', inView && 'fade-in-start')}>
             <article gaya-fade="0" className="layout">
               <div gaya-fade="1">
-                <h2>
-                  <Accent>Features Project</Accent>
-                </h2>
+                <h2 className="text-light-primary dark:text-dark-accent">Features Project</h2>
                 <p className="mt-2">Showcase of my works on frontend development.</p>
                 <ul
                   gaya-fade="2"

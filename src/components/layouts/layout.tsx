@@ -41,8 +41,8 @@ export default function RootLayout(props: LayoutProps, ...customMeta: any) {
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
-        <meta name="twitter:site" content="@yogyxx" />
-        <meta name="twitter:creator" content="@yogyxx" />
+        <meta name="twitter:site" content="@yogyyconst" />
+        <meta name="twitter:creator" content="@yogyyconst" />
         <meta name="robots" content="follow, index" />
         <meta
           name="keywords"
