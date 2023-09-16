@@ -19,7 +19,7 @@ export default function Spotify({
     revalidateOnFocus: true,
   });
   const { data: lastPlay, isLoading: lastPlayLoading } = useSWR(
-    !data?.title ? '/api/spotify/last-played' : null,
+    data && data.isPlaying === false ? '/api/spotify/last-played' : null,
     fetcher,
     {
       revalidateOnFocus: true,
@@ -37,6 +37,10 @@ export default function Spotify({
   //       });
   //   }
   // }, [data]);
+
+  if (data === undefined) {
+    return null;
+  }
 
   if (isLoading || lastPlayLoading) {
     return (
@@ -58,13 +62,10 @@ export default function Spotify({
     );
   }
 
-  if (data === undefined || lastPlay === null) {
-    return null;
-  }
   const songUrl = data.isPlaying ? data.songUrl : lastPlay ? lastPlay.songUrl : '';
 
   return (
-    <div className={className} role="contentinfo" aria-label="Spotify Activity">
+    <div role="contentinfo" aria-label="Spotify Activity">
       <UnstyledLink
         aria-label={`${data.isPlaying ? 'Now Playing' : 'Last Played'}: ${
           data.isPlaying ? data.title : lastPlay?.title
@@ -76,7 +77,8 @@ export default function Spotify({
           'border-thin min-w-[240px] w-full rounded-md',
           'shadow-sm dark:shadow-none',
           'focus:outline-none focus-visible:ring focus-visible:ring-light-accent dark:focus-visible:ring-dark-accent',
-          'bg-light-secondary/30 dark:bg-dark-bg/30'
+          'bg-light-secondary/30 dark:bg-dark-bg/30',
+          className
         )}
         {...rest}
       >
@@ -98,14 +100,15 @@ export default function Spotify({
           </p>
         </div>
         <div className="absolute right-1.5 bottom-1.5 ">
-          <SiSpotify size={20} color="#1ED760" className={cn(data.isPlaying && 'opacity-10')} />
+          <SiSpotify size={20} color="#1ED760" className={cn(data.isPlaying && 'opacity-20')} />
           {data.isPlaying && (
             <Image
               src="/images/music-play.gif"
-              alt=""
+              alt="playing icon"
               width={20}
               height={20}
-              className="rounded-full absolute top-0"
+              className="rounded-full absolute top-0 opacity-80"
+              aria-hidden="true"
             />
           )}
         </div>

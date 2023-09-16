@@ -59,7 +59,7 @@ export default function TechSection({ className }: { className?: string }) {
 const TechSkillItem = ({ text }: { text: string }) => {
   const iconType = text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '').toLowerCase();
   return (
-    <div className="flex border dark:border-gray-600 items-center p-2 rounded-md hover:bg-gray-300/20 dark:hover:bg-gray-500/20 hover:border-transparent hover:dark:border-transparent">
+    <div className="flex border dark:border-gray-600 items-center p-2 rounded-md hover:bg-gray-300/20 dark:hover:bg-gray-500/20 hover:border-transparent hover:dark:border-transparent backdrop-blur-sm">
       <span className="text-2xl text-dark-bg dark:text-light-bg">
         <Icon type={iconType} />
       </span>

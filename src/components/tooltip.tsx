@@ -12,7 +12,7 @@ export default function Tooltipz({ content, children, className, ...rest }: Tool
   return (
     <Tooltip.Provider delayDuration={250}>
       <Tooltip.Root>
-        <Tooltip.Trigger className={clsx('outline-none p-1', className)} {...rest}>
+        <Tooltip.Trigger className={clsx('outline-none', className)} {...rest}>
           {children}
         </Tooltip.Trigger>
         <Tooltip.Portal>

@@ -3,6 +3,7 @@
 import * as React from 'react';
 import clsx from 'clsx';
 import Link, { LinkProps } from 'next/link';
+import { cn } from '@/lib/utils';
 
 export type UnstyledLinkProps = {
   href: string;
@@ -20,9 +21,7 @@ export default function UnstyledLink({
   ...rest
 }: UnstyledLinkProps) {
   const isNewTab =
-    openNewTab !== undefined
-      ? openNewTab
-      : href && !href.startsWith('/') && !href.startsWith('#');
+    openNewTab !== undefined ? openNewTab : href && !href.startsWith('/') && !href.startsWith('#');
 
   if (!isNewTab) {
     return (
@@ -38,7 +37,7 @@ export default function UnstyledLink({
       rel="noopener noreferrer"
       href={href}
       {...rest}
-      className={clsx(className, 'cursor-newtab')}
+      className={cn('cursor-newtab', className)}
     >
       {children}
     </Link>

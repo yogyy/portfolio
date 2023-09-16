@@ -1,6 +1,4 @@
-'use client';
-
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 import UnstyledLink, { UnstyledLinkProps } from './unstyledlink';
 
 enum ButtonVariant {
@@ -20,7 +18,7 @@ export default function ButtonLink({
   return (
     <UnstyledLink
       {...rest}
-      className={clsx(
+      className={cn(
         'inline-flex rounded px-3 py-2 font-bold',
         'focus:outline-none focus-visible:ring focus-visible:ring-light-primary dark:focus-visible:ring-dark-primary',
         'scale-100 hover:scale-[1.03] active:scale-[0.97] focus:scale-[1.03] motion-safe:transform-gpu',
