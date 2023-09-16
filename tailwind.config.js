@@ -29,12 +29,12 @@ module.exports = {
         'spin-slow': 'spin infinite 7s linear',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'gradient-x': 'gradient-x 3s ease infinite',
+        'gradient-x': 'gradient-x 3.5s ease infinite',
       },
       keyframes: {
         spin: {
           '0%': { transform: 'rotate(0deg)' },
-          '100%': { transform: 'rotate(-360deg)' },
+          '100%': { transform: 'rotate(360deg)' },
         },
         'accordion-down': {
           from: { height: 0 },
