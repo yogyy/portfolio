@@ -57,9 +57,12 @@ const Projects = () => {
               <h1 gaya-fade="2">
                 <Accent>Project i&apos;ve been working on so far</Accent>
               </h1>
-              <p gaya-fade="3" className="mt-2 text-gray-600 dark:text-gray-300">
+              <h2
+                gaya-fade="3"
+                className="mt-2 text-gray-600 dark:text-gray-300 text-base font-medium"
+              >
                 Showcase of my works on frontend development.
-              </p>
+              </h2>
               <ul gaya-fade="4" className="grid gap-4 mt-6 sm:grid-cols-2 xl:grid-cols-3">
                 {allProjects.map(project => (
                   <ProjectCard key={project.slug} project={project} />
