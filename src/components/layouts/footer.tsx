@@ -6,7 +6,7 @@ import Tooltipz from '../tooltip';
 import Link from 'next/link';
 import { Accent } from '../accent';
 
-const copyright = `© ${new Date().getFullYear()} Muhammad Yogi Firman Syah.`;
+const copyright = `© ${new Date().getFullYear()} Yogi.`;
 
 export default function Footer() {
   return (
