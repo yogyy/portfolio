@@ -45,7 +45,7 @@ export const Posts: FC<{ post: Post }> = ({ post }) => {
   }, [post.body.raw]);
   const { back } = useRouter();
   return (
-    <NextSEO className="" title={`${post.title} - yogyy`} desc={post.description}>
+    <NextSEO className="" title={`${post.title} · Yogyy`} desc={post.description}>
       {/* <Image src={asal} alt="atas" className="w-full h-auto" /> */}
       <div className="py-8 bg-coret relative">
         <div className="layout">

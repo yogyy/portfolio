@@ -8,7 +8,7 @@ import { HiArrowSmRight } from 'react-icons/hi';
 
 export default function Page() {
   return (
-    <NextSEO title="Post - yogyy" desc="showing all my post i created">
+    <NextSEO title="Post · Yogyy" desc="showing all my post i created">
       <IsLoaded className="mt-20 min-h-[calc(100dvh_-_239px)]">
         <div className={cn('max-w-3xl mx-4 md:mx-auto flex flex-col gap-5')}>
           <ul className="max-w-3xl mx-4 md:mx-auto flex flex-col gap-5">

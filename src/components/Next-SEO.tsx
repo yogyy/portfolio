@@ -1,11 +1,11 @@
-import { DefaultSeo, NextSeo } from 'next-seo';
+import { NextSeo } from 'next-seo';
 import Footer from './layouts/footer';
 import Navbar from './layouts/navbar';
 import { Inter } from 'next/font/google';
 import { useRouter } from 'next/router';
 import YG from './YG';
 import { cn } from '@/lib/utils';
-import SEO from '@/lib/next-seo.config';
+import SEO from 'next-seo.config';
 import { isProd } from '@/constants/env';
 
 interface SeoProps extends React.HTMLAttributes<HTMLElement> {
@@ -23,13 +23,10 @@ const NextSEO = (props: SeoProps) => {
   return (
     <>
       <NextSeo
-        title={title ? title : 'yogyy'}
-        description={
-          desc
-            ? desc
-            : "I'm a frontend developer, an optimist, and a self-learner. Currently, I'm immersed in frontend development with React."
-        }
+        title={title}
+        description={desc || SEO.openGraph?.description}
         canonical={isProd ? `https://yogyy.verce.app${asPath}` : `localhost:3000${asPath}`}
+        defaultTitle={SEO.openGraph?.title}
         {...SEO}
       />
       <div className="flex flex-col">
@@ -52,3 +49,7 @@ const NextSEO = (props: SeoProps) => {
 };
 
 export default NextSEO;
+
+{
+  /* <HeadMetaData title={title} metaDescription={desc} /> */
+}

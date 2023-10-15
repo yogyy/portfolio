@@ -51,7 +51,7 @@ export const Projects: FC<{ post: Project }> = ({ post }) => {
   }, [post.body.raw]);
 
   return (
-    <NextSEO className="layout" title={`${post.title} - yogyy`} desc={post.description}>
+    <NextSEO className="layout" title={`${post.title} · Yogyy`} desc={post.description}>
       <Image
         src={post.banner!}
         alt={`Project ${post.description}`}

@@ -1,6 +1,6 @@
 import Spotify from '@/components/layouts/spotify';
 import { NextSeo } from 'next-seo';
-import SEO from '@/lib/next-seo.config';
+import SEO from 'next-seo.config';
 
 const SpotifyPage = () => {
   return (

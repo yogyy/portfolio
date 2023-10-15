@@ -7,7 +7,7 @@ import TechMdx from '@/components/tech-icons';
 
 export default function AboutPage() {
   return (
-    <NextSEO title="About - yogyy">
+    <NextSEO title="About · Yogyy">
       <IsLoaded className="items-center min-h-[calc(100vh_-_249px)] flex flex-col h-auto">
         <div className="max-w-3xl mx-5">
           <div id="about" className="min-h-[50dvh] h-full my-10">
