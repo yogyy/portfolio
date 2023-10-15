@@ -2,17 +2,19 @@ import { NextSeoProps } from 'next-seo';
 
 const config: NextSeoProps = {
   openGraph: {
+    title: 'Yogyy',
     type: 'website',
+    description: 'Frontend Developer | Optimist | Self-Learner | Specializing in React',
     images: [
       {
-        url: '/images/og.jpg',
+        url: 'https://yogyy.vercel.app/images/og-image.jpg',
         width: 1200,
-        height: 630,
+        height: 600,
         alt: 'open graph image',
         type: 'image/jpeg',
       },
     ],
-    siteName: 'yogyy cons`t',
+    siteName: 'yogyy const',
     locale: 'en-US,id-ID',
   },
   additionalLinkTags: [
@@ -67,10 +69,14 @@ const config: NextSeoProps = {
       name: 'theme-color',
       content: '#010409',
     },
+    {
+      name: 'google-site-verification',
+      content: 'JZStioxiRjgkd_yUbH_SwvzLPibnkJptjA9QZQi1Gy4',
+    },
   ],
   twitter: {
     handle: '@yogyyconst',
-    site: '@yogyyconst',
+    site: 'yogyy',
     cardType: 'summary_large_image',
   },
 };
