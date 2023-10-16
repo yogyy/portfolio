@@ -1,19 +1,18 @@
-'use client';
-
-import clsx from 'clsx';
+import React from 'react';
+import { cn } from '@/lib/utils';
 import useLoaded from './useLoaded';
 
-export default function IsLoaded({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  const isLoaded = useLoaded();
-  return (
-    <section className={clsx(isLoaded && 'fade-in-start', className)}>
-      {children}
-    </section>
-  );
-}
+const IsLoaded = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
+  ({ className, children, ...props }, ref) => {
+    const isLoaded = useLoaded();
+    return (
+      <section ref={ref} className={cn(isLoaded && 'fade-in-start', className)} {...props}>
+        {children}
+      </section>
+    );
+  }
+);
+
+IsLoaded.displayName = 'IsLoaded';
+
+export default IsLoaded;
