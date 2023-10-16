@@ -1,167 +1,29 @@
 import { cn } from '@/lib/utils';
-import { Accent } from '@/components/accent';
-import ButtonLink from '@/components/links/buttonlink';
-import UnstyledLink from '@/components/links/unstyledlink';
-import IsLoaded from '@/components/isLoaded';
 import { InView } from 'react-intersection-observer';
 import ProjectCard from '@/components/project-card';
-
-import { SiGithub, SiX } from 'react-icons/si';
-import { IoNewspaperSharp } from 'react-icons/io5';
-import { RiCodeSSlashFill, RiTerminalFill } from 'react-icons/ri';
-
-import TechSection from '@/components/tech/techsection';
-import Tooltipz from '@/components/tooltip';
+import TechSection from '@/components/section/tech-section';
 import NextSEO from '@/components/Next-SEO';
 import { allProjects } from 'contentlayer/generated';
-import { useRouter } from 'next/router';
-
-const externalUrl = [
-  {
-    href: 'https://drive.google.com/file/d/1j7mkmbd7mTr80xvBPgV0J1d7jMoztifq/view',
-    icon: IoNewspaperSharp,
-    name: 'Resume',
-  },
-  {
-    href: 'https://github.com/yogyy',
-    icon: SiGithub,
-    name: 'Github',
-  },
-  {
-    href: 'https://twitter.com/yogyyconst',
-    icon: SiX,
-    name: 'Twitter',
-  },
-];
+import SkillSection from '@/components/section/skills-section';
+import HeroSection from '@/components/section/hero-section';
 
 export default function Home() {
   return (
     <NextSEO>
-      <IsLoaded className="relative flex flex-col justify-center mb-20 min-h-main lg:min-h-[850px]">
-        <article className="mx-auto layout">
-          <h1
-            className="inline-flex items-center justify-center gap-2 pb-2 text-3xl md:text-4xl 2xl:text-5xl"
-            gaya-fade="1"
-          >
-            <span>Hi, i&apos;m</span>
-            <Accent className="pb-2">yogyy</Accent>
-          </h1>
-          <h2 gaya-fade="2" className="flex flex-wrap">
-            Frontend Web Developer
-          </h2>
-          <p gaya-fade="3" className="max-w-4xl mt-4 md:mt-6 md:text-lg 2xl:text-xl">
-            i&apos;m front-end developer based in Tangerang, Indonesia,
-            <br /> with a focus on ReactJS and NextJS.
-          </p>
-          <div gaya-fade="4" className="mt-8 flex flex-wrap gap-4 md:!text-lg">
-            <div className="relative group">
-              <div
-                className={cn(
-                  'absolute -inset-0.5 animate-tilt rounded blur',
-                  'bg-gradient-to-r from-light-primary to-light-secondary',
-                  'dark:from-dark-primary dark:to-dark-secondary',
-                  'opacity-50 transition duration-1000 group-hover:opacity-100 group-hover:duration-200'
-                )}
-              />
-              <ButtonLink
-                href="/posts"
-                className="bg-light-primary text-light-bg dark:bg-dark-primary dark:text-dark-text dark:border-dark-primary"
-              >
-                Read The Post
-              </ButtonLink>
-            </div>
-            <ButtonLink
-              className="bg-light-secondary text-light-primary dark:bg-dark-secondary dark:text-dark-primary"
-              href="/about"
-            >
-              More about me
-            </ButtonLink>
-          </div>
-          <div gaya-fade="5">
-            <ul className="flex flex-wrap items-center gap-4 mt-4 gap-y-2 md:mt-8">
-              {externalUrl.map(url => (
-                <li key={url.name}>
-                  <UnstyledLink
-                    className={cn(
-                      'inline-flex items-center gap-1 text-sm font-medium md:text-base',
-                      'text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-dark-primary dark:focus:text-dark-primary',
-                      'focus:outline-none focus:rounded-md focus-visible:ring focus-visible:ring-light-accent dark:focus-visible:ring-dark-accent',
-                      'transition-colors group'
-                    )}
-                    href={url.href}
-                  >
-                    <url.icon />
-                    <span>{url.name}</span>
-                  </UnstyledLink>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </article>
-      </IsLoaded>
+      <HeroSection />
 
       <InView triggerOnce rootMargin="-40% 0px">
-        {({ ref, inView }) => (
-          <section ref={ref} className={cn('py-20 layout', inView && 'fade-in-start')}>
-            <div className="mt-10">
-              <h2 gaya-fade="1" className="text-light-primary dark:text-dark-accent">
-                Skills
-              </h2>
-
-              <article id="skill" className="mt-6">
-                <div className="flex flex-col gap-12 md:flex-row">
-                  <div
-                    gaya-fade="2"
-                    className="flex overflow-hidden flex-1 max-h-[260px] justify-between relative flex-col gap-4 border dark:border-gray-600 p-4 rounded-md h-max backdrop-blur-sm"
-                  >
-                    <div className="flex flex-row items-center gap-3">
-                      <RiCodeSSlashFill size={24} className="text-dark-accent" />
-                      <h3 className="text-xl">Web development</h3>
-                    </div>
-                    <p>
-                      I have experience in web development with React and Next.js, and I am
-                      proficient in HTML, CSS, JavaScript, and TypeScript
-                    </p>
-                  </div>
-                  <div
-                    gaya-fade="3"
-                    className="flex flex-1 flex-col max-h-[260px] overflow-hidden gap-4 border dark:border-gray-600 p-4 rounded-md backdrop-blur-sm"
-                  >
-                    <div className="flex flex-row items-center gap-3 flex-nowrap">
-                      <RiTerminalFill size={24} className="text-dark-accent" />
-                      <h3 className="text-xl">Other technologies</h3>
-                    </div>
-                    <p>
-                      Familiar with and frequent user of common software development tools, such as
-                      git .
-                    </p>
-                    <p>
-                      Know how to utilise assistive<span className="peer"></span>
-                      <Tooltipz
-                        content={
-                          <p className="text-xs">
-                            Yes, they are
-                            <br /> Google, <br /> StackOverflow <br /> and ChatGPT!
-                          </p>
-                        }
-                      >
-                        technologies
-                      </Tooltipz>
-                      &nbsp;to enhance productivity.
-                    </p>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </section>
-        )}
+        {({ ref, inView }) => <SkillSection ref={ref} className={cn(inView && 'fade-in-start')} />}
       </InView>
+
       <InView triggerOnce rootMargin="-40% 0px">
         {({ ref, inView }) => (
           <section ref={ref} className={cn('py-20', inView && 'fade-in-start')}>
             <article gaya-fade="0" className="layout">
-              <div>
-                <h3 className="text-light-primary dark:text-dark-accent mt-14">Tech Stack</h3>
+              <div gaya-fade="1">
+                <h3 gaya-fade="2" className="text-light-primary dark:text-dark-accent mt-14">
+                  Tech Stack
+                </h3>
                 <TechSection gaya-fade="3" className="mt-6" />
               </div>
             </article>
@@ -174,14 +36,15 @@ export default function Home() {
           <section ref={ref} className={cn('py-20', inView && 'fade-in-start')}>
             <article gaya-fade="0" className="layout">
               <div gaya-fade="1">
-                <h2 className="text-light-primary dark:text-dark-accent">Features Project</h2>
-                <p className="mt-2">Showcase of my works on frontend development.</p>
-                <ul
-                  gaya-fade="2"
-                  className="grid gap-4 mt-6 sm:grid-cols-2 lg:grid-cols-3 !delay-300"
-                >
+                <h1 gaya-fade="2" className="text-light-primary dark:text-dark-accent">
+                  Features Project
+                </h1>
+                <p gaya-fade="2" className="mt-2">
+                  Showcase of my works on frontend development.
+                </p>
+                <ul className="grid gap-4 mt-6 sm:grid-cols-2 lg:grid-cols-3">
                   {allProjects.map(project => (
-                    <ProjectCard key={project.slug} project={project} />
+                    <ProjectCard gaya-fade="3" key={project.slug} project={project} />
                   ))}
                 </ul>
               </div>
