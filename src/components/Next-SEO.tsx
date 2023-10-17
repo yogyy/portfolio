@@ -9,7 +9,6 @@ import SEO from 'next-seo.config';
 import { isProd } from '@/constants/env';
 
 interface SeoProps extends React.HTMLAttributes<HTMLElement> {
-  children: React.ReactNode;
   title?: string;
   desc?: string;
 }
@@ -31,7 +30,7 @@ const NextSEO = (props: SeoProps) => {
       />
       <div className="flex flex-col">
         <Navbar />
-        <main id="skip-nav" className={cn(inter.className, className)}>
+        <main id="skip-nav" className={cn(inter.className, className)} {...props}>
           {children}
           <YG
             className={cn(
