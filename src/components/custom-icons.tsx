@@ -1,8 +1,8 @@
 import {
   SiHeadlessui,
   SiMongodb,
-  SiMui,
   SiNextdotjs,
+  SiRadixui,
   SiReact,
   SiReactquery,
   SiTailwindcss,
@@ -15,7 +15,7 @@ const Icons: { [key: string]: React.ComponentType } = {
   Tailwind: SiTailwindcss,
   HeadlessUI: SiHeadlessui,
   ReactJS: SiReact,
-  MUI: SiMui,
+  RadixUI: SiRadixui,
   MongoDB: SiMongodb,
   ReactQuery: SiReactquery,
   Trpc: SiTrpc,
