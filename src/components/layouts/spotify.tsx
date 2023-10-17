@@ -1,10 +1,8 @@
 import * as React from 'react';
 import { SiSpotify } from 'react-icons/si';
 import useSWR from 'swr';
-import { AiOutlineLoading } from 'react-icons/ai';
 import UnstyledLink, { UnstyledLinkProps } from '@/components/links/unstyledlink';
-import { SpotifyData, SpotifyLastPlayed } from '@/types/spotify';
-import axios from 'axios';
+import { SpotifyData } from '@/types/spotify';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Skeleton } from '../ui/skeleton';
@@ -13,30 +11,12 @@ export default function Spotify({
   className,
   ...rest
 }: Omit<UnstyledLinkProps, 'href' | 'children'>) {
-  // const [lastPlay, setLastPlay] = React.useState<SpotifyLastPlayed>();
   const fetcher = (url: string) => fetch(url).then(r => r.json());
-  const { data, isLoading } = useSWR<SpotifyData>('/api/spotify/currently-playing', fetcher, {
-    revalidateOnFocus: true,
-  });
+  const { data, isLoading } = useSWR<SpotifyData>('/api/spotify/currently-playing', fetcher);
   const { data: lastPlay, isLoading: lastPlayLoading } = useSWR(
     data && data.isPlaying === false ? '/api/spotify/last-played' : null,
-    fetcher,
-    {
-      revalidateOnFocus: true,
-    }
+    fetcher
   );
-  // React.useEffect(() => {
-  //   if (!data?.title) {
-  //     axios
-  //       .get('/api/spotify/last-played')
-  //       .then(response => {
-  //         setLastPlay(response.data);
-  //       })
-  //       .catch(error => {
-  //         console.error(error);
-  //       });
-  //   }
-  // }, [data]);
 
   if (data === undefined) {
     return null;
@@ -45,12 +25,11 @@ export default function Spotify({
   if (isLoading || lastPlayLoading) {
     return (
       <div className="relative sm:min-w-[233px] w-auto flex items-center justify-center gap-2 p-2.5 border dark:border-dark-secondary rounded-md rounded-br-xl">
-        <div className="flex gap-2 w-full">
-          {/* <AiOutlineLoading className="text-2xl animate-spin text-dark-accent" /> */}
+        <div className="flex w-full gap-2">
           <div className="w-12 h-12">
             <Skeleton className="w-12 h-12 mr-1" />
           </div>
-          <div className="flex flex-col gap-1 w-full justify-center">
+          <div className="flex flex-col justify-center w-full gap-1">
             <Skeleton className="w-full h-4" />
             <Skeleton className="w-4/5 h-4" />
           </div>
@@ -83,19 +62,19 @@ export default function Spotify({
         {...rest}
       >
         <Image
-          className="w-12 shadow-sm dark:shadow-none h-full place-self-start rounded-sm"
+          className="w-12 h-full rounded-sm shadow-sm dark:shadow-none place-self-start"
           src={data.isPlaying ? data.album.images[2].url : lastPlay ? lastPlay?.album : ''}
           alt={data.isPlaying ? data.album.name : lastPlay ? lastPlay?.title : ''}
           width={240}
           height={240}
           aria-hidden="true"
         />
-        <div className="flex-1 flex flex-col gap-1">
-          <p className="text-xs font-medium flex-wrap">
+        <div className="flex flex-col flex-1 gap-1">
+          <p className="flex-wrap text-xs font-medium">
             {data.isPlaying ? 'Now Playing' : 'Last Played'}:{' '}
             {data.isPlaying ? data.title : lastPlay?.title}
           </p>
-          <p className="text-xs font-semibold text-light-text/60 dark:text-dark-primary/50 pr-4">
+          <p className="pr-4 text-xs font-semibold text-light-text/60 dark:text-dark-primary/50">
             by {data.isPlaying ? data.artist : lastPlay?.artist}
           </p>
         </div>
@@ -107,7 +86,7 @@ export default function Spotify({
               alt="playing icon"
               width={20}
               height={20}
-              className="rounded-full absolute top-0 opacity-80"
+              className="absolute top-0 rounded-full opacity-80"
               aria-hidden="true"
             />
           )}
