@@ -33,9 +33,17 @@ npm run build
 
 ### Step 3. Run git add dist && git commit -m 'adding dist subtree'
 
+```bash
+git add dist && git commit -m 'adding dist subtree'
+```
+
 This commits our changes to the master branch so that we can create a `dist` subtree in the next step. Make sure that `dist` is not included in your `.gitignorefile!`
 
 ### Step 4. Run git subtree push --prefix dist origin gh-pages
+
+```bash
+git subtree push --prefix dist origin gh-pages
+```
 
 This step makes gh-pages a subtree of our main branch. The prefix option specifies the folder that we want for our the subtree. If we take a look at our gh-pages branch, we will see that it is equivalent to being the root of the dist folder.
 
