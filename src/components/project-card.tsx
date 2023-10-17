@@ -32,13 +32,12 @@ export default function ProjectCard({ project, className, ...props }: ProjectCar
           </div>
         </div>
         <p className="mb-auto text-sm text-gray-700 dark:text-gray-300">{project.description}</p>
-        <figure className="hidden w-full h-auto mt-3 pointer-events-none bg-light-bg/30 dark:bg-dark-bg/30 sm:block">
+        <figure className="relative hidden w-full h-auto mt-3 pointer-events-none bg-light-bg/30 dark:bg-dark-bg/30 sm:block aspect-video">
           <Image
             src={project.banner!}
             alt={project.title}
-            width={400}
-            height={225}
-            className="w-full rounded-md"
+            fill
+            className="absolute w-full rounded-md"
           />
         </figure>
         <p className="flex items-center gap-1 mt-2 font-medium animated-underline text-zinc-700 dark:text-dark-primary place-self-end">

@@ -3,18 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --tw-clr-primary-200: 118 202 212;
-    --tw-clr-primary-300: 207 231 231;
-    --tw-clr-primary-400: 87 188 146;
-    --tw-clr-primary-500: 1 82 75;
-
-    --clr-primary-200: rgb(var(--tw-clr-primary-200)); /* #DBFF00 */
-    --clr-primary-300: rgb(var(--tw-clr-primary-300)); /* #00e887 */
-    --clr-primary-400: rgb(var(--tw-clr-primary-400)); /* #00e0f3 */
-    --clr-primary-500: rgb(var(--tw-clr-primary-500)); /* #00c4fd */
-  }
-
   * {
     box-sizing: border-box;
     padding: 0;
@@ -77,7 +65,9 @@
 
   .layout {
     max-width: 68rem;
-    @apply w-11/12 mx-auto;
+    width: 91.666667%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .bg-coret::after {
@@ -92,12 +82,14 @@
     mask: url('/handcoret.svg') repeat;
     -webkit-mask-size: auto 100%;
     mask-size: auto 100%;
-    @apply bg-light-secondary dark:bg-dark-secondary w-full transition-colors duration-75;
+    @apply w-full transition-colors duration-75 bg-light-secondary dark:bg-dark-secondary;
   }
 
   .lil-layout {
     max-width: 48rem;
-    @apply w-11/12 mx-auto;
+    width: 91.666667%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .bg-dark a.custom-link {
@@ -105,7 +97,7 @@
   }
 
   .min-h-main {
-    @apply min-h-[calc(100vh-82px)];
+    min-height: calc(100vh - 82px);
   }
   .accent {
     @apply transition-colors text-light-accent dark:text-dark-accent;
@@ -122,10 +114,10 @@
 
 @layer components {
   .more-project {
-    @apply p-1 w-7 h-7 text-zinc-700 group-hover:text-zinc-900 dark:text-zinc-300 dark:group-hover:text-zinc-100 transition-colors duration-300 group-focus:text-dark-accent;
+    @apply p-1 transition-colors duration-300 w-7 h-7 text-zinc-700 group-hover:text-zinc-900 dark:text-zinc-300 dark:group-hover:text-zinc-100 group-focus:text-dark-accent;
   }
   .project-card {
-    @apply border-zinc-100  dark:border-zinc-800 text-zinc-600 dark:text-zinc-300;
+    @apply border-zinc-100 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300;
   }
   .project-card:hover {
     @apply border-zinc-200 dark:border-zinc-700 text-dark-accent dark:text-dark-accent;
@@ -174,7 +166,7 @@
 } */
 
 [gaya-fade] {
-  @apply translate-y-10 opacity-0 transition duration-400 ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100;
+  @apply transition ease-out translate-y-10 opacity-0 duration-400 motion-reduce:translate-y-0 motion-reduce:opacity-100;
 }
 .fade-in-start [gaya-fade] {
   @apply translate-y-0 opacity-100;
@@ -212,7 +204,7 @@
 }
 
 .projectcard img {
-  filter: brightness(40%);
+  filter: brightness(60%);
   transition: filter 0.5s ease-in-out;
 }
 
