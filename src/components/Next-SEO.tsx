@@ -30,7 +30,7 @@ const NextSEO = (props: SeoProps) => {
       />
       <div className="flex flex-col">
         <Navbar />
-        <main id="skip-nav" className={cn(inter.className, className)} {...props}>
+        <main id="skip-nav" className={cn(inter.className, className)}>
           {children}
           <YG
             className={cn(
@@ -48,7 +48,3 @@ const NextSEO = (props: SeoProps) => {
 };
 
 export default NextSEO;
-
-{
-  /* <HeadMetaData title={title} metaDescription={desc} /> */
-}
