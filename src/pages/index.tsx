@@ -24,7 +24,7 @@ export default function Home() {
                 <h3 gaya-fade="2" className="text-light-primary dark:text-dark-accent mt-14">
                   Tech Stack
                 </h3>
-                <TechSection gaya-fade="3" className="mt-6" />
+                <TechSection className="mt-6" />
               </div>
             </article>
           </section>
