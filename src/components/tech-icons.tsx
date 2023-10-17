@@ -4,7 +4,6 @@ import { IoLogoVercel } from 'react-icons/io5';
 import {
   SiHeadlessui,
   SiMongodb,
-  SiMui,
   SiNextdotjs,
   SiReact,
   SiReactquery,
@@ -13,6 +12,7 @@ import {
   SiUpstash,
   SiPlanetscale,
   SiNodedotjs,
+  SiRadixui,
 } from 'react-icons/si';
 import Tooltipz from './tooltip';
 
@@ -81,9 +81,9 @@ const techList = {
     icon: SiHeadlessui,
     name: 'Headless UI',
   },
-  mui: {
-    icon: SiMui,
-    name: 'MUI',
+  radix: {
+    icon: SiRadixui,
+    name: 'Radix UI',
   },
   reactquery: {
     icon: SiReactquery,
