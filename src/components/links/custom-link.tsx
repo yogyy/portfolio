@@ -1,20 +1,18 @@
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 import UnstyledLink, { UnstyledLinkProps } from './unstyledlink';
 
 export default function CustomLink({ children, className = '', ...rest }: UnstyledLinkProps) {
   return (
     <UnstyledLink
-      {...rest}
-      className={clsx(
-        'animated-underline custom-link inline-flex items-center font-medium',
+      className={cn(
+        'animated-underline inline-flex items-center font-medium',
         'focus:outline-none',
-        'border-b border-dotted border-dark-accent hover:border-dark-secondary',
-        className
+        'border-dark-accent border-b border-dotted border-accent hover:border-secondary',
+        className,
       )}
+      {...rest}
     >
-      <span className="dark:bg-gradient-to-tr dark:from-dark-primary dark:to-dark-accent dark:bg-clip-text dark:text-transparent">
-        {children}
-      </span>
+      {children}
     </UnstyledLink>
   );
 }

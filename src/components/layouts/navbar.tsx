@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { ThemeButton } from '@/components/dark-theme';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -39,9 +38,9 @@ function NavLink({ href, children, ...rest }: NavLinkProps) {
       {...rest}
       className={cn(
         router.pathname && baseRoute !== href
-          ? 'text-light-text dark:text-dark-primary hover:text-light-primary/50 dark:hover:text-dark-accent'
-          : 'text-light-primary dark:text-dark-accent',
-        'focus:outline-none focus-visible:ring focus-visible:ring-light-primary dark:focus-visible:ring-dark-accent focus:rounded-sm py-1'
+          ? 'text-light-text dark:text-dark-primary hover:text-light-primary/50 dark:hover:text-accent'
+          : 'text-light-primary dark:text-accent',
+        'focus-visible:ring-light-primary py-1 focus:rounded-sm focus:outline-none focus-visible:ring dark:focus-visible:ring-accent',
       )}
     >
       <span>{children}</span>
@@ -57,38 +56,35 @@ export default function Navbar({ large = false }: HeaderProps) {
     <header
       className={cn(
         'z-10 w-full',
-        inPosts && 'sticky top-0 border-b-2 border-light-accent dark:border-dark-accent'
+        inPosts && 'border-light-accent sticky top-0 border-b-2 dark:border-accent',
       )}
     >
       <a
         href="#skip-nav"
         className={cn(
           'rounded-sm p-2 transition',
-          'font-medium text-black dark:text-white',
+          'font-medium text-text',
           'bg-light-bg dark:bg-dark-bg',
-          'group dark:hover:text-dark-accent',
-          'focus:outline-none focus:ring focus:ring-dark-accent',
+          'group dark:hover:text-accent',
+          'focus:outline-none focus:ring focus:ring-accent',
           'absolute left-4 top-1 z-20',
-          '-translate-y-16 focus:translate-y-0'
+          '-translate-y-16 focus:translate-y-0',
         )}
       >
         skip to content
       </a>
-      <nav
-        aria-label="Main Menu"
-        className={cn('backdrop-blur-sm', inPosts && 'bg-light-bg dark:bg-dark-bg')}
-      >
+      <nav aria-label="Main Menu" className={cn('backdrop-blur-sm', inPosts && 'bg-background')}>
         <div
           className={cn(
             'layout flex items-center justify-between py-4',
-            large && 'lg:max-w-[68rem]'
+            large && 'lg:max-w-[68rem]',
           )}
         >
-          <ul className="flex mr-auto ml-9 gap-9">
+          <ul className="ml-9 mr-auto flex gap-9">
             {links.map(({ label, href }: dink) => (
               <li key={`${href} ${label}`}>
                 <NavLink href={href}>
-                  <span className={cn('transition-colors text-xs md:text-base font-semibold')}>
+                  <span className={cn('text-xs font-semibold transition-colors md:text-base')}>
                     {label}
                   </span>
                 </NavLink>

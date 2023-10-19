@@ -35,7 +35,7 @@ const ICON_TYPES = new Map(
     vuejs: <SiVuedotjs />,
     bootstrap: <SiBootstrap />,
     git: <SiGit />,
-  })
+  }),
 );
 
 export function Icon({ type }: { type: string }) {
@@ -59,8 +59,8 @@ export default TechSection;
 const TechSkillItem = ({ text }: { text: string }) => {
   const iconType = text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '').toLowerCase();
   return (
-    <div className="flex items-center p-2 border rounded-md dark:border-gray-600 hover:bg-gray-300/20 dark:hover:bg-gray-500/20 hover:border-transparent hover:dark:border-transparent backdrop-blur-sm">
-      <span className="text-2xl text-dark-bg dark:text-light-bg">
+    <div className="bg-card flex items-center rounded-md border p-2 backdrop-blur-sm hover:border-transparent hover:bg-primary/30">
+      <span className="text-2xl text-text">
         <Icon type={iconType} />
       </span>
       <span className="pl-4">{text}</span>
