@@ -4,8 +4,6 @@ import clsx from 'clsx';
 
 type TooltipButtonProps = {
   content: React.ReactNode;
-  children: React.ReactNode;
-  className?: string;
 } & React.ComponentPropsWithoutRef<'button'>;
 
 export default function Tooltipz({ content, children, className, ...rest }: TooltipButtonProps) {
@@ -19,12 +17,12 @@ export default function Tooltipz({ content, children, className, ...rest }: Tool
           <Tooltip.Content
             sideOffset={8}
             className={clsx(
-              'bg-light-bg dark:bg-dark-bg px-2.5 text-light-secondary font-semibold outline outline-1 py-1.5 TooltipContent left-4 flex flex-col text-sm rounded-md',
-              'outline-light-text dark:outline-dark-accent'
+              'TooltipContent left-4 flex flex-col rounded-md bg-background px-2.5 py-1.5 text-sm font-semibold text-accent outline outline-1',
+              'outline-accent',
             )}
           >
             {content}
-            <Tooltip.Arrow className="fill-light-text dark:fill-dark-accent" />
+            <Tooltip.Arrow className="fill-light-text dark:fill-accent" />
           </Tooltip.Content>
         </Tooltip.Portal>
       </Tooltip.Root>
