@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils';
-import * as React from 'react';
 import { IoLogoVercel } from 'react-icons/io5';
 import {
   SiHeadlessui,
@@ -14,7 +13,7 @@ import {
   SiNodedotjs,
   SiRadixui,
 } from 'react-icons/si';
-import Tooltipz from './tooltip';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 
 export type TechListType = keyof typeof techList;
 
@@ -33,14 +32,21 @@ export default function TechMdx({ className, techs, iconClassName }: TechIconsPr
 
         return (
           <li className="text-xl" key={current.name}>
-            <Tooltipz className="group" content={<p>{current.name}</p>}>
-              <current.icon
-                className={cn(
-                  'transition-colors duration-200 group-focus:text-dark-accent group-hover:text-dark-accent',
-                  iconClassName
-                )}
-              />
-            </Tooltipz>
+            <TooltipProvider delayDuration={300}>
+              <Tooltip>
+                <TooltipTrigger className="group outline-none">
+                  <current.icon
+                    className={cn(
+                      'transition-colors duration-200 group-hover:text-accent group-focus:text-accent',
+                      iconClassName,
+                    )}
+                  />
+                </TooltipTrigger>
+                <TooltipContent sideOffset={8} className="duration-300">
+                  <p>{current.name}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </li>
         );
       })}

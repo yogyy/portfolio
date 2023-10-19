@@ -1,48 +1,68 @@
-import { SiGithub, SiFacebook, SiLinkedin, SiX } from 'react-icons/si';
-import { IoMailOutline } from 'react-icons/io5';
-import { cn } from '@/lib/utils';
 import Spotify from './spotify';
-import Tooltipz from '../tooltip';
-import Link from 'next/link';
+import { cn } from '@/lib/utils';
 import { Accent } from '../accent';
+import { IoMailOutline } from 'react-icons/io5';
+import { SiGithub, SiFacebook, SiLinkedin, SiX } from 'react-icons/si';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipPortal,
+  TooltipProvider,
+  TooltipTrigger,
+} from '../ui/tooltip';
+import Link from 'next/link';
 
 const copyright = `© ${new Date().getFullYear()} Yogi.`;
 
 export default function Footer() {
   return (
-    <footer className="transition-colors bg-base-100 backdrop-blur-sm mt-6">
-      <hr className="mb-6 border-gray-200 sm:mx-auto dark:border-gray-700" />
-      <div className="relative pb-4 layout">
-        <div className="flex flex-col justify-center gap-3 mb-4 sm:flex-row sm:justify-between">
-          <Accent className="self-center mb-4 text-2xl font-bold pb-2">yogyy</Accent>
+    <footer className="mt-6 bg-background/30 backdrop-blur-sm">
+      <hr className="mb-6 border-text/10" />
+      <div className="layout relative pb-4">
+        <div className="mb-4 flex flex-col items-center justify-center gap-3 sm:flex-row sm:justify-between">
+          <h1 className="mb-4 self-center pb-2 text-2xl font-bold">
+            <Accent>yogyy</Accent>
+          </h1>
           <Spotify className="place-self-center" />
         </div>
-        <div className="flex flex-col-reverse justify-center gap-6 place-items-center md:flex-row md:justify-between">
+        <div className="flex flex-col-reverse place-items-center justify-center gap-6 md:flex-row md:justify-between">
           <span className="flex gap-3 text-sm font-semibold sm:text-center">{copyright}</span>
-          <div className="relative flex h-auto my-auto space-x-3 text-xl md:space-x-5 sm:place-content-center">
+          <div className="relative my-auto flex h-auto space-x-3 text-xl sm:place-content-center md:space-x-5">
             {links.map(link => (
-              <Tooltipz
-                content={link.content}
-                className="group"
-                aria-label={link.alt}
-                key={link.href}
-                type="button"
-              >
-                <Link
-                  href={link.href}
-                  target="_blank"
-                  tabIndex={-1}
-                  aria-label={`go to ${link.alt}`}
-                >
-                  <link.icon
-                    className={cn(
-                      'group-focus:text-light-text dark:group-focus-within:text-dark-accent',
-                      'relative text-light-primary dark:text-dark-primary group-hover:text-light-text dark:group-hover:text-dark-accent',
-                      'focus:outline-none m-1'
-                    )}
-                  />
-                </Link>
-              </Tooltipz>
+              <TooltipProvider key={link.href} delayDuration={300}>
+                <Tooltip>
+                  <TooltipTrigger
+                    type="button"
+                    className="cursor-newtab group outline-none"
+                    aria-label={link.alt}
+                  >
+                    <Link
+                      href={link.href}
+                      target="_blank"
+                      tabIndex={-1}
+                      aria-label={`go to ${link.alt}`}
+                      className="cursor-newtab"
+                    >
+                      <link.icon
+                        className={cn(
+                          'group-focus:text-accent',
+                          'relative text-text/70 group-hover:text-accent',
+                          'm-1',
+                        )}
+                      />
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipPortal>
+                    <TooltipContent
+                      sideOffset={8}
+                      side="bottom"
+                      className="font-semibold text-text outline-accent duration-400"
+                    >
+                      {link.content}
+                    </TooltipContent>
+                  </TooltipPortal>
+                </Tooltip>
+              </TooltipProvider>
             ))}
           </div>
         </div>
@@ -59,7 +79,7 @@ const links = [
     content: (
       <p>
         Contact me&nbsp;
-        <span className="text-light-primary dark:text-light-bg">m.yogi.fs@gmail.com</span>
+        <span className="text-primary">m.yogi.fs@gmail.com</span>
       </p>
     ),
   },
@@ -69,7 +89,7 @@ const links = [
     icon: SiGithub,
     content: (
       <p>
-        See My Project on <span className="text-light-primary dark:text-light-bg">Github</span>
+        See My Project on <span className="text-primary">Github</span>
       </p>
     ),
   },
@@ -79,7 +99,7 @@ const links = [
     icon: SiFacebook,
     content: (
       <p>
-        Reach me on <span className="text-light-primary dark:text-light-bg">Facebook</span>
+        Reach me on <span className="text-primary">Facebook</span>
       </p>
     ),
   },
@@ -89,7 +109,7 @@ const links = [
     icon: SiLinkedin,
     content: (
       <p>
-        Find me on <span className="text-light-primary dark:text-light-bg">LinkedIn</span>
+        Find me on <span className="text-primary">LinkedIn</span>
       </p>
     ),
   },
@@ -99,7 +119,7 @@ const links = [
     icon: SiX,
     content: (
       <p>
-        Reach me on <span className="text-light-primary dark:text-light-bg">Twitter</span>
+        Reach me on <span className="text-primary">Twitter</span>
       </p>
     ),
   },

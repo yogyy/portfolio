@@ -11,6 +11,8 @@ const TooltipTrigger = TooltipPrimitive.Trigger;
 
 const TooltipArrow = TooltipPrimitive.Arrow;
 
+const TooltipPortal = TooltipPrimitive.Portal;
+
 const TooltipContent = React.forwardRef<
   React.ElementRef<typeof TooltipPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>
@@ -19,7 +21,7 @@ const TooltipContent = React.forwardRef<
     ref={ref}
     sideOffset={sideOffset}
     className={cn(
-      'data-[state=delayed-open]:data-[side=top]:animate-slideUpAndFade data-[state=delayed-open]:data-[side=right]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=left]:animate-slideLeftAndFade data-[state=delayed-open]:data-[side=bottom]:animate-slideDownAndFade z-50 rounded-md bg-background px-3 py-1.5 text-xs text-accent shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] outline outline-1 will-change-[transform,opacity]',
+      'z-50 rounded-md bg-background px-3 py-1.5 text-sm text-accent outline outline-1 will-change-[transform,opacity] animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
       className,
     )}
     {...props}
@@ -30,4 +32,4 @@ const TooltipContent = React.forwardRef<
 ));
 TooltipContent.displayName = TooltipPrimitive.Content.displayName;
 
-export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider };
+export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider, TooltipPortal };
