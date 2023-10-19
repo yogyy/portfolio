@@ -1,16 +1,18 @@
 import { cn } from '@/lib/utils';
 import * as React from 'react';
 
-type AccentType = React.ComponentPropsWithoutRef<'span'>;
-
-export const Accent = ({ children, className }: AccentType) => {
+export const Accent: React.FC<React.ComponentPropsWithRef<'span'>> = ({
+  children,
+  className,
+  ref,
+}) => {
   return (
     <span
+      ref={ref}
       className={cn(
-        'transition-colors bg-gradient-to-r bg-clip-text text-transparent motion-safe:animate-gradient-x',
-        'from-light-text via-dark-accent to-dark-accent',
-        'dark:from-light-secondary dark:via-dark-accent/70 dark:to-dark-accent',
-        className
+        'bg-gradient-to-r bg-clip-text text-transparent transition-colors',
+        'from-accent/80 to-text motion-safe:animate-gradient-x',
+        className,
       )}
     >
       {children}

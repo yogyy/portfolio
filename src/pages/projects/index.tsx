@@ -20,42 +20,42 @@ const smallProjects: ProjectType = [
     title: 'yogyy',
     description: 'The website you are currently on',
     url: 'https://yogyy.vercel.app',
-    type: ['React', 'Typescript', 'NextJS', 'TailwindCSS', 'Radix UI'],
+    type: ['React', 'Typescript', 'Next JS', 'Tailwind CSS', 'Radix UI'],
   },
   {
     title: 'Gallery',
     description: 'Searching Images using Unsplash API',
     github: 'https://github.com/yogyy/Gallery',
     url: 'https://gallery-yy.vercel.app',
-    type: ['React', 'Typescript', 'NextJS', 'TailwindCSS'],
+    type: ['React', 'Typescript', 'Next JS', 'Tailwind CSS'],
   },
   {
     title: 'Indonesia Geography',
     description: 'Showing Indonesia Geography and Searching Regency,Discrict, also Village',
     github: 'https://github.com/yogyy/Indonesia-Geography',
     url: 'https://nusantara-chi.vercel.app',
-    type: ['React', 'Typescript', 'NextJS', 'TailwindCSS'],
+    type: ['React', 'Typescript', 'Next JS', 'Tailwind CSS'],
   },
   {
     title: 'The Malaka',
     description: 'The Malaka is a landing page for a book product.',
-    github: 'https://github.com/yogyy/Indonesia-Geography',
+    github: 'https://github.com/yogyy/the-malaka',
     url: 'https://yogyy.github.io/the-malaka',
-    type: ['React', 'Typescript', 'TailwindCSS', 'Slicing'],
+    type: ['React', 'Typescript', 'Tailwind CSS', 'Slicing'],
   },
   {
     title: 'Gh/Searcher',
     description: "searching user & user's repo",
     github: 'https://github.com/yogyy/ghsearcher',
     url: 'https://yogyy.github.io/ghsearcher',
-    type: ['React', 'TypeScript', 'TailwindCSS', 'Radix UI'],
+    type: ['React', 'TypeScript', 'Tailwind CSS', 'Radix UI'],
   },
   {
     title: 'Burbir',
     description: 'A twitter website clone',
     github: 'https://github.com/yogyy/burungbiru',
     url: 'https://burungbiru.vercel.app/',
-    type: ['NextJS', 'TypeScript', 'TailwindCSS', 'tRPC', 'Upstash', 'React Query'],
+    type: ['Next JS', 'TypeScript', 'Tailwind CSS', 'tRPC', 'Upstash', 'React Query'],
   },
   {
     title: 'Spotify Activity',
@@ -81,13 +81,13 @@ const Projects = () => {
             <h2 className="mt-2 text-base font-medium">
               Showcase of my works on frontend development.
             </h2>
-            <ul gaya-fade="2" className="grid gap-4 mt-6 sm:grid-cols-2 xl:grid-cols-3">
+            <ul gaya-fade="2" className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {allProjects.map(project => (
                 <ProjectCard key={project.slug} project={project} />
               ))}
             </ul>
-            <h3 className="mt-6">More Project</h3>
-            <ul gaya-fade="3" className="grid gap-4 mt-6 sm:grid-cols-2 xl:grid-cols-3">
+            <h3 className="mt-6 text-text">More Project</h3>
+            <ul gaya-fade="3" className="mt-6 space-y-4 sm:columns-2 lg:columns-3">
               {smallProjects.map(procj => (
                 <ProjectCardSimple
                   key={procj.title}

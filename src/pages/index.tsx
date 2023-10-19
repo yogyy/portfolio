@@ -21,9 +21,9 @@ export default function Home() {
           <section ref={ref} className={cn('py-20', inView && 'fade-in-start')}>
             <article gaya-fade="0" className="layout">
               <div gaya-fade="1">
-                <h3 gaya-fade="2" className="text-light-primary dark:text-dark-accent mt-14">
+                <h1 gaya-fade="2" className="mt-14 text-text">
                   Tech Stack
-                </h3>
+                </h1>
                 <TechSection className="mt-6" />
               </div>
             </article>
@@ -36,15 +36,15 @@ export default function Home() {
           <section ref={ref} className={cn('py-20', inView && 'fade-in-start')}>
             <article gaya-fade="0" className="layout">
               <div gaya-fade="1">
-                <h1 gaya-fade="2" className="text-light-primary dark:text-dark-accent">
+                <h1 gaya-fade="2" className="text-text">
                   Features Project
                 </h1>
                 <p gaya-fade="2" className="mt-2">
                   Showcase of my works on frontend development.
                 </p>
-                <ul className="grid gap-4 mt-6 sm:grid-cols-2 lg:grid-cols-3">
+                <ul gaya-fade="3" className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {allProjects.map(project => (
-                    <ProjectCard gaya-fade="3" key={project.slug} project={project} />
+                    <ProjectCard key={project.slug} project={project} />
                   ))}
                 </ul>
               </div>

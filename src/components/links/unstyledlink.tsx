@@ -1,15 +1,8 @@
-'use client';
-
-import * as React from 'react';
-import clsx from 'clsx';
-import Link, { LinkProps } from 'next/link';
 import { cn } from '@/lib/utils';
+import Link, { LinkProps } from 'next/link';
 
 export type UnstyledLinkProps = {
-  href: string;
-  children: React.ReactNode;
   openNewTab?: boolean;
-  className?: string;
 } & React.ComponentPropsWithoutRef<'a'> &
   LinkProps;
 

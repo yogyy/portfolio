@@ -7,10 +7,14 @@
     "build": "contentlayer build && next build",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "lint": "next lint --no-cache"
+    "lint": "next lint --no-cache",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tooltip": "^1.0.5",
     "@types/node": "18.14.6",
     "@types/react": "18.0.28",
@@ -51,6 +55,8 @@
     "@types/nprogress": "^0.2.0",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.6",
     "tailwindcss": "^3.2.7"
   }
 }

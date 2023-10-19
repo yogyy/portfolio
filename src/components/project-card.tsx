@@ -13,36 +13,39 @@ export default function ProjectCard({ project, className, ...props }: ProjectCar
   return (
     <li
       className={cn(
-        'rounded-md transition-colors duration-200 project-card',
-        'border-2 w-full backdrop-blur-sm group',
-        className
+        'project-card group w-full overflow-hidden rounded-md border',
+        'bg-card transition-[border] duration-200 ease-in focus-within:border-accent/50 hover:border-accent/50',
+        className,
       )}
       {...props}
     >
       <Link
         href={project.slug}
-        className="flex flex-col items-start w-full h-full p-4 rounded-md focus:outline-none projectcard"
+        className="projectcard flex h-full w-full flex-col items-start rounded-md p-4 focus:outline-none"
       >
-        <div className="flex flex-wrap w-full mb-1 sm:mb-0">
-          <h1 className="mr-auto text-xl text-zinc-700 dark:text-zinc-300">{project.title}</h1>
-          <div className="flex items-center gap-2">
+        <div className="mb-1 flex w-full flex-wrap sm:mb-0">
+          <h1 className="mr-auto text-xl text-text/80 transition-colors duration-300 group-focus-within:text-accent group-hover:text-accent">
+            {project.title}
+          </h1>
+          <div className="flex items-center gap-2 text-text/70">
             {project.techs!.split(', ').map((tech: string, index) => (
               <Icon key={index} icon={tech} />
             ))}
           </div>
         </div>
-        <p className="mb-auto text-sm text-gray-700 dark:text-gray-300">{project.description}</p>
-        <figure className="relative hidden w-full h-auto mt-3 pointer-events-none bg-light-bg/30 dark:bg-dark-bg/30 sm:block aspect-video">
+        <p className="mb-auto text-sm text-text/50">{project.description}</p>
+        <figure className="pointer-events-none relative mt-3 hidden aspect-video h-auto w-full items-center bg-background/30 sm:flex">
           <Image
             src={project.banner!}
             alt={project.title}
-            fill
-            className="absolute w-full rounded-md"
+            width={720}
+            height={480}
+            className="absolute w-full rounded-md opacity-60 transition-opacity duration-500 ease-in-out group-focus-within:opacity-100 group-hover:opacity-100"
           />
         </figure>
-        <p className="flex items-center gap-1 mt-2 font-medium animated-underline text-zinc-700 dark:text-dark-primary place-self-end">
+        <p className="animated-underline mt-2 flex items-center gap-1 place-self-end font-medium text-text">
           See more
-          <HiArrowRight className="transition-colors group-hover:text-dark-accent" />
+          <HiArrowRight className="transition-colors group-focus-within:text-accent/70 group-hover:text-accent/70" />
         </p>
       </Link>
     </li>
