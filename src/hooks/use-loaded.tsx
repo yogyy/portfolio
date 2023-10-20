@@ -1,6 +1,5 @@
-'use client';
 import * as React from 'react';
-import { usePreloadState } from './PreloadContext';
+import { usePreloadState } from '@/components/PreloadContext';
 
 export default function useLoaded() {
   const preloaded = usePreloadState();

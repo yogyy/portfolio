@@ -1,6 +1,6 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
-import useLoaded from './useLoaded';
+import useLoaded from '@/hooks/use-loaded';
 
 const IsLoaded = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
   ({ className, children, ...props }, ref) => {
@@ -10,7 +10,7 @@ const IsLoaded = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>
         {children}
       </section>
     );
-  }
+  },
 );
 
 IsLoaded.displayName = 'IsLoaded';
