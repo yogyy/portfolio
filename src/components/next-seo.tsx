@@ -34,10 +34,10 @@ const NextSEO = (props: SeoProps) => {
           {children}
           <YG
             className={cn(
-              'fixed bottom-14 right-1 sm:right-6',
+              'fixed bottom-14 right-1 blur-sm sm:right-6',
               'translate-y-[37%] transform-gpu',
               'w-[calc(100%-3rem)] md:w-[600px] 2xl:w-[900px]',
-              'z-[-1] opacity-70 dark:opacity-40'
+              'z-[-1] opacity-70 dark:opacity-40',
             )}
           />
         </main>
