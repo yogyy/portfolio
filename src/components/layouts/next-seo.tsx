@@ -1,9 +1,9 @@
 import { NextSeo } from 'next-seo';
-import Footer from './layouts/footer';
-import Navbar from './layouts/navbar';
+import Footer from './footer';
+import Navbar from './navbar';
 import { Inter } from 'next/font/google';
 import { useRouter } from 'next/router';
-import YG from './YG';
+import YG from '../YG';
 import { cn } from '@/lib/utils';
 import SEO from 'next-seo.config';
 import { isProd } from '@/constants/env';
@@ -37,7 +37,7 @@ const NextSEO = (props: SeoProps) => {
               'fixed bottom-14 right-1 blur-sm sm:right-6',
               'translate-y-[37%] transform-gpu',
               'w-[calc(100%-3rem)] md:w-[600px] 2xl:w-[900px]',
-              'z-[-1] opacity-70 dark:opacity-40',
+              'z-[-1] opacity-70',
             )}
           />
         </main>
