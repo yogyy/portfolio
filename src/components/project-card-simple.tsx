@@ -2,23 +2,29 @@ import { cn } from '@/lib/utils';
 import { LuGithub, LuGlobe } from 'react-icons/lu';
 import UnstyledLink from './links/unstyledlink';
 
-type typePCS = {
+type ProjectCardSimpleType = {
   title: string;
   description: string;
-  github?: string;
+  github?: string | undefined;
   url: string;
   type: string[];
 };
 
-const ProjectCardSimple = (props: typePCS) => {
-  const { title, description, github, url, type } = props;
+type ProjectCardProps = {
+  project: ProjectCardSimpleType;
+} & React.LiHTMLAttributes<HTMLLIElement>;
+
+const ProjectCardSimple: React.FC<ProjectCardProps> = ({ project, className, ...props }) => {
+  const { title, description, github, url, type } = project;
+
   return (
     <li
       className={cn(
         'group flex h-fit select-none break-inside-avoid-column flex-col gap-3 rounded-md border p-3.5 md:gap-6',
         'w-full bg-card transition-[border] duration-200 ease-in focus-within:border-accent/50 hover:border-accent/50',
-        '',
+        className,
       )}
+      {...props}
     >
       <div className="flex justify-between">
         <h3 className="text-xl font-bold text-text/70 transition-colors duration-300 group-focus-within:text-accent group-hover:text-accent/80">
@@ -53,7 +59,7 @@ const ProjectCardSimple = (props: typePCS) => {
           )}
         </div>
       </div>
-      <p className="text-zinc-700 dark:text-zinc-300">{description}</p>
+      <p className="text-text/80">{description}</p>
       <ul className="mt-1 flex flex-wrap gap-1.5">
         {type.map(ty => (
           <li
@@ -68,4 +74,4 @@ const ProjectCardSimple = (props: typePCS) => {
   );
 };
 
-export default ProjectCardSimple;
+export { type ProjectCardSimpleType, ProjectCardSimple };

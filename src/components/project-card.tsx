@@ -1,15 +1,15 @@
-import { cn } from '@/lib/utils';
-import { Project } from 'contentlayer/generated';
-import Image from 'next/image';
 import Link from 'next/link';
-import { HiArrowRight } from 'react-icons/hi';
+import Image from 'next/image';
+import { cn } from '@/lib/utils';
 import { Icon } from './custom-icons';
+import { HiArrowRight } from 'react-icons/hi';
+import { Project } from 'contentlayer/generated';
 
 type ProjectCardProps = {
   project: Project;
 } & React.LiHTMLAttributes<HTMLLIElement>;
 
-export default function ProjectCard({ project, className, ...props }: ProjectCardProps) {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, className, ...props }) => {
   return (
     <li
       className={cn(
@@ -27,7 +27,7 @@ export default function ProjectCard({ project, className, ...props }: ProjectCar
           <h1 className="mr-auto text-xl text-text/80 transition-colors duration-300 group-focus-within:text-accent group-hover:text-accent">
             {project.title}
           </h1>
-          <div className="flex items-center gap-2 text-text/70">
+          <div className="flex items-center gap-2 text-text">
             {project.techs!.split(', ').map((tech: string, index) => (
               <Icon key={index} icon={tech} />
             ))}
@@ -40,14 +40,16 @@ export default function ProjectCard({ project, className, ...props }: ProjectCar
             alt={project.title}
             width={720}
             height={480}
-            className="absolute w-full rounded-md opacity-60 transition-opacity duration-500 ease-in-out group-focus-within:opacity-100 group-hover:opacity-100"
+            className="absolute w-full rounded-md brightness-75 transition-opacity duration-500 ease-in-out group-focus-within:brightness-100 group-hover:brightness-100"
           />
         </figure>
         <p className="animated-underline mt-2 flex items-center gap-1 place-self-end font-medium text-text">
           See more
-          <HiArrowRight className="transition-colors group-focus-within:text-accent/70 group-hover:text-accent/70" />
+          <HiArrowRight className="transition-colors group-focus-within:text-accent group-hover:text-accent" />
         </p>
       </Link>
     </li>
   );
-}
+};
+
+export default ProjectCard;
