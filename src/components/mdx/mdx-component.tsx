@@ -16,7 +16,7 @@ const components = {
     <h2
       className={cn(
         'mt-10 scroll-m-20 pb-1 text-3xl font-semibold tracking-tight first:mt-0',
-        className
+        className,
       )}
       {...props}
     />
@@ -62,7 +62,7 @@ const components = {
   ),
   blockquote: ({ className, ...props }: React.HtmlHTMLAttributes<HTMLQuoteElement>) => (
     <blockquote
-      className={cn('mt-6 border-l-2 pl-6 italic [&>*]:text-muted-foreground', className)}
+      className={cn('mt-6 border-l-2 pl-6 italic [&>*]:text-accent', className)}
       {...props}
     />
   ),
@@ -72,18 +72,18 @@ const components = {
   ),
   hr: ({ ...props }) => <hr className="my-4 md:my-8" {...props} />,
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
-    <div className="w-full my-6 overflow-y-auto">
+    <div className="my-6 w-full overflow-y-auto">
       <table className={cn('w-full', className)} {...props} />
     </div>
   ),
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
-    <tr className={cn('m-0 border-t p-0 even:bg-muted', className)} {...props} />
+    <tr className={cn('even:bg-muted m-0 border-t p-0', className)} {...props} />
   ),
   th: ({ className, ...props }: React.HtmlHTMLAttributes<HTMLTableCellElement>) => (
     <th
       className={cn(
         'border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right',
-        className
+        className,
       )}
       {...props}
     />
@@ -92,7 +92,7 @@ const components = {
     <td
       className={cn(
         'border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right',
-        className
+        className,
       )}
       {...props}
     />
@@ -101,7 +101,7 @@ const components = {
     <pre
       className={cn(
         'mb-4 mt-6 overflow-x-auto rounded-lg bg-black p-4 [&>code]:bg-transparent',
-        className
+        className,
       )}
       {...props}
     />
@@ -109,8 +109,8 @@ const components = {
   code: ({ className, ...props }: React.HtmlHTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        'relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm text-dark-accent bg-dark-accent/10',
-        className
+        'relative rounded bg-accent/10 px-[0.3rem] py-[0.2rem] font-mono text-sm text-accent',
+        className,
       )}
       {...props}
     />

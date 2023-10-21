@@ -1,46 +1,41 @@
-import React, { FC, useEffect, useState } from 'react';
-import { allProjects, Project } from 'contentlayer/generated';
+import React from 'react';
+import Image from 'next/image';
+import { SiGithub } from 'react-icons/si';
 import { notFound } from 'next/navigation';
-import { GetStaticPaths, GetStaticProps } from 'next';
-import NextSEO from '@/components/Next-SEO';
+import { HiLink, HiUser } from 'react-icons/hi';
+import { GetStaticPaths, NextPage } from 'next';
+import NextSEO from '@/components/layouts/next-seo';
 import { Mdx } from '@/components/mdx/mdx-component';
+import CustomLink from '@/components/links/custom-link';
+import { allProjects, Project } from 'contentlayer/generated';
 import { getTableOfContents, TableOfContents } from '@/lib/toc';
 import { DashboardTableOfContents } from '@/components/mdx/toc';
-import Image from 'next/image';
-import { ParsedUrlQuery } from 'querystring';
-import { HiLink, HiUser } from 'react-icons/hi';
-import { SiGithub } from 'react-icons/si';
-import CustomLink from '@/components/links/custom-link';
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const paths = allProjects.map(post => `/${post._raw.flattenedPath}`);
+  const paths = allProjects.map(proj => `/${proj._raw.flattenedPath}`);
   return { paths, fallback: false };
 };
 
-interface Params extends ParsedUrlQuery {
-  slug: string[];
-}
+export const getStaticProps = ({ params }: { params: { slug: string } }) => {
+  const { slug } = params;
+  const proj = allProjects.find(proj => proj._raw.flattenedPath === `projects/${slug}`);
 
-export const getStaticProps: GetStaticProps = ({ params }) => {
-  const { slug } = params as Params;
-  const post = allProjects.find(post => post._raw.flattenedPath === `projects/${slug}`);
-
-  if (!post) notFound();
+  if (!proj) notFound();
 
   return {
     props: {
-      post,
+      proj,
     },
   };
 };
 
-export const Projects: FC<{ post: Project }> = ({ post }) => {
-  const [toc, setToc] = useState<TableOfContents>();
+const ProjectsPage: NextPage<{ proj: Project }> = ({ proj }) => {
+  const [toc, setToc] = React.useState<TableOfContents>();
 
-  useEffect(() => {
+  React.useEffect(() => {
     const fetchToc = async () => {
       try {
-        const tocData = await getTableOfContents(post.body.raw);
+        const tocData = await getTableOfContents(proj.body.raw);
         setToc(tocData);
       } catch (error) {
         console.error('Error fetching table of contents:', error);
@@ -48,45 +43,44 @@ export const Projects: FC<{ post: Project }> = ({ post }) => {
     };
 
     fetchToc();
-  }, [post.body.raw]);
+  }, [proj.body.raw]);
 
   return (
-    <NextSEO className="layout" title={`${post.title} · Yogyy`} desc={post.description}>
+    <NextSEO className="layout" title={`${proj.title} · Yogyy`} desc={proj.description}>
       <Image
-        src={post.banner!}
-        alt={`Project ${post.description}`}
+        src={proj.banner!}
+        alt={`Project ${proj.description}`}
         width={1445}
         height={792}
         priority
       />
-      <h1 className="mt-4 text-dark-accent">{post.title}</h1>
-
-      <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{post.description}</p>
-      <div className="flex flex-wrap items-center justify-start gap-3 mt-2 text-sm font-medium text-gray-600 dark:text-gray-300">
-        <div className="flex items-center gap-2">
-          <HiUser className="text-lg text-gray-800 dark:text-white" />
-          <p className="flex items-center justify-start gap-2 mt-2 text-sm text-gray-600 dark:text-gray-300">
-            {post.category}
+      <h1 className="mt-4 text-primary">{proj.title}</h1>
+      <p className="mt-2 text-sm text-text">{proj.description}</p>
+      <div className="mt-2 flex flex-wrap items-center justify-start gap-3 text-sm font-medium text-text">
+        <div className="flex items-center gap-1.5">
+          <HiUser className="text-lg" />
+          <p className="flex items-center justify-start gap-2 text-sm transition-colors duration-300">
+            {proj.category}
           </p>
         </div>
         <span>-</span>
-        <div className="inline-flex items-center gap-2">
-          <SiGithub className="text-lg text-gray-800 dark:text-white" />
-          <CustomLink href={post.github!} className="mt-1">
+        <div className="inline-flex items-center gap-1.5">
+          <SiGithub className="text-lg" />
+          <CustomLink href={proj.github!} className="">
             Repository
           </CustomLink>
         </div>
         <span>-</span>
-        <div className="inline-flex items-center gap-2">
-          <HiLink className="text-lg text-gray-800 dark:text-white" />
-          <CustomLink href={post.url!} className="mt-1">
+        <div className="inline-flex items-center gap-1.5">
+          <HiLink className="text-lg" />
+          <CustomLink href={proj.url!} className="">
             Open Live Site
           </CustomLink>
         </div>
-        <div className="flex gap-1 ml-auto flex-wrap">
-          {post.techs!.split(', ').map(tech => (
+        <div className="ml-auto flex flex-wrap gap-1">
+          {proj.techs!.split(', ').map(tech => (
             <code
-              className="relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm bg-dark-secondary/25 p-0.5"
+              className="pointer-events-none relative rounded bg-secondary/30 p-0.5 px-[0.3rem] py-[0.2rem] font-mono text-xs sm:text-sm"
               key={tech}
             >
               {tech.toLowerCase()}
@@ -94,13 +88,13 @@ export const Projects: FC<{ post: Project }> = ({ post }) => {
           ))}
         </div>
       </div>
-      <hr className="mt-4 dark:border-gray-600" />
-      <div className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8 py-6">
-        <article className="w-full h-full max-w-5xl min-w-0 marker:accent prose-h2:text-2xl prose-h2:text-dark-accent">
-          <Mdx code={post.body.code} />
-          <div className="bg-transparent h-60 " />
+      <hr className="mt-1 border" />
+      <div className="py-6 lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
+        <article className="h-full w-full min-w-0 max-w-5xl marker:text-primary prose-h2:text-2xl prose-h2:text-primary">
+          <Mdx code={proj.body.code} />
+          <div className="hidden h-60 bg-transparent lg:block" />
         </article>
-        <aside className="hidden h-full text-sm xl:block">
+        <aside className="hidden h-full text-sm lg:block">
           <div className="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-10">
             {toc && <DashboardTableOfContents toc={toc} />}
           </div>
@@ -110,4 +104,4 @@ export const Projects: FC<{ post: Project }> = ({ post }) => {
   );
 };
 
-export default Projects;
+export default ProjectsPage;

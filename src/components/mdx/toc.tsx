@@ -18,7 +18,7 @@ export function DashboardTableOfContents({ toc }: TocProps) {
             .filter(Boolean)
             .map(id => id?.split('#')[1])
         : [],
-    [toc]
+    [toc],
   );
   const activeHeading = useActiveItem(itemIds);
   const mounted = useMounted();
@@ -47,7 +47,7 @@ function useActiveItem(itemIds: (string | undefined)[]) {
           }
         });
       },
-      { rootMargin: `0% 0% -80% 0%` }
+      { rootMargin: `0% 0% -80% 0%` },
     );
 
     itemIds?.forEach(id => {
@@ -89,14 +89,14 @@ function Tree({ tree, level = 1, activeItem }: TreeProps) {
     <ul className={cn('m-0 list-none', { 'pl-4': level !== 1 })}>
       {tree.items.map((item, index) => {
         return (
-          <li key={index} className={cn('mt-0 pt-2 [&>ul>li>a]:border-gray-400')}>
+          <li key={index} className={cn('mt-0 pt-2 [&>ul>li>a]:border')}>
             <a
               href={item.url}
               className={cn(
-                'inline-block no-underline pl-2 border-l-2 border-transparent',
+                'inline-block border-l-2 border-transparent pl-2 no-underline',
                 item.url === `#${activeItem}`
-                  ? 'font-medium text-dark-accent border-dark-accent'
-                  : 'text-sm text-light-accent dark:text-gray-700'
+                  ? 'border-accent font-medium text-accent'
+                  : 'text-text/70',
               )}
             >
               {item.title}
