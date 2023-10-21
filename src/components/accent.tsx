@@ -11,7 +11,7 @@ export const Accent: React.FC<React.ComponentPropsWithRef<'span'>> = ({
       ref={ref}
       className={cn(
         'bg-gradient-to-r bg-clip-text text-transparent transition-colors',
-        'from-accent/80 to-text motion-safe:animate-gradient-x',
+        'from-primary via-accent to-background motion-safe:animate-gradient-x',
         className,
       )}
     >

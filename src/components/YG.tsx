@@ -17,11 +17,7 @@ export default function YG(props: React.ComponentPropsWithoutRef<'svg'>) {
         >
           <stop className="text-accent" stopColor="currentColor" />
           <stop className="text-accent/50" offset="0.5" stopColor="currentColor" />
-          <stop
-            className="text-transparent dark:text-background/90"
-            offset="1"
-            stopColor="currentColor"
-          />
+          <stop className="text-transparent" offset="1" stopColor="currentColor" />
         </linearGradient>
       </defs>
     </svg>

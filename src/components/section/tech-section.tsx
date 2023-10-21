@@ -1,4 +1,3 @@
-import { cn } from '@/lib/utils';
 import React from 'react';
 import {
   SiHtml5,
@@ -45,11 +44,11 @@ export function Icon({ type }: { type: string }) {
 const TechSection: React.FC<React.HTMLAttributes<HTMLDivElement>> = props => {
   return (
     <div id="technologies" {...props}>
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] gap-6">
+      <ul className="grid cursor-default grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] gap-6">
         {techSkills.map((item, index) => {
           return <TechSkillItem key={index} text={item} />;
         })}
-      </div>
+      </ul>
     </div>
   );
 };
@@ -59,12 +58,12 @@ export default TechSection;
 const TechSkillItem = ({ text }: { text: string }) => {
   const iconType = text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '').toLowerCase();
   return (
-    <div className="bg-card flex items-center rounded-md border p-2 backdrop-blur-sm hover:border-transparent hover:bg-primary/30">
-      <span className="text-2xl text-text">
+    <li className="flex items-center rounded-md border bg-card p-2 hover:bg-primary/30">
+      <span className="text-2xl text-inherit">
         <Icon type={iconType} />
       </span>
       <span className="pl-4">{text}</span>
-    </div>
+    </li>
   );
 };
 

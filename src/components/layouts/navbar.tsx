@@ -37,10 +37,8 @@ function NavLink({ href, children, ...rest }: NavLinkProps) {
       draggable={false}
       {...rest}
       className={cn(
-        router.pathname && baseRoute !== href
-          ? 'text-light-text dark:text-dark-primary hover:text-light-primary/50 dark:hover:text-accent'
-          : 'text-light-primary dark:text-accent',
-        'focus-visible:ring-light-primary py-1 focus:rounded-sm focus:outline-none focus-visible:ring dark:focus-visible:ring-accent',
+        router.pathname && baseRoute !== href ? 'text-text hover:text-primary' : 'text-accent',
+        'rounded-sm py-1 focus:outline-none focus-visible:ring focus-visible:ring-accent',
       )}
     >
       <span>{children}</span>
@@ -53,22 +51,13 @@ export default function Navbar({ large = false }: HeaderProps) {
   const inPosts = pathname === '/posts/[slug]';
 
   return (
-    <header
-      className={cn(
-        'z-10 w-full',
-        inPosts && 'border-light-accent sticky top-0 border-b-2 dark:border-accent',
-      )}
-    >
+    <header className={cn('z-10 w-full', inPosts && 'sticky top-0 border-b-2 border-accent')}>
       <a
         href="#skip-nav"
         className={cn(
-          'rounded-sm p-2 transition',
-          'font-medium text-text',
-          'bg-light-bg dark:bg-dark-bg',
-          'group dark:hover:text-accent',
-          'focus:outline-none focus:ring focus:ring-accent',
-          'absolute left-4 top-1 z-20',
-          '-translate-y-16 focus:translate-y-0',
+          'rounded-sm p-2 font-medium text-text transition',
+          'group absolute left-4 top-1 z-20 -translate-y-16 bg-background',
+          'focus:translate-y-0 focus:outline-none focus:ring focus:ring-accent',
         )}
       >
         skip to content

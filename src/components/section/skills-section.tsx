@@ -1,6 +1,5 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
-import Tooltipz from '../tooltip';
 import { RiCodeSSlashFill, RiTerminalFill } from 'react-icons/ri';
 import { TooltipProvider, Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 
@@ -9,7 +8,7 @@ const SkillSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElem
     return (
       <section ref={ref} className={cn('py-20', className)} {...props}>
         <article className="layout mt-10">
-          <h1 gaya-fade="1" className="text-text">
+          <h1 gaya-fade="1" className="text-accent">
             Skills
           </h1>
           <div id="skill" className="mt-6">
@@ -37,9 +36,11 @@ const SkillSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElem
                   Know how to utilise assistive
                   <TooltipProvider delayDuration={300}>
                     <Tooltip>
-                      <TooltipTrigger className="mx-1 underline">technologies</TooltipTrigger>
+                      <TooltipTrigger className="mx-1 underline decoration-accent decoration-2">
+                        technologies
+                      </TooltipTrigger>
                       <TooltipContent sideOffset={8}>
-                        <p className="px-1 text-xs">
+                        <p className="px-1 text-xs text-text">
                           Yes, they are
                           <br /> Google, <br /> StackOverflow <br /> and ChatGPT!
                         </p>

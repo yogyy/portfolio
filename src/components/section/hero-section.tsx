@@ -27,9 +27,12 @@ const HeroSection = () => {
   ];
 
   return (
-    <IsLoaded className="min-h-main relative mb-20 flex flex-col justify-center lg:min-h-[850px]">
+    <IsLoaded className="min-h-main hero relative mb-20 flex flex-col justify-center lg:min-h-[850px]">
       <article className="layout">
-        <h1 className="items-end justify-center text-3xl md:text-4xl 2xl:text-5xl" gaya-fade="1">
+        <h1
+          className="items-end justify-center text-3xl text-text md:text-4xl 2xl:text-5xl"
+          gaya-fade="1"
+        >
           Hi, i&apos;m
           <Accent> YOGYY</Accent>
         </h1>
@@ -49,23 +52,31 @@ const HeroSection = () => {
                 'transition duration-1000 group-hover:opacity-100 group-hover:duration-200',
               )}
             />
-            <ButtonLink href="/posts" className="bg-primary text-black/90">
+            <ButtonLink
+              href="/posts"
+              className="bg-primary text-black/90 transition-[scale,shadow] duration-500"
+            >
               Read The Post
             </ButtonLink>
           </div>
-          <ButtonLink className="bg-secondary text-text/90" href="/about">
+          <ButtonLink
+            className="bg-secondary text-text/90 transition-[scale,shadow] duration-500"
+            href="/about"
+          >
             More about me
           </ButtonLink>
         </div>
         <div gaya-fade="5">
-          <ul className="mt-4 flex flex-wrap items-center gap-y-2 md:mt-8">
+          <ul className="mt-4 flex flex-wrap items-center gap-2 md:mt-8">
             {externalUrl.map(url => (
-              <li key={url.name}>
+              <li
+                key={url.name}
+                className="rounded-md border-2 border-transparent transition duration-300 ease-out focus-within:border-accent"
+              >
                 <UnstyledLink
                   className={cn(
-                    'inline-flex items-center gap-1 px-2 text-sm font-medium md:text-base',
-                    'group text-text/50 transition-colors hover:text-primary focus:text-primary',
-                    'focus:rounded-md focus:outline-none focus-visible:ring focus-visible:ring-accent',
+                    'group inline-flex items-center gap-1 text-sm font-medium text-text/50 transition-colors',
+                    'focus-within:text-primary hover:text-primary focus:rounded-md focus:outline-none md:text-base',
                   )}
                   href={url.href}
                 >
