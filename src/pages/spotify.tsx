@@ -1,13 +1,15 @@
-import Spotify from '@/components/layouts/spotify';
-import { NextSeo } from 'next-seo';
 import SEO from 'next-seo.config';
+import { NextSeo } from 'next-seo';
+import Spotify from '@/components/layouts/spotify';
+import { ThemeButton } from '@/components/dark-theme';
 
 const SpotifyPage = () => {
   return (
     <>
       <NextSeo title="Spotify Activity" {...SEO} />
-      <main className="min-h-screen w-screen grid place-content-center bg-gradient-to-br motion-safe:animate-gradient-x from-[#12c2e9] via-[#c471ed] to-[#f64f59]">
-        <Spotify className="bg-white/25 dark:bg-black/25 border-none" />
+      <main className="relative grid min-h-screen w-screen place-content-center bg-gradient-to-br from-background via-primary to-background motion-safe:animate-gradient-x">
+        <Spotify className="border-none bg-background/25" />
+        <ThemeButton className="absolute left-1/3 top-1/3 border-transparent bg-background/30" />
       </main>
     </>
   );

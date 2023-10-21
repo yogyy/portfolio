@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Skeleton } from '../ui/skeleton';
 import { SiSpotify } from 'react-icons/si';
-import { SpotifyData } from '@/types/spotify';
+import { SpotifyData, SpotifyLastPlayed } from '@/types/spotify';
 import UnstyledLink, { type UnstyledLinkProps } from '@/components/links/unstyledlink';
 
 export default function Spotify({
@@ -12,7 +12,7 @@ export default function Spotify({
 }: Omit<UnstyledLinkProps, 'href' | 'children'>) {
   const fetcher = (url: string) => fetch(url).then(r => r.json());
   const { data, isLoading } = useSWR<SpotifyData>('/api/spotify/currently-playing', fetcher);
-  const { data: lastPlay, isLoading: lastPlayLoading } = useSWR(
+  const { data: lastPlay, isLoading: lastPlayLoading } = useSWR<SpotifyLastPlayed>(
     data && data.isPlaying === false ? '/api/spotify/last-played' : null,
     fetcher,
   );
@@ -54,7 +54,7 @@ export default function Spotify({
         {...props}
       >
         <Image
-          className="h-full w-12 place-self-start rounded-sm shadow-sm dark:shadow-none"
+          className="h-full w-12 place-self-start rounded-sm shadow-sm"
           src={data.isPlaying ? data.album.images[2].url : lastPlay ? lastPlay?.album : ''}
           alt={data.isPlaying ? data.album.name : lastPlay ? lastPlay?.title : ''}
           width={240}
@@ -66,7 +66,7 @@ export default function Spotify({
             {data.isPlaying ? 'Now Playing' : 'Last Played'}:{' '}
             {data.isPlaying ? data.title : lastPlay?.title}
           </p>
-          <p className="text-light-text/60 dark:text-dark-primary/50 pr-4 text-xs font-semibold">
+          <p className="pr-4 text-xs font-semibold text-text/60">
             by {data.isPlaying ? data.artist : lastPlay?.artist}
           </p>
         </div>
