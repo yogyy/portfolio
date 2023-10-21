@@ -1,42 +1,39 @@
 import { cn } from '@/lib/utils';
-import { InView } from 'react-intersection-observer';
+import NextSEO from '@/components/layouts/next-seo';
 import ProjectCard from '@/components/project-card';
-import TechSection from '@/components/section/tech-section';
-import NextSEO from '@/components/Next-SEO';
 import { allProjects } from 'contentlayer/generated';
-import SkillSection from '@/components/section/skills-section';
+import { InView } from 'react-intersection-observer';
 import HeroSection from '@/components/section/hero-section';
+import TechSection from '@/components/section/tech-section';
+import SkillSection from '@/components/section/skills-section';
 
 export default function Home() {
   return (
     <NextSEO>
       <HeroSection />
-
       <InView triggerOnce rootMargin="-40% 0px">
         {({ ref, inView }) => <SkillSection ref={ref} className={cn(inView && 'fade-in-start')} />}
       </InView>
-
       <InView triggerOnce rootMargin="-40% 0px">
         {({ ref, inView }) => (
           <section ref={ref} className={cn('py-20', inView && 'fade-in-start')}>
             <article gaya-fade="0" className="layout">
               <div gaya-fade="1">
-                <h1 gaya-fade="2" className="mt-14 text-text">
+                <h1 gaya-fade="2" className="mt-14 text-accent">
                   Tech Stack
                 </h1>
-                <TechSection className="mt-6" />
+                <TechSection gaya-fade="3" className="mt-6 text-text/75" />
               </div>
             </article>
           </section>
         )}
       </InView>
-
       <InView triggerOnce rootMargin="-40% 0px">
         {({ ref, inView }) => (
           <section ref={ref} className={cn('py-20', inView && 'fade-in-start')}>
             <article gaya-fade="0" className="layout">
               <div gaya-fade="1">
-                <h1 gaya-fade="2" className="text-text">
+                <h1 gaya-fade="2" className="text-accent">
                   Features Project
                 </h1>
                 <p gaya-fade="2" className="mt-2">

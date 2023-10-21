@@ -1,6 +1,6 @@
 import { Accent } from '@/components/accent';
 import IsLoaded from '@/components/isLoaded';
-import NextSEO from '@/components/Next-SEO';
+import NextSEO from '@/components/layouts/next-seo';
 import { cn } from '@/lib/utils';
 import { allPosts } from 'contentlayer/generated';
 import Link from 'next/link';

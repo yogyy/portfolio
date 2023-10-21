@@ -1,15 +1,15 @@
 import * as React from 'react';
 import IsLoaded from '@/components/isLoaded';
 import { Accent } from '@/components/accent';
-import NextSEO from '@/components/Next-SEO';
+import NextSEO from '@/components/layouts/next-seo';
 import TechMdx from '@/components/tech-icons';
 
 export default function AboutPage() {
   return (
     <NextSEO title="About · Yogyy">
-      <IsLoaded className="items-center min-h-[calc(100vh_-_249px)] flex flex-col h-auto">
-        <div className="mx-auto layout">
-          <div id="about" className="min-h-[50dvh] h-full my-10">
+      <IsLoaded className="flex h-auto min-h-[calc(100vh_-_249px)] flex-col items-center">
+        <div className="layout mx-auto">
+          <div id="about" className="my-10 h-full min-h-[50dvh]">
             <h2 gaya-fade="1" className="mb-6 text-2xl md:text-4xl 2xl:text-3xl">
               <Accent>About Me</Accent>
             </h2>
@@ -22,7 +22,7 @@ export default function AboutPage() {
                 height={520}
               />
             </div> */}
-            <article className="max-w-3xl mt-4 md:mt-6">
+            <article className="mt-4 max-w-3xl md:mt-6">
               <p gaya-fade="3" className="mb-4">
                 Hello, my name is YoGi. &apos;yogyy&apos; is just a nickname I created. I&apos;m
                 interested in becoming a full-stack web developer. As a naturally curious person, I
@@ -44,7 +44,7 @@ export default function AboutPage() {
               </p>
             </article>
           </div>
-          <div className="min-h-[20dvh] place-content-center flex flex-col">
+          <div className="flex min-h-[20dvh] flex-col place-content-center">
             <h1 className="my-4 text-2xl">
               <Accent>Fav Tech Stack</Accent>
             </h1>
