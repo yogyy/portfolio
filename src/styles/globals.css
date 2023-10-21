@@ -4,11 +4,11 @@
 
 @layer base {
   :root {
-    --text: 178 87% 6%;
-    --background: 0 0% 100%;
-    --primary: 178 88% 73%;
-    --secondary: 178 87% 94%;
-    --accent: 178 88% 54%;
+    --text: 0 0% 0%;
+    --background: 189 77% 95%;
+    --primary: 191 80% 54%;
+    --secondary: 189 79% 87%;
+    --accent: 191 80% 47%;
   }
   .dark {
     --text: 178 87% 94%;
@@ -43,7 +43,7 @@
   }
 
   ::selection {
-    background-color: hsl(var(--accent) / 0.5);
+    background-color: hsl(var(--text) / 0.5);
   }
 
   h1 {
@@ -124,27 +124,12 @@
   .min-h-main {
     min-height: calc(100vh - 82px);
   }
-  .accent {
-    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-    color: hsl(var(--accent));
-  }
-  /* 
-  .accent-highlight {
-    @apply bg- dark:bg-gradient-to-r dark:from- dark:to- dark:bg-clip-text dark:text-transparent;
-  } */
-
   .mt-nav {
     margin-top: 58px;
   }
 }
 
 @layer components {
-  .more-project {
-    @apply group-focus:text-dark-accent h-7 w-7 p-1 text-zinc-700 transition-colors duration-300 group-hover:text-zinc-900 dark:text-zinc-300 dark:group-hover:text-zinc-100;
-  }
-
   .font_italic {
     font-style: italic;
     -webkit-text-stroke-width: 0.5px;
