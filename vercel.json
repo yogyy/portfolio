@@ -1,8 +1,7 @@
 {
   "git": {
     "deploymentEnabled": {
-      "main": false,
-      "delete-animation": false
+      "main": true
     }
   }
 }
