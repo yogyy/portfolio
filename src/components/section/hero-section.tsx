@@ -33,8 +33,7 @@ const HeroSection = () => {
           className="items-end justify-center text-3xl text-text md:text-4xl 2xl:text-5xl"
           gaya-fade="1"
         >
-          Hi, i&apos;m
-          <Accent> YOGYY</Accent>
+          Hi, i&apos;m <Accent>YOGYY</Accent>
         </h1>
         <h2 gaya-fade="2" className="flex flex-wrap">
           Frontend Web Developer

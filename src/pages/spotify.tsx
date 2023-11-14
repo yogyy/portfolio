@@ -7,7 +7,7 @@ const SpotifyPage = () => {
   return (
     <>
       <NextSeo title="Spotify Activity" {...SEO} />
-      <main className="relative grid min-h-screen w-screen place-content-center bg-gradient-to-br from-background via-primary to-background motion-safe:animate-gradient-x">
+      <main className="relative grid min-h-screen w-screen place-content-center bg-gradient-to-br from-background to-accent">
         <Spotify className="border-none bg-background/25" />
         <ThemeButton className="absolute left-1/3 top-1/3 border-transparent bg-background/30" />
       </main>
