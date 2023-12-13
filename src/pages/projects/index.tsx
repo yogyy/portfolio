@@ -79,11 +79,11 @@ const smallProjects: ProjectCardSimpleType[] = [
     type: ['React', 'TypeScript', 'Tailwind CSS', 'Radix UI'],
   },
   {
-    title: 'Burbir',
-    description: 'A twitter website clone',
-    github: 'https://github.com/yogyy/burungbiru',
-    url: 'https://burungbiru.vercel.app/',
-    type: ['Next JS', 'TypeScript', 'Tailwind CSS', 'tRPC', 'Upstash', 'React Query'],
+    title: 'ToDo App',
+    description: 'Drag Drop To Do',
+    github: 'https://github.com/yogyy/react-todo-drag-and-drop',
+    url: 'https://yogyy.github.io/react-todo-drag-and-drop/',
+    type: ['React', 'TypeScript', 'Tailwind CSS'],
   },
   {
     title: 'Spotify Activity',
