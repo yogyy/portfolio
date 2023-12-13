@@ -24,7 +24,7 @@ const NextSEO = (props: SeoProps) => {
       <NextSeo
         title={title}
         description={desc || SEO.openGraph?.description}
-        canonical={isProd ? `https://yogyy.verce.app${asPath}` : `localhost:3000${asPath}`}
+        canonical={isProd ? `https://yogyy.vercel.app${asPath}` : `localhost:3000${asPath}`}
         defaultTitle={SEO.openGraph?.title}
         {...SEO}
       />
