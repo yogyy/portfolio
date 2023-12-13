@@ -12,6 +12,7 @@ import {
   SiPlanetscale,
   SiNodedotjs,
   SiRadixui,
+  SiSwiper,
 } from 'react-icons/si';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 
@@ -70,6 +71,10 @@ const techList = {
   tailwindcss: {
     icon: SiTailwindcss,
     name: 'Tailwind CSS',
+  },
+  swiperjs: {
+    icon: SiSwiper,
+    name: 'Swiper JS',
   },
   mongodb: {
     icon: SiMongodb,

@@ -14,6 +14,8 @@ import {
   SiVuedotjs,
   SiBootstrap,
   SiGit,
+  SiRadixui,
+  SiTrpc,
 } from 'react-icons/si';
 import { TypescriptIcons } from '../icons/typescript';
 
@@ -34,6 +36,8 @@ const ICON_TYPES = new Map(
     vuejs: <SiVuedotjs />,
     bootstrap: <SiBootstrap />,
     git: <SiGit />,
+    radixui: <SiRadixui />,
+    trpc: <SiTrpc />,
   }),
 );
 
@@ -41,7 +45,7 @@ export function Icon({ type }: { type: string }) {
   return <>{ICON_TYPES.get(type.toLowerCase())}</>;
 }
 
-const TechSection: React.FC<React.HTMLAttributes<HTMLDivElement>> = props => {
+export const TechSection: React.FC<React.HTMLAttributes<HTMLDivElement>> = props => {
   return (
     <div id="technologies" {...props}>
       <ul className="grid cursor-default grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] gap-6">
@@ -52,8 +56,6 @@ const TechSection: React.FC<React.HTMLAttributes<HTMLDivElement>> = props => {
     </div>
   );
 };
-
-export default TechSection;
 
 const TechSkillItem = ({ text }: { text: string }) => {
   const iconType = text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '').toLowerCase();
@@ -74,6 +76,7 @@ export const techSkills = [
   'Next.js',
   'Node.js',
   'Git',
-  'Figma',
   'Tailwind CSS',
+  'Radix UI',
+  'tRPC',
 ];

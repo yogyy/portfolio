@@ -3,9 +3,7 @@ import NextSEO from '@/components/layouts/next-seo';
 import ProjectCard from '@/components/project-card';
 import { allProjects } from 'contentlayer/generated';
 import { InView } from 'react-intersection-observer';
-import HeroSection from '@/components/section/hero-section';
-import TechSection from '@/components/section/tech-section';
-import SkillSection from '@/components/section/skills-section';
+import { HeroSection, SkillSection, TechSection } from '@/components/section';
 
 export default function Home() {
   return (

@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import { RiCodeSSlashFill, RiTerminalFill } from 'react-icons/ri';
 import { TooltipProvider, Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 
-const SkillSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
+export const SkillSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
   ({ className, ...props }, ref) => {
     return (
       <section ref={ref} className={cn('py-20', className)} {...props}>
@@ -59,4 +59,3 @@ const SkillSection = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElem
 );
 
 SkillSection.displayName = 'SkillSection';
-export default SkillSection;
