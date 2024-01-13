@@ -51,7 +51,7 @@ export default function Navbar({ large = false }: HeaderProps) {
   const inPosts = pathname === '/posts/[slug]';
 
   return (
-    <header className={cn('z-10 w-full', inPosts && 'sticky top-0 border-b-2 border-accent')}>
+    <header className={cn('sticky top-0 z-10 w-full', inPosts && 'border-b-2 border-accent')}>
       <a
         href="#skip-nav"
         className={cn(
@@ -69,7 +69,7 @@ export default function Navbar({ large = false }: HeaderProps) {
             large && 'lg:max-w-[68rem]',
           )}
         >
-          <ul className="ml-9 mr-auto flex gap-9">
+          <ul className="ml-9 flex gap-9">
             {links.map(({ label, href }: dink) => (
               <li key={`${href} ${label}`}>
                 <NavLink href={href}>
@@ -80,7 +80,7 @@ export default function Navbar({ large = false }: HeaderProps) {
               </li>
             ))}
           </ul>
-          <ThemeButton className="ml-auto" />
+          <ThemeButton />
         </div>
       </nav>
     </header>
