@@ -22,15 +22,20 @@ const NextSEO = (props: SeoProps) => {
   return (
     <>
       <NextSeo
+        {...SEO}
         title={title}
         description={desc || SEO.openGraph?.description}
+        openGraph={{
+          ...SEO.openGraph,
+          title: title || SEO.openGraph?.title,
+          description: desc || SEO.openGraph?.description,
+        }}
         canonical={isProd ? `https://yogyy.vercel.app${asPath}` : `localhost:3000${asPath}`}
         defaultTitle={SEO.openGraph?.title}
-        {...SEO}
       />
       <div className="flex flex-col">
         <Navbar />
-        <main id="skip-nav" className={cn(inter.className, className)}>
+        <main id="skip-nav" className={cn(inter.className, 'z-[1]', className)}>
           {children}
           <YG
             className={cn(

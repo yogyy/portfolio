@@ -2,9 +2,10 @@ import { NextSeoProps } from 'next-seo';
 
 const config: NextSeoProps = {
   openGraph: {
-    title: 'Yogyy',
+    title: 'Yogyy · Frontend Developer',
     type: 'website',
-    description: 'Frontend Developer | Optimist | Self-Learner | Specializing in React',
+    description:
+      'passionate developer with a knack for creating innovative solutions and writing clean, efficient code.',
     images: [
       {
         url: 'https://yogyy.vercel.app/images/og-image.jpg',
@@ -60,11 +61,6 @@ const config: NextSeoProps = {
   ],
 
   additionalMetaTags: [
-    {
-      name: 'keywords',
-      content:
-        'yogyy portfolio, yogyy projects, yogyy web developer, yogyy frontend, yogyy personal projects, yogyy dev',
-    },
     {
       name: 'theme-color',
       content: '#010409',
