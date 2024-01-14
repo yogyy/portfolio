@@ -9,6 +9,7 @@ const nextConfig = {
       transform: 'react-icons/{{member}}',
     },
   },
+  transpilePackages: ['geist'],
 };
 
 module.exports = nextConfig;
