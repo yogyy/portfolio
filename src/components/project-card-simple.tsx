@@ -6,7 +6,7 @@ type ProjectCardSimpleType = {
   title: string;
   description: string;
   github?: string | undefined;
-  url: string;
+  url?: string;
   type: string[];
 };
 
@@ -20,7 +20,7 @@ const ProjectCardSimple: React.FC<ProjectCardProps> = ({ project, className, ...
   return (
     <li
       className={cn(
-        'group flex h-fit select-none break-inside-avoid-column flex-col gap-3 rounded-md border p-3.5 md:gap-6',
+        'group relative flex h-fit select-none break-inside-avoid-column flex-col gap-3 rounded-md border p-3.5 md:gap-6',
         'w-full bg-card transition-[border] duration-200 ease-in focus-within:border-accent/50 hover:border-accent/50',
         className,
       )}
