@@ -2,6 +2,8 @@ import { ThemeButton } from '@/components/dark-theme';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import React from 'react';
 
 type HeaderProps = {
   large?: boolean;
@@ -22,8 +24,6 @@ const links = [
   { href: '/', label: 'Home' },
   { href: '/posts', label: 'Posts' },
   { href: '/projects', label: 'Projects' },
-  // {href: '/library', label: 'Library'},
-  // { href: '/about', label: 'About' },
 ];
 
 function NavLink({ href, children, ...rest }: NavLinkProps) {
@@ -49,9 +49,25 @@ function NavLink({ href, children, ...rest }: NavLinkProps) {
 export default function Navbar({ large = false }: HeaderProps) {
   const { pathname } = useRouter();
   const inPosts = pathname === '/posts/[slug]';
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = React.useState(false);
+
+  useMotionValueEvent(scrollY, 'change', latest => {
+    const prev = scrollY.getPrevious();
+    if (latest > prev && latest > 150) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
 
   return (
-    <header className={cn('sticky top-0 z-10 w-full', inPosts && 'border-b-2 border-accent')}>
+    <motion.header
+      variants={{ visible: { y: 0 }, hidden: { y: '-100%' } }}
+      animate={hidden ? 'hidden' : 'visible'}
+      transition={{ duration: 0.25, ease: 'easeInOut' }}
+      className={cn('sticky top-0 z-10 w-full', inPosts && 'border-b-2 border-accent')}
+    >
       <a
         href="#skip-nav"
         className={cn(
@@ -83,6 +99,6 @@ export default function Navbar({ large = false }: HeaderProps) {
           <ThemeButton />
         </div>
       </nav>
-    </header>
+    </motion.header>
   );
 }
