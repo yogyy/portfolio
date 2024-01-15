@@ -6,7 +6,6 @@ import {
   SiRadixui,
   SiReact,
   SiReactquery,
-  SiSwiper,
   SiTailwindcss,
   SiTrpc,
   SiUpstash,
@@ -23,7 +22,6 @@ const Icons: { [key: string]: React.ComponentType } = {
   Trpc: SiTrpc,
   Upstash: SiUpstash,
   PlanetScale: SiPlanetscale,
-  SwiperJS: SiSwiper,
 };
 
 export const Icon: React.FC<React.HTMLProps<SVGSVGElement> & { icon: keyof typeof Icons }> = ({
