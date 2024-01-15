@@ -1,33 +1,8 @@
+import { getAccessToken } from '@/hooks/get-access-token';
 import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
-import querystring from 'querystring';
 
-const {
-  SPOTIFY_CLIENT_ID: client_id,
-  SPOTIFY_CLIENT_SECRET: client_secret,
-  SPOTIFY_REFRESH_TOKEN_LAST_PLAYED: refresh_token,
-} = process.env;
-
-const LAST_PLAYED_ENDPOINT = `https://api.spotify.com/v1/me/player/recently-played?limit=1`;
-const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
-const token = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
-
-const getAccessToken = async () => {
-  const res = await axios.post<{ access_token: string }>(
-    TOKEN_ENDPOINT,
-    querystring.stringify({
-      grant_type: 'refresh_token',
-      refresh_token,
-    }),
-    {
-      headers: {
-        Authorization: `Basic ${token}`,
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-    }
-  );
-  return res.data.access_token;
-};
+const { SPOTIFY_REFRESH_TOKEN_LAST_PLAYED: refresh_token } = process.env;
 
 interface SpotifyDataLastPlayed {
   items: {
@@ -48,12 +23,15 @@ interface SpotifyDataLastPlayed {
 }
 
 const getLastPlayed = async () => {
-  const access_token = await getAccessToken();
-  return axios.get<SpotifyDataLastPlayed>(LAST_PLAYED_ENDPOINT, {
-    headers: {
-      Authorization: `Bearer ${access_token}`,
+  const access_token = await getAccessToken(refresh_token);
+  return axios.get<SpotifyDataLastPlayed>(
+    'https://api.spotify.com/v1/me/player/recently-played?limit=1',
+    {
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
     },
-  });
+  );
 };
 
 export default async function spotify(req: NextApiRequest, res: NextApiResponse) {
