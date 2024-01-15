@@ -1,7 +1,7 @@
 import { NextSeo } from 'next-seo';
 import Footer from './footer';
 import Navbar from './navbar';
-import { Inter } from 'next/font/google';
+import { GeistSans } from 'geist/font/sans';
 import { useRouter } from 'next/router';
 import YG from '../YG';
 import { cn } from '@/lib/utils';
@@ -13,10 +13,8 @@ interface SeoProps extends React.HTMLAttributes<HTMLElement> {
   desc?: string;
 }
 
-const inter = Inter({ subsets: ['latin'] });
-
 const NextSEO = (props: SeoProps) => {
-  const { children, title, desc, className } = props;
+  const { children, title, desc } = props;
   const { asPath } = useRouter();
 
   return (
@@ -33,9 +31,9 @@ const NextSEO = (props: SeoProps) => {
         canonical={isProd ? `https://yogyy.vercel.app${asPath}` : `localhost:3000${asPath}`}
         defaultTitle={SEO.openGraph?.title}
       />
-      <div className="flex flex-col">
+      <>
         <Navbar />
-        <main id="skip-nav" className={cn(inter.className, 'z-[1]', className)}>
+        <main id="skip-nav" className={cn(GeistSans.className, '')}>
           {children}
           <YG
             className={cn(
@@ -47,7 +45,7 @@ const NextSEO = (props: SeoProps) => {
           />
         </main>
         <Footer />
-      </div>
+      </>
     </>
   );
 };
