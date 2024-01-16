@@ -16,6 +16,7 @@ import {
   SiGit,
   SiRadixui,
   SiTrpc,
+  SiMysql,
 } from 'react-icons/si';
 import { TypescriptIcons } from '../icons/typescript';
 
@@ -38,6 +39,7 @@ const ICON_TYPES = new Map(
     git: <SiGit />,
     radixui: <SiRadixui />,
     trpc: <SiTrpc />,
+    mysql: <SiMysql />,
   }),
 );
 
@@ -75,6 +77,7 @@ export const techSkills = [
   'TypeScript',
   'Next.js',
   'Node.js',
+  'MySQL',
   'Git',
   'Tailwind CSS',
   'Radix UI',
