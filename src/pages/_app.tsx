@@ -9,6 +9,7 @@ import { PreloadProvider } from '@/components/PreloadContext';
 import { PostHogProvider } from 'posthog-js/react';
 import posthog from 'posthog-js';
 import { isProd } from '@/constants/env';
+import { LazyMotion, domAnimation } from 'framer-motion';
 Router.events.on('routeChangeStart', nProgress.start);
 Router.events.on('routeChangeError', nProgress.remove);
 Router.events.on('routeChangeComplete', nProgress.done);
@@ -22,9 +23,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <PostHogProvider client={posthog}>
       <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-        <PreloadProvider>
+        <LazyMotion features={domAnimation} strict>
           <Component {...pageProps} />
-        </PreloadProvider>
+        </LazyMotion>
       </ThemeProvider>
     </PostHogProvider>
   );

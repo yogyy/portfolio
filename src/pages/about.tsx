@@ -1,61 +1,61 @@
 import * as React from 'react';
-import IsLoaded from '@/components/isLoaded';
 import { Accent } from '@/components/accent';
 import NextSEO from '@/components/layouts/next-seo';
 import TechMdx from '@/components/tech-icons';
+import { cn } from '@/lib/utils';
+import { m } from 'framer-motion';
+import { easeOutBack } from '@/constants/framer-easing';
 
 export default function AboutPage() {
   return (
     <NextSEO title="About · Yogyy">
-      <IsLoaded className="flex h-auto min-h-[calc(100vh_-_249px)] flex-col items-center">
-        <div className="layout mx-auto">
-          <div id="about" className="my-10 h-full min-h-[50dvh]">
-            <h2 gaya-fade="1" className="mb-6 text-2xl md:text-4xl 2xl:text-3xl">
-              <Accent>About Me</Accent>
-            </h2>
-            {/* <div gaya-fade="2" className="mt-4">
-              <Image
-                className="flex float-left w-20 mb-3 mr-6 rounded-full bg-dark-bg md:w-28"
-                src="https://res.cloudinary.com/dpegakmzh/image/upload/c_scale,w_256/v1685623759/me_vwkosx.webp"
-                alt="gwe"
-                width={520}
-                height={520}
-              />
-            </div> */}
-            <article className="mt-4 max-w-3xl md:mt-6">
-              <p gaya-fade="3" className="mb-4">
-                Hello, my name is YoGi. &apos;yogyy&apos; is just a nickname I created. I&apos;m
-                interested in becoming a full-stack web developer. As a naturally curious person, I
-                am always seeking ways to improve and achieve{' '}
-                <span className="font-semibold text-red-500 line-through">perfection</span>
-                &nbsp; better code in my work.They say practice makes perfect, but then again, they
-                also say that nobody&apos;s perfect, so I guess that means I don&apos;t have to
-                practice...
-              </p>
-              <p gaya-fade="4" className="mb-4">
-                There are a lot of things and technologies to learn in frontend development and I am
-                motivated to learn as much as possible. I enjoy learning something new and getting
-                feedback to make myself better and improve.
-              </p>
-              <p gaya-fade="5">
-                In this website I will be writing some blogs and showcase my projects. I believe
-                that writing what I have learned is the best way to remember things, and I can share
-                my knowledge along the way. So do contact me and I will be very happy to help!
-              </p>
+      <m.section
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ easings: easeOutBack, duration: 0.5 }}
+        className="layout flex h-auto min-h-dvh flex-col items-start"
+      >
+        <div className="">
+          <div id="about" className="my-10 h-full">
+            <h1 className="mb-6 text-2xl md:text-4xl 2xl:text-3xl">Hi, I&apos;m Yogi.</h1>
+            <article className={cn('relative mt-4 flex max-w-3xl gap-3 md:mt-6 md:gap-6')}>
+              <div className="hidden border-l border-primary md:block" />
+              <div className="h-full text-pretty text-base">
+                <p className="mb-4 leading-7">
+                  I live in Tangerang, Indonesia. I&apos;m interested in becoming a full-stack web
+                  developer. As a naturally curious person, I am always seeking ways to improve and
+                  achieve{' '}
+                  <span className="font-semibold text-red-500 line-through">perfection</span>
+                  &nbsp; better code in my work.They say practice makes perfect, but then again,
+                  they also say that nobody&apos;s perfect, so I guess that means I don&apos;t have
+                  to practice...
+                  <br />
+                  <br />
+                  There are a lot of things and technologies to learn in frontend development and I
+                  am motivated to learn as much as possible. I enjoy learning something new and
+                  getting feedback to make myself better and improve.
+                  <br />
+                  <br />
+                  In this website I will be writing some blogs and showcase my projects. I believe
+                  that writing what I have learned is the best way to remember things, and I can
+                  share my knowledge along the way. So do contact me and I will be very happy to
+                  help!
+                </p>
+              </div>
             </article>
           </div>
-          <div className="flex min-h-[20dvh] flex-col place-content-center">
-            <h1 className="my-4 text-2xl">
+          <div className="flex flex-col place-content-center">
+            <h2 className="text-2xl">
               <Accent>Fav Tech Stack</Accent>
-            </h1>
+            </h2>
             <TechMdx
               techs={['react', 'nextjs', 'tailwindcss', 'reactquery']}
               iconClassName="text-3xl"
-              className="flex-wrap"
+              className="-ml-2 flex-wrap"
             />
           </div>
         </div>
-      </IsLoaded>
+      </m.section>
     </NextSEO>
   );
 }

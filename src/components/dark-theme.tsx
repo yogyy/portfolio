@@ -13,10 +13,11 @@ export function ThemeButton({ className, ...rest }: ThemeButtonProps) {
   return (
     <button
       role="button"
+      type="button"
       aria-label="dark mode toggle"
       aria-pressed="true"
       className={cn(
-        'rounded-md border-2 border-background p-1.5 py-1',
+        'rounded-md border-2 border-transparent p-1.5 py-1',
         'text-accent focus:outline-none focus-visible:border-accent',
         className,
       )}

@@ -2,12 +2,11 @@ import { ThemeButton } from '@/components/dark-theme';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import { HTMLMotionProps, m, useMotionValueEvent, useScroll } from 'framer-motion';
 import React from 'react';
+import { easeOutBack } from '@/constants/framer-easing';
 
-type HeaderProps = {
-  large?: boolean;
-};
+type HeaderProps = HTMLMotionProps<'header'>;
 interface NavLinkProps {
   href: string;
   children: React.ReactNode;
@@ -46,7 +45,7 @@ function NavLink({ href, children, ...rest }: NavLinkProps) {
   );
 }
 
-export default function Navbar({ large = false }: HeaderProps) {
+export const Navbar: React.FC<HeaderProps> = ({ className }) => {
   const { pathname } = useRouter();
   const inPosts = pathname === '/posts/[slug]';
   const { scrollY } = useScroll();
@@ -62,11 +61,15 @@ export default function Navbar({ large = false }: HeaderProps) {
   });
 
   return (
-    <motion.header
+    <m.header
       variants={{ visible: { y: 0 }, hidden: { y: '-100%' } }}
       animate={hidden ? 'hidden' : 'visible'}
-      transition={{ duration: 0.25, ease: 'easeInOut' }}
-      className={cn('sticky top-0 z-10 w-full', inPosts && 'border-b-2 border-accent')}
+      transition={{ duration: 0.25, easings: easeOutBack }}
+      className={cn(
+        'sticky top-0 z-10 w-full bg-background/80',
+        inPosts && 'border-b-2 border-accent',
+        className,
+      )}
     >
       <a
         href="#skip-nav"
@@ -79,12 +82,7 @@ export default function Navbar({ large = false }: HeaderProps) {
         skip to content
       </a>
       <nav aria-label="Main Menu" className={cn('backdrop-blur-sm', inPosts && 'bg-background')}>
-        <div
-          className={cn(
-            'layout flex items-center justify-between py-4',
-            large && 'lg:max-w-[68rem]',
-          )}
-        >
+        <div className={cn('layout flex items-center justify-between py-4')}>
           <ul className="ml-9 flex gap-9">
             {links.map(({ label, href }: dink) => (
               <li key={`${href} ${label}`}>
@@ -99,6 +97,6 @@ export default function Navbar({ large = false }: HeaderProps) {
           <ThemeButton />
         </div>
       </nav>
-    </motion.header>
+    </m.header>
   );
-}
+};
