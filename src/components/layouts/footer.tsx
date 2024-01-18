@@ -11,23 +11,30 @@ import {
   TooltipTrigger,
 } from '../ui/tooltip';
 import Link from 'next/link';
+import { spotifyFlag } from '@/constants/env';
+import { Inter } from 'next/font/google';
 
 const copyright = `© ${new Date().getFullYear()} Yogi.`;
+const inter = Inter({ subsets: ['latin'] });
 
-export default function Footer() {
+export const Footer: React.FC<React.HTMLAttributes<HTMLElement>> = ({ className }) => {
   return (
-    <footer className="mt-6 bg-background/30 backdrop-blur-sm">
+    <footer className={cn('mt-6 bg-background/30 backdrop-blur-sm', className)}>
       <hr className="mb-6 border-text/10" />
       <div className="layout relative pb-4">
         <div className="mb-4 flex flex-col items-center justify-center gap-3 sm:flex-row sm:justify-between">
           <h1 className="mb-4 self-center pb-2 text-2xl font-bold">
             <Accent>yogyy</Accent>
           </h1>
-          <Spotify className="place-self-center" />
+          {spotifyFlag && <Spotify className="place-self-center" />}
         </div>
         <div className="flex flex-col-reverse place-items-center justify-center gap-6 md:flex-row md:justify-between">
           <span className="flex gap-3 text-sm font-semibold sm:text-center">{copyright}</span>
-          <div className="relative my-auto flex h-auto space-x-3 text-xl sm:place-content-center md:space-x-5">
+          <div
+            className={cn(
+              'relative my-auto flex h-auto space-x-3 text-xl sm:place-content-center md:space-x-5',
+            )}
+          >
             {links.map(link => (
               <TooltipProvider key={link.href} delayDuration={300}>
                 <Tooltip>
@@ -35,11 +42,11 @@ export default function Footer() {
                     type="button"
                     className="cursor-newtab group outline-none"
                     aria-label={link.alt}
+                    asChild
                   >
                     <Link
                       href={link.href}
                       target="_blank"
-                      tabIndex={-1}
                       aria-label={`go to ${link.alt}`}
                       className="cursor-newtab"
                     >
@@ -56,7 +63,10 @@ export default function Footer() {
                     <TooltipContent
                       sideOffset={8}
                       side="bottom"
-                      className="font-semibold text-text outline-accent duration-400"
+                      className={cn(
+                        'font-medium text-text outline-accent duration-400',
+                        inter.className,
+                      )}
                     >
                       {link.content}
                     </TooltipContent>
@@ -69,7 +79,7 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
 
 const links = [
   {
