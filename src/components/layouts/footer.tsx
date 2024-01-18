@@ -13,13 +13,35 @@ import {
 import Link from 'next/link';
 import { spotifyFlag } from '@/constants/env';
 import { Inter } from 'next/font/google';
+import React from 'react';
+import { m, useInView } from 'framer-motion';
+import { easeIn, easeOutBack } from '@/constants/framer-easing';
 
 const copyright = `© ${new Date().getFullYear()} Yogi.`;
 const inter = Inter({ subsets: ['latin'] });
 
 export const Footer: React.FC<React.HTMLAttributes<HTMLElement>> = ({ className }) => {
+  const view = React.useRef(null);
+  const inView = useInView(view, { margin: '0px 0px', once: true });
   return (
-    <footer className={cn('mt-6 bg-background/30 backdrop-blur-sm', className)}>
+    <m.footer
+      ref={view}
+      initial="hidden"
+      animate={inView && 'show'}
+      variants={{
+        hidden: { opacity: 0 },
+        show: {
+          opacity: 1,
+          transition: {
+            delayChildren: 0.1,
+            staggerChildren: 0.15,
+            duration: 0.3,
+            easings: easeOutBack,
+          },
+        },
+      }}
+      className={cn('mt-6 bg-background/30 backdrop-blur-sm', className)}
+    >
       <hr className="mb-6 border-text/10" />
       <div className="layout relative pb-4">
         <div className="mb-4 flex flex-col items-center justify-center gap-3 sm:flex-row sm:justify-between">
@@ -30,54 +52,60 @@ export const Footer: React.FC<React.HTMLAttributes<HTMLElement>> = ({ className 
         </div>
         <div className="flex flex-col-reverse place-items-center justify-center gap-6 md:flex-row md:justify-between">
           <span className="flex gap-3 text-sm font-semibold sm:text-center">{copyright}</span>
-          <div
-            className={cn(
-              'relative my-auto flex h-auto space-x-3 text-xl sm:place-content-center md:space-x-5',
-            )}
-          >
+          <m.ul className="relative my-auto flex h-auto space-x-3 text-xl sm:place-content-center md:space-x-5">
             {links.map(link => (
-              <TooltipProvider key={link.href} delayDuration={300}>
-                <Tooltip>
-                  <TooltipTrigger
-                    type="button"
-                    className="cursor-newtab group outline-none"
-                    aria-label={link.alt}
-                    asChild
-                  >
-                    <Link
-                      href={link.href}
-                      target="_blank"
-                      aria-label={`go to ${link.alt}`}
-                      className="cursor-newtab"
+              <m.li
+                key={link.href}
+                className="inline-flex"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  show: { opacity: 1, y: 0 },
+                }}
+                transition={{ easings: easeIn, duration: 0.5 }}
+              >
+                <TooltipProvider delayDuration={300}>
+                  <Tooltip>
+                    <TooltipTrigger
+                      type="button"
+                      className="cursor-newtab group outline-none"
+                      aria-label={link.alt}
+                      asChild
                     >
-                      <link.icon
+                      <Link
+                        href={link.href}
+                        target="_blank"
+                        aria-label={`go to ${link.alt}`}
+                        className="cursor-newtab"
+                      >
+                        <link.icon
+                          className={cn(
+                            'group-focus:text-accent',
+                            'relative text-text/70 group-hover:text-accent',
+                            'm-1',
+                          )}
+                        />
+                      </Link>
+                    </TooltipTrigger>
+                    <TooltipPortal>
+                      <TooltipContent
+                        sideOffset={8}
+                        side="bottom"
                         className={cn(
-                          'group-focus:text-accent',
-                          'relative text-text/70 group-hover:text-accent',
-                          'm-1',
+                          'font-medium text-text outline-accent duration-400',
+                          inter.className,
                         )}
-                      />
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipPortal>
-                    <TooltipContent
-                      sideOffset={8}
-                      side="bottom"
-                      className={cn(
-                        'font-medium text-text outline-accent duration-400',
-                        inter.className,
-                      )}
-                    >
-                      {link.content}
-                    </TooltipContent>
-                  </TooltipPortal>
-                </Tooltip>
-              </TooltipProvider>
+                      >
+                        {link.content}
+                      </TooltipContent>
+                    </TooltipPortal>
+                  </Tooltip>
+                </TooltipProvider>
+              </m.li>
             ))}
-          </div>
+          </m.ul>
         </div>
       </div>
-    </footer>
+    </m.footer>
   );
 };
 

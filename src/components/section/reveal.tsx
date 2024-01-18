@@ -1,18 +1,25 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { HTMLMotionProps, motion, useInView } from 'framer-motion';
+import { HTMLMotionProps, m } from 'framer-motion';
+import { easeOutBack } from '@/constants/framer-easing';
 
-export const Reveal: React.FC<HTMLMotionProps<'section'>> = ({ className, children }) => {
-  const view = React.useRef(null);
-  const inView = useInView(view, { margin: '-40% 0px', once: true });
+export const Reveal = React.forwardRef<
+  HTMLElement,
+  HTMLMotionProps<'section'> & Partial<{ inView: boolean }>
+>(({ className, children, inView, ...props }, ref) => {
+  // const view = React.useRef(null);
+  // const inView = useInView(view, { margin: '-35% 0px' });
   return (
-    <motion.section
-      ref={view}
+    <m.section
+      ref={ref}
       className={cn('layout py-20', className)}
-      animate={inView ? { y: -40, opacity: 1 } : { y: 0, opacity: 0 }}
-      transition={{ ease: 'easeOut', duration: 0.3 }}
+      animate={inView ? { y: 0, opacity: 1 } : { y: -20, opacity: 0 }}
+      transition={{ easings: easeOutBack, duration: 1 }}
+      {...props}
     >
       {children}
-    </motion.section>
+    </m.section>
   );
-};
+});
+
+Reveal.displayName = 'Reveal';

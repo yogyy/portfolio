@@ -1,23 +1,50 @@
 import { Accent } from '@/components/accent';
-import IsLoaded from '@/components/isLoaded';
+import { AnimationProps, m } from 'framer-motion';
 import NextSEO from '@/components/layouts/next-seo';
 import { cn } from '@/lib/utils';
 import { allPosts } from 'contentlayer/generated';
 import Link from 'next/link';
 import * as React from 'react';
 import { HiArrowSmRight } from 'react-icons/hi';
+import { easeOut, easeOutBack } from '@/constants/framer-easing';
 
 export default function Page() {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.4,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: -20 },
+    show: { opacity: 1, y: 0 },
+  };
+
   return (
     <NextSEO title="Post · Yogyy" desc="showing all my post i created">
-      <IsLoaded className="mt-20 min-h-[calc(100dvh_-_303px)]">
-        <div gaya-fade="1" className={cn('mx-4 flex max-w-3xl flex-col gap-5 md:mx-auto')}>
+      <m.div
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        className="mt-20 min-h-[calc(100dvh_-_303px)]"
+        transition={{ easings: easeOut, duration: 0.4 }}
+      >
+        <div className={cn('mx-4 flex max-w-3xl flex-col gap-5 md:mx-auto')}>
           <h1 className="mb-4">
             <Accent>Blog Posts</Accent>
           </h1>
-          <ul gaya-fade="2" className="mx-4 flex max-w-3xl flex-col gap-5 md:mx-auto">
+          <m.ul
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="mx-4 flex max-w-3xl flex-col gap-5 md:mx-auto"
+          >
             {allPosts.map((post, _i) => (
-              <li key={post._id}>
+              <m.li key={post._id} variants={item} transition={{ easings: easeOut, duration: 0.4 }}>
                 <Link
                   href={post.slug}
                   className={cn(
@@ -42,11 +69,11 @@ export default function Page() {
                     </span>
                   </div>
                 </Link>
-              </li>
+              </m.li>
             ))}
-          </ul>
+          </m.ul>
         </div>
-      </IsLoaded>
+      </m.div>
     </NextSEO>
   );
 }

@@ -19,6 +19,8 @@ import {
   SiMysql,
 } from 'react-icons/si';
 import { TypescriptIcons } from '../icons/typescript';
+import { m, useInView } from 'framer-motion';
+import { easeOutBack } from '@/constants/framer-easing';
 
 const ICON_TYPES = new Map(
   Object.entries({
@@ -48,26 +50,47 @@ export function Icon({ type }: { type: string }) {
 }
 
 export const TechSection: React.FC<React.HTMLAttributes<HTMLDivElement>> = props => {
+  const view = React.useRef(null);
+  const inView = useInView(view, { margin: '-15% 0px', once: false });
+
   return (
     <div id="technologies" {...props}>
-      <ul className="grid cursor-default grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] gap-6">
-        {techSkills.map((item, index) => {
-          return <TechSkillItem key={index} text={item} />;
-        })}
-      </ul>
+      <m.ul
+        ref={view}
+        initial="hidden"
+        animate={inView && 'show'}
+        variants={{
+          hidden: { opacity: 0 },
+          show: {
+            opacity: 1,
+            transition: {
+              delayChildren: 0.1,
+              staggerChildren: 0.15,
+              duration: 0.3,
+              easings: easeOutBack,
+            },
+          },
+        }}
+        className="grid cursor-default grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] gap-6"
+      >
+        {techSkills.map(item => (
+          <m.li
+            key={item}
+            variants={{
+              hidden: { opacity: 0, y: -20 },
+              show: { opacity: 1, y: 0 },
+            }}
+            transition={{ easings: easeOutBack }}
+            className="flex items-center rounded-md border bg-card p-2 hover:bg-primary/30"
+          >
+            <span className="text-2xl text-inherit">
+              <Icon type={item.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '').toLowerCase()} />
+            </span>
+            <span className="pl-4">{item}</span>
+          </m.li>
+        ))}
+      </m.ul>
     </div>
-  );
-};
-
-const TechSkillItem = ({ text }: { text: string }) => {
-  const iconType = text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '').toLowerCase();
-  return (
-    <li className="flex items-center rounded-md border bg-card p-2 hover:bg-primary/30">
-      <span className="text-2xl text-inherit">
-        <Icon type={iconType} />
-      </span>
-      <span className="pl-4">{text}</span>
-    </li>
   );
 };
 

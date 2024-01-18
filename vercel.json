@@ -1,7 +1,8 @@
 {
   "git": {
     "deploymentEnabled": {
-      "main": true
+      "main": false,
+      "add-framer-motion": false
     }
   }
 }
