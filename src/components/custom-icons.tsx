@@ -23,11 +23,10 @@ const Icons: { [key: string]: React.ComponentType } = {
   Upstash: SiUpstash,
   PlanetScale: SiPlanetscale,
 };
-
-export const Icon: React.FC<React.HTMLProps<SVGSVGElement> & { icon: keyof typeof Icons }> = ({
-  icon,
-  ...props
-}) => {
+interface IconProps extends React.HTMLProps<SVGSVGElement> {
+  icon: keyof typeof Icons;
+}
+export const Icon = ({ icon, ...props }: IconProps) => {
   const IconComponent = Icons[icon];
   return <IconComponent {...props} />;
 };

@@ -1,15 +1,13 @@
 import React from 'react';
-import { cn } from '@/lib/utils';
-import { RiCodeSSlashFill, RiTerminalFill } from 'react-icons/ri';
-import { TooltipProvider, Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 import { HTMLMotionProps, m } from 'framer-motion';
 import { easeOutBack } from '@/constants/framer-easing';
+import { RiCodeSSlashFill, RiTerminalFill } from 'react-icons/ri';
+import { TooltipProvider, Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 
-export const SkillSection: React.FC<HTMLMotionProps<'article'> & { inView?: boolean }> = ({
-  className,
-  inView,
-  ...props
-}) => {
+interface SkillSectionProps extends HTMLMotionProps<'article'> {
+  inView?: boolean;
+}
+export const SkillSection = ({ className, inView, ...props }: SkillSectionProps) => {
   return (
     <m.article
       initial="hidden"
@@ -26,6 +24,7 @@ export const SkillSection: React.FC<HTMLMotionProps<'article'> & { inView?: bool
           },
         },
       }}
+      className={className}
       {...props}
     >
       <h1 className="text-accent">Skills</h1>

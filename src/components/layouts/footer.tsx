@@ -1,4 +1,4 @@
-import Spotify from './spotify';
+import { Spotify } from './';
 import { cn } from '@/lib/utils';
 import { Accent } from '../accent';
 import { IoMailOutline } from 'react-icons/io5';
@@ -14,13 +14,13 @@ import Link from 'next/link';
 import { spotifyFlag } from '@/constants/env';
 import { Inter } from 'next/font/google';
 import React from 'react';
-import { m, useInView } from 'framer-motion';
+import { HTMLMotionProps, m, useInView } from 'framer-motion';
 import { easeIn, easeOutBack } from '@/constants/framer-easing';
 
 const copyright = `© ${new Date().getFullYear()} Yogi.`;
 const inter = Inter({ subsets: ['latin'] });
 
-export const Footer: React.FC<React.HTMLAttributes<HTMLElement>> = ({ className }) => {
+export const Footer = ({ className, ...props }: HTMLMotionProps<'footer'>) => {
   const view = React.useRef(null);
   const inView = useInView(view, { margin: '0px 0px', once: true });
   return (
@@ -41,6 +41,7 @@ export const Footer: React.FC<React.HTMLAttributes<HTMLElement>> = ({ className 
         },
       }}
       className={cn('mt-6 bg-background/30 backdrop-blur-sm', className)}
+      {...props}
     >
       <hr className="mb-6 border-text/10" />
       <div className="layout relative pb-4">

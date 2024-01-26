@@ -2,19 +2,18 @@ import { cn } from '@/lib/utils';
 import { LuGithub, LuGlobe } from 'react-icons/lu';
 import UnstyledLink from './links/unstyledlink';
 
-type ProjectCardSimpleType = {
+interface ProjectCardSimpleType {
   title: string;
   description: string;
   github?: string | undefined;
   url?: string;
   type: string[];
-};
+}
 
-type ProjectCardProps = {
+interface ProjectCardProps extends React.LiHTMLAttributes<HTMLLIElement> {
   project: ProjectCardSimpleType;
-} & React.LiHTMLAttributes<HTMLLIElement>;
-
-const ProjectCardSimple: React.FC<ProjectCardProps> = ({ project, className, ...props }) => {
+}
+const ProjectCardSimple = ({ project, className, ...props }: ProjectCardProps) => {
   const { title, description, github, url, type } = project;
 
   return (

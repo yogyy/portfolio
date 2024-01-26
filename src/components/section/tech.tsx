@@ -49,7 +49,7 @@ export function Icon({ type }: { type: string }) {
   return <>{ICON_TYPES.get(type.toLowerCase())}</>;
 }
 
-export const TechSection: React.FC<React.HTMLAttributes<HTMLDivElement>> = props => {
+export const TechSection = (props: React.HTMLAttributes<HTMLDivElement>) => {
   const view = React.useRef(null);
   const inView = useInView(view, { margin: '-15% 0px', once: false });
 

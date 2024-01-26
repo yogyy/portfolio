@@ -6,18 +6,12 @@ import { HTMLMotionProps, m, useMotionValueEvent, useScroll } from 'framer-motio
 import React from 'react';
 import { easeOutBack } from '@/constants/framer-easing';
 
-type HeaderProps = HTMLMotionProps<'header'>;
 interface NavLinkProps {
   href: string;
   children: React.ReactNode;
   passHref?: boolean;
   classname?: string;
 }
-
-type dink = {
-  href: string;
-  label: string;
-};
 
 const links = [
   { href: '/', label: 'Home' },
@@ -45,7 +39,7 @@ function NavLink({ href, children, ...rest }: NavLinkProps) {
   );
 }
 
-export const Navbar: React.FC<HeaderProps> = ({ className }) => {
+export const Navbar = ({ className, ...props }: HTMLMotionProps<'header'>) => {
   const { pathname } = useRouter();
   const inPosts = pathname === '/posts/[slug]';
   const { scrollY } = useScroll();
@@ -70,6 +64,7 @@ export const Navbar: React.FC<HeaderProps> = ({ className }) => {
         inPosts && 'border-b-2 border-accent',
         className,
       )}
+      {...props}
     >
       <a
         href="#skip-nav"
@@ -84,7 +79,7 @@ export const Navbar: React.FC<HeaderProps> = ({ className }) => {
       <nav aria-label="Main Menu" className={cn('backdrop-blur-sm', inPosts && 'bg-background')}>
         <div className={cn('layout flex items-center justify-between py-4')}>
           <ul className="ml-9 flex gap-9">
-            {links.map(({ label, href }: dink) => (
+            {links.map(({ label, href }) => (
               <li key={`${href} ${label}`}>
                 <NavLink href={href}>
                   <span className={cn('text-xs font-semibold transition-colors md:text-base')}>

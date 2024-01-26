@@ -5,11 +5,11 @@ import { Icon } from './custom-icons';
 import { HiArrowRight } from 'react-icons/hi';
 import { Project } from 'contentlayer/generated';
 
-type ProjectCardProps = {
+interface ProjectCardProps extends React.LiHTMLAttributes<HTMLLIElement> {
   project: Project;
-} & React.LiHTMLAttributes<HTMLLIElement>;
+}
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, className, ...props }) => {
+const ProjectCard = ({ project, className, ...props }: ProjectCardProps) => {
   return (
     <li
       className={cn(
