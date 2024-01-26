@@ -2,7 +2,7 @@ import React from 'react';
 import { allPosts, Post } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 import { GetStaticPaths } from 'next';
-import NextSEO from '@/components/layouts/next-seo';
+import { RootLayout } from '@/components/layouts';
 import { Mdx } from '@/components/mdx/mdx-component';
 import { DocsPageHeader } from '@/components/mdx/page-header';
 import { HiArrowLeft } from 'react-icons/hi';
@@ -48,7 +48,7 @@ export const Posts = ({ post }: { post: Post }) => {
   }, [post.body.raw]);
 
   return (
-    <NextSEO title={`${post.title} · Yogyy`} desc={post.description}>
+    <RootLayout title={`${post.title} · Yogyy`} desc={post.description}>
       <m.section
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -79,7 +79,7 @@ export const Posts = ({ post }: { post: Post }) => {
           </aside>
         </div>
       </m.section>
-    </NextSEO>
+    </RootLayout>
   );
 };
 

@@ -1,14 +1,17 @@
+import { m } from 'framer-motion';
 import { Accent } from '@/components/accent';
-import NextSEO from '@/components/layouts/next-seo';
+import { RootLayout } from '@/components/layouts';
 import ProjectCard from '@/components/project-card';
 import { ProjectCardSimple, type ProjectCardSimpleType } from '@/components/project-card-simple';
 import { easeOutBack } from '@/constants/framer-easing';
 import { allProjects } from 'contentlayer/generated';
-import { m } from 'framer-motion';
 
 const Projects = () => {
   return (
-    <NextSEO title="Projects Showcase · Yogyy" desc="Showcase of my works on frontend development.">
+    <RootLayout
+      title="Projects Showcase · Yogyy"
+      desc="Showcase of my works on frontend development."
+    >
       <m.section
         initial={{ y: 40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -60,7 +63,7 @@ const Projects = () => {
           </m.div>
         </article>
       </m.section>
-    </NextSEO>
+    </RootLayout>
   );
 };
 

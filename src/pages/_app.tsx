@@ -5,7 +5,6 @@ import { ThemeProvider } from 'next-themes';
 import Router from 'next/router';
 
 import nProgress from 'nprogress';
-import { PreloadProvider } from '@/components/PreloadContext';
 import { PostHogProvider } from 'posthog-js/react';
 import posthog from 'posthog-js';
 import { isProd } from '@/constants/env';

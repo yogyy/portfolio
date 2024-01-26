@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Accent } from '@/components/accent';
-import NextSEO from '@/components/layouts/next-seo';
 import TechMdx from '@/components/tech-icons';
 import { cn } from '@/lib/utils';
 import { m } from 'framer-motion';
 import { easeOutBack } from '@/constants/framer-easing';
+import { RootLayout } from '@/components/layouts';
 
 export default function AboutPage() {
   return (
-    <NextSEO title="About · Yogyy">
+    <RootLayout title="About · Yogyy">
       <m.section
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -56,6 +56,6 @@ export default function AboutPage() {
           </div>
         </div>
       </m.section>
-    </NextSEO>
+    </RootLayout>
   );
 }

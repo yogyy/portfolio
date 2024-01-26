@@ -6,15 +6,14 @@ import YG from '../YG';
 import { cn } from '@/lib/utils';
 import SEO from 'next-seo.config';
 import { isProd } from '@/constants/env';
-import { Navbar, Footer } from './';
+import { Navbar, Footer } from '.';
 
 interface SeoProps extends React.HTMLAttributes<HTMLElement> {
   title?: string;
   desc?: string;
 }
 
-const NextSEO = (props: SeoProps) => {
-  const { children, title, desc } = props;
+export const RootLayout = ({ children, title, desc }: SeoProps) => {
   const { asPath } = useRouter();
 
   return (
@@ -47,5 +46,3 @@ const NextSEO = (props: SeoProps) => {
     </>
   );
 };
-
-export default NextSEO;

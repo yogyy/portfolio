@@ -1,6 +1,6 @@
 import { Accent } from '@/components/accent';
 import { AnimationProps, m } from 'framer-motion';
-import NextSEO from '@/components/layouts/next-seo';
+import { RootLayout } from '@/components/layouts';
 import { cn } from '@/lib/utils';
 import { allPosts } from 'contentlayer/generated';
 import Link from 'next/link';
@@ -26,7 +26,7 @@ export default function Page() {
   };
 
   return (
-    <NextSEO title="Post · Yogyy" desc="showing all my post i created">
+    <RootLayout title="Post · Yogyy" desc="showing all my post i created">
       <m.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -74,6 +74,6 @@ export default function Page() {
           </m.ul>
         </div>
       </m.div>
-    </NextSEO>
+    </RootLayout>
   );
 }

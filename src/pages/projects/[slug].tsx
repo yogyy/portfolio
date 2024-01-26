@@ -1,17 +1,17 @@
 import React from 'react';
 import Image from 'next/image';
+import { m } from 'framer-motion';
 import { SiGithub } from 'react-icons/si';
 import { notFound } from 'next/navigation';
 import { HiLink, HiUser } from 'react-icons/hi';
 import { GetStaticPaths, NextPage } from 'next';
-import NextSEO from '@/components/layouts/next-seo';
+import { RootLayout } from '@/components/layouts';
+import { easeIn } from '@/constants/framer-easing';
 import { Mdx } from '@/components/mdx/mdx-component';
 import CustomLink from '@/components/links/custom-link';
 import { allProjects, Project } from 'contentlayer/generated';
 import { getTableOfContents, TableOfContents } from '@/lib/toc';
 import { DashboardTableOfContents } from '@/components/mdx/toc';
-import { m } from 'framer-motion';
-import { easeIn, easeOut } from '@/constants/framer-easing';
 
 export const getStaticPaths: GetStaticPaths = () => {
   const paths = allProjects.map(proj => `/${proj._raw.flattenedPath}`);
@@ -48,7 +48,7 @@ const ProjectsPage: NextPage<{ proj: Project }> = ({ proj }) => {
   }, [proj.body.raw]);
 
   return (
-    <NextSEO title={`${proj.title} · Yogyy`} desc={proj.description}>
+    <RootLayout title={`${proj.title} · Yogyy`} desc={proj.description}>
       <m.section
         className="layout"
         initial={{ opacity: 0, y: -20 }}
@@ -109,7 +109,7 @@ const ProjectsPage: NextPage<{ proj: Project }> = ({ proj }) => {
           </aside>
         </div>
       </m.section>
-    </NextSEO>
+    </RootLayout>
   );
 };
 

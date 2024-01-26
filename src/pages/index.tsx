@@ -1,15 +1,14 @@
-import { cn } from '@/lib/utils';
-import NextSEO from '@/components/layouts/next-seo';
+import { m } from 'framer-motion';
+import { RootLayout } from '@/components/layouts';
 import ProjectCard from '@/components/project-card';
+import { Reveal } from '@/components/section/reveal';
 import { allProjects } from 'contentlayer/generated';
 import { InView } from 'react-intersection-observer';
 import { HeroSection, SkillSection, TechSection } from '@/components/section';
-import { m, useInView } from 'framer-motion';
-import { Reveal } from '@/components/section/reveal';
 
 export default function Home() {
   return (
-    <NextSEO>
+    <RootLayout>
       <HeroSection />
       <InView triggerOnce rootMargin="-40% 0px">
         {({ ref, inView }) => (
@@ -49,6 +48,6 @@ export default function Home() {
           </Reveal>
         )}
       </InView>
-    </NextSEO>
+    </RootLayout>
   );
 }

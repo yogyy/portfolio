@@ -1,7 +1,7 @@
 import SEO from 'next-seo.config';
 import { NextSeo } from 'next-seo';
-import Spotify from '@/components/layouts/spotify';
 import { ThemeButton } from '@/components/dark-theme';
+import { Spotify } from '@/components/layouts';
 
 const SpotifyPage = () => {
   return (
