@@ -6,10 +6,7 @@ import { SiSpotify } from 'react-icons/si';
 import { SpotifyData, SpotifyLastPlayed } from '@/types/spotify';
 import UnstyledLink, { type UnstyledLinkProps } from '@/components/links/unstyledlink';
 
-export default function Spotify({
-  className,
-  ...props
-}: Omit<UnstyledLinkProps, 'href' | 'children'>) {
+export function Spotify({ className, ...props }: Omit<UnstyledLinkProps, 'href' | 'children'>) {
   const fetcher = (url: string) => fetch(url).then(r => r.json());
   const { data, isLoading } = useSWR<SpotifyData>('/api/spotify/currently-playing', fetcher);
   const { data: lastPlay, isLoading: lastPlayLoading } = useSWR<SpotifyLastPlayed>(
