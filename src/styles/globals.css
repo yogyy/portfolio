@@ -175,34 +175,3 @@
   }
   /* #endregion  /**======== Animate Shadow =========== */
 }
-
-[gaya-fade] {
-  @apply translate-y-10 opacity-0 transition duration-400 ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100;
-}
-.fade-in-start [gaya-fade] {
-  @apply translate-y-0 opacity-100;
-}
-.fade-in-start [gaya-fade='1'] {
-  transition-delay: 100ms;
-}
-.fade-in-start [gaya-fade='2'] {
-  transition-delay: 200ms;
-}
-.fade-in-start [gaya-fade='3'] {
-  transition-delay: 300ms;
-}
-.fade-in-start [gaya-fade='4'] {
-  transition-delay: 400ms;
-}
-.fade-in-start [gaya-fade='5'] {
-  transition-delay: 500ms;
-}
-.fade-in-start [gaya-fade='6'] {
-  transition-delay: 600ms;
-}
-.fade-in-start [gaya-fade='7'] {
-  transition-delay: 700ms;
-}
-.fade-in-start [gaya-fade='8'] {
-  transition-delay: 800ms;
-}
