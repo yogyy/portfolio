@@ -5,7 +5,7 @@ const config: NextSeoProps = {
     title: 'Yogyy · Frontend Developer',
     type: 'website',
     description:
-      'passionate developer with a knack for creating innovative solutions and writing clean, efficient code.',
+      "I'm a full-stack web developer with React and Typescript expertise. I specialize in creating visually appealing, user-friendly websites, and responsive web applications.",
     images: [
       {
         url: 'https://yogyy.vercel.app/images/og-image.jpg',
