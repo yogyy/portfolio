@@ -1,22 +1,16 @@
 import React from 'react';
 import {
-  SiHtml5,
-  SiCss3,
   SiJavascript,
   SiNodedotjs,
   SiNextdotjs,
   SiReact,
   SiTailwindcss,
-  SiFigma,
-  SiMongodb,
-  SiMarkdown,
   SiExpress,
-  SiVuedotjs,
-  SiBootstrap,
   SiGit,
   SiRadixui,
   SiTrpc,
   SiMysql,
+  SiPrisma,
 } from 'react-icons/si';
 import { TypescriptIcons } from '../icons/typescript';
 import { m, useInView } from 'framer-motion';
@@ -24,24 +18,18 @@ import { easeOutBack } from '@/constants/framer-easing';
 
 const ICON_TYPES = new Map(
   Object.entries({
-    html5: <SiHtml5 />,
-    css3: <SiCss3 />,
     javascript: <SiJavascript />,
     typescript: <TypescriptIcons />,
     nodejs: <SiNodedotjs />,
     react: <SiReact />,
     nextjs: <SiNextdotjs />,
-    markdown: <SiMarkdown />,
-    figma: <SiFigma />,
     tailwindcss: <SiTailwindcss />,
-    mongodb: <SiMongodb />,
     express: <SiExpress />,
-    vuejs: <SiVuedotjs />,
-    bootstrap: <SiBootstrap />,
     git: <SiGit />,
     radixui: <SiRadixui />,
     trpc: <SiTrpc />,
     mysql: <SiMysql />,
+    prisma: <SiPrisma />,
   }),
 );
 
@@ -61,15 +49,7 @@ export const TechSection = (props: React.HTMLAttributes<HTMLDivElement>) => {
         animate={inView && 'show'}
         variants={{
           hidden: { opacity: 0 },
-          show: {
-            opacity: 1,
-            transition: {
-              delayChildren: 0.1,
-              staggerChildren: 0.15,
-              duration: 0.3,
-              easings: easeOutBack,
-            },
-          },
+          show: { opacity: 1 },
         }}
         className="grid cursor-default grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] gap-6"
       >
@@ -77,8 +57,8 @@ export const TechSection = (props: React.HTMLAttributes<HTMLDivElement>) => {
           <m.li
             key={item}
             variants={{
-              hidden: { opacity: 0, y: -20 },
-              show: { opacity: 1, y: 0 },
+              hidden: { opacity: 0 },
+              show: { opacity: 1 },
             }}
             transition={{ easings: easeOutBack }}
             className="flex items-center rounded-md border bg-card p-2 hover:bg-primary/30"
@@ -100,6 +80,8 @@ export const techSkills = [
   'TypeScript',
   'Next.js',
   'Node.js',
+  'Express',
+  'Prisma',
   'MySQL',
   'Git',
   'Tailwind CSS',
