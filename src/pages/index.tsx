@@ -1,10 +1,11 @@
 import { m } from 'framer-motion';
 import { RootLayout } from '@/components/layouts';
-import ProjectCard from '@/components/project-card';
+import { ProjectCard } from '@/components/project-card';
 import { Reveal } from '@/components/section/reveal';
 import { allProjects } from 'contentlayer/generated';
 import { InView } from 'react-intersection-observer';
 import { HeroSection, SkillSection, TechSection } from '@/components/section';
+import { YG } from '@/components/YG';
 
 export default function Home() {
   return (
@@ -48,6 +49,7 @@ export default function Home() {
           </Reveal>
         )}
       </InView>
+      <YG />
     </RootLayout>
   );
 }
