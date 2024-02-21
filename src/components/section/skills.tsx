@@ -40,7 +40,7 @@ export const SkillSection = ({ className, inView, ...props }: SkillSectionProps)
           >
             <div className="flex flex-row items-center gap-3">
               <RiCodeSSlashFill size={24} className="shrink-0 text-accent" />
-              <h3 className="text-lg lg:text-xl">Web development</h3>
+              <h2 className="text-lg lg:text-xl">Web development</h2>
             </div>
             <p className="text-sm sm:text-base">
               I have experience in web development with React and Next.js, and I am proficient in
