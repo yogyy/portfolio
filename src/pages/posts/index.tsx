@@ -1,50 +1,33 @@
-import { Accent } from '@/components/accent';
-import { AnimationProps, m } from 'framer-motion';
-import { RootLayout } from '@/components/layouts';
-import { cn } from '@/lib/utils';
-import { allPosts } from 'contentlayer/generated';
 import Link from 'next/link';
-import * as React from 'react';
+import { cn } from '@/lib/utils';
+import { m } from 'framer-motion';
+import { Accent } from '@/components/accent';
 import { HiArrowSmRight } from 'react-icons/hi';
-import { easeOut, easeOutBack } from '@/constants/framer-easing';
+import { RootLayout } from '@/components/layouts';
+import { allPosts } from 'contentlayer/generated';
+import { easeOutBack } from '@/constants/framer-easing';
 
 export default function Page() {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.4,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: -20 },
-    show: { opacity: 1, y: 0 },
-  };
-
   return (
     <RootLayout title="Post · Yogyy" desc="showing all my post i created">
       <m.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         className="mt-20 min-h-[calc(100dvh_-_303px)]"
-        transition={{ easings: easeOut, duration: 0.4 }}
+        transition={{ easings: easeOutBack, duration: 0.4 }}
       >
         <div className={cn('mx-4 flex max-w-3xl flex-col gap-5 md:mx-auto')}>
           <h1 className="mb-4">
             <Accent>Blog Posts</Accent>
           </h1>
           <m.ul
-            variants={container}
-            initial="hidden"
-            animate="show"
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ easings: easeOutBack, duration: 0.6, delay: 0.3 }}
             className="mx-4 flex max-w-3xl flex-col gap-5 md:mx-auto"
           >
             {allPosts.map((post, _i) => (
-              <m.li key={post._id} variants={item} transition={{ easings: easeOut, duration: 0.4 }}>
+              <li key={post._id}>
                 <Link
                   href={post.slug}
                   className={cn(
@@ -69,7 +52,7 @@ export default function Page() {
                     </span>
                   </div>
                 </Link>
-              </m.li>
+              </li>
             ))}
           </m.ul>
         </div>
