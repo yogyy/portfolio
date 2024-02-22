@@ -1,32 +1,14 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { IoNewspaperSharp } from 'react-icons/io5';
-import { SiGithub, SiX } from 'react-icons/si';
 import { Accent } from '../accent';
 import ButtonLink from '../links/buttonlink';
 import UnstyledLink from '../links/unstyledlink';
 import { AnimatePresence, m } from 'framer-motion';
 import { easeOutBack } from '@/constants/framer-easing';
+import { externalUrl } from '@/constants/links';
 
 export const HeroSection = () => {
   const [showLinks, setShowLinks] = React.useState(false);
-  const externalUrl = [
-    {
-      href: 'https://drive.google.com/file/d/1j7mkmbd7mTr80xvBPgV0J1d7jMoztifq/view',
-      icon: IoNewspaperSharp,
-      name: 'Resume',
-    },
-    {
-      href: 'https://github.com/yogyy',
-      icon: SiGithub,
-      name: 'Github',
-    },
-    {
-      href: 'https://twitter.com/yogyyconst',
-      icon: SiX,
-      name: 'Twitter',
-    },
-  ];
 
   return (
     <section className="min-h-main layout relative mb-20 flex flex-col justify-center">
