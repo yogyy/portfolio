@@ -1,15 +1,15 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Icon } from './custom-icons';
 import { HiArrowRight } from 'react-icons/hi';
 import { Project } from 'contentlayer/generated';
+import CloudinaryImg from './images/cloudinary-img';
 
 interface ProjectCardProps extends React.LiHTMLAttributes<HTMLLIElement> {
   project: Project;
 }
 
-const ProjectCard = ({ project, className, ...props }: ProjectCardProps) => {
+export const ProjectCard = ({ project, className, ...props }: ProjectCardProps) => {
   return (
     <li
       className={cn(
@@ -34,15 +34,14 @@ const ProjectCard = ({ project, className, ...props }: ProjectCardProps) => {
           </div>
         </div>
         <p className="mb-auto text-sm text-text/50">{project.description}</p>
-        <figure className="pointer-events-none relative mt-3 hidden aspect-video h-auto w-full items-center bg-background/30 sm:flex">
-          <Image
-            src={project.banner!}
-            alt={project.title}
-            width={720}
-            height={480}
-            className="absolute w-full rounded-md brightness-75 transition-opacity duration-500 ease-in-out group-focus-within:brightness-100 group-hover:brightness-100"
-          />
-        </figure>
+        <CloudinaryImg
+          publicId={project.banner!}
+          alt={project.title}
+          width={1440}
+          height={720}
+          preview={false}
+          className="pointer-events-none relative mt-3 w-full items-center bg-background/30"
+        />
         <p className="animated-underline mt-2 flex items-center gap-1 place-self-end font-medium text-text">
           See more
           <HiArrowRight className="transition-colors group-focus-within:text-accent group-hover:text-accent" />
@@ -51,5 +50,3 @@ const ProjectCard = ({ project, className, ...props }: ProjectCardProps) => {
     </li>
   );
 };
-
-export default ProjectCard;
