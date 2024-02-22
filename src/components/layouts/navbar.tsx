@@ -5,19 +5,9 @@ import { cn } from '@/lib/utils';
 import { HTMLMotionProps, m, useMotionValueEvent, useScroll } from 'framer-motion';
 import React from 'react';
 import { easeOutBack } from '@/constants/framer-easing';
+import { navLinks } from '@/constants/links';
 
-interface NavLinkProps {
-  href: string;
-  children: React.ReactNode;
-  passHref?: boolean;
-  classname?: string;
-}
-
-const links = [
-  { href: '/', label: 'Home' },
-  { href: '/posts', label: 'Posts' },
-  { href: '/projects', label: 'Projects' },
-];
+interface NavLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
 
 function NavLink({ href, children, ...rest }: NavLinkProps) {
   const router = useRouter();
@@ -25,16 +15,14 @@ function NavLink({ href, children, ...rest }: NavLinkProps) {
   const baseRoute = '/' + arrOfRoute[1];
   return (
     <Link
-      href={href}
-      passHref
-      draggable={false}
+      href={href as string}
       {...rest}
       className={cn(
         router.pathname && baseRoute !== href ? 'text-text hover:text-primary' : 'text-accent',
         'rounded-sm py-1 focus:outline-none focus-visible:ring focus-visible:ring-accent',
       )}
     >
-      <span>{children}</span>
+      {children}
     </Link>
   );
 }
@@ -79,7 +67,7 @@ export const Navbar = ({ className, ...props }: HTMLMotionProps<'header'>) => {
       <nav aria-label="Main Menu" className={cn('backdrop-blur-sm', inPosts && 'bg-background')}>
         <div className={cn('layout flex items-center justify-between py-4')}>
           <ul className="ml-9 flex gap-9">
-            {links.map(({ label, href }) => (
+            {navLinks.map(({ label, href }) => (
               <li key={`${href} ${label}`}>
                 <NavLink href={href}>
                   <span className={cn('text-xs font-semibold transition-colors md:text-base')}>

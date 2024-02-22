@@ -19,4 +19,10 @@ const externalUrl = [
   },
 ];
 
-export { externalUrl };
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/posts', label: 'Posts' },
+  { href: '/projects', label: 'Projects' },
+];
+
+export { externalUrl, navLinks };
