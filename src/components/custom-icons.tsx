@@ -2,7 +2,6 @@ import {
   SiHeadlessui,
   SiMongodb,
   SiNextdotjs,
-  SiPlanetscale,
   SiRadixui,
   SiReact,
   SiReactquery,
@@ -21,7 +20,6 @@ const Icons: { [key: string]: React.ComponentType } = {
   ReactQuery: SiReactquery,
   Trpc: SiTrpc,
   Upstash: SiUpstash,
-  PlanetScale: SiPlanetscale,
 };
 interface IconProps extends React.HTMLProps<SVGSVGElement> {
   icon: keyof typeof Icons;

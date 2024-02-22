@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils';
-import { IoLogoVercel } from 'react-icons/io5';
 import {
   SiHeadlessui,
   SiMongodb,
@@ -9,7 +8,6 @@ import {
   SiTailwindcss,
   SiTrpc,
   SiUpstash,
-  SiPlanetscale,
   SiNodedotjs,
   SiRadixui,
 } from 'react-icons/si';
@@ -82,11 +80,6 @@ const techList = {
     icon: SiMongodb,
     name: 'MongoDB',
     link: 'https://www.mongodb.com/',
-  },
-  planetscale: {
-    icon: SiPlanetscale,
-    name: 'PlanetScale',
-    link: 'https://planetscale.com/',
   },
   headui: {
     icon: SiHeadlessui,
