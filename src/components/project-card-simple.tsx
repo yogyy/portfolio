@@ -43,7 +43,7 @@ const ProjectCardSimple = ({ project, className, ...props }: ProjectCardProps) =
               />
             </UnstyledLink>
           )}
-          {!!url && (
+          {url && (
             <UnstyledLink
               className="group/link rounded-full bg-background outline-none hover:bg-primary/5 focus:bg-primary/5"
               target="_blank"
@@ -58,7 +58,7 @@ const ProjectCardSimple = ({ project, className, ...props }: ProjectCardProps) =
           )}
         </div>
       </div>
-      <p className="text-text/80">{description}</p>
+      <p className="text-[14px] text-text/80">{description}</p>
       <ul className="mt-1 flex flex-wrap gap-1.5">
         {type.map(ty => (
           <li
