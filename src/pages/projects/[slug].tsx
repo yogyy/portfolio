@@ -4,34 +4,30 @@ import { m } from 'framer-motion';
 import { SiGithub } from 'react-icons/si';
 import { notFound } from 'next/navigation';
 import { HiLink, HiUser } from 'react-icons/hi';
-import { GetStaticPaths, NextPage } from 'next';
+import { InferGetStaticPropsType } from 'next';
 import { RootLayout } from '@/components/layouts';
 import { easeIn } from '@/constants/framer-easing';
 import { Mdx } from '@/components/mdx/mdx-component';
 import CustomLink from '@/components/links/custom-link';
-import { allProjects, Project } from 'contentlayer/generated';
+import { allProjects } from 'contentlayer/generated';
 import { getTableOfContents, TableOfContents } from '@/lib/toc';
 import { DashboardTableOfContents } from '@/components/mdx/toc';
+import CloudinaryImg from '@/components/images/cloudinary-img';
 
-export const getStaticPaths: GetStaticPaths = () => {
-  const paths = allProjects.map(proj => `/${proj._raw.flattenedPath}`);
+export const getStaticPaths = () => {
+  const paths = allProjects.map(proj => proj.slug);
   return { paths, fallback: false };
 };
 
 export const getStaticProps = ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
-  const proj = allProjects.find(proj => proj._raw.flattenedPath === `projects/${slug}`);
-
+  const proj = allProjects.find(proj => proj.slugAsParams === slug);
   if (!proj) notFound();
 
-  return {
-    props: {
-      proj,
-    },
-  };
+  return { props: { proj } };
 };
 
-const ProjectsPage: NextPage<{ proj: Project }> = ({ proj }) => {
+const ProjectsPage = ({ proj }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [toc, setToc] = React.useState<TableOfContents>();
 
   React.useEffect(() => {
@@ -55,12 +51,11 @@ const ProjectsPage: NextPage<{ proj: Project }> = ({ proj }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ easings: easeIn, duration: 0.6, delay: 0.1 }}
       >
-        <Image
-          src={proj.banner!}
+        <CloudinaryImg
+          publicId={proj.banner!}
           alt={`Project ${proj.description}`}
-          width={1445}
-          height={792}
-          priority
+          width={1440}
+          height={730}
         />
         <h1 className="mt-4 text-accent/90">{proj.title}</h1>
         <p className="mt-2 text-sm text-text">{proj.description}</p>
@@ -86,7 +81,7 @@ const ProjectsPage: NextPage<{ proj: Project }> = ({ proj }) => {
             </CustomLink>
           </div>
           <div className="ml-auto flex flex-wrap gap-1">
-            {proj.techs!.split(', ').map(tech => (
+            {proj.techs?.split(', ').map(tech => (
               <code
                 className="pointer-events-none relative rounded bg-secondary/30 p-0.5 px-[0.3rem] py-[0.2rem] font-mono text-xs sm:text-sm"
                 key={tech}

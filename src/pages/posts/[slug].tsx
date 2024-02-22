@@ -1,7 +1,7 @@
 import React from 'react';
-import { allPosts, Post } from 'contentlayer/generated';
+import { allPosts } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
-import { GetStaticPaths } from 'next';
+import { GetStaticPaths, InferGetStaticPropsType } from 'next';
 import { RootLayout } from '@/components/layouts';
 import { Mdx } from '@/components/mdx/mdx-component';
 import { DocsPageHeader } from '@/components/mdx/page-header';
@@ -13,24 +13,19 @@ import { m } from 'framer-motion';
 import { easeIn } from '@/constants/framer-easing';
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const paths = allPosts.map(post => `/${post._raw.flattenedPath}`);
+  const paths = allPosts.map(post => post.slug);
   return { paths, fallback: false };
 };
 
 export const getStaticProps = ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
-  const post = allPosts.find(post => post._raw.flattenedPath === `posts/${slug}`);
-
+  const post = allPosts.find(post => post.slugAsParams === slug);
   if (!post) notFound();
 
-  return {
-    props: {
-      post,
-    },
-  };
+  return { props: { post } };
 };
 
-export const Posts = ({ post }: { post: Post }) => {
+export const PostsPage = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [toc, setToc] = React.useState<TableOfContents>();
   const { back } = useRouter();
 
@@ -83,4 +78,4 @@ export const Posts = ({ post }: { post: Post }) => {
   );
 };
 
-export default Posts;
+export default PostsPage;
