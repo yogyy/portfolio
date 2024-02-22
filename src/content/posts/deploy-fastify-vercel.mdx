@@ -1,0 +1,44 @@
+---
+title: 'Deploy Fastify to Vercel'
+description: how to Deploy your fastify project to Vercel Serverless.
+date: February 23, 2024
+---
+
+[Vercel](https://vercel.com/) provides zero-configuration deployment for Node.js applications. To use it now, it is as simple as configuring your vercel.json file like the following:
+
+```js
+{
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/api/serverless.js"
+        }
+    ]
+}
+```
+
+Then, write `api/serverless.js` like so:
+
+```js
+'use strict';
+
+// Read the .env file.
+import * as dotenv from 'dotenv';
+dotenv.config();
+
+// Require the framework
+import Fastify from 'fastify';
+
+// Instantiate Fastify with some config
+const app = Fastify({
+  logger: true,
+});
+
+// Register your application as a normal plugin.
+app.register(import('../app.js'));
+
+export default async (req, res) => {
+  await app.ready();
+  app.server.emit('request', req, res);
+};
+```
