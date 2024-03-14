@@ -43,9 +43,9 @@ export function Spotify({ className, ...props }: Omit<UnstyledLinkProps, 'href' 
         } by ${data.isPlaying ? data.artist : lastPlay?.artist}`}
         href={songUrl}
         className={cn(
-          'relative flex w-auto min-w-[240px] items-center gap-2 rounded-md border',
-          'border-accent/30 p-2.5 hover:bg-secondary/30 active:bg-secondary/30',
-          'focus:outline-none focus-visible:ring-1 focus-visible:ring-accent',
+          'relative flex w-auto min-w-[240px] items-center gap-2 rounded-md border p-2.5 hover:bg-secondary/30',
+          'focus:outline-none focus-visible:ring-1 focus-visible:ring-accent active:bg-secondary/30',
+          data.isPlaying ? 'border-accent/30' : '',
           className,
         )}
         {...props}

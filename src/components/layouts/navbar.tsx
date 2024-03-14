@@ -9,7 +9,7 @@ import { navLinks } from '@/constants/links';
 
 interface NavLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
 
-function NavLink({ href, children, ...rest }: NavLinkProps) {
+function NavLink({ href, children, className, ...rest }: NavLinkProps) {
   const router = useRouter();
   const arrOfRoute = router.route.split('/');
   const baseRoute = '/' + arrOfRoute[1];
@@ -20,6 +20,7 @@ function NavLink({ href, children, ...rest }: NavLinkProps) {
       className={cn(
         router.pathname && baseRoute !== href ? 'text-text hover:text-primary' : 'text-accent',
         'rounded-sm py-1 focus:outline-none focus-visible:ring focus-visible:ring-accent',
+        className,
       )}
     >
       {children}
@@ -66,13 +67,11 @@ export const Navbar = ({ className, ...props }: HTMLMotionProps<'header'>) => {
       </a>
       <nav aria-label="Main Menu" className={cn('backdrop-blur-sm', inPosts && 'bg-background')}>
         <div className={cn('layout flex items-center justify-between py-4')}>
-          <ul className="ml-9 flex gap-9">
+          <ul className="ml-9 flex gap-9 font-semibold">
             {navLinks.map(({ label, href }) => (
-              <li key={`${href} ${label}`}>
-                <NavLink href={href}>
-                  <span className={cn('text-xs font-semibold transition-colors md:text-base')}>
-                    {label}
-                  </span>
+              <li key={`${href} ${label}`} className="text-xs md:text-base">
+                <NavLink href={href} className="transition-colors">
+                  {label}
                 </NavLink>
               </li>
             ))}

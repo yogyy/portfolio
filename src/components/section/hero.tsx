@@ -51,7 +51,7 @@ export const HeroSection = () => {
               <m.button
                 layout
                 className={cn(
-                  'relative z-0 flex items-center justify-center px-3 py-2 font-semibold text-text',
+                  'relative z-0 flex items-center justify-center px-3 py-2 font-semibold text-accent',
                 )}
                 onClick={() => setShowLinks(prev => !prev)}
                 initial={{ opacity: 0, x: -40 }}
