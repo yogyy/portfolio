@@ -11,12 +11,8 @@ const nextConfig = {
   },
   transpilePackages: ['geist'],
 
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  typescript: { ignoreBuildErrors: true },
+  eslint: { ignoreDuringBuilds: true },
 };
 
 module.exports = nextConfig;
