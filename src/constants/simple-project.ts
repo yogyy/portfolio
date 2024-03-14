@@ -53,19 +53,31 @@ const smallProjects: ProjectCardSimpleType[] = [
     title: 'NestJS CRUD',
     description: 'simple crud using nestjs',
     github: 'https://github.com/yogyy/nest-crud',
-    type: ['Nest JS', 'TypeScript', 'MySql'],
+    type: ['Nest JS', 'TypeScript', 'MySQL'],
   },
   {
     title: 'Fastify CRUD',
     description: 'simple crud using fastifyjs',
     github: 'https://github.com/yogyy/nest-crud',
-    type: ['Fastify', 'JavaScript', 'MySql'],
+    type: ['Fastify', 'JavaScript', 'MySQL'],
   },
   {
     title: 'Spotify Activity',
     description: 'Spotify Activity Card like in the footer',
     url: '/spotify',
     type: ['SWR'],
+  },
+  {
+    title: 'Fullstack Graphql',
+    description: 'Fullstack app using graphql',
+    github: 'https://github.com/yogyy/apollo-graphql',
+    type: ['Express', '@graphql-yoga', 'React', '@apollo-client', 'unocss'],
+  },
+  {
+    title: 'Hono Auth',
+    description: 'hono with lucia auth',
+    github: 'https://github.com/yogyy/hono-htmx-lucia',
+    type: ['hono', 'lucia', 'drizzle-orm'],
   },
 ];
 
