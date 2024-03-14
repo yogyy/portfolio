@@ -15,9 +15,8 @@ import { spotifyFlag } from '@/constants/env';
 import { Inter } from 'next/font/google';
 import React from 'react';
 import { HTMLMotionProps, m, useInView } from 'framer-motion';
-import { easeIn, easeOutBack } from '@/constants/framer-easing';
+import { easeOutBack } from '@/constants/framer-easing';
 
-const copyright = `© ${new Date().getFullYear()} Yogi.`;
 const inter = Inter({ subsets: ['latin'] });
 
 export const Footer = ({ className, ...props }: HTMLMotionProps<'footer'>) => {
@@ -28,18 +27,6 @@ export const Footer = ({ className, ...props }: HTMLMotionProps<'footer'>) => {
       ref={view}
       initial="hidden"
       animate={inView && 'show'}
-      variants={{
-        hidden: { opacity: 0 },
-        show: {
-          opacity: 1,
-          transition: {
-            delayChildren: 0.1,
-            staggerChildren: 0.15,
-            duration: 0.3,
-            easings: easeOutBack,
-          },
-        },
-      }}
       className={cn('mt-6 bg-background/30 backdrop-blur-sm', className)}
       {...props}
     >
@@ -52,18 +39,17 @@ export const Footer = ({ className, ...props }: HTMLMotionProps<'footer'>) => {
           {spotifyFlag && <Spotify className="place-self-center" />}
         </div>
         <div className="flex flex-col-reverse place-items-center justify-center gap-6 md:flex-row md:justify-between">
-          <span className="flex gap-3 text-sm font-semibold sm:text-center">{copyright}</span>
-          <m.ul className="relative my-auto flex h-auto space-x-3 text-xl sm:place-content-center md:space-x-5">
+          <span className="flex gap-3 text-sm font-semibold sm:text-center">© 2024 yogi.</span>
+          <m.ul
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              show: { opacity: 1, y: 0 },
+            }}
+            transition={{ easings: easeOutBack, duration: 0.5 }}
+            className="relative my-auto flex h-auto space-x-3 text-xl sm:place-content-center md:space-x-5"
+          >
             {links.map(link => (
-              <m.li
-                key={link.href}
-                className="inline-flex"
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  show: { opacity: 1, y: 0 },
-                }}
-                transition={{ easings: easeIn, duration: 0.5 }}
-              >
+              <li key={link.href} className="inline-flex">
                 <TooltipProvider delayDuration={300}>
                   <Tooltip>
                     <TooltipTrigger
@@ -78,13 +64,7 @@ export const Footer = ({ className, ...props }: HTMLMotionProps<'footer'>) => {
                         aria-label={`go to ${link.alt}`}
                         className="cursor-newtab"
                       >
-                        <link.icon
-                          className={cn(
-                            'group-focus:text-accent',
-                            'relative text-text/70 group-hover:text-accent',
-                            'm-1',
-                          )}
-                        />
+                        <link.icon className="relative m-1 text-text/70 group-hover:text-accent group-focus:text-accent" />
                       </Link>
                     </TooltipTrigger>
                     <TooltipPortal>
@@ -101,7 +81,7 @@ export const Footer = ({ className, ...props }: HTMLMotionProps<'footer'>) => {
                     </TooltipPortal>
                   </Tooltip>
                 </TooltipProvider>
-              </m.li>
+              </li>
             ))}
           </m.ul>
         </div>
