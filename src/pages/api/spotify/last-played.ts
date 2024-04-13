@@ -35,7 +35,11 @@ const getLastPlayed = async () => {
 };
 
 export default async function spotify(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === 'GET') {
+  if (req.method !== 'GET') {
+    return res.status(405).json({ error: 'Request rejected.' });
+  }
+
+  try {
     const response = await getLastPlayed();
 
     res.setHeader('Cache-Control', 'public, s-maxage=180, stale-while-revalidate=90');
@@ -44,10 +48,12 @@ export default async function spotify(req: NextApiRequest, res: NextApiResponse)
       songUrl: response.data.items[0].track.external_urls.spotify,
       album: response.data.items[0].track.album.images[2].url,
       artist: response.data.items[0].track.album.artists
-        .map((artist: { name: any }) => artist.name)
+        .map((artist: { name: string }) => artist.name)
         .join(', '),
       title: response.data.items[0].track.name,
     };
     return res.status(200).json(data);
+  } catch (error) {
+    throw error;
   }
 }

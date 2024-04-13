@@ -31,7 +31,11 @@ const getNowPlaying = async () => {
 };
 
 export default async function spotify(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === 'GET') {
+  if (req.method !== 'GET') {
+    return res.status(405).json({ error: 'Request rejected.' });
+  }
+
+  try {
     const response = await getNowPlaying();
 
     if (
@@ -53,5 +57,7 @@ export default async function spotify(req: NextApiRequest, res: NextApiResponse)
 
     res.setHeader('Cache-Control', 'public, s-maxage=180, stale-while-revalidate=90');
     return res.status(200).json(data);
+  } catch (error) {
+    throw error;
   }
 }
