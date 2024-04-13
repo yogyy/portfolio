@@ -5,36 +5,55 @@ import {
   SiNextdotjs,
   SiReact,
   SiTailwindcss,
-  SiExpress,
   SiGit,
-  SiRadixui,
   SiTrpc,
-  SiMysql,
-  SiPrisma,
+  SiPostgresql,
+  SiFastify,
+  SiGraphql,
 } from 'react-icons/si';
-import { TypescriptIcons } from '../icons/typescript';
 import { m, useInView } from 'framer-motion';
 import { easeOutBack } from '@/constants/framer-easing';
+import { DrizzleIcon, TypeScriptIcon } from '../icons/icons';
+
+const techSkills = [
+  'JavaScript',
+  'React',
+  'TypeScript',
+  'Next.js',
+  'Node.js',
+  'Fastify',
+  'Drizzle ORM',
+  'PostgreSQL',
+  'Git',
+  'Tailwind CSS',
+  'Graphql',
+  'tRPC',
+];
 
 const ICON_TYPES = new Map(
   Object.entries({
-    javascript: <SiJavascript />,
-    typescript: <TypescriptIcons />,
-    nodejs: <SiNodedotjs />,
-    react: <SiReact />,
-    nextjs: <SiNextdotjs />,
-    tailwindcss: <SiTailwindcss />,
-    express: <SiExpress />,
-    git: <SiGit />,
-    radixui: <SiRadixui />,
-    trpc: <SiTrpc />,
-    mysql: <SiMysql />,
-    prisma: <SiPrisma />,
+    javascript: <SiJavascript className="group-hover:text-[#F7DF1E]" />,
+    typescript: <TypeScriptIcon className="group-hover:text-[#3178C6]" />,
+    nodejs: <SiNodedotjs className="group-hover:text-[#339933]" />,
+    react: <SiReact className="group-hover:text-[#61DAFB]" />,
+    nextjs: <SiNextdotjs className="group-hover:text-[#000000]" />,
+    tailwindcss: <SiTailwindcss className="group-hover:text-[#06B6D4]" />,
+    fastify: <SiFastify className="group-hover:text-[#000000]" />,
+    git: <SiGit className="group-hover:text-[#F05032]" />,
+    trpc: <SiTrpc className="group-hover:text-[#2596BE]" />,
+    postgresql: <SiPostgresql className="group-hover:text-[#4169E1]" />,
+    drizzleorm: <DrizzleIcon className="group-hover:text-[#C5F74F]" />,
+    graphql: <SiGraphql className="group-hover:text-[#E10098]" />,
   }),
 );
 
-export function Icon({ type }: { type: string }) {
-  return <>{ICON_TYPES.get(type.toLowerCase())}</>;
+interface IconProps {
+  type: string;
+}
+
+export function Icon({ type }: IconProps) {
+  const IconComponent = ICON_TYPES.get(type.toLowerCase());
+  return <React.Fragment>{IconComponent}</React.Fragment>;
 }
 
 export const TechSection = (props: React.HTMLAttributes<HTMLDivElement>) => {
@@ -61,10 +80,10 @@ export const TechSection = (props: React.HTMLAttributes<HTMLDivElement>) => {
               show: { opacity: 1 },
             }}
             transition={{ easings: easeOutBack }}
-            className="flex items-center rounded-md border bg-card p-2 hover:bg-primary/30"
+            className="group flex items-center rounded-md border bg-card p-2 transition-colors hover:bg-primary/30"
           >
             <span className="text-2xl text-inherit">
-              <Icon type={item.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '').toLowerCase()} />
+              <Icon type={item.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '')} />
             </span>
             <span className="pl-4">{item}</span>
           </m.li>
@@ -73,18 +92,3 @@ export const TechSection = (props: React.HTMLAttributes<HTMLDivElement>) => {
     </div>
   );
 };
-
-export const techSkills = [
-  'JavaScript',
-  'React',
-  'TypeScript',
-  'Next.js',
-  'Node.js',
-  'Express',
-  'Prisma',
-  'MySQL',
-  'Git',
-  'Tailwind CSS',
-  'Radix UI',
-  'tRPC',
-];
