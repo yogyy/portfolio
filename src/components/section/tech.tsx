@@ -20,14 +20,14 @@ const techSkills = [
   'React',
   'TypeScript',
   'Next.js',
+  'Tailwind CSS',
   'Node.js',
   'Fastify',
   'Drizzle ORM',
   'PostgreSQL',
-  'Git',
-  'Tailwind CSS',
   'Graphql',
   'tRPC',
+  'Git',
 ];
 
 const ICON_TYPES = new Map(
