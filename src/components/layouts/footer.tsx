@@ -1,8 +1,9 @@
+import { useRef } from 'react';
 import { Spotify } from './';
 import { cn } from '@/lib/utils';
 import { Accent } from '../accent';
 import { IoMailOutline } from 'react-icons/io5';
-import { SiGithub, SiFacebook, SiLinkedin, SiX } from 'react-icons/si';
+import { SiGithub, SiLinkedin, SiX } from 'react-icons/si';
 import {
   Tooltip,
   TooltipContent,
@@ -11,17 +12,17 @@ import {
   TooltipTrigger,
 } from '../ui/tooltip';
 import Link from 'next/link';
-import { spotifyFlag } from '@/constants/env';
 import { Inter } from 'next/font/google';
-import React from 'react';
 import { HTMLMotionProps, m, useInView } from 'framer-motion';
 import { easeOutBack } from '@/constants/framer-easing';
+import { isProd } from '@/constants/env';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const Footer = ({ className, ...props }: HTMLMotionProps<'footer'>) => {
-  const view = React.useRef(null);
+  const view = useRef(null);
   const inView = useInView(view, { margin: '0px 0px', once: true });
+
   return (
     <m.footer
       ref={view}
@@ -36,7 +37,7 @@ export const Footer = ({ className, ...props }: HTMLMotionProps<'footer'>) => {
           <h1 className="mb-4 self-center pb-2 text-2xl font-bold">
             <Accent>yogyy</Accent>
           </h1>
-          {spotifyFlag && <Spotify className="place-self-center" />}
+          {isProd && <Spotify className="place-self-center" />}
         </div>
         <div className="flex flex-col-reverse place-items-center justify-center gap-6 md:flex-row md:justify-between">
           <span className="flex gap-3 text-sm font-semibold sm:text-center">© 2024 yogi.</span>
@@ -109,16 +110,6 @@ const links = [
     content: (
       <p>
         See My Project on <span className="text-primary">Github</span>
-      </p>
-    ),
-  },
-  {
-    href: 'https://facebook.com/iogiy',
-    alt: 'Facebook',
-    icon: SiFacebook,
-    content: (
-      <p>
-        Reach me on <span className="text-primary">Facebook</span>
       </p>
     ),
   },
