@@ -1,8 +1,7 @@
+import { env } from '@/env';
 import { getAccessToken } from '@/hooks/get-access-token';
 import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
-
-const { SPOTIFY_REFRESH_TOKEN_LAST_PLAYED: refresh_token } = process.env;
 
 interface SpotifyDataLastPlayed {
   items: {
@@ -23,7 +22,7 @@ interface SpotifyDataLastPlayed {
 }
 
 const getLastPlayed = async () => {
-  const access_token = await getAccessToken(refresh_token);
+  const access_token = await getAccessToken(env.SPOTIFY_REFRESH_TOKEN_LAST_PLAYED);
   return axios.get<SpotifyDataLastPlayed>(
     'https://api.spotify.com/v1/me/player/recently-played?limit=1',
     {

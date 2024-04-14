@@ -1,10 +1,11 @@
+import { env } from '@/env';
 import axios from 'axios';
 import querystring from 'querystring';
 
-const { SPOTIFY_CLIENT_ID: client_id, SPOTIFY_CLIENT_SECRET: client_secret } = process.env;
-
 export const getAccessToken = async (refresh_token: string | undefined) => {
-  const token = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
+  const token = Buffer.from(`${env.SPOTIFY_CLIENT_ID}:${env.SPOTIFY_CLIENT_SECRET}`).toString(
+    'base64',
+  );
 
   const res = await axios.post<{ access_token: string }>(
     'https://accounts.spotify.com/api/token',

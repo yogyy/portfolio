@@ -1,8 +1,7 @@
+import { env } from '@/env';
 import { getAccessToken } from '@/hooks/get-access-token';
 import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
-
-const { SPOTIFY_REFRESH_TOKEN: refresh_token } = process.env;
 
 interface SpotifyData {
   is_playing: boolean;
@@ -21,7 +20,7 @@ interface SpotifyData {
 }
 
 const getNowPlaying = async () => {
-  const access_token = await getAccessToken(refresh_token);
+  const access_token = await getAccessToken(env.SPOTIFY_REFRESH_TOKEN);
 
   return axios.get<SpotifyData>('https://api.spotify.com/v1/me/player/currently-playing', {
     headers: {
