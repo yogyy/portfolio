@@ -6,9 +6,10 @@ import SEO from 'next-seo.config';
 import { isProd } from '@/constants/env';
 import { Navbar, Footer } from '.';
 
-interface SeoProps extends React.HTMLAttributes<HTMLElement> {
+interface SeoProps {
   title?: string;
   desc?: string;
+  children: React.ReactNode;
 }
 
 export const RootLayout = ({ children, title, desc }: SeoProps) => {
