@@ -20,7 +20,7 @@ const ProjectCardSimple = ({ project, className, ...props }: ProjectCardProps) =
     <li
       className={cn(
         'group relative flex h-fit select-none break-inside-avoid-column flex-col gap-3 rounded-md border p-3.5 md:gap-6',
-        'w-full bg-card transition-colors duration-300 ease-linear focus-within:border-accent/50 hover:border-accent/50',
+        'w-full bg-card transition-[border-color] duration-300 ease-linear focus-within:border-accent/50 hover:border-accent/50',
         className,
       )}
       {...props}

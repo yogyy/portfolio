@@ -14,7 +14,7 @@ export const ProjectCard = ({ project, className, ...props }: ProjectCardProps) 
     <li
       className={cn(
         'project-card group w-full overflow-hidden rounded-md border',
-        'bg-card transition-[border] duration-200 ease-in focus-within:border-accent/50 hover:border-accent/50',
+        'bg-card transition-[border-color] duration-200 ease-in focus-within:border-accent/50 hover:border-accent/50',
         className,
       )}
       {...props}
@@ -28,9 +28,7 @@ export const ProjectCard = ({ project, className, ...props }: ProjectCardProps) 
             {project.title}
           </h1>
           <div className="flex items-center gap-2 text-text">
-            {project.techs!.split(', ').map((tech: string, index) => (
-              <Icon key={index} icon={tech} />
-            ))}
+            {project.techs?.split(', ').map(tech => <Icon key={tech} icon={tech} />)}
           </div>
         </div>
         <p className="mb-auto text-sm text-text/50">{project.description}</p>
