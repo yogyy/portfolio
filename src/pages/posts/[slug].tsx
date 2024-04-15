@@ -44,11 +44,7 @@ export const PostsPage = ({ post }: InferGetStaticPropsType<typeof getStaticProp
 
   return (
     <RootLayout title={`${post.title} · Yogyy`} desc={post.description}>
-      <m.section
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ easings: easeIn, duration: 0.6, delay: 0.1 }}
-      >
+      <section>
         <div className="bg-coret relative py-8">
           <div className="layout">
             <button
@@ -60,7 +56,7 @@ export const PostsPage = ({ post }: InferGetStaticPropsType<typeof getStaticProp
             <blockquote className="[&>*]:text-muted-foreground mt-6 border-l-2 pl-6 italic">
               <p>{post.date}</p>
             </blockquote>
-            <DocsPageHeader heading={post.title} text={post.description} />
+            <DocsPageHeader heading={post.title} text={post.description} hr />
           </div>
         </div>
         <div className="layout py-6 lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
@@ -73,7 +69,7 @@ export const PostsPage = ({ post }: InferGetStaticPropsType<typeof getStaticProp
             </div>
           </aside>
         </div>
-      </m.section>
+      </section>
     </RootLayout>
   );
 };

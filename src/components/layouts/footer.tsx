@@ -14,7 +14,6 @@ import {
 import Link from 'next/link';
 import { Inter } from 'next/font/google';
 import { HTMLMotionProps, m, useInView } from 'framer-motion';
-import { easeOutBack } from '@/constants/framer-easing';
 import { isProd } from '@/constants/env';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -41,14 +40,7 @@ export const Footer = ({ className, ...props }: HTMLMotionProps<'footer'>) => {
         </div>
         <div className="flex flex-col-reverse place-items-center justify-center gap-6 md:flex-row md:justify-between">
           <span className="flex gap-3 text-sm font-semibold sm:text-center">© 2024 yogi.</span>
-          <m.ul
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              show: { opacity: 1, y: 0 },
-            }}
-            transition={{ easings: easeOutBack, duration: 0.5 }}
-            className="relative my-auto flex h-auto space-x-3 text-xl sm:place-content-center md:space-x-5"
-          >
+          <ul className="relative my-auto flex h-auto space-x-3 text-xl sm:place-content-center md:space-x-5">
             {links.map(link => (
               <li key={link.href} className="inline-flex">
                 <TooltipProvider delayDuration={300}>
@@ -84,7 +76,7 @@ export const Footer = ({ className, ...props }: HTMLMotionProps<'footer'>) => {
                 </TooltipProvider>
               </li>
             ))}
-          </m.ul>
+          </ul>
         </div>
       </div>
     </m.footer>
