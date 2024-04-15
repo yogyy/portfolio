@@ -26,8 +26,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Build
-        run: npm run build
+      - name: Build contentlayer
+        run: npx contentlayer build
 
       - name: Typecheck
         run: npm run typecheck
