@@ -8,6 +8,13 @@ on:
     branches:
       - main
 
+env:
+  SPOTIFY_CLIENT_ID: 'fake_env'
+  SPOTIFY_CLIENT_SECRET: 'fake_env'
+  SPOTIFY_REFRESH_TOKEN: 'fake_env'
+  SPOTIFY_REFRESH_TOKEN_LAST_PLAYED: 'fake_env'
+  NEXT_PUBLIC_POSTHOG_KEY: 'fake_env'
+
 jobs:
   build:
     runs-on: ubuntu-latest
