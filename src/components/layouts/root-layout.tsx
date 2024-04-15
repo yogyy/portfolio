@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import SEO from 'next-seo.config';
 import { isProd } from '@/constants/env';
 import { Navbar, Footer } from '.';
+import { GridPattern } from '@/components/grid-pattern';
 
 interface SeoProps {
   title?: string;
@@ -30,6 +31,10 @@ export const RootLayout = ({ children, title, desc }: SeoProps) => {
         defaultTitle={SEO.openGraph?.title}
       />
       <Navbar className={`${GeistSans.variable} ${GeistMono.variable} font-sans`} />
+      <GridPattern
+        className="fixed inset-x-0 -z-10 h-full w-full fill-primary/5 stroke-primary/5 [mask-image:linear-gradient(to_top_left,white_50%,transparent_40%)]"
+        yOffset={-96}
+      />
       <main id="skip-nav" className={`${GeistSans.variable} ${GeistMono.variable} font-sans`}>
         {children}
       </main>
