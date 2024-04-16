@@ -1,10 +1,10 @@
-import SEO from 'next-seo.config';
+import { GeistMono } from 'geist/font/mono';
+import { GeistSans } from 'geist/font/sans';
 import { NextSeo } from 'next-seo';
+import SEO from 'next-seo.config';
+import { cn } from '@/lib/utils';
 import { ThemeButton } from '@/components/dark-theme';
 import { Spotify } from '@/components/layouts';
-import { cn } from '@/lib/utils';
-import { GeistSans } from 'geist/font/sans';
-import { GeistMono } from 'geist/font/mono';
 
 const SpotifyPage = () => {
   return (

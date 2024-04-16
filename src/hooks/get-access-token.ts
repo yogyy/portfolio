@@ -1,6 +1,6 @@
-import { env } from '@/env';
 import axios from 'axios';
 import querystring from 'querystring';
+import { env } from '@/env';
 
 export const getAccessToken = async (refresh_token: string | undefined) => {
   const token = Buffer.from(`${env.SPOTIFY_CLIENT_ID}:${env.SPOTIFY_CLIENT_SECRET}`).toString(

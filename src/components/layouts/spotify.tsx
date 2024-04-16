@@ -1,10 +1,10 @@
-import useSWR from 'swr';
 import Image from 'next/image';
-import { cn } from '@/lib/utils';
-import { Skeleton } from '../ui/skeleton';
 import { SiSpotify } from 'react-icons/si';
-import { SpotifyData, SpotifyLastPlayed } from '@/types/spotify';
+import useSWR from 'swr';
+import { cn } from '@/lib/utils';
 import UnstyledLink, { type UnstyledLinkProps } from '@/components/links/unstyledlink';
+import { Skeleton } from '../ui/skeleton';
+import { SpotifyData, SpotifyLastPlayed } from '@/types/spotify';
 
 export function Spotify({ className, ...props }: Omit<UnstyledLinkProps, 'href' | 'children'>) {
   const fetcher = (url: string) => fetch(url).then(r => r.json());

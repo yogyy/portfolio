@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils';
 import { useTheme } from 'next-themes';
+import { cn } from '@/lib/utils';
 import { useMounted } from '@/hooks/use-mounted';
 import { Moon } from './icons/moon';
 import { Sun } from './icons/sun';

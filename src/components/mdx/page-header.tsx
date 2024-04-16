@@ -1,7 +1,7 @@
-import { easeInoutQuad } from '@/constants/framer-easing';
-import { cn } from '@/lib/utils';
 import { m } from 'framer-motion';
-import { Accent } from '../accent';
+import { cn } from '@/lib/utils';
+import { Accent } from '@/components/accent';
+import { easeInoutQuad } from '@/constants/framer-easing';
 
 interface DocsPageHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   heading: string;
@@ -20,7 +20,7 @@ export function DocsPageHeader({
     <>
       <div className={cn('space-y-4', className)} {...props}>
         <m.h1
-          initial={{ opacity: 0, x: -24 }}
+          initial={{ opacity: 0, x: heading.length >= 24 ? -heading.length : -24 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ easings: easeInoutQuad, duration: 0.4 }}
           className="font-heading inline-block text-3xl lg:text-4xl"
@@ -29,7 +29,7 @@ export function DocsPageHeader({
         </m.h1>
         {text && (
           <m.p
-            initial={{ opacity: 0, x: -26 }}
+            initial={{ opacity: 0, x: -text.length }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ easings: easeInoutQuad, duration: 0.4, delay: 0.1 }}
             className="text-xl text-text/70"

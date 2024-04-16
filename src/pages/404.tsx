@@ -1,8 +1,8 @@
-import { cn } from '@/lib/utils';
-import { NextSeo } from 'next-seo';
-import Link from 'next/link';
-import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
+import { GeistSans } from 'geist/font/sans';
+import Link from 'next/link';
+import { NextSeo } from 'next-seo';
+import { cn } from '@/lib/utils';
 
 export default function Custom404() {
   return (

@@ -1,8 +1,7 @@
-import React from 'react';
 import { HTMLMotionProps, m } from 'framer-motion';
-import { easeOutBack } from '@/constants/framer-easing';
 import { RiCodeSSlashFill, RiTerminalFill } from 'react-icons/ri';
-import { TooltipProvider, Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
+import { easeOutquad } from '@/constants/framer-easing';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip';
 
 interface SkillSectionProps extends HTMLMotionProps<'article'> {
   inView?: boolean;
@@ -20,7 +19,7 @@ export const SkillSection = ({ className, inView, ...props }: SkillSectionProps)
             delayChildren: 0.1,
             staggerChildren: 0.15,
             duration: 0.3,
-            easings: easeOutBack,
+            easings: easeOutquad,
           },
         },
       }}
@@ -35,7 +34,7 @@ export const SkillSection = ({ className, inView, ...props }: SkillSectionProps)
               hidden: { opacity: 0, y: -20 },
               show: { opacity: 1, y: 0 },
             }}
-            transition={{ easings: easeOutBack }}
+            transition={{ easings: easeOutquad }}
             className="relative flex h-max max-h-[260px] flex-1 flex-col justify-between gap-4 overflow-hidden rounded-md border bg-card p-4"
           >
             <div className="flex flex-row items-center gap-3">
@@ -52,7 +51,7 @@ export const SkillSection = ({ className, inView, ...props }: SkillSectionProps)
               hidden: { opacity: 0, y: -20 },
               show: { opacity: 1, y: 0 },
             }}
-            transition={{ easings: easeOutBack }}
+            transition={{ easings: easeOutquad }}
             className="flex max-h-[260px] flex-1 flex-col gap-4 overflow-hidden rounded-md border bg-card p-4"
           >
             <div className="flex flex-row flex-nowrap items-center gap-3">

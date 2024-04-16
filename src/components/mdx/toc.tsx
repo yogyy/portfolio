@@ -1,5 +1,4 @@
-import * as React from 'react';
-
+import { useEffect, useMemo, useState } from 'react';
 import { TableOfContents } from '@/lib/toc';
 import { cn } from '@/lib/utils';
 import { useMounted } from '@/hooks/use-mounted';
@@ -9,7 +8,7 @@ interface TocProps {
 }
 
 export function DashboardTableOfContents({ toc }: TocProps) {
-  const itemIds = React.useMemo(
+  const itemIds = useMemo(
     () =>
       toc.items
         ? toc.items
@@ -36,9 +35,9 @@ export function DashboardTableOfContents({ toc }: TocProps) {
 }
 
 function useActiveItem(itemIds: (string | undefined)[]) {
-  const [activeId, setActiveId] = React.useState<string>('');
+  const [activeId, setActiveId] = useState<string>('');
 
-  React.useEffect(() => {
+  useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {

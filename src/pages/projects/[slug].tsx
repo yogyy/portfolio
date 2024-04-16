@@ -1,17 +1,17 @@
-import React from 'react';
-import { m } from 'framer-motion';
-import { SiGithub } from 'react-icons/si';
-import { notFound } from 'next/navigation';
-import { HiLink, HiUser } from 'react-icons/hi';
-import { InferGetStaticPropsType } from 'next';
-import { RootLayout } from '@/components/layouts';
-import { easeIn, easeInoutQuad } from '@/constants/framer-easing';
-import { Mdx } from '@/components/mdx/mdx-component';
-import CustomLink from '@/components/links/custom-link';
 import { allProjects } from 'contentlayer/generated';
+import { m } from 'framer-motion';
+import { InferGetStaticPropsType } from 'next';
+import { notFound } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { HiLink, HiUser } from 'react-icons/hi';
+import { SiGithub } from 'react-icons/si';
 import { getTableOfContents, TableOfContents } from '@/lib/toc';
-import { DashboardTableOfContents } from '@/components/mdx/toc';
 import CloudinaryImg from '@/components/images/cloudinary-img';
+import { RootLayout } from '@/components/layouts';
+import CustomLink from '@/components/links/custom-link';
+import { Mdx } from '@/components/mdx/mdx-component';
+import { DashboardTableOfContents } from '@/components/mdx/toc';
+import { easeIn, easeInoutQuad } from '@/constants/framer-easing';
 
 export const getStaticPaths = () => {
   const paths = allProjects.map(proj => proj.slug);
@@ -27,9 +27,9 @@ export const getStaticProps = ({ params }: { params: { slug: string } }) => {
 };
 
 const ProjectsPage = ({ proj }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const [toc, setToc] = React.useState<TableOfContents>();
+  const [toc, setToc] = useState<TableOfContents>();
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchToc = async () => {
       try {
         const tocData = await getTableOfContents(proj.body.raw);

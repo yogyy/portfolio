@@ -1,18 +1,18 @@
-import { cn } from '@/lib/utils';
+import Link from 'next/link';
 import {
   SiHeadlessui,
   SiMongodb,
   SiNextdotjs,
+  SiNodedotjs,
+  SiRadixui,
   SiReact,
   SiReactquery,
   SiTailwindcss,
   SiTrpc,
   SiUpstash,
-  SiNodedotjs,
-  SiRadixui,
 } from 'react-icons/si';
+import { cn } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
-import Link from 'next/link';
 
 export type TechListType = keyof typeof techList;
 

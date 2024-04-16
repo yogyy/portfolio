@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils';
-import * as React from 'react';
 
 export const Accent = ({ children, className, ...props }: React.ComponentPropsWithRef<'span'>) => {
   return (

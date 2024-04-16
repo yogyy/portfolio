@@ -1,10 +1,9 @@
-import * as React from 'react';
-import { Accent } from '@/components/accent';
-import TechMdx from '@/components/tech-icons';
-import { cn } from '@/lib/utils';
 import { m } from 'framer-motion';
-import { easeOutBack } from '@/constants/framer-easing';
+import { cn } from '@/lib/utils';
+import { Accent } from '@/components/accent';
 import { RootLayout } from '@/components/layouts';
+import TechMdx from '@/components/tech-icons';
+import { easeOutBack } from '@/constants/framer-easing';
 
 export default function AboutPage() {
   return (

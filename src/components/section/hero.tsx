@@ -1,14 +1,14 @@
-import React from 'react';
+import { AnimatePresence, m } from 'framer-motion';
+import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { easeOutBack } from '@/constants/framer-easing';
+import { externalUrl } from '@/constants/links';
 import { Accent } from '../accent';
 import ButtonLink from '../links/buttonlink';
 import UnstyledLink from '../links/unstyledlink';
-import { AnimatePresence, m } from 'framer-motion';
-import { easeOutBack } from '@/constants/framer-easing';
-import { externalUrl } from '@/constants/links';
 
 export const HeroSection = () => {
-  const [showLinks, setShowLinks] = React.useState(false);
+  const [showLinks, setShowLinks] = useState(false);
 
   return (
     <section className="min-h-main layout relative mb-20 flex flex-col justify-center">
@@ -19,7 +19,7 @@ export const HeroSection = () => {
       >
         <h2 className="items-end justify-center text-text">Hi !</h2>
         <h1 className="items-end justify-center text-3xl text-text md:text-4xl 2xl:text-5xl">
-          You Can call me<Accent>&nbsp;YOGYY</Accent>
+          You Can call me<Accent title="or YOGI">&nbsp;YOGYY</Accent>
         </h1>
         <p className="mt-4 max-w-4xl text-wrap md:mt-6 md:text-lg 2xl:text-xl">
           I&apos;m a passionate frontend engineer diving into fullstack development <br />

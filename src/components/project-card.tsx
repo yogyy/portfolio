@@ -1,8 +1,8 @@
+import { Project } from 'contentlayer/generated';
 import Link from 'next/link';
+import { HiArrowRight } from 'react-icons/hi';
 import { cn } from '@/lib/utils';
 import { Icon } from './custom-icons';
-import { HiArrowRight } from 'react-icons/hi';
-import { Project } from 'contentlayer/generated';
 import CloudinaryImg from './images/cloudinary-img';
 
 interface ProjectCardProps extends React.LiHTMLAttributes<HTMLLIElement> {

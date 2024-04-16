@@ -1,18 +1,16 @@
-import React from 'react';
+import { Fragment } from 'react';
 import {
+  SiFastify,
+  SiGit,
+  SiGraphql,
   SiJavascript,
-  SiNodedotjs,
   SiNextdotjs,
+  SiNodedotjs,
+  SiPostgresql,
   SiReact,
   SiTailwindcss,
-  SiGit,
   SiTrpc,
-  SiPostgresql,
-  SiFastify,
-  SiGraphql,
 } from 'react-icons/si';
-import { m, useInView } from 'framer-motion';
-import { easeOutBack } from '@/constants/framer-easing';
 import { DrizzleIcon, TypeScriptIcon } from '../icons/icons';
 
 const techSkills = [
@@ -53,42 +51,25 @@ interface IconProps {
 
 export function Icon({ type }: IconProps) {
   const IconComponent = ICON_TYPES.get(type.toLowerCase());
-  return <React.Fragment>{IconComponent}</React.Fragment>;
+  return <Fragment>{IconComponent}</Fragment>;
 }
 
 export const TechSection = (props: React.HTMLAttributes<HTMLDivElement>) => {
-  const view = React.useRef(null);
-  const inView = useInView(view, { margin: '-15% 0px', once: false });
-
   return (
     <div id="technologies" {...props}>
-      <m.ul
-        ref={view}
-        initial="hidden"
-        animate={inView && 'show'}
-        variants={{
-          hidden: { opacity: 0 },
-          show: { opacity: 1 },
-        }}
-        className="grid cursor-default grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] gap-6"
-      >
+      <ul className="grid cursor-default grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] gap-6">
         {techSkills.map(item => (
-          <m.li
+          <li
             key={item}
-            variants={{
-              hidden: { opacity: 0 },
-              show: { opacity: 1 },
-            }}
-            transition={{ easings: easeOutBack }}
             className="group flex items-center rounded-md border bg-card p-2 transition-colors hover:bg-primary/30"
           >
             <span className="text-2xl text-inherit">
               <Icon type={item.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '')} />
             </span>
             <span className="pl-4">{item}</span>
-          </m.li>
+          </li>
         ))}
-      </m.ul>
+      </ul>
     </div>
   );
 };

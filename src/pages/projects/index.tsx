@@ -1,12 +1,11 @@
-import { m } from 'framer-motion';
-import { Accent } from '@/components/accent';
-import { RootLayout } from '@/components/layouts';
-import { ProjectCard } from '@/components/project-card';
-import { easeInoutBack, easeInoutQuad, easeOutBack } from '@/constants/framer-easing';
 import { allProjects } from 'contentlayer/generated';
-import { smallProjects } from '@/constants/simple-project';
-import { ProjectCardSimple } from '@/components/project-card-simple';
+import { m } from 'framer-motion';
+import { RootLayout } from '@/components/layouts';
 import { DocsPageHeader } from '@/components/mdx/page-header';
+import { ProjectCard } from '@/components/project-card';
+import { ProjectCardSimple } from '@/components/project-card-simple';
+import { easeInoutQuad } from '@/constants/framer-easing';
+import { smallProjects } from '@/constants/simple-project';
 
 const Projects = () => {
   return (
