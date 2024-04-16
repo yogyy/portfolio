@@ -43,18 +43,14 @@
       "warn",
       {
         "groups": [
-          // ext library & side effect imports
-          ["^@?\\w", "^\\u0000"],
-          // {s}css files
-          ["^.+\\.s?css$"],
-          // Lib and hooks
-          ["^@/lib", "^@/hooks"],
-          // components
-          ["^@/components"],
-          // Other imports
-          ["^@/"],
-          // relative paths up until 3 level
           [
+            "^@?\\w",
+            "^\\u0000",
+            "^.+\\.s?css$",
+            "^@/lib",
+            "^@/hooks",
+            "^@/components",
+            "^@/",
             "^\\./?$",
             "^\\.(?!/?$)",
             "^\\.\\./?$",
@@ -62,11 +58,9 @@
             "^\\.\\./\\.\\./?$",
             "^\\.\\./\\.\\.(?!/?$)",
             "^\\.\\./\\.\\./\\.\\./?$",
-            "^\\.\\./\\.\\./\\.\\.(?!/?$)"
-          ],
-          ["^@/types"],
-          // other that didnt fit in
-          ["^"]
+            "^\\.\\./\\.\\./\\.\\.(?!/?$)",
+            "^@/types"
+          ]
         ]
       }
     ]
