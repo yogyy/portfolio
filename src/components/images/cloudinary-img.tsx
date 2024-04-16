@@ -1,7 +1,6 @@
 import { buildUrl } from 'cloudinary-build-url';
 import clsx from 'clsx';
 import Image from 'next/image';
-import * as React from 'react';
 
 type CloudinaryImgType = {
   publicId: string;
@@ -24,8 +23,8 @@ export default function CloudinaryImg({
   height,
   width,
   alt,
-  title,
   className,
+  // eslint-disable-next-line unused-imports/no-unused-vars
   preview = true,
   noStyle = false,
   mdx = false,
