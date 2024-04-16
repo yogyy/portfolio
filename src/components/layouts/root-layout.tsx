@@ -1,11 +1,11 @@
-import { NextSeo } from 'next-seo';
-import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
+import { GeistSans } from 'geist/font/sans';
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
 import SEO from 'next-seo.config';
-import { isProd } from '@/constants/env';
-import { Navbar, Footer } from '.';
 import { GridPattern } from '@/components/grid-pattern';
+import { isProd } from '@/constants/env';
+import { Footer,Navbar } from '.';
 
 interface SeoProps {
   title?: string;

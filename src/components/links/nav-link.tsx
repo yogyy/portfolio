@@ -1,9 +1,6 @@
-'use client';
-import Link from 'next/link';
-import { useSelectedLayoutSegment } from 'next/navigation';
 import clsx from 'clsx';
+import { useSelectedLayoutSegment } from 'next/navigation';
 import UnstyledLink from './unstyledlink';
-import { useEffect } from 'react';
 
 interface NavLinkProps {
   href: string;
@@ -14,8 +11,7 @@ interface NavLinkProps {
 export default function NavLink({ href, children, ...rest }: NavLinkProps) {
   let segment = useSelectedLayoutSegment();
   let active = href === `/${segment}` || (href === '/' && !segment);
-  // console.log(segment);
-  // console.log({ href, active });
+
   return (
     <UnstyledLink
       {...rest}

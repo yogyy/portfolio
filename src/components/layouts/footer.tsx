@@ -1,9 +1,13 @@
+import { HTMLMotionProps, m, useInView } from 'framer-motion';
+import { Inter } from 'next/font/google';
+import Link from 'next/link';
 import { useRef } from 'react';
-import { Spotify } from './';
-import { cn } from '@/lib/utils';
-import { Accent } from '../accent';
 import { IoMailOutline } from 'react-icons/io5';
 import { SiGithub, SiLinkedin, SiX } from 'react-icons/si';
+import { cn } from '@/lib/utils';
+import { isProd } from '@/constants/env';
+import { Spotify } from './';
+import { Accent } from '../accent';
 import {
   Tooltip,
   TooltipContent,
@@ -11,10 +15,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '../ui/tooltip';
-import Link from 'next/link';
-import { Inter } from 'next/font/google';
-import { HTMLMotionProps, m, useInView } from 'framer-motion';
-import { isProd } from '@/constants/env';
 
 const inter = Inter({ subsets: ['latin'] });
 

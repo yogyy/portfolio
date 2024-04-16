@@ -1,9 +1,9 @@
-import { ThemeButton } from '@/components/dark-theme';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-import { cn } from '@/lib/utils';
 import { HTMLMotionProps, m, useMotionValueEvent, useScroll } from 'framer-motion';
-import React from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { cn } from '@/lib/utils';
+import { ThemeButton } from '@/components/dark-theme';
 import { easeOutBack } from '@/constants/framer-easing';
 import { navLinks } from '@/constants/links';
 
@@ -32,7 +32,7 @@ export const Navbar = ({ className, ...props }: HTMLMotionProps<'header'>) => {
   const { pathname } = useRouter();
   const inPosts = pathname === '/posts/[slug]';
   const { scrollY } = useScroll();
-  const [hidden, setHidden] = React.useState(false);
+  const [hidden, setHidden] = useState(false);
 
   useMotionValueEvent(scrollY, 'change', latest => {
     const prev = scrollY.getPrevious();

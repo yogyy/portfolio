@@ -1,7 +1,7 @@
-import { env } from '@/env';
-import { getAccessToken } from '@/hooks/get-access-token';
 import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { getAccessToken } from '@/hooks/get-access-token';
+import { env } from '@/env';
 
 interface SpotifyDataLastPlayed {
   items: {

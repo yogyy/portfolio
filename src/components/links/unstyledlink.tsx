@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils';
 import Link, { LinkProps } from 'next/link';
+import { cn } from '@/lib/utils';
 
 export type UnstyledLinkProps = {
   openNewTab?: boolean;

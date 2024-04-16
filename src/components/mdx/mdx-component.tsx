@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import { cn } from '@/lib/utils';
 import { Callout } from './callout';

@@ -1,10 +1,10 @@
+import { allPosts } from 'contentlayer/generated';
+import { m } from 'framer-motion';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { m } from 'framer-motion';
 import { RootLayout } from '@/components/layouts';
-import { allPosts } from 'contentlayer/generated';
-import { easeOutBack } from '@/constants/framer-easing';
 import { DocsPageHeader } from '@/components/mdx/page-header';
+import { easeInoutQuad } from '@/constants/framer-easing';
 
 export default function Page() {
   return (
@@ -17,7 +17,7 @@ export default function Page() {
         <m.ul
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ easings: easeOutBack, duration: 0.7 }}
+          transition={{ easings: easeInoutQuad, duration: 0.7 }}
           className="flex max-w-3xl flex-col gap-5"
         >
           {allPosts.map(post => (
@@ -25,15 +25,15 @@ export default function Page() {
               <Link
                 href={post.slug}
                 className={cn(
-                  'group relative grid justify-start gap-2 rounded-sm text-text',
+                  'group relative grid justify-start gap-2 rounded-sm text-text/80',
                   'outline-none transition-colors duration-200 focus-within:text-accent/50 hover:text-accent/50',
                 )}
               >
                 <div className="relative w-full">
                   <h1 className="text-lg md:text-[1.25em]">{post.title}</h1>
-                  <p className="text-inherit">{post.description}</p>
+                  <p className="text-text/70">{post.description}</p>
                 </div>
-                <p className="text-xs text-gray-500 dark:text-gray-400">{post.date}</p>
+                <p className="text-xs text-text/40">{post.date}</p>
               </Link>
             </li>
           ))}

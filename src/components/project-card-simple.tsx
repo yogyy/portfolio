@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils';
 import { LuGithub, LuGlobe } from 'react-icons/lu';
+import { cn } from '@/lib/utils';
 import UnstyledLink from './links/unstyledlink';
 
 interface ProjectCardSimpleType {
@@ -73,4 +73,4 @@ const ProjectCardSimple = ({ project, className, ...props }: ProjectCardProps) =
   );
 };
 
-export { type ProjectCardSimpleType, ProjectCardSimple };
+export { ProjectCardSimple,type ProjectCardSimpleType };

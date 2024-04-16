@@ -1,15 +1,15 @@
+import { LazyMotion } from 'framer-motion';
+import type { AppProps } from 'next/app';
+import Router, { useRouter } from 'next/router';
+import { ThemeProvider } from 'next-themes';
+import nProgress from 'nprogress';
+import posthog from 'posthog-js';
+import { PostHogProvider } from 'posthog-js/react';
+import React from 'react';
 import '@/styles/globals.css';
 import '@/styles/nprogess.css';
-import React from 'react';
-import { env } from '@/env';
-import type { AppProps } from 'next/app';
-import { ThemeProvider } from 'next-themes';
-import Router, { useRouter } from 'next/router';
-import { LazyMotion } from 'framer-motion';
-import nProgress from 'nprogress';
-import { PostHogProvider } from 'posthog-js/react';
-import posthog from 'posthog-js';
 import { isProd } from '@/constants/env';
+import { env } from '@/env';
 
 Router.events.on('routeChangeStart', nProgress.start);
 Router.events.on('routeChangeError', nProgress.remove);

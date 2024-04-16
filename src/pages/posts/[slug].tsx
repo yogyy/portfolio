@@ -1,16 +1,14 @@
-import React from 'react';
 import { allPosts } from 'contentlayer/generated';
-import { notFound } from 'next/navigation';
 import { GetStaticPaths, InferGetStaticPropsType } from 'next';
+import { notFound } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { HiArrowLeft } from 'react-icons/hi';
+import { getTableOfContents, TableOfContents } from '@/lib/toc';
 import { RootLayout } from '@/components/layouts';
 import { Mdx } from '@/components/mdx/mdx-component';
 import { DocsPageHeader } from '@/components/mdx/page-header';
-import { HiArrowLeft } from 'react-icons/hi';
-import { useRouter } from 'next/navigation';
 import { DashboardTableOfContents } from '@/components/mdx/toc';
-import { getTableOfContents, TableOfContents } from '@/lib/toc';
-import { m } from 'framer-motion';
-import { easeIn } from '@/constants/framer-easing';
 
 export const getStaticPaths: GetStaticPaths = () => {
   const paths = allPosts.map(post => post.slug);
@@ -26,10 +24,10 @@ export const getStaticProps = ({ params }: { params: { slug: string } }) => {
 };
 
 export const PostsPage = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const [toc, setToc] = React.useState<TableOfContents>();
+  const [toc, setToc] = useState<TableOfContents>();
   const { back } = useRouter();
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchToc = async () => {
       try {
         const tocData = await getTableOfContents(post.body.raw);
