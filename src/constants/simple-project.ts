@@ -8,17 +8,34 @@ const smallProjects: ProjectCardSimpleType[] = [
     type: ['React', 'Typescript', 'Next JS', 'Tailwind CSS', 'Radix UI'],
   },
   {
+    title: 'porto-cmd',
+    description: 'A Terminal based portfolio website',
+    github: 'https://github.com/yogyy/porto-cmd',
+    url: 'https://yogyy-cmd.pages.dev/',
+    type: ['Svelte', 'TypeScript', 'Vite'],
+  },
+  {
+    title: 'Fullstack Graphql',
+    description: 'Fullstack app using graphql',
+    github: 'https://github.com/yogyy/apollo-graphql',
+    type: ['Express', '@graphql-yoga', 'React', '@apollo-client', 'unocss'],
+  },
+  {
+    title: 'Hono Auth',
+    description: 'hono with lucia auth',
+    github: 'https://github.com/yogyy/hono-htmx-lucia',
+    type: ['Hono', 'Lucia', 'Drizzle-Orm'],
+  },
+  {
     title: 'Gallery',
     description: 'Searching Images using Unsplash API',
     github: 'https://github.com/yogyy/Gallery',
-    url: 'https://gallery-yy.vercel.app',
     type: ['React', 'Typescript', 'Next JS', 'Tailwind CSS'],
   },
   {
     title: 'Indonesia Geography',
     description: 'Showing Indonesia Geography and Searching Regency,Discrict, also Village',
     github: 'https://github.com/yogyy/Indonesia-Geography',
-    url: 'https://nusantara-chi.vercel.app',
     type: ['React', 'Typescript', 'Next JS', 'Tailwind CSS'],
   },
   {
@@ -56,28 +73,24 @@ const smallProjects: ProjectCardSimpleType[] = [
     type: ['Nest JS', 'TypeScript', 'MySQL'],
   },
   {
-    title: 'Fastify CRUD',
-    description: 'simple crud using fastifyjs',
-    github: 'https://github.com/yogyy/nest-crud',
-    type: ['Fastify', 'JavaScript', 'MySQL'],
+    title: 'Fastky',
+    description:
+      'Fastify with Kysely for building a web application with a PostgreSQL database backend',
+    github: 'https://github.com/yogyy/fastky',
+    type: ['Fastify', 'TypeScript', 'PostgreSQL', 'Kysely', 'vitest'],
+  },
+  {
+    title: 'Elsely',
+    description:
+      'Elysia with Kysely for building a web application with a PostgreSQL database backend.',
+    github: 'https://github.com/yogyy/elsely',
+    type: ['pg', 'bun', 'PostgreSQL', ' Elysia', 'Kysely'],
   },
   {
     title: 'Spotify Activity',
     description: 'Spotify Activity Card like in the footer',
     url: '/spotify',
     type: ['SWR'],
-  },
-  {
-    title: 'Fullstack Graphql',
-    description: 'Fullstack app using graphql',
-    github: 'https://github.com/yogyy/apollo-graphql',
-    type: ['Express', '@graphql-yoga', 'React', '@apollo-client', 'unocss'],
-  },
-  {
-    title: 'Hono Auth',
-    description: 'hono with lucia auth',
-    github: 'https://github.com/yogyy/hono-htmx-lucia',
-    type: ['hono', 'lucia', 'drizzle-orm'],
   },
 ];
 
