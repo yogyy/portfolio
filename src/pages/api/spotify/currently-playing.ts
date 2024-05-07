@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { client } from '@/lib/feature-flags';
 import { getAccessToken } from '@/hooks/get-access-token';
 import { env } from '@/env';
 
@@ -30,7 +31,8 @@ const getNowPlaying = async () => {
 };
 
 export default async function spotify(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== 'GET') {
+  const spotifyFlag = await client.isFeatureEnabled('spotify-activity', 'bola-bali');
+  if (req.method !== 'GET' || !spotifyFlag) {
     return res.status(405).json({ error: 'Request rejected.' });
   }
 

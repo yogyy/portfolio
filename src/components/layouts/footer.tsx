@@ -1,11 +1,11 @@
 import { HTMLMotionProps, m, useInView } from 'framer-motion';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
+import { useFeatureFlagEnabled } from 'posthog-js/react';
 import { useRef } from 'react';
 import { IoMailOutline } from 'react-icons/io5';
 import { SiGithub, SiLinkedin, SiX } from 'react-icons/si';
 import { cn } from '@/lib/utils';
-import { isProd } from '@/constants/env';
 import { Spotify } from './';
 import { Accent } from '../accent';
 import {
@@ -21,6 +21,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const Footer = ({ className, ...props }: HTMLMotionProps<'footer'>) => {
   const view = useRef(null);
   const inView = useInView(view, { margin: '0px 0px', once: true });
+  const spotifyFlag = useFeatureFlagEnabled('spotify-activity');
 
   return (
     <m.footer
@@ -36,7 +37,7 @@ export const Footer = ({ className, ...props }: HTMLMotionProps<'footer'>) => {
           <h1 className="mb-4 self-center pb-2 text-2xl font-bold">
             <Accent>yogyy</Accent>
           </h1>
-          {isProd && <Spotify className="place-self-center" />}
+          {spotifyFlag && <Spotify className="place-self-center" />}
         </div>
         <div className="flex flex-col-reverse place-items-center justify-center gap-6 md:flex-row md:justify-between">
           <span className="flex gap-3 text-sm font-semibold sm:text-center">© 2024 yogi.</span>
