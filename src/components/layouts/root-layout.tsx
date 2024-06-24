@@ -5,7 +5,7 @@ import { NextSeo } from 'next-seo';
 import SEO from 'next-seo.config';
 import { GridPattern } from '@/components/grid-pattern';
 import { isProd } from '@/constants/env';
-import { Footer,Navbar } from '.';
+import { Footer, Navbar } from '.';
 
 interface SeoProps {
   title?: string;
@@ -30,7 +30,7 @@ export const RootLayout = ({ children, title, desc }: SeoProps) => {
         canonical={isProd ? `https://yogyy.vercel.app${asPath}` : `localhost:3000${asPath}`}
         defaultTitle={SEO.openGraph?.title}
       />
-      <Navbar className={`${GeistSans.variable} ${GeistMono.variable} font-sans`} />
+      <Navbar />
       <GridPattern
         className="fixed inset-x-0 -z-10 h-full w-full fill-primary/5 stroke-primary/5 [mask-image:linear-gradient(to_top_left,white_50%,transparent_40%)]"
         yOffset={-96}
@@ -38,7 +38,7 @@ export const RootLayout = ({ children, title, desc }: SeoProps) => {
       <main id="skip-nav" className={`${GeistSans.variable} ${GeistMono.variable} font-sans`}>
         {children}
       </main>
-      <Footer className={`${GeistSans.variable} ${GeistMono.variable} font-sans`} />
+      <Footer />
     </>
   );
 };

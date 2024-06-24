@@ -1,23 +1,15 @@
-import { m } from 'framer-motion';
-import { cn } from '@/lib/utils';
 import { Accent } from '@/components/accent';
 import { RootLayout } from '@/components/layouts';
 import TechMdx from '@/components/tech-icons';
-import { easeOutBack } from '@/constants/framer-easing';
 
 export default function AboutPage() {
   return (
     <RootLayout title="About · Yogyy">
-      <m.section
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ easings: easeOutBack, duration: 0.5 }}
-        className="layout flex h-auto min-h-dvh flex-col items-start"
-      >
-        <div className="">
+      <section className="layout flex h-auto min-h-[calc(90dvh_-_141px)] flex-col items-start">
+        <>
           <div id="about" className="my-10 h-full">
             <h1 className="mb-6 text-2xl md:text-4xl 2xl:text-3xl">Hi, I&apos;m Yogi.</h1>
-            <article className={cn('relative mt-4 flex max-w-3xl gap-3 md:mt-6 md:gap-6')}>
+            <article className="relative mt-4 flex max-w-3xl gap-3 md:mt-6 md:gap-6">
               <div className="hidden border-l border-primary md:block" />
               <div className="h-full text-pretty text-base">
                 <p className="mb-4 leading-7">
@@ -44,17 +36,15 @@ export default function AboutPage() {
             </article>
           </div>
           <div className="flex flex-col place-content-center">
-            <h2 className="text-2xl">
+            <h2 className="text-23xl">
               <Accent>Fav Tech Stack</Accent>
             </h2>
-            <TechMdx
-              techs={['react', 'nextjs', 'tailwindcss', 'reactquery']}
-              iconClassName="text-3xl"
-              className="-ml-2 flex-wrap"
-            />
+            <div className="-ml-2">
+              <TechMdx techs={['react', 'nextjs', 'tailwindcss', 'reactquery']} size={32} />
+            </div>
           </div>
-        </div>
-      </m.section>
+        </>
+      </section>
     </RootLayout>
   );
 }

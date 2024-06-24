@@ -1,12 +1,11 @@
 import { useTheme } from 'next-themes';
-import { cn } from '@/lib/utils';
 import { useMounted } from '@/hooks/use-mounted';
 import { Moon } from './icons/moon';
 import { Sun } from './icons/sun';
 
 type ThemeButtonProps = React.ComponentPropsWithoutRef<'button'>;
 
-export function ThemeButton({ className, ...rest }: ThemeButtonProps) {
+export function ThemeButton(props: ThemeButtonProps) {
   const { theme, setTheme } = useTheme();
   const mounted = useMounted();
 
@@ -16,13 +15,9 @@ export function ThemeButton({ className, ...rest }: ThemeButtonProps) {
       type="button"
       aria-label="dark mode toggle"
       aria-pressed="true"
-      className={cn(
-        'rounded-md border-2 border-transparent p-1.5 py-1',
-        'text-accent focus:outline-none focus-visible:border-accent',
-        className,
-      )}
-      {...rest}
+      className="rounded-md border-2 border-transparent p-1.5 py-1 text-accent focus:outline-none focus-visible:border-accent "
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+      {...props}
     >
       <span className="sr-only">Toggle theme</span>
       {mounted ? <>{theme === 'light' ? <Moon /> : <Sun />}</> : <Sun />}

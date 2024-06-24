@@ -1,7 +1,6 @@
 import { allPosts } from 'contentlayer/generated';
 import { m } from 'framer-motion';
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
 import { RootLayout } from '@/components/layouts';
 import { DocsPageHeader } from '@/components/mdx/page-header';
 import { easeInoutQuad } from '@/constants/framer-easing';
@@ -24,10 +23,7 @@ export default function Page() {
             <li key={post._id}>
               <Link
                 href={post.slug}
-                className={cn(
-                  'group relative grid justify-start gap-2 rounded-sm text-text/80',
-                  'outline-none transition-colors duration-200 focus-within:text-accent/50 hover:text-accent/50',
-                )}
+                className="group relative grid justify-start gap-2 rounded-sm text-text/80 outline-none transition-colors duration-200 focus-within:text-accent/50 hover:text-accent/50"
               >
                 <div className="relative w-full">
                   <h1 className="text-lg md:text-[1.25em]">{post.title}</h1>

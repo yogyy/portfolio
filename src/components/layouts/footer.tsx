@@ -1,11 +1,10 @@
-import { HTMLMotionProps, m, useInView } from 'framer-motion';
-import { Inter } from 'next/font/google';
+import { m, useInView } from 'framer-motion';
+import { GeistSans } from 'geist/font/sans';
 import Link from 'next/link';
 import { useFeatureFlagEnabled } from 'posthog-js/react';
 import { useRef } from 'react';
 import { IoMailOutline } from 'react-icons/io5';
 import { SiGithub, SiLinkedin, SiX } from 'react-icons/si';
-import { cn } from '@/lib/utils';
 import { Spotify } from './';
 import { Accent } from '../accent';
 import {
@@ -16,9 +15,7 @@ import {
   TooltipTrigger,
 } from '../ui/tooltip';
 
-const inter = Inter({ subsets: ['latin'] });
-
-export const Footer = ({ className, ...props }: HTMLMotionProps<'footer'>) => {
+export const Footer = () => {
   const view = useRef(null);
   const inView = useInView(view, { margin: '0px 0px', once: true });
   const spotifyFlag = useFeatureFlagEnabled('spotify-activity');
@@ -28,8 +25,7 @@ export const Footer = ({ className, ...props }: HTMLMotionProps<'footer'>) => {
       ref={view}
       initial="hidden"
       animate={inView && 'show'}
-      className={cn('mt-6 bg-background/30 backdrop-blur-sm', className)}
-      {...props}
+      className={`mt-6 bg-background/30 backdrop-blur-sm ${GeistSans.variable} font-sans`}
     >
       <hr className="mb-6 border-text/10" />
       <div className="layout relative pb-4">
@@ -65,10 +61,7 @@ export const Footer = ({ className, ...props }: HTMLMotionProps<'footer'>) => {
                       <TooltipContent
                         sideOffset={8}
                         side="bottom"
-                        className={cn(
-                          'font-medium text-text outline-accent duration-400',
-                          inter.className,
-                        )}
+                        className="font-medium text-text outline-accent duration-400"
                       >
                         {link.content}
                       </TooltipContent>

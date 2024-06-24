@@ -1,24 +1,12 @@
 import { Project } from 'contentlayer/generated';
 import Link from 'next/link';
 import { HiArrowRight } from 'react-icons/hi';
-import { cn } from '@/lib/utils';
 import { Icon } from './custom-icons';
 import CloudinaryImg from './images/cloudinary-img';
 
-interface ProjectCardProps extends React.LiHTMLAttributes<HTMLLIElement> {
-  project: Project;
-}
-
-export const ProjectCard = ({ project, className, ...props }: ProjectCardProps) => {
+export const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <li
-      className={cn(
-        'project-card group w-full overflow-hidden rounded-md border',
-        'bg-card transition-[border-color] duration-200 ease-in focus-within:border-accent/50 hover:border-accent/50',
-        className,
-      )}
-      {...props}
-    >
+    <li className="project-card group w-full overflow-hidden rounded-md border bg-card transition-[border-color] duration-200 ease-in focus-within:border-accent/50 hover:border-accent/50">
       <Link
         href={project.slug}
         className="projectcard flex h-full w-full flex-col items-start rounded-md p-4 focus:outline-none"

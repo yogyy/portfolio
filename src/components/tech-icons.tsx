@@ -11,19 +11,18 @@ import {
   SiTrpc,
   SiUpstash,
 } from 'react-icons/si';
-import { cn } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 
 export type TechListType = keyof typeof techList;
 
 export type TechIconsProps = {
   techs: Array<TechListType>;
-  iconClassName?: string | undefined;
+  size?: number;
 } & React.ComponentPropsWithoutRef<'ul'>;
 
-export default function TechMdx({ className, techs, iconClassName }: TechIconsProps) {
+export default function TechMdx({ techs, size }: TechIconsProps) {
   return (
-    <ul className={cn('flex gap-2', className)}>
+    <ul className="flex w-fit flex-wrap gap-2">
       {techs.map(tech => {
         if (!techList[tech]) return;
 
@@ -36,10 +35,8 @@ export default function TechMdx({ className, techs, iconClassName }: TechIconsPr
                 <TooltipTrigger asChild>
                   <Link href={current.link} className="group outline-none" target="_blank">
                     <current.icon
-                      className={cn(
-                        'transition-colors duration-200 group-hover:text-accent group-focus:text-accent',
-                        iconClassName,
-                      )}
+                      size={size}
+                      className="transition-colors duration-200 group-hover:text-accent group-focus:text-accent"
                     />
                   </Link>
                 </TooltipTrigger>
