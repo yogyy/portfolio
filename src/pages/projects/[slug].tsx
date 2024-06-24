@@ -74,16 +74,12 @@ const ProjectsPage = ({ proj }: InferGetStaticPropsType<typeof getStaticProps>) 
             <span>-</span>
             <div className="inline-flex items-center gap-1.5">
               <SiGithub className="text-lg" />
-              <CustomLink href={proj.github!} className="">
-                Repository
-              </CustomLink>
+              <CustomLink href={proj.github!}>Repository</CustomLink>
             </div>
             <span>-</span>
             <div className="inline-flex items-center gap-1.5">
               <HiLink className="text-lg" />
-              <CustomLink href={proj.url!} className="">
-                Open Live Site
-              </CustomLink>
+              <CustomLink href={proj.url!}>Open Live Site</CustomLink>
             </div>
             <div className="ml-auto flex flex-wrap gap-1">
               {proj.techs?.split(', ').map(tech => (

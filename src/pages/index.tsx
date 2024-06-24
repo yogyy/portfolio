@@ -2,8 +2,7 @@ import { allProjects } from 'contentlayer/generated';
 import { InView } from 'react-intersection-observer';
 import { RootLayout } from '@/components/layouts';
 import { ProjectCard } from '@/components/project-card';
-import { HeroSection, SkillSection, TechSection } from '@/components/section';
-import { Reveal } from '@/components/section/reveal';
+import { HeroSection, Reveal, SkillSection, TechSection } from '@/components/section';
 
 export default function Home() {
   return (
@@ -18,7 +17,7 @@ export default function Home() {
       </InView>
       <InView triggerOnce rootMargin="-40% 0px">
         {({ ref, inView }) => (
-          <Reveal ref={ref} inView={inView} className="relative">
+          <Reveal ref={ref} inView={inView}>
             <article>
               <div>
                 <h1 className="mt-14 text-accent">Tech Stack</h1>
