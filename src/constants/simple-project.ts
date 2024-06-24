@@ -1,6 +1,12 @@
-import { ProjectCardSimpleType } from '@/components/project-card-simple';
+interface ProjectCardSimple {
+  title: string;
+  description: string;
+  github?: string | undefined;
+  url?: string;
+  type: string[];
+}
 
-const smallProjects: ProjectCardSimpleType[] = [
+const smallProjects: ProjectCardSimple[] = [
   {
     title: 'yogyy',
     description: 'The website you are currently on',
@@ -12,7 +18,7 @@ const smallProjects: ProjectCardSimpleType[] = [
     description: 'A Terminal based portfolio website',
     github: 'https://github.com/yogyy/porto-cmd',
     url: 'https://yogyy-cmd.pages.dev/',
-    type: ['Svelte', 'TypeScript', 'Vite'],
+    type: ['Svelte', 'TypeScript'],
   },
   {
     title: 'Fullstack Graphql',
@@ -22,9 +28,9 @@ const smallProjects: ProjectCardSimpleType[] = [
   },
   {
     title: 'Hono Auth',
-    description: 'hono with lucia auth',
+    description: 'hono with lucia auth template',
     github: 'https://github.com/yogyy/hono-htmx-lucia',
-    type: ['Hono', 'Lucia', 'Drizzle-Orm'],
+    type: ['Hono', 'Lucia', 'Drizzle-Orm', 'Template'],
   },
   {
     title: 'Gallery',
@@ -67,10 +73,16 @@ const smallProjects: ProjectCardSimpleType[] = [
     type: ['React', 'TypeScript', 'Tailwind CSS'],
   },
   {
-    title: 'NestJS CRUD',
-    description: 'simple crud using nestjs',
-    github: 'https://github.com/yogyy/nest-crud',
-    type: ['Nest JS', 'TypeScript', 'MySQL'],
+    title: 'Moretti Store',
+    description: 'Web Store integrated with payment gateway (midtrans)',
+    github: 'https://github.com/yogyy/midtrans-coba2',
+    type: ['Fullstack', 'TypeScript', 'PostgreSQL', 'Adonis', 'React', 'unocss'],
+  },
+  {
+    title: 'Chatzzz',
+    description: 'experiment chat app',
+    github: 'https://github.com/yogyy/chatzzz',
+    type: ['React', 'Firebase', 'Tailwind', 'Redux-Toolkit'],
   },
   {
     title: 'Fastky',
@@ -84,7 +96,7 @@ const smallProjects: ProjectCardSimpleType[] = [
     description:
       'Elysia with Kysely for building a web application with a PostgreSQL database backend.',
     github: 'https://github.com/yogyy/elsely',
-    type: ['pg', 'bun', 'PostgreSQL', ' Elysia', 'Kysely'],
+    type: ['bun', 'PostgreSQL', ' Elysia', 'Kysely'],
   },
   {
     title: 'Spotify Activity',
@@ -94,4 +106,4 @@ const smallProjects: ProjectCardSimpleType[] = [
   },
 ];
 
-export { smallProjects };
+export { type ProjectCardSimple, smallProjects };
