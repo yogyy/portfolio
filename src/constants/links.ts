@@ -3,7 +3,7 @@ import { SiGithub, SiX } from 'react-icons/si';
 
 const externalUrl = [
   {
-    href: 'https://drive.google.com/file/d/1j7mkmbd7mTr80xvBPgV0J1d7jMoztifq/view',
+    href: 'https://drive.google.com/file/d/1dx-fxhVOUEDhVIEgY3d5_FTVFFh6wMKg/view',
     icon: IoNewspaperSharp,
     name: 'Resume',
   },
