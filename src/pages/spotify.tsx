@@ -14,7 +14,7 @@ const SpotifyPage = () => {
       <main
         className={`relative grid min-h-screen w-screen place-content-center bg-gradient-to-br from-background to-accent ${GeistSans.variable} ${GeistMono.variable} font-sans`}
       >
-        {spotifyFlag ? <Spotify className="border-none bg-background/25" /> : <DisabledSpotify />}
+        {spotifyFlag ? <Spotify className="border-none bg-background/25" /> : <SpotifyDisabled />}
         <div className="absolute left-1/3 top-1/3 rounded-md border-transparent bg-background/30">
           <ThemeButton />
         </div>
@@ -25,7 +25,7 @@ const SpotifyPage = () => {
 
 export default SpotifyPage;
 
-function DisabledSpotify() {
+function SpotifyDisabled() {
   return (
     <div className="px-5 text-base font-semibold text-black xl:text-xl">
       Spotify Activity Flag currently Disabled
