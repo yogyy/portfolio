@@ -6,9 +6,9 @@ const ProjectCardSimple = ({ project }: { project: SimpleProject }) => {
   const { title, description, github, url, type } = project;
 
   return (
-    <li className="group relative flex h-fit w-full select-none break-inside-avoid-column flex-col gap-3 rounded-md border bg-card p-3.5 transition-[border-color] duration-300 ease-linear focus-within:border-accent/50 hover:border-accent/50 md:gap-6">
+    <li className="group relative flex h-fit w-full select-none break-inside-avoid-column flex-col gap-3 rounded-md border bg-card p-3.5 transition-[border-color] duration-300 ease-linear focus-within:border-accent/50 hover:border hover:border-accent/50 md:gap-6">
       <div className="flex justify-between">
-        <h3 className="text-xl font-bold text-text/70 transition-colors duration-300 group-focus-within:text-accent group-hover:text-accent/80">
+        <h3 className="text-xl font-bold text-text/70 transition-colors duration-300 group-focus-within:text-accent group-hover:text-accent">
           {title}
         </h3>
         <div className="flex gap-2 text-lg">
@@ -32,12 +32,12 @@ const ProjectCardSimple = ({ project }: { project: SimpleProject }) => {
       </div>
       <p className="text-[14px] text-text/80">{description}</p>
       <ul className="mt-1 flex flex-wrap gap-1.5">
-        {type.map(ty => (
+        {type.map(item => (
           <li
             className="select-none rounded-2xl bg-secondary/30 px-1.5 py-0.5 text-xs text-text/50"
-            key={ty}
+            key={item}
           >
-            <code>{ty}</code>
+            <code>{item}</code>
           </li>
         ))}
       </ul>
