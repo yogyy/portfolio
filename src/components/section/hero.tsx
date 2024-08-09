@@ -1,11 +1,11 @@
 import { AnimatePresence, m } from 'framer-motion';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { Accent } from '@/components/accent';
+import ButtonLink from '@/components/links/buttonlink';
+import UnstyledLink from '@/components/links/unstyledlink';
 import { easeOutBack } from '@/constants/framer-easing';
 import { externalUrl } from '@/constants/links';
-import { Accent } from '../accent';
-import ButtonLink from '../links/buttonlink';
-import UnstyledLink from '../links/unstyledlink';
 
 export const HeroSection = () => {
   const [showLinks, setShowLinks] = useState(false);
@@ -29,7 +29,7 @@ export const HeroSection = () => {
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ easings: easeOutBack, duration: 0.4, delay: 0.2 }}
-          className={cn('mt-8 flex flex-wrap items-center gap-4 md:text-lg')}
+          className="mt-8 flex flex-wrap items-center gap-4 md:text-lg"
         >
           <div className="group relative">
             <div
@@ -50,9 +50,7 @@ export const HeroSection = () => {
             {!showLinks ? (
               <m.button
                 layout
-                className={cn(
-                  'relative z-0 flex items-center justify-center px-3 py-2 font-semibold text-accent',
-                )}
+                className="relative z-0 flex items-center justify-center px-3 py-2 font-semibold text-accent"
                 onClick={() => setShowLinks(prev => !prev)}
                 initial={{ opacity: 0, x: -40 }}
                 animate={{
