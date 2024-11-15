@@ -1,9 +1,9 @@
 import { m, useInView } from 'framer-motion';
 import { GeistSans } from 'geist/font/sans';
+import { MailPlus } from 'lucide-react';
 import Link from 'next/link';
 import { useFeatureFlagEnabled } from 'posthog-js/react';
 import { useRef } from 'react';
-import { IoMailOutline } from 'react-icons/io5';
 import { SiGithub, SiLinkedin, SiX } from 'react-icons/si';
 import { Spotify } from './';
 import { Accent } from '../accent';
@@ -37,9 +37,9 @@ export const Footer = () => {
         </div>
         <div className="flex flex-col-reverse place-items-center justify-center gap-6 md:flex-row md:justify-between">
           <span className="flex gap-3 text-sm font-semibold sm:text-center">© 2024 yogi.</span>
-          <ul className="relative my-auto flex h-auto space-x-3 text-xl sm:place-content-center md:space-x-5">
+          <ul className="relative my-auto flex gap-x-3 text-xl md:gap-x-5">
             {links.map(link => (
-              <li key={link.href} className="inline-flex">
+              <li key={link.href} className="inline-flex items-center">
                 <TooltipProvider delayDuration={300}>
                   <Tooltip>
                     <TooltipTrigger
@@ -54,7 +54,7 @@ export const Footer = () => {
                         aria-label={`go to ${link.alt}`}
                         className="cursor-newtab"
                       >
-                        <link.icon className="relative m-1 text-text/70 group-hover:text-accent group-focus:text-accent" />
+                        <link.icon className="relative m-1 w-5 text-text/70 group-hover:text-accent group-focus:text-accent" />
                       </Link>
                     </TooltipTrigger>
                     <TooltipPortal>
@@ -81,7 +81,7 @@ const links = [
   {
     href: 'mailto:m.yogi.fs@gmail.com',
     alt: 'Email',
-    icon: IoMailOutline,
+    icon: MailPlus,
     content: (
       <p>
         Contact me&nbsp;

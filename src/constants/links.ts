@@ -1,10 +1,10 @@
-import { IoNewspaperSharp } from 'react-icons/io5';
+import { FileUser } from 'lucide-react';
 import { SiGithub, SiX } from 'react-icons/si';
 
 const externalUrl = [
   {
     href: 'https://drive.google.com/file/d/1dx-fxhVOUEDhVIEgY3d5_FTVFFh6wMKg/view',
-    icon: IoNewspaperSharp,
+    icon: FileUser,
     name: 'Resume',
   },
   {
