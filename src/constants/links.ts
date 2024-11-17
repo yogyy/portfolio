@@ -1,20 +1,20 @@
-import { IoNewspaperSharp } from 'react-icons/io5';
-import { SiGithub, SiX } from 'react-icons/si';
+import { FileUser } from 'lucide-react';
+import { Github, X } from '@/components/icons/simple-icons';
 
 const externalUrl = [
   {
     href: 'https://drive.google.com/file/d/1dx-fxhVOUEDhVIEgY3d5_FTVFFh6wMKg/view',
-    icon: IoNewspaperSharp,
+    icon: FileUser,
     name: 'Resume',
   },
   {
     href: 'https://github.com/yogyy',
-    icon: SiGithub,
+    icon: Github,
     name: 'Github',
   },
   {
     href: 'https://twitter.com/yogyyconst',
-    icon: SiX,
+    icon: X,
     name: 'Twitter',
   },
 ];

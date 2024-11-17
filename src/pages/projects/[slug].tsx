@@ -1,11 +1,11 @@
 import { allProjects } from 'contentlayer/generated';
 import { m } from 'framer-motion';
+import { Link, UserRound } from 'lucide-react';
 import { InferGetStaticPropsType } from 'next';
 import { notFound } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { HiLink, HiUser } from 'react-icons/hi';
-import { SiGithub } from 'react-icons/si';
 import { getTableOfContents, TableOfContents } from '@/lib/toc';
+import { Github } from '@/components/icons/simple-icons';
 import CloudinaryImg from '@/components/images/cloudinary-img';
 import { RootLayout } from '@/components/layouts';
 import CustomLink from '@/components/links/custom-link';
@@ -66,19 +66,19 @@ const ProjectsPage = ({ proj }: InferGetStaticPropsType<typeof getStaticProps>) 
           <p className="mt-2 text-sm text-text">{proj.description}</p>
           <div className="mt-2 flex flex-wrap items-center justify-start gap-3 text-sm font-medium text-text">
             <div className="flex items-center gap-1.5">
-              <HiUser className="text-lg" />
+              <UserRound size={18} />
               <p className="flex items-center justify-start gap-2 text-sm transition-colors duration-300">
                 {proj.category}
               </p>
             </div>
             <span>-</span>
             <div className="inline-flex items-center gap-1.5">
-              <SiGithub className="text-lg" />
+              <Github className="text-lg" />
               <CustomLink href={proj.github!}>Repository</CustomLink>
             </div>
             <span>-</span>
             <div className="inline-flex items-center gap-1.5">
-              <HiLink className="text-lg" />
+              <Link size={18} />
               <CustomLink href={proj.url!}>Open Live Site</CustomLink>
             </div>
             <div className="ml-auto flex flex-wrap gap-1">

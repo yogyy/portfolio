@@ -1,6 +1,6 @@
 import { Project } from 'contentlayer/generated';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { HiArrowRight } from 'react-icons/hi';
 import { Icon } from './custom-icons';
 import CloudinaryImg from './images/cloudinary-img';
 
@@ -30,7 +30,10 @@ export const ProjectCard = ({ project }: { project: Project }) => {
         />
         <p className="animated-underline mt-2 flex items-center gap-1 place-self-end font-medium text-text">
           See more
-          <HiArrowRight className="transition-colors group-focus-within:text-accent group-hover:text-accent" />
+          <ArrowRight
+            className="transition-colors group-focus-within:text-accent group-hover:text-accent"
+            size={18}
+          />
         </p>
       </Link>
     </li>

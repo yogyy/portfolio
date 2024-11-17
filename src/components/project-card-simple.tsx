@@ -1,5 +1,6 @@
-import { LuGithub, LuGlobe } from 'react-icons/lu';
+import { Globe } from 'lucide-react';
 import { ProjectCardSimple as SimpleProject } from '@/constants/simple-project';
+import { Github } from './icons/simple-icons';
 import UnstyledLink from './links/unstyledlink';
 
 const ProjectCardSimple = ({ project }: { project: SimpleProject }) => {
@@ -17,7 +18,7 @@ const ProjectCardSimple = ({ project }: { project: SimpleProject }) => {
               className="group/link rounded-full bg-background outline-none hover:bg-primary/5 focus:bg-primary/5"
               href={github}
             >
-              <LuGithub className="h-7 w-7 p-1 text-text/70 group-hover/link:text-primary group-focus/link:text-primary" />
+              <Github className="h-7 w-7 fill-text/70 p-1 group-hover/link:fill-primary group-focus/link:fill-primary" />
             </UnstyledLink>
           ) : null}
           {url ? (
@@ -25,7 +26,7 @@ const ProjectCardSimple = ({ project }: { project: SimpleProject }) => {
               className="group/link rounded-full bg-background outline-none hover:bg-primary/5 focus:bg-primary/5"
               href={url}
             >
-              <LuGlobe className="h-7 w-7 p-1 text-text/70 group-hover/link:text-primary group-focus/link:text-primary" />
+              <Globe className="h-7 w-7 p-1 text-text/70 group-hover/link:text-primary group-focus/link:text-primary" />
             </UnstyledLink>
           ) : null}
         </div>

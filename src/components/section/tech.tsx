@@ -1,17 +1,18 @@
 import { Fragment } from 'react';
 import {
-  SiFastify,
-  SiGit,
-  SiGraphql,
-  SiJavascript,
-  SiNextdotjs,
-  SiNodedotjs,
-  SiPostgresql,
-  SiReact,
-  SiTailwindcss,
-  SiTrpc,
-} from 'react-icons/si';
-import { DrizzleIcon, TypeScriptIcon } from '../icons/icons';
+  Drizzle,
+  Fastify,
+  Git,
+  Graphql,
+  Javascript,
+  Nextdotjs,
+  Nodedotjs,
+  Postgresql,
+  React,
+  Tailwindcss,
+  Typescript,
+} from '@/components/icons/simple-icons';
+import { Hono } from '../icons/simple-icons';
 
 const techSkills = [
   'JavaScript',
@@ -21,27 +22,27 @@ const techSkills = [
   'Tailwind CSS',
   'Node.js',
   'Fastify',
+  'Hono',
   'Drizzle ORM',
   'PostgreSQL',
   'Graphql',
-  'tRPC',
   'Git',
 ];
 
 const ICON_TYPES = new Map(
   Object.entries({
-    javascript: <SiJavascript className="group-hover:text-[#F7DF1E]" />,
-    typescript: <TypeScriptIcon className="group-hover:text-[#3178C6]" />,
-    nodejs: <SiNodedotjs className="group-hover:text-[#339933]" />,
-    react: <SiReact className="group-hover:text-[#61DAFB]" />,
-    nextjs: <SiNextdotjs className="group-hover:text-[#000000]" />,
-    tailwindcss: <SiTailwindcss className="group-hover:text-[#06B6D4]" />,
-    fastify: <SiFastify className="group-hover:text-[#000000]" />,
-    git: <SiGit className="group-hover:text-[#F05032]" />,
-    trpc: <SiTrpc className="group-hover:text-[#2596BE]" />,
-    postgresql: <SiPostgresql className="group-hover:text-[#4169E1]" />,
-    drizzleorm: <DrizzleIcon className="group-hover:text-[#C5F74F]" />,
-    graphql: <SiGraphql className="group-hover:text-[#E10098]" />,
+    javascript: <Javascript className="group-hover:text-[#F7DF1E]" />,
+    typescript: <Typescript className="group-hover:text-[#3178C6]" />,
+    nodejs: <Nodedotjs className="group-hover:text-[#339933]" />,
+    react: <React className="group-hover:text-[#61DAFB]" />,
+    nextjs: <Nextdotjs className="group-hover:text-[#000000]" />,
+    tailwindcss: <Tailwindcss className="group-hover:text-[#06B6D4]" />,
+    fastify: <Fastify className="group-hover:text-[#000000]" />,
+    git: <Git className="group-hover:text-[#F05032]" />,
+    hono: <Hono className="group-hover:text-[#E36002]" />,
+    postgresql: <Postgresql className="group-hover:text-[#4169E1]" />,
+    drizzleorm: <Drizzle className="group-hover:text-[#C5F74F]" />,
+    graphql: <Graphql className="group-hover:text-[#E10098]" />,
   }),
 );
 

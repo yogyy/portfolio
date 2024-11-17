@@ -1,11 +1,10 @@
 import Image from 'next/image';
-import { SiSpotify } from 'react-icons/si';
 import useSWR from 'swr';
 import { cn } from '@/lib/utils';
+import { Spotify as Icon } from '@/components/icons/simple-icons';
 import UnstyledLink, { type UnstyledLinkProps } from '@/components/links/unstyledlink';
 import { Skeleton } from '../ui/skeleton';
 import { SpotifyData, SpotifyLastPlayed } from '@/types/spotify';
-
 export function Spotify({ className, ...props }: Omit<UnstyledLinkProps, 'href' | 'children'>) {
   const fetcher = (url: string) => fetch(url).then(r => r.json());
   const { data, isLoading } = useSWR<SpotifyData>('/api/spotify/currently-playing', fetcher);
@@ -26,7 +25,7 @@ export function Spotify({ className, ...props }: Omit<UnstyledLinkProps, 'href' 
             <Skeleton className="h-4 w-4/5" />
           </div>
           <div className="absolute bottom-1.5 right-1.5 ">
-            <SiSpotify size={20} color="#1ED760" />
+            <Icon size={20} color="#1ED760" />
           </div>
         </div>
       </div>
@@ -68,7 +67,7 @@ export function Spotify({ className, ...props }: Omit<UnstyledLinkProps, 'href' 
           </p>
         </div>
         <div className="absolute bottom-1.5 right-1.5 ">
-          <SiSpotify
+          <Icon
             size={20}
             color="#1ED760"
             className={cn(data.isPlaying && 'animate-spin-slow opacity-20')}
