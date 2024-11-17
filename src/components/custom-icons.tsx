@@ -1,9 +1,9 @@
 import {
   Mongodb,
   Nextdotjs,
-  Radixui,
   React,
   Reactquery,
+  Shadcnui,
   Tailwindcss,
   Upstash,
 } from './icons/simple-icons';
@@ -12,7 +12,7 @@ const Icons: { [key: string]: React.ComponentType } = {
   NextJS: Nextdotjs,
   Tailwind: Tailwindcss,
   ReactJS: React,
-  RadixUI: Radixui,
+  ShadcnUI: Shadcnui,
   MongoDB: Mongodb,
   ReactQuery: Reactquery,
   Upstash: Upstash,

@@ -3,9 +3,9 @@ import {
   Mongodb,
   Nextdotjs,
   Nodedotjs,
-  Radixui,
   React,
   Reactquery,
+  Shadcnui,
   Tailwindcss,
   Upstash,
 } from './icons/simple-icons';
@@ -76,10 +76,10 @@ const techList = {
     name: 'MongoDB',
     link: 'https://www.mongodb.com/',
   },
-  radix: {
-    icon: Radixui,
-    name: 'Radix UI',
-    link: 'https://www.radix-ui.com/',
+  shadcnui: {
+    icon: Shadcnui,
+    name: 'shadcn/ui',
+    link: 'https://ui.shadcn.com/',
   },
   reactquery: {
     icon: Reactquery,
