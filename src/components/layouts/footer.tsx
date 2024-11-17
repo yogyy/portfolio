@@ -4,9 +4,9 @@ import { MailPlus } from 'lucide-react';
 import Link from 'next/link';
 import { useFeatureFlagEnabled } from 'posthog-js/react';
 import { useRef } from 'react';
-import { SiGithub, SiLinkedin, SiX } from 'react-icons/si';
 import { Spotify } from './';
 import { Accent } from '../accent';
+import { Github, LinkedIn, X } from '../icons/simple-icons';
 import {
   Tooltip,
   TooltipContent,
@@ -92,7 +92,7 @@ const links = [
   {
     href: 'https://github.com/yogyy',
     alt: 'Github',
-    icon: SiGithub,
+    icon: Github,
     content: (
       <p>
         See My Project on <span className="text-primary">Github</span>
@@ -102,7 +102,7 @@ const links = [
   {
     href: 'https://www.linkedin.com/in/yogyy/',
     alt: 'LinkedIn',
-    icon: SiLinkedin,
+    icon: LinkedIn,
     content: (
       <p>
         Find me on <span className="text-primary">LinkedIn</span>
@@ -112,7 +112,7 @@ const links = [
   {
     href: 'https://twitter.com/yogyyconst',
     alt: 'Twitter',
-    icon: SiX,
+    icon: X,
     content: (
       <p>
         Reach me on <span className="text-primary">Twitter</span>

@@ -1,16 +1,14 @@
 import Link from 'next/link';
 import {
-  SiHeadlessui,
-  SiMongodb,
-  SiNextdotjs,
-  SiNodedotjs,
-  SiRadixui,
-  SiReact,
-  SiReactquery,
-  SiTailwindcss,
-  SiTrpc,
-  SiUpstash,
-} from 'react-icons/si';
+  Mongodb,
+  Nextdotjs,
+  Nodedotjs,
+  Radixui,
+  React,
+  Reactquery,
+  Tailwindcss,
+  Upstash,
+} from './icons/simple-icons';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 
 export type TechListType = keyof typeof techList;
@@ -54,52 +52,42 @@ export default function TechMdx({ techs, size }: TechIconsProps) {
 
 const techList = {
   react: {
-    icon: SiReact,
+    icon: React,
     name: 'React',
     link: 'https://react.dev/',
   },
   nodejs: {
-    icon: SiNodedotjs,
+    icon: Nodedotjs,
     name: 'Node JS',
     link: 'https://nodejs.org/en',
   },
   nextjs: {
-    icon: SiNextdotjs,
+    icon: Nextdotjs,
     name: 'Next JS',
     link: 'https://nextjs.org/',
   },
   tailwindcss: {
-    icon: SiTailwindcss,
+    icon: Tailwindcss,
     name: 'Tailwind CSS',
     link: 'https://tailwindcss.com/',
   },
   mongodb: {
-    icon: SiMongodb,
+    icon: Mongodb,
     name: 'MongoDB',
     link: 'https://www.mongodb.com/',
   },
-  headui: {
-    icon: SiHeadlessui,
-    name: 'Headless UI',
-    link: 'https://headlessui.com/',
-  },
   radix: {
-    icon: SiRadixui,
+    icon: Radixui,
     name: 'Radix UI',
     link: 'https://www.radix-ui.com/',
   },
   reactquery: {
-    icon: SiReactquery,
+    icon: Reactquery,
     name: 'React Query',
     link: 'https://tanstack.com/',
   },
-  trpc: {
-    icon: SiTrpc,
-    name: 'tRPC',
-    link: 'https://trpc.io/',
-  },
   upstash: {
-    icon: SiUpstash,
+    icon: Upstash,
     name: 'Upstash',
     link: 'https://upstash.com/',
   },

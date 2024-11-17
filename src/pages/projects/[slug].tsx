@@ -4,8 +4,8 @@ import { Link, UserRound } from 'lucide-react';
 import { InferGetStaticPropsType } from 'next';
 import { notFound } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { SiGithub } from 'react-icons/si';
 import { getTableOfContents, TableOfContents } from '@/lib/toc';
+import { Github } from '@/components/icons/simple-icons';
 import CloudinaryImg from '@/components/images/cloudinary-img';
 import { RootLayout } from '@/components/layouts';
 import CustomLink from '@/components/links/custom-link';
@@ -73,7 +73,7 @@ const ProjectsPage = ({ proj }: InferGetStaticPropsType<typeof getStaticProps>) 
             </div>
             <span>-</span>
             <div className="inline-flex items-center gap-1.5">
-              <SiGithub className="text-lg" />
+              <Github className="text-lg" />
               <CustomLink href={proj.github!}>Repository</CustomLink>
             </div>
             <span>-</span>

@@ -1,5 +1,5 @@
 import { FileUser } from 'lucide-react';
-import { SiGithub, SiX } from 'react-icons/si';
+import { Github, X } from '@/components/icons/simple-icons';
 
 const externalUrl = [
   {
@@ -9,12 +9,12 @@ const externalUrl = [
   },
   {
     href: 'https://github.com/yogyy',
-    icon: SiGithub,
+    icon: Github,
     name: 'Github',
   },
   {
     href: 'https://twitter.com/yogyyconst',
-    icon: SiX,
+    icon: X,
     name: 'Twitter',
   },
 ];
