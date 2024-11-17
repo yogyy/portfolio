@@ -4,7 +4,7 @@ import { NextSeo } from 'next-seo';
 import SEO from 'next-seo.config';
 import { useFeatureFlagEnabled } from 'posthog-js/react';
 import { ThemeButton } from '@/components/dark-theme';
-import { Spotify } from '@/components/layouts';
+import { SpotifyActivity } from '@/components/layouts/spotify';
 
 const SpotifyPage = () => {
   const spotifyFlag = useFeatureFlagEnabled('spotify-activity');
@@ -14,7 +14,11 @@ const SpotifyPage = () => {
       <main
         className={`relative grid min-h-screen w-screen place-content-center bg-gradient-to-br from-background to-accent ${GeistSans.variable} ${GeistMono.variable} font-sans`}
       >
-        {spotifyFlag ? <Spotify className="border-none bg-background/25" /> : <SpotifyDisabled />}
+        {spotifyFlag ? (
+          <SpotifyActivity className="border-none bg-background/25" />
+        ) : (
+          <SpotifyDisabled />
+        )}
         <div className="absolute left-1/3 top-1/3 rounded-md border-transparent bg-background/30">
           <ThemeButton />
         </div>

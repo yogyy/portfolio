@@ -4,7 +4,7 @@ import { MailPlus } from 'lucide-react';
 import Link from 'next/link';
 import { useFeatureFlagEnabled } from 'posthog-js/react';
 import { useRef } from 'react';
-import { Spotify } from './';
+import { SpotifyActivity } from './spotify';
 import { Accent } from '../accent';
 import { Github, LinkedIn, X } from '../icons/simple-icons';
 import {
@@ -33,7 +33,7 @@ export const Footer = () => {
           <h1 className="mb-4 self-center pb-2 text-2xl font-bold">
             <Accent>yogyy</Accent>
           </h1>
-          {spotifyFlag && <Spotify className="place-self-center" />}
+          {spotifyFlag && <SpotifyActivity className="place-self-center" />}
         </div>
         <div className="flex flex-col-reverse place-items-center justify-center gap-6 md:flex-row md:justify-between">
           <span className="flex gap-3 text-sm font-semibold sm:text-center">© 2024 yogi.</span>

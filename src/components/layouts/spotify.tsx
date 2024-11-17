@@ -5,7 +5,11 @@ import { Spotify as Icon } from '@/components/icons/simple-icons';
 import UnstyledLink, { type UnstyledLinkProps } from '@/components/links/unstyledlink';
 import { Skeleton } from '../ui/skeleton';
 import { SpotifyData, SpotifyLastPlayed } from '@/types/spotify';
-export function Spotify({ className, ...props }: Omit<UnstyledLinkProps, 'href' | 'children'>) {
+
+export function SpotifyActivity({
+  className,
+  ...props
+}: Omit<UnstyledLinkProps, 'href' | 'children'>) {
   const fetcher = (url: string) => fetch(url).then(r => r.json());
   const { data, isLoading } = useSWR<SpotifyData>('/api/spotify/currently-playing', fetcher);
   const { data: lastPlay, isLoading: lastPlayLoading } = useSWR<SpotifyLastPlayed>(
