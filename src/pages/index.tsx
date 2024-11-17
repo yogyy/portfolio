@@ -1,8 +1,11 @@
 import { allProjects } from 'contentlayer/generated';
 import { InView } from 'react-intersection-observer';
-import { RootLayout } from '@/components/layouts';
+import { RootLayout } from '@/components/layouts/root-layout';
 import { ProjectCard } from '@/components/project-card';
-import { HeroSection, Reveal, SkillSection, TechSection } from '@/components/section';
+import { HeroSection } from '@/components/section/hero';
+import { Reveal } from '@/components/section/reveal';
+import { SkillSection } from '@/components/section/skills';
+import { TechSection } from '@/components/section/tech';
 
 export default function Home() {
   return (

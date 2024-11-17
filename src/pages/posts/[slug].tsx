@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { getTableOfContents, TableOfContents } from '@/lib/toc';
-import { RootLayout } from '@/components/layouts';
+import { RootLayout } from '@/components/layouts/root-layout';
 import { Mdx } from '@/components/mdx/mdx-component';
 import { DocsPageHeader } from '@/components/mdx/page-header';
 import { DashboardTableOfContents } from '@/components/mdx/toc';

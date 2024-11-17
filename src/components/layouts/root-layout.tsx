@@ -5,7 +5,8 @@ import { NextSeo } from 'next-seo';
 import SEO from 'next-seo.config';
 import { GridPattern } from '@/components/grid-pattern';
 import { isProd } from '@/constants/env';
-import { Footer, Navbar } from '.';
+import { Footer } from './footer';
+import { Navbar } from './navbar';
 
 interface SeoProps {
   title?: string;

@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { getTableOfContents, TableOfContents } from '@/lib/toc';
 import { Github } from '@/components/icons/simple-icons';
 import CloudinaryImg from '@/components/images/cloudinary-img';
-import { RootLayout } from '@/components/layouts';
+import { RootLayout } from '@/components/layouts/root-layout';
 import CustomLink from '@/components/links/custom-link';
 import { Mdx } from '@/components/mdx/mdx-component';
 import { DashboardTableOfContents } from '@/components/mdx/toc';

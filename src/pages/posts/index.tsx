@@ -1,7 +1,7 @@
 import { allPosts } from 'contentlayer/generated';
 import { m } from 'framer-motion';
 import Link from 'next/link';
-import { RootLayout } from '@/components/layouts';
+import { RootLayout } from '@/components/layouts/root-layout';
 import { DocsPageHeader } from '@/components/mdx/page-header';
 import { easeInoutQuad } from '@/constants/framer-easing';
 

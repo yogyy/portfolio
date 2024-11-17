@@ -1,5 +1,5 @@
 import { Accent } from '@/components/accent';
-import { RootLayout } from '@/components/layouts';
+import { RootLayout } from '@/components/layouts/root-layout';
 import TechMdx from '@/components/tech-icons';
 
 export default function AboutPage() {

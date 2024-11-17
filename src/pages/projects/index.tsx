@@ -1,6 +1,6 @@
 import { allProjects } from 'contentlayer/generated';
 import { m } from 'framer-motion';
-import { RootLayout } from '@/components/layouts';
+import { RootLayout } from '@/components/layouts/root-layout';
 import { DocsPageHeader } from '@/components/mdx/page-header';
 import { ProjectCard } from '@/components/project-card';
 import { ProjectCardSimple } from '@/components/project-card-simple';
