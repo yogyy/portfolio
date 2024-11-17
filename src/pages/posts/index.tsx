@@ -7,7 +7,7 @@ import { easeInoutQuad } from '@/constants/framer-easing';
 
 export default function Page() {
   return (
-    <RootLayout title="Post · Yogyy" desc="showing all my post i created">
+    <RootLayout title="Post - Yogyy" desc="showing all my post i created">
       <div className="layout mt-20 flex min-h-[calc(100dvh_-_303px)] flex-col gap-4">
         <DocsPageHeader
           heading="A Small Blog"

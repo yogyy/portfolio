@@ -4,7 +4,7 @@ import TechMdx from '@/components/tech-icons';
 
 export default function AboutPage() {
   return (
-    <RootLayout title="About · Yogyy">
+    <RootLayout title="About - Yogyy">
       <section className="layout flex h-auto min-h-[calc(90dvh_-_141px)] flex-col items-start">
         <>
           <div id="about" className="my-10 h-full">
@@ -40,7 +40,10 @@ export default function AboutPage() {
               <Accent>Fav Tech Stack</Accent>
             </h2>
             <div className="-ml-2">
-              <TechMdx techs={['react', 'nextjs', 'tailwindcss', 'reactquery']} size={32} />
+              <TechMdx
+                techs={['react', 'nextjs', 'tailwindcss', 'shadcnui', 'reactquery']}
+                size={32}
+              />
             </div>
           </div>
         </>

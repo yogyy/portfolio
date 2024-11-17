@@ -43,7 +43,7 @@ const ProjectsPage = ({ proj }: InferGetStaticPropsType<typeof getStaticProps>) 
   }, [proj.body.raw]);
 
   return (
-    <RootLayout title={`${proj.title} · Yogyy`} desc={proj.description}>
+    <RootLayout title={`${proj.title} - Yogyy`} desc={proj.description}>
       <section className="layout">
         <m.div
           initial={{ opacity: 0 }}

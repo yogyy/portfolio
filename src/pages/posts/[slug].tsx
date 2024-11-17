@@ -41,7 +41,7 @@ export const PostsPage = ({ post }: InferGetStaticPropsType<typeof getStaticProp
   }, [post.body.raw]);
 
   return (
-    <RootLayout title={`${post.title} · Yogyy`} desc={post.description}>
+    <RootLayout title={`${post.title} - Yogyy`} desc={post.description}>
       <section>
         <div className="bg-coret relative py-8">
           <div className="layout">

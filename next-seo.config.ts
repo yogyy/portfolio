@@ -2,7 +2,7 @@ import { NextSeoProps } from 'next-seo';
 
 const config: NextSeoProps = {
   openGraph: {
-    title: 'Yogyy · Frontend Developer',
+    title: 'Yogyy - Frontend Developer',
     type: 'website',
     description:
       "I'm a full-stack web developer with React and Typescript expertise. I specialize in creating visually appealing, user-friendly websites, and responsive web applications.",

@@ -10,7 +10,7 @@ import { smallProjects } from '@/constants/simple-project';
 const Projects = () => {
   return (
     <RootLayout
-      title="Projects Showcase · Yogyy"
+      title="Projects Showcase - Yogyy"
       desc="Showcase of my works on frontend development."
     >
       <m.section className="layout">
