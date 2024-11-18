@@ -33,7 +33,7 @@ export const RootLayout = ({ children, title, desc }: SeoProps) => {
       />
       <Navbar />
       <GridPattern
-        className="fixed inset-x-0 -z-10 h-full w-full fill-primary/5 stroke-primary/5 [mask-image:linear-gradient(to_top_left,white_50%,transparent_40%)]"
+        className="fixed inset-x-0 -z-10 h-full w-full fill-primary/20 stroke-accent/5 [mask-image:linear-gradient(to_top_left,white_60%,transparent_60%)]"
         yOffset={-96}
       />
       <main id="skip-nav" className={`${GeistSans.variable} ${GeistMono.variable} font-sans`}>
