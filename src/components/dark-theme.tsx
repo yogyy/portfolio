@@ -1,5 +1,5 @@
 import { useTheme } from 'next-themes';
-import { useMounted } from '@/hooks/use-mounted';
+import { useIsClient } from '@/hooks/use-is-client';
 import { Moon } from './icons/moon';
 import { Sun } from './icons/sun';
 
@@ -7,7 +7,7 @@ type ThemeButtonProps = React.ComponentPropsWithoutRef<'button'>;
 
 export function ThemeButton(props: ThemeButtonProps) {
   const { theme, setTheme } = useTheme();
-  const mounted = useMounted();
+  const client = useIsClient();
 
   return (
     <button
@@ -20,7 +20,7 @@ export function ThemeButton(props: ThemeButtonProps) {
       {...props}
     >
       <span className="sr-only">Toggle theme</span>
-      {mounted ? <>{theme === 'light' ? <Moon /> : <Sun />}</> : <Sun />}
+      {client ? <>{theme === 'light' ? <Moon /> : <Sun />}</> : <Sun />}
     </button>
   );
 }

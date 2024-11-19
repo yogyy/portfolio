@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { TableOfContents } from '@/lib/toc';
 import { cn } from '@/lib/utils';
-import { useMounted } from '@/hooks/use-mounted';
+import { useIsClient } from '@/hooks/use-is-client';
 
 interface TocProps {
   toc: TableOfContents;
@@ -20,13 +20,13 @@ export function DashboardTableOfContents({ toc }: TocProps) {
     [toc],
   );
   const activeHeading = useActiveItem(itemIds);
-  const mounted = useMounted();
+  const client = useIsClient();
 
   if (!toc?.items) {
     return null;
   }
 
-  return mounted ? (
+  return client ? (
     <div className="space-y-2">
       <p className="font-medium">Table of Contents</p>
       <Tree tree={toc} activeItem={activeHeading} />
