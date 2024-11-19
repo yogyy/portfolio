@@ -38,7 +38,7 @@
   }
 
   ::selection {
-    background-color: hsl(var(--text) / 0.5);
+    background-color: hsl(var(--accent) / 0.5);
   }
 
   h1 {
@@ -113,9 +113,6 @@
   .min-h-main {
     min-height: calc(100vh - 82px);
   }
-}
-
-@layer components {
 }
 
 @layer utilities {
