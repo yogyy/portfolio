@@ -1,13 +1,15 @@
 import { m } from 'framer-motion';
 import { useId, useRef } from 'react';
-
+import { useMediaQuery } from 'usehooks-ts';
 interface BlockProps extends Omit<React.ComponentPropsWithoutRef<typeof m.path>, 'x' | 'y'> {
   x: number;
   y: number;
 }
 
 const Block = ({ x, y, ...props }: BlockProps) => {
-  return (
+  const notMobileScreen = useMediaQuery('(min-width: 768px)');
+
+  return notMobileScreen ? (
     <m.path
       animate={{ opacity: [0, 1, 0.25] }}
       transition={{ ease: 'easeIn', duration: 0.5 * x + y / 10 }}
@@ -15,7 +17,7 @@ const Block = ({ x, y, ...props }: BlockProps) => {
       d="M45.119 4.5a11.5 11.5 0 0 0-11.277 9.245l-25.6 128C6.82 148.861 12.262 155.5 19.52 155.5h63.366a11.5 11.5 0 0 0 11.277-9.245l25.6-128c1.423-7.116-4.02-13.755-11.277-13.755H45.119Z"
       {...props}
     />
-  );
+  ) : null;
 };
 
 export const GridPattern = ({ yOffset = 0, ...props }) => {
@@ -35,15 +37,16 @@ export const GridPattern = ({ yOffset = 0, ...props }) => {
     <m.svg
       ref={ref}
       aria-hidden="true"
-      {...props}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      className="fixed inset-x-0 -z-10 h-full w-full fill-primary/20 stroke-accent/5 md:[mask-image:linear-gradient(to_top_left,white_60%,transparent_60%)]"
+      {...props}
     >
       <rect width="100%" height="100%" fill={`url(#${id})`} strokeWidth="0" />
       <svg x="50%" y={yOffset} strokeWidth="0" className="overflow-visible">
-        {staticBlocks.map((block, i) => (
-          <Block key={`Key_${i}`} x={block[0]} y={block[1]} />
+        {staticBlocks.map(block => (
+          <Block key={`block:${block[0]}-${block[1]}`} x={block[0]} y={block[1]} />
         ))}
       </svg>
       <defs>

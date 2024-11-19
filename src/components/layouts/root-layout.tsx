@@ -32,10 +32,7 @@ export const RootLayout = ({ children, title, desc }: SeoProps) => {
         defaultTitle={SEO.openGraph?.title}
       />
       <Navbar />
-      <GridPattern
-        className="fixed inset-x-0 -z-10 h-full w-full fill-primary/20 stroke-accent/5 [mask-image:linear-gradient(to_top_left,white_60%,transparent_60%)]"
-        yOffset={-96}
-      />
+      <GridPattern yOffset={-96} />
       <main id="skip-nav" className={`${GeistSans.variable} ${GeistMono.variable} font-sans`}>
         {children}
       </main>
