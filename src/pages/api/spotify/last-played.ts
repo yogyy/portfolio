@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { client } from '@/lib/feature-flags';
-import { getAccessToken } from '@/hooks/get-access-token';
+import { getAccessToken } from '@/lib/get-access-token';
 import { env } from '@/env';
 
 interface SpotifyDataLastPlayed {
