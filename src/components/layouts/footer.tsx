@@ -1,12 +1,10 @@
 import { m, useInView } from 'framer-motion';
 import { GeistSans } from 'geist/font/sans';
-import { MailPlus } from 'lucide-react';
 import Link from 'next/link';
 import { useFeatureFlagEnabled } from 'posthog-js/react';
 import { useRef } from 'react';
+import { footerLinks } from '@/constants/links';
 import { SpotifyActivity } from './spotify';
-import { Accent } from '../accent';
-import { Github, LinkedIn, X } from '../icons/simple-icons';
 import {
   Tooltip,
   TooltipContent,
@@ -27,96 +25,55 @@ export const Footer = () => {
       animate={inView && 'show'}
       className={`mt-6 bg-background/30 backdrop-blur-sm ${GeistSans.variable} font-sans`}
     >
-      <hr className="mb-6 border-text/10" />
+      <hr className="layout mb-6 border-text/10" />
       <div className="layout relative pb-4">
-        <div className="mb-4 flex flex-col items-center justify-center gap-3 sm:flex-row sm:justify-between">
-          <h1 className="mb-4 self-center pb-2 text-2xl font-bold">
-            <Accent>yogyy</Accent>
-          </h1>
-          {spotifyFlag && <SpotifyActivity className="place-self-center" />}
+        <div className="mb-4 flex flex-col items-center justify-center gap-3">
+          {spotifyFlag && <SpotifyActivity />}
         </div>
-        <div className="flex flex-col-reverse place-items-center justify-center gap-6 md:flex-row md:justify-between">
-          <span className="flex gap-3 text-sm font-semibold sm:text-center">© 2024 yogi.</span>
-          <ul className="relative my-auto flex gap-x-3 text-xl md:gap-x-5">
-            {links.map(link => (
-              <li key={link.href} className="inline-flex items-center">
-                <TooltipProvider delayDuration={300}>
-                  <Tooltip>
-                    <TooltipTrigger
-                      type="button"
-                      className="cursor-newtab group outline-none"
-                      aria-label={link.alt}
-                      asChild
-                    >
-                      <Link
-                        href={link.href}
-                        target="_blank"
-                        aria-label={`go to ${link.alt}`}
-                        className="cursor-newtab"
+        <div className="flex flex-col-reverse place-items-center justify-center gap-6">
+          <p className="flex gap-3 text-sm font-medium text-text/60 sm:text-center">
+            © 2024 yogyy.
+          </p>
+          <div className="flex flex-col items-center">
+            <p className="text-text/60">Reach me out</p>
+            <ul className="relative my-auto flex gap-x-3 text-xl md:gap-x-5">
+              {footerLinks.map(link => (
+                <li key={link.href} className="inline-flex items-center">
+                  <TooltipProvider delayDuration={300}>
+                    <Tooltip>
+                      <TooltipTrigger
+                        type="button"
+                        className="cursor-newtab group outline-none"
+                        aria-label={link.alt}
+                        asChild
                       >
-                        <link.icon className="relative m-1 w-5 text-text/70 group-hover:text-accent group-focus:text-accent" />
-                      </Link>
-                    </TooltipTrigger>
-                    <TooltipPortal>
-                      <TooltipContent
-                        sideOffset={8}
-                        side="bottom"
-                        className="font-medium text-text outline-accent duration-400"
-                      >
-                        {link.content}
-                      </TooltipContent>
-                    </TooltipPortal>
-                  </Tooltip>
-                </TooltipProvider>
-              </li>
-            ))}
-          </ul>
+                        <Link
+                          href={link.href}
+                          target="_blank"
+                          aria-label={`go to ${link.alt}`}
+                          className="cursor-newtab"
+                        >
+                          <link.icon className="relative m-1 w-5 text-text/70 group-hover:text-accent group-focus:text-accent" />
+                        </Link>
+                      </TooltipTrigger>
+                      <TooltipPortal>
+                        <TooltipContent
+                          sideOffset={8}
+                          side="top"
+                          className="font-medium text-text/80 outline-accent duration-400"
+                        >
+                          {link.content[0]}
+                          <span className="text-primary">{link.content[1]}</span>
+                        </TooltipContent>
+                      </TooltipPortal>
+                    </Tooltip>
+                  </TooltipProvider>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </m.footer>
   );
 };
-
-const links = [
-  {
-    href: 'mailto:m.yogi.fs@gmail.com',
-    alt: 'Email',
-    icon: MailPlus,
-    content: (
-      <p>
-        Contact me&nbsp;
-        <span className="text-primary">m.yogi.fs@gmail.com</span>
-      </p>
-    ),
-  },
-  {
-    href: 'https://github.com/yogyy',
-    alt: 'Github',
-    icon: Github,
-    content: (
-      <p>
-        See My Project on <span className="text-primary">Github</span>
-      </p>
-    ),
-  },
-  {
-    href: 'https://www.linkedin.com/in/yogyy/',
-    alt: 'LinkedIn',
-    icon: LinkedIn,
-    content: (
-      <p>
-        Find me on <span className="text-primary">LinkedIn</span>
-      </p>
-    ),
-  },
-  {
-    href: 'https://twitter.com/yogyyconst',
-    alt: 'Twitter',
-    icon: X,
-    content: (
-      <p>
-        Reach me on <span className="text-primary">Twitter</span>
-      </p>
-    ),
-  },
-];
